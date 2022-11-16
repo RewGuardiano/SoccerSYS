@@ -35,6 +35,7 @@ namespace SoccerSYS
             this.mbaManageCategories = new System.Windows.Forms.ToolStripMenuItem();
             this.mbasetCategory = new System.Windows.Forms.ToolStripMenuItem();
             this.mbaRemoveCategory = new System.Windows.Forms.ToolStripMenuItem();
+            this.mbaUpdateCategory = new System.Windows.Forms.ToolStripMenuItem();
             this.mbaUpdateFixtures = new System.Windows.Forms.ToolStripMenuItem();
             this.mbascheduleMatch = new System.Windows.Forms.ToolStripMenuItem();
             this.mbaCancelMatch = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,13 +47,13 @@ namespace SoccerSYS
             this.yearlyRevenueAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.mbayearlyTicketRevenueAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mbaUpdateCategory = new System.Windows.Forms.ToolStripMenuItem();
             this.lblSoccerTitle = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mbaManageCategories,
             this.mbaUpdateFixtures,
@@ -60,7 +61,8 @@ namespace SoccerSYS
             this.mbaPerformAdmin});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 38);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(821, 38);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -93,6 +95,14 @@ namespace SoccerSYS
             this.mbaRemoveCategory.Size = new System.Drawing.Size(195, 24);
             this.mbaRemoveCategory.Text = "Remove Category";
             this.mbaRemoveCategory.Click += new System.EventHandler(this.removeCategoryToolStripMenuItem_Click);
+            // 
+            // mbaUpdateCategory
+            // 
+            this.mbaUpdateCategory.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mbaUpdateCategory.Name = "mbaUpdateCategory";
+            this.mbaUpdateCategory.Size = new System.Drawing.Size(195, 24);
+            this.mbaUpdateCategory.Text = "Update Category";
+            this.mbaUpdateCategory.Click += new System.EventHandler(this.mbuUpdateCategory_Click);
             // 
             // mbaUpdateFixtures
             // 
@@ -154,7 +164,7 @@ namespace SoccerSYS
             // 
             this.mbaSellTickets.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbaSellTickets.Name = "mbaSellTickets";
-            this.mbaSellTickets.Size = new System.Drawing.Size(180, 26);
+            this.mbaSellTickets.Size = new System.Drawing.Size(159, 26);
             this.mbaSellTickets.Text = "Sell Tickets";
             this.mbaSellTickets.Click += new System.EventHandler(this.sellTicketsToolStripMenuItem_Click);
             // 
@@ -188,16 +198,9 @@ namespace SoccerSYS
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // mbaUpdateCategory
-            // 
-            this.mbaUpdateCategory.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mbaUpdateCategory.Name = "mbaUpdateCategory";
-            this.mbaUpdateCategory.Size = new System.Drawing.Size(195, 24);
-            this.mbaUpdateCategory.Text = "Update Category";
-            this.mbaUpdateCategory.Click += new System.EventHandler(this.mbuUpdateCategory_Click);
             // 
             // lblSoccerTitle
             // 
@@ -217,7 +220,7 @@ namespace SoccerSYS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.BackgroundImage = global::SoccerSYS.Properties.Resources.footballBackground;
-            this.ClientSize = new System.Drawing.Size(800, 355);
+            this.ClientSize = new System.Drawing.Size(821, 355);
             this.Controls.Add(this.lblSoccerTitle);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;

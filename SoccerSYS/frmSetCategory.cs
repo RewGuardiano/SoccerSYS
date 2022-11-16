@@ -76,14 +76,54 @@ namespace SoccerSYS
                 txtdescription.Focus();
                 return;
             }
-
-            if (txtPrice.Text.Equals("") && txtPrice.Text.Contains("."))
+            bool isNumber = int.TryParse(txtPrice.Text, out int i);
+            if (txtPrice.Text.Equals("") && !txtPrice.Text.Contains('.') && isNumber==false)
             {
 
-                MessageBox.Show("Price must be entered and must be a decimal ", "Error");
+                MessageBox.Show("Price must be mumeric and a decimal ", "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPrice.Focus();
+                return;
+            }
 
+            bool numeric = int.TryParse(txtNoSeats.Text, out int j);
+            if (txtNoSeats.Text.Equals("") && txtNoSeats.Text.Contains("0") || numeric == false)
+            {
+                MessageBox.Show("Number of Seats must be numeric and must be greater than 0 ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNoSeats.Focus();
+                return;
+            }
+            bool numeric1 = int.TryParse(txtNoSeats.Text, out int k);
+            if (txtNoSeatsFrom.Text.Equals("") && txtNoSeatsFrom.Text.Contains("0") || numeric1 == false)
+            {
+                MessageBox.Show("Number of Seats from must be numeric and must be greater than 0 ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNoSeatsFrom.Focus();
+                return;
 
             }
+            bool numeric2 = int.TryParse(txtNoSeats.Text, out int l);
+            if (txtNoSeatsTo.Text.Equals("") && txtNoSeatsTo.Text.Contains("0") || numeric2 == false)
+            {
+                MessageBox.Show("Number of Seats to must be numeric and must be greater than 0 ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNoSeatsTo.Focus();
+                return;
+
+            }
+            MessageBox.Show("Category Added", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
+            txtdescription.Clear();
+            txtPrice.Clear();
+            txtNoSeats.Clear();
+            txtNoSeatsFrom.Clear();
+            txtNoSeatsTo.Clear();
+
+      
+
         }
+
+
+        
+        
     }
 }
