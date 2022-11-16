@@ -19,7 +19,9 @@ namespace SoccerSYS
 
         private void viewStatsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmViewStatistics to = new frmViewStatistics();
+            to.Show();
+            this.Hide();
         }
 
         private void performAdminToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,6 +44,69 @@ namespace SoccerSYS
         private void frmMainMenu_Load(object sender, EventArgs e)
         {
 
+        }
+
+
+        private void mbuManageCategories_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mbuUpdateCategory_Click(object sender, EventArgs e)
+        {
+            frmUpdateCategory to = new frmUpdateCategory();
+            to.Show();
+            this.Hide();
+        }
+
+        private void scheduleMatchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmScheduleMatch to = new frmScheduleMatch();
+            to.Show();
+            this.Hide();
+        }
+
+        private void cancelMatchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCancelMatch to = new frmCancelMatch();
+            to.Show();
+            this.Hide();
+        }
+
+        private void checkAvailabilityToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCheckAvailability to = new frmCheckAvailability();
+            to.Show();
+            this.Hide();
+        }
+
+        private void sellTicketsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProcessSales to = new frmProcessSales();
+            to.Show();
+            this.Hide();
+
+        }
+
+        private void yearlyRevenueAnalysisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frrmYearlyRevenueAnalysis to = new frrmYearlyRevenueAnalysis();
+            to.Show();
+            this.Hide();
+        }
+
+        private void yearlyTicketRevenueAnalysisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmYearlyTicketAnalysis to = new frmYearlyTicketAnalysis();
+            to.Show();
+            this.Hide();
+        }
+
+        private void removeCategoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRemoveCategory to = new frmRemoveCategory();
+            to.Show();
+            this.Hide();
         }
     }
 }

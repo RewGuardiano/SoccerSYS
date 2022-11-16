@@ -46,11 +46,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmCancelMatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCancelMatch.Designer.cs">
+      <DependentUpon>frmCancelMatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCheckAvailability.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCheckAvailability.Designer.cs">
+      <DependentUpon>frmCheckAvailability.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmScheduleMatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmScheduleMatch.Designer.cs">
+      <DependentUpon>frmScheduleMatch.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSetCategory.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmSetCategory.Designer.cs">
       <DependentUpon>frmSetCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYearlyTicketAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYearlyTicketAnalysis.Designer.cs">
+      <DependentUpon>frmYearlyTicketAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProcessSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProcessSales.Designer.cs">
+      <DependentUpon>frmProcessSales.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,8 +90,47 @@
     <Compile Include="frmMainMenu.Designer.cs">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRemoveCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRemoveCategory.Designer.cs">
+      <DependentUpon>frmRemoveCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUpdateCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpdateCategory.Designer.cs">
+      <DependentUpon>frmUpdateCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewStatistics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewStatistics.Designer.cs">
+      <DependentUpon>frmViewStatistics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmYearlyRevenueAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYearlyRevenueAnalysis.Designer.cs">
+      <DependentUpon>frmYearlyRevenueAnalysis.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmCancelMatch.resx">
+      <DependentUpon>frmCancelMatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCheckAvailability.resx">
+      <DependentUpon>frmCheckAvailability.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProcessSales.resx">
+      <DependentUpon>frmProcessSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmScheduleMatch.resx">
+      <DependentUpon>frmScheduleMatch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSetCategory.resx">
       <DependentUpon>frmSetCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYearlyTicketAnalysis.resx">
+      <DependentUpon>frmYearlyTicketAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -71,9 +140,22 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="frmMainMenu.resx">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRemoveCategory.resx">
+      <DependentUpon>frmRemoveCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpdateCategory.resx">
+      <DependentUpon>frmUpdateCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewStatistics.resx">
+      <DependentUpon>frmViewStatistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYearlyRevenueAnalysis.resx">
+      <DependentUpon>frmYearlyRevenueAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -87,6 +169,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\footballBackground.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

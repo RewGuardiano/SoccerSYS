@@ -17,7 +17,7 @@ namespace SoccerSYS
             InitializeComponent();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -37,19 +37,17 @@ namespace SoccerSYS
 
         }
 
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
 
         internal class Show
         {
            
+        }
+
+       
+
+        private void frmSetCategory_Load(object sender, EventArgs e)
+        {
+     
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -57,6 +55,35 @@ namespace SoccerSYS
             frmMainMenu to = new frmMainMenu();
             to.Show();
             this.Close();
+        }
+
+        private void txtPrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCatCode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSetCategory_Click(object sender, EventArgs e)
+        {
+
+            if (txtdescription.Text.Equals(""))
+            {
+                MessageBox.Show("Description must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtdescription.Focus();
+                return;
+            }
+
+            if (txtPrice.Text.Equals("") && txtPrice.Text.Contains("."))
+            {
+
+                MessageBox.Show("Price must be entered and must be a decimal ", "Error");
+
+
+            }
         }
     }
 }

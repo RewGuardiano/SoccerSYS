@@ -32,169 +32,193 @@ namespace SoccerSYS
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainMenu));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.mbuManageCategories = new System.Windows.Forms.ToolStripMenuItem();
+            this.mbaManageCategories = new System.Windows.Forms.ToolStripMenuItem();
+            this.mbasetCategory = new System.Windows.Forms.ToolStripMenuItem();
+            this.mbaRemoveCategory = new System.Windows.Forms.ToolStripMenuItem();
+            this.mbaUpdateFixtures = new System.Windows.Forms.ToolStripMenuItem();
+            this.mbascheduleMatch = new System.Windows.Forms.ToolStripMenuItem();
+            this.mbaCancelMatch = new System.Windows.Forms.ToolStripMenuItem();
+            this.mbaCheckAvailability = new System.Windows.Forms.ToolStripMenuItem();
+            this.mbaViewStats = new System.Windows.Forms.ToolStripMenuItem();
+            this.mbaProcessSales = new System.Windows.Forms.ToolStripMenuItem();
+            this.mbaSellTickets = new System.Windows.Forms.ToolStripMenuItem();
+            this.mbaPerformAdmin = new System.Windows.Forms.ToolStripMenuItem();
+            this.yearlyRevenueAnalysis = new System.Windows.Forms.ToolStripMenuItem();
+            this.mbayearlyTicketRevenueAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mbuUpdateFixtures = new System.Windows.Forms.ToolStripMenuItem();
-            this.mbuProcessSales = new System.Windows.Forms.ToolStripMenuItem();
-            this.mbuPerformAdmin = new System.Windows.Forms.ToolStripMenuItem();
-            this.setCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.removeCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.scheduleMatchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cancelMatchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkAvailabilityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewStatsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sellTicketsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.yearlyRevenueAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.yearlyTicketRevenueAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mbaUpdateCategory = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblSoccerTitle = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mbuManageCategories,
-            this.mbuUpdateFixtures,
-            this.mbuProcessSales,
-            this.mbuPerformAdmin});
+            this.mbaManageCategories,
+            this.mbaUpdateFixtures,
+            this.mbaProcessSales,
+            this.mbaPerformAdmin});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 38);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // mbuManageCategories
+            // mbaManageCategories
             // 
-            this.mbuManageCategories.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.setCategoryToolStripMenuItem,
-            this.updateCategoryToolStripMenuItem,
-            this.removeCategoryToolStripMenuItem});
-            this.mbuManageCategories.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mbuManageCategories.Name = "mbuManageCategories";
-            this.mbuManageCategories.Padding = new System.Windows.Forms.Padding(40, 0, 4, 0);
-            this.mbuManageCategories.Size = new System.Drawing.Size(228, 34);
-            this.mbuManageCategories.Text = "Manage Categories";
+            this.mbaManageCategories.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mbasetCategory,
+            this.mbaRemoveCategory,
+            this.mbaUpdateCategory});
+            this.mbaManageCategories.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mbaManageCategories.Name = "mbaManageCategories";
+            this.mbaManageCategories.Padding = new System.Windows.Forms.Padding(40, 0, 4, 0);
+            this.mbaManageCategories.Size = new System.Drawing.Size(228, 34);
+            this.mbaManageCategories.Text = "Manage Categories";
+            this.mbaManageCategories.Click += new System.EventHandler(this.mbuManageCategories_Click);
+            // 
+            // mbasetCategory
+            // 
+            this.mbasetCategory.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.mbasetCategory.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mbasetCategory.Name = "mbasetCategory";
+            this.mbasetCategory.Size = new System.Drawing.Size(195, 24);
+            this.mbasetCategory.Text = "Set Category";
+            this.mbasetCategory.Click += new System.EventHandler(this.setCategoryToolStripMenuItem_Click);
+            // 
+            // mbaRemoveCategory
+            // 
+            this.mbaRemoveCategory.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mbaRemoveCategory.Name = "mbaRemoveCategory";
+            this.mbaRemoveCategory.Size = new System.Drawing.Size(195, 24);
+            this.mbaRemoveCategory.Text = "Remove Category";
+            this.mbaRemoveCategory.Click += new System.EventHandler(this.removeCategoryToolStripMenuItem_Click);
+            // 
+            // mbaUpdateFixtures
+            // 
+            this.mbaUpdateFixtures.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mbascheduleMatch,
+            this.mbaCancelMatch,
+            this.mbaCheckAvailability,
+            this.mbaViewStats});
+            this.mbaUpdateFixtures.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mbaUpdateFixtures.Name = "mbaUpdateFixtures";
+            this.mbaUpdateFixtures.Padding = new System.Windows.Forms.Padding(35, 0, 4, 0);
+            this.mbaUpdateFixtures.Size = new System.Drawing.Size(195, 34);
+            this.mbaUpdateFixtures.Text = "Update Fixtures";
+            // 
+            // mbascheduleMatch
+            // 
+            this.mbascheduleMatch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mbascheduleMatch.Name = "mbascheduleMatch";
+            this.mbascheduleMatch.Size = new System.Drawing.Size(205, 26);
+            this.mbascheduleMatch.Text = "Schedule Match";
+            this.mbascheduleMatch.Click += new System.EventHandler(this.scheduleMatchToolStripMenuItem_Click);
+            // 
+            // mbaCancelMatch
+            // 
+            this.mbaCancelMatch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mbaCancelMatch.Name = "mbaCancelMatch";
+            this.mbaCancelMatch.Size = new System.Drawing.Size(205, 26);
+            this.mbaCancelMatch.Text = "Cancel Match";
+            this.mbaCancelMatch.Click += new System.EventHandler(this.cancelMatchToolStripMenuItem_Click);
+            // 
+            // mbaCheckAvailability
+            // 
+            this.mbaCheckAvailability.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mbaCheckAvailability.Name = "mbaCheckAvailability";
+            this.mbaCheckAvailability.Size = new System.Drawing.Size(205, 26);
+            this.mbaCheckAvailability.Text = "Check Availability";
+            this.mbaCheckAvailability.Click += new System.EventHandler(this.checkAvailabilityToolStripMenuItem_Click);
+            // 
+            // mbaViewStats
+            // 
+            this.mbaViewStats.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mbaViewStats.Name = "mbaViewStats";
+            this.mbaViewStats.Size = new System.Drawing.Size(205, 26);
+            this.mbaViewStats.Text = "View Fixture Stats";
+            this.mbaViewStats.Click += new System.EventHandler(this.viewStatsToolStripMenuItem_Click);
+            // 
+            // mbaProcessSales
+            // 
+            this.mbaProcessSales.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mbaSellTickets});
+            this.mbaProcessSales.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mbaProcessSales.Name = "mbaProcessSales";
+            this.mbaProcessSales.Padding = new System.Windows.Forms.Padding(35, 0, 4, 0);
+            this.mbaProcessSales.Size = new System.Drawing.Size(171, 34);
+            this.mbaProcessSales.Text = "Process Sales";
+            this.mbaProcessSales.Click += new System.EventHandler(this.mbuProcessSales_Click);
+            // 
+            // mbaSellTickets
+            // 
+            this.mbaSellTickets.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mbaSellTickets.Name = "mbaSellTickets";
+            this.mbaSellTickets.Size = new System.Drawing.Size(180, 26);
+            this.mbaSellTickets.Text = "Sell Tickets";
+            this.mbaSellTickets.Click += new System.EventHandler(this.sellTicketsToolStripMenuItem_Click);
+            // 
+            // mbaPerformAdmin
+            // 
+            this.mbaPerformAdmin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.yearlyRevenueAnalysis,
+            this.mbayearlyTicketRevenueAnalysis});
+            this.mbaPerformAdmin.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mbaPerformAdmin.Name = "mbaPerformAdmin";
+            this.mbaPerformAdmin.Padding = new System.Windows.Forms.Padding(35, 0, 4, 0);
+            this.mbaPerformAdmin.Size = new System.Drawing.Size(192, 34);
+            this.mbaPerformAdmin.Text = "Perform Admin";
+            this.mbaPerformAdmin.Click += new System.EventHandler(this.performAdminToolStripMenuItem_Click);
+            // 
+            // yearlyRevenueAnalysis
+            // 
+            this.yearlyRevenueAnalysis.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yearlyRevenueAnalysis.Name = "yearlyRevenueAnalysis";
+            this.yearlyRevenueAnalysis.Size = new System.Drawing.Size(294, 26);
+            this.yearlyRevenueAnalysis.Text = "Yearly Revenue Analysis";
+            this.yearlyRevenueAnalysis.Click += new System.EventHandler(this.yearlyRevenueAnalysisToolStripMenuItem_Click);
+            // 
+            // mbayearlyTicketRevenueAnalysis
+            // 
+            this.mbayearlyTicketRevenueAnalysis.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mbayearlyTicketRevenueAnalysis.Name = "mbayearlyTicketRevenueAnalysis";
+            this.mbayearlyTicketRevenueAnalysis.Size = new System.Drawing.Size(294, 26);
+            this.mbayearlyTicketRevenueAnalysis.Text = "Yearly Ticket Revenue Analysis";
+            this.mbayearlyTicketRevenueAnalysis.Click += new System.EventHandler(this.yearlyTicketRevenueAnalysisToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // mbuUpdateFixtures
+            // mbaUpdateCategory
             // 
-            this.mbuUpdateFixtures.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.scheduleMatchToolStripMenuItem,
-            this.cancelMatchToolStripMenuItem,
-            this.checkAvailabilityToolStripMenuItem,
-            this.viewStatsToolStripMenuItem});
-            this.mbuUpdateFixtures.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mbuUpdateFixtures.Name = "mbuUpdateFixtures";
-            this.mbuUpdateFixtures.Padding = new System.Windows.Forms.Padding(35, 0, 4, 0);
-            this.mbuUpdateFixtures.Size = new System.Drawing.Size(195, 34);
-            this.mbuUpdateFixtures.Text = "Update Fixtures";
+            this.mbaUpdateCategory.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mbaUpdateCategory.Name = "mbaUpdateCategory";
+            this.mbaUpdateCategory.Size = new System.Drawing.Size(195, 24);
+            this.mbaUpdateCategory.Text = "Update Category";
+            this.mbaUpdateCategory.Click += new System.EventHandler(this.mbuUpdateCategory_Click);
             // 
-            // mbuProcessSales
+            // lblSoccerTitle
             // 
-            this.mbuProcessSales.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sellTicketsToolStripMenuItem});
-            this.mbuProcessSales.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mbuProcessSales.Name = "mbuProcessSales";
-            this.mbuProcessSales.Padding = new System.Windows.Forms.Padding(35, 0, 4, 0);
-            this.mbuProcessSales.Size = new System.Drawing.Size(171, 34);
-            this.mbuProcessSales.Text = "Process Sales";
-            this.mbuProcessSales.Click += new System.EventHandler(this.mbuProcessSales_Click);
-            // 
-            // mbuPerformAdmin
-            // 
-            this.mbuPerformAdmin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.yearlyRevenueAnalysisToolStripMenuItem,
-            this.yearlyTicketRevenueAnalysisToolStripMenuItem});
-            this.mbuPerformAdmin.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mbuPerformAdmin.Name = "mbuPerformAdmin";
-            this.mbuPerformAdmin.Padding = new System.Windows.Forms.Padding(35, 0, 4, 0);
-            this.mbuPerformAdmin.Size = new System.Drawing.Size(192, 34);
-            this.mbuPerformAdmin.Text = "Perform Admin";
-            this.mbuPerformAdmin.Click += new System.EventHandler(this.performAdminToolStripMenuItem_Click);
-            // 
-            // setCategoryToolStripMenuItem
-            // 
-            this.setCategoryToolStripMenuItem.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.setCategoryToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.setCategoryToolStripMenuItem.Name = "setCategoryToolStripMenuItem";
-            this.setCategoryToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
-            this.setCategoryToolStripMenuItem.Text = "Set Category";
-            this.setCategoryToolStripMenuItem.Click += new System.EventHandler(this.setCategoryToolStripMenuItem_Click);
-            // 
-            // updateCategoryToolStripMenuItem
-            // 
-            this.updateCategoryToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateCategoryToolStripMenuItem.Name = "updateCategoryToolStripMenuItem";
-            this.updateCategoryToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
-            this.updateCategoryToolStripMenuItem.Text = "Update Category";
-            // 
-            // removeCategoryToolStripMenuItem
-            // 
-            this.removeCategoryToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeCategoryToolStripMenuItem.Name = "removeCategoryToolStripMenuItem";
-            this.removeCategoryToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
-            this.removeCategoryToolStripMenuItem.Text = "Remove Category";
-            // 
-            // scheduleMatchToolStripMenuItem
-            // 
-            this.scheduleMatchToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.scheduleMatchToolStripMenuItem.Name = "scheduleMatchToolStripMenuItem";
-            this.scheduleMatchToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
-            this.scheduleMatchToolStripMenuItem.Text = "Schedule Match";
-            // 
-            // cancelMatchToolStripMenuItem
-            // 
-            this.cancelMatchToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelMatchToolStripMenuItem.Name = "cancelMatchToolStripMenuItem";
-            this.cancelMatchToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
-            this.cancelMatchToolStripMenuItem.Text = "Cancel Match";
-            // 
-            // checkAvailabilityToolStripMenuItem
-            // 
-            this.checkAvailabilityToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkAvailabilityToolStripMenuItem.Name = "checkAvailabilityToolStripMenuItem";
-            this.checkAvailabilityToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
-            this.checkAvailabilityToolStripMenuItem.Text = "Check Availability";
-            // 
-            // viewStatsToolStripMenuItem
-            // 
-            this.viewStatsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewStatsToolStripMenuItem.Name = "viewStatsToolStripMenuItem";
-            this.viewStatsToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
-            this.viewStatsToolStripMenuItem.Text = "View Fixture Stats";
-            this.viewStatsToolStripMenuItem.Click += new System.EventHandler(this.viewStatsToolStripMenuItem_Click);
-            // 
-            // sellTicketsToolStripMenuItem
-            // 
-            this.sellTicketsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sellTicketsToolStripMenuItem.Name = "sellTicketsToolStripMenuItem";
-            this.sellTicketsToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.sellTicketsToolStripMenuItem.Text = "Sell Tickets";
-            // 
-            // yearlyRevenueAnalysisToolStripMenuItem
-            // 
-            this.yearlyRevenueAnalysisToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.yearlyRevenueAnalysisToolStripMenuItem.Name = "yearlyRevenueAnalysisToolStripMenuItem";
-            this.yearlyRevenueAnalysisToolStripMenuItem.Size = new System.Drawing.Size(294, 26);
-            this.yearlyRevenueAnalysisToolStripMenuItem.Text = "Yearly Revenue Analysis";
-            // 
-            // yearlyTicketRevenueAnalysisToolStripMenuItem
-            // 
-            this.yearlyTicketRevenueAnalysisToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.yearlyTicketRevenueAnalysisToolStripMenuItem.Name = "yearlyTicketRevenueAnalysisToolStripMenuItem";
-            this.yearlyTicketRevenueAnalysisToolStripMenuItem.Size = new System.Drawing.Size(294, 26);
-            this.yearlyTicketRevenueAnalysisToolStripMenuItem.Text = "Yearly Ticket Revenue Analysis";
+            this.lblSoccerTitle.AutoSize = true;
+            this.lblSoccerTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblSoccerTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoccerTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblSoccerTitle.Location = new System.Drawing.Point(273, 69);
+            this.lblSoccerTitle.Name = "lblSoccerTitle";
+            this.lblSoccerTitle.Size = new System.Drawing.Size(255, 37);
+            this.lblSoccerTitle.TabIndex = 2;
+            this.lblSoccerTitle.Text = "Soccer Booking";
             // 
             // frmMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = global::SoccerSYS.Properties.Resources.footballBackground;
+            this.ClientSize = new System.Drawing.Size(800, 355);
+            this.Controls.Add(this.lblSoccerTitle);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -212,20 +236,21 @@ namespace SoccerSYS
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem mbuManageCategories;
-        private System.Windows.Forms.ToolStripMenuItem setCategoryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem updateCategoryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem removeCategoryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mbuUpdateFixtures;
-        private System.Windows.Forms.ToolStripMenuItem scheduleMatchToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cancelMatchToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem checkAvailabilityToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem viewStatsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mbuProcessSales;
-        private System.Windows.Forms.ToolStripMenuItem mbuPerformAdmin;
+        private System.Windows.Forms.ToolStripMenuItem mbaManageCategories;
+        private System.Windows.Forms.ToolStripMenuItem mbasetCategory;
+        private System.Windows.Forms.ToolStripMenuItem mbaRemoveCategory;
+        private System.Windows.Forms.ToolStripMenuItem mbaUpdateFixtures;
+        private System.Windows.Forms.ToolStripMenuItem mbascheduleMatch;
+        private System.Windows.Forms.ToolStripMenuItem mbaCancelMatch;
+        private System.Windows.Forms.ToolStripMenuItem mbaCheckAvailability;
+        private System.Windows.Forms.ToolStripMenuItem mbaViewStats;
+        private System.Windows.Forms.ToolStripMenuItem mbaProcessSales;
+        private System.Windows.Forms.ToolStripMenuItem mbaPerformAdmin;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem sellTicketsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem yearlyRevenueAnalysisToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem yearlyTicketRevenueAnalysisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mbaSellTickets;
+        private System.Windows.Forms.ToolStripMenuItem yearlyRevenueAnalysis;
+        private System.Windows.Forms.ToolStripMenuItem mbayearlyTicketRevenueAnalysis;
+        private System.Windows.Forms.ToolStripMenuItem mbaUpdateCategory;
+        private System.Windows.Forms.Label lblSoccerTitle;
     }
 }
