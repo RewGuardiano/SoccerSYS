@@ -69,7 +69,7 @@ namespace SoccerSYS
 
         private void btnSetCategory_Click(object sender, EventArgs e)
         {
-
+     
             if (txtdescription.Text.Equals(""))
             {
                 MessageBox.Show("Description must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -77,7 +77,7 @@ namespace SoccerSYS
                 return;
             }
             bool isNumber = int.TryParse(txtPrice.Text, out int i);
-            if (txtPrice.Text.Equals("") && !txtPrice.Text.Contains('.') && isNumber==false)
+            if (txtPrice.Text.Equals("") && (!txtPrice.Text.Contains('.')) && (isNumber==false))
             {
 
                 MessageBox.Show("Price must be mumeric and a decimal ", "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -121,9 +121,5 @@ namespace SoccerSYS
       
 
         }
-
-
-        
-        
     }
 }

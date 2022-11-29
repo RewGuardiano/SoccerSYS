@@ -61,8 +61,8 @@ namespace SoccerSYS
             this.mbaPerformAdmin});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(821, 38);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(982, 45);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -75,7 +75,7 @@ namespace SoccerSYS
             this.mbaManageCategories.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbaManageCategories.Name = "mbaManageCategories";
             this.mbaManageCategories.Padding = new System.Windows.Forms.Padding(40, 0, 4, 0);
-            this.mbaManageCategories.Size = new System.Drawing.Size(228, 34);
+            this.mbaManageCategories.Size = new System.Drawing.Size(278, 41);
             this.mbaManageCategories.Text = "Manage Categories";
             this.mbaManageCategories.Click += new System.EventHandler(this.mbuManageCategories_Click);
             // 
@@ -84,7 +84,7 @@ namespace SoccerSYS
             this.mbasetCategory.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.mbasetCategory.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbasetCategory.Name = "mbasetCategory";
-            this.mbasetCategory.Size = new System.Drawing.Size(195, 24);
+            this.mbasetCategory.Size = new System.Drawing.Size(245, 28);
             this.mbasetCategory.Text = "Set Category";
             this.mbasetCategory.Click += new System.EventHandler(this.setCategoryToolStripMenuItem_Click);
             // 
@@ -92,7 +92,7 @@ namespace SoccerSYS
             // 
             this.mbaRemoveCategory.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbaRemoveCategory.Name = "mbaRemoveCategory";
-            this.mbaRemoveCategory.Size = new System.Drawing.Size(195, 24);
+            this.mbaRemoveCategory.Size = new System.Drawing.Size(245, 28);
             this.mbaRemoveCategory.Text = "Remove Category";
             this.mbaRemoveCategory.Click += new System.EventHandler(this.removeCategoryToolStripMenuItem_Click);
             // 
@@ -100,7 +100,7 @@ namespace SoccerSYS
             // 
             this.mbaUpdateCategory.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbaUpdateCategory.Name = "mbaUpdateCategory";
-            this.mbaUpdateCategory.Size = new System.Drawing.Size(195, 24);
+            this.mbaUpdateCategory.Size = new System.Drawing.Size(245, 28);
             this.mbaUpdateCategory.Text = "Update Category";
             this.mbaUpdateCategory.Click += new System.EventHandler(this.mbuUpdateCategory_Click);
             // 
@@ -114,14 +114,14 @@ namespace SoccerSYS
             this.mbaUpdateFixtures.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbaUpdateFixtures.Name = "mbaUpdateFixtures";
             this.mbaUpdateFixtures.Padding = new System.Windows.Forms.Padding(35, 0, 4, 0);
-            this.mbaUpdateFixtures.Size = new System.Drawing.Size(195, 34);
+            this.mbaUpdateFixtures.Size = new System.Drawing.Size(243, 41);
             this.mbaUpdateFixtures.Text = "Update Fixtures";
             // 
             // mbascheduleMatch
             // 
             this.mbascheduleMatch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbascheduleMatch.Name = "mbascheduleMatch";
-            this.mbascheduleMatch.Size = new System.Drawing.Size(205, 26);
+            this.mbascheduleMatch.Size = new System.Drawing.Size(257, 32);
             this.mbascheduleMatch.Text = "Schedule Match";
             this.mbascheduleMatch.Click += new System.EventHandler(this.scheduleMatchToolStripMenuItem_Click);
             // 
@@ -129,7 +129,7 @@ namespace SoccerSYS
             // 
             this.mbaCancelMatch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbaCancelMatch.Name = "mbaCancelMatch";
-            this.mbaCancelMatch.Size = new System.Drawing.Size(205, 26);
+            this.mbaCancelMatch.Size = new System.Drawing.Size(257, 32);
             this.mbaCancelMatch.Text = "Cancel Match";
             this.mbaCancelMatch.Click += new System.EventHandler(this.cancelMatchToolStripMenuItem_Click);
             // 
@@ -137,7 +137,7 @@ namespace SoccerSYS
             // 
             this.mbaCheckAvailability.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbaCheckAvailability.Name = "mbaCheckAvailability";
-            this.mbaCheckAvailability.Size = new System.Drawing.Size(205, 26);
+            this.mbaCheckAvailability.Size = new System.Drawing.Size(257, 32);
             this.mbaCheckAvailability.Text = "Check Availability";
             this.mbaCheckAvailability.Click += new System.EventHandler(this.checkAvailabilityToolStripMenuItem_Click);
             // 
@@ -145,7 +145,7 @@ namespace SoccerSYS
             // 
             this.mbaViewStats.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbaViewStats.Name = "mbaViewStats";
-            this.mbaViewStats.Size = new System.Drawing.Size(205, 26);
+            this.mbaViewStats.Size = new System.Drawing.Size(257, 32);
             this.mbaViewStats.Text = "View Fixture Stats";
             this.mbaViewStats.Click += new System.EventHandler(this.viewStatsToolStripMenuItem_Click);
             // 
@@ -156,7 +156,7 @@ namespace SoccerSYS
             this.mbaProcessSales.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbaProcessSales.Name = "mbaProcessSales";
             this.mbaProcessSales.Padding = new System.Windows.Forms.Padding(35, 0, 4, 0);
-            this.mbaProcessSales.Size = new System.Drawing.Size(171, 34);
+            this.mbaProcessSales.Size = new System.Drawing.Size(213, 41);
             this.mbaProcessSales.Text = "Process Sales";
             this.mbaProcessSales.Click += new System.EventHandler(this.mbuProcessSales_Click);
             // 
@@ -164,7 +164,7 @@ namespace SoccerSYS
             // 
             this.mbaSellTickets.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbaSellTickets.Name = "mbaSellTickets";
-            this.mbaSellTickets.Size = new System.Drawing.Size(159, 26);
+            this.mbaSellTickets.Size = new System.Drawing.Size(198, 32);
             this.mbaSellTickets.Text = "Sell Tickets";
             this.mbaSellTickets.Click += new System.EventHandler(this.sellTicketsToolStripMenuItem_Click);
             // 
@@ -176,7 +176,7 @@ namespace SoccerSYS
             this.mbaPerformAdmin.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbaPerformAdmin.Name = "mbaPerformAdmin";
             this.mbaPerformAdmin.Padding = new System.Windows.Forms.Padding(35, 0, 4, 0);
-            this.mbaPerformAdmin.Size = new System.Drawing.Size(192, 34);
+            this.mbaPerformAdmin.Size = new System.Drawing.Size(238, 41);
             this.mbaPerformAdmin.Text = "Perform Admin";
             this.mbaPerformAdmin.Click += new System.EventHandler(this.performAdminToolStripMenuItem_Click);
             // 
@@ -184,7 +184,7 @@ namespace SoccerSYS
             // 
             this.yearlyRevenueAnalysis.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.yearlyRevenueAnalysis.Name = "yearlyRevenueAnalysis";
-            this.yearlyRevenueAnalysis.Size = new System.Drawing.Size(294, 26);
+            this.yearlyRevenueAnalysis.Size = new System.Drawing.Size(363, 32);
             this.yearlyRevenueAnalysis.Text = "Yearly Revenue Analysis";
             this.yearlyRevenueAnalysis.Click += new System.EventHandler(this.yearlyRevenueAnalysisToolStripMenuItem_Click);
             // 
@@ -192,7 +192,7 @@ namespace SoccerSYS
             // 
             this.mbayearlyTicketRevenueAnalysis.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbayearlyTicketRevenueAnalysis.Name = "mbayearlyTicketRevenueAnalysis";
-            this.mbayearlyTicketRevenueAnalysis.Size = new System.Drawing.Size(294, 26);
+            this.mbayearlyTicketRevenueAnalysis.Size = new System.Drawing.Size(363, 32);
             this.mbayearlyTicketRevenueAnalysis.Text = "Yearly Ticket Revenue Analysis";
             this.mbayearlyTicketRevenueAnalysis.Click += new System.EventHandler(this.yearlyTicketRevenueAnalysisToolStripMenuItem_Click);
             // 
@@ -208,24 +208,26 @@ namespace SoccerSYS
             this.lblSoccerTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblSoccerTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSoccerTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblSoccerTitle.Location = new System.Drawing.Point(273, 69);
+            this.lblSoccerTitle.Location = new System.Drawing.Point(364, 85);
+            this.lblSoccerTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSoccerTitle.Name = "lblSoccerTitle";
-            this.lblSoccerTitle.Size = new System.Drawing.Size(255, 37);
+            this.lblSoccerTitle.Size = new System.Drawing.Size(318, 46);
             this.lblSoccerTitle.TabIndex = 2;
             this.lblSoccerTitle.Text = "Soccer Booking";
             // 
             // frmMainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.BackgroundImage = global::SoccerSYS.Properties.Resources.footballBackground;
-            this.ClientSize = new System.Drawing.Size(821, 355);
+            this.ClientSize = new System.Drawing.Size(982, 437);
             this.Controls.Add(this.lblSoccerTitle);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmMainMenu";
             this.Text = "Soccer Booking System";
             this.Load += new System.EventHandler(this.frmMainMenu_Load);

@@ -173,5 +173,10 @@
   <ItemGroup>
     <None Include="Resources\footballBackground.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\Soccer_Ball_icon.ico" />
+    <Content Include="Resources\Soccer_Ball_icon.ico" />
+    <Content Include="Soccer_Ball_icon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
