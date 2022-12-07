@@ -43,6 +43,10 @@ namespace SoccerSYS
             this.txtdescription = new System.Windows.Forms.TextBox();
             this.lbldescription = new System.Windows.Forms.Label();
             this.lblCatCode = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtNoSeatsFrom = new System.Windows.Forms.TextBox();
+            this.txtNoSeatsTo = new System.Windows.Forms.TextBox();
             this.grpCategory.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +63,10 @@ namespace SoccerSYS
             // 
             // grpCategory
             // 
+            this.grpCategory.Controls.Add(this.txtNoSeatsTo);
+            this.grpCategory.Controls.Add(this.txtNoSeatsFrom);
+            this.grpCategory.Controls.Add(this.label2);
+            this.grpCategory.Controls.Add(this.label1);
             this.grpCategory.Controls.Add(this.cobCatCode);
             this.grpCategory.Controls.Add(this.txtNoSeats);
             this.grpCategory.Controls.Add(this.txtPrice);
@@ -69,11 +77,11 @@ namespace SoccerSYS
             this.grpCategory.Controls.Add(this.lbldescription);
             this.grpCategory.Controls.Add(this.lblCatCode);
             this.grpCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpCategory.Location = new System.Drawing.Point(62, 76);
+            this.grpCategory.Location = new System.Drawing.Point(62, 48);
             this.grpCategory.Margin = new System.Windows.Forms.Padding(4);
             this.grpCategory.Name = "grpCategory";
             this.grpCategory.Padding = new System.Windows.Forms.Padding(4);
-            this.grpCategory.Size = new System.Drawing.Size(894, 434);
+            this.grpCategory.Size = new System.Drawing.Size(894, 493);
             this.grpCategory.TabIndex = 14;
             this.grpCategory.TabStop = false;
             this.grpCategory.Text = "Enter Details:";
@@ -111,7 +119,7 @@ namespace SoccerSYS
             // 
             this.btnUpdateCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateCategory.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnUpdateCategory.Location = new System.Drawing.Point(255, 275);
+            this.btnUpdateCategory.Location = new System.Drawing.Point(255, 413);
             this.btnUpdateCategory.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateCategory.Name = "btnUpdateCategory";
             this.btnUpdateCategory.Size = new System.Drawing.Size(193, 72);
@@ -172,6 +180,44 @@ namespace SoccerSYS
             this.lblCatCode.TabIndex = 13;
             this.lblCatCode.Text = "Category Code";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(53, 282);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(188, 29);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "NoSeats From";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(53, 352);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(148, 29);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "NoSeats to";
+            // 
+            // txtNoSeatsFrom
+            // 
+            this.txtNoSeatsFrom.Location = new System.Drawing.Point(255, 283);
+            this.txtNoSeatsFrom.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNoSeatsFrom.Name = "txtNoSeatsFrom";
+            this.txtNoSeatsFrom.Size = new System.Drawing.Size(181, 30);
+            this.txtNoSeatsFrom.TabIndex = 30;
+            // 
+            // txtNoSeatsTo
+            // 
+            this.txtNoSeatsTo.Location = new System.Drawing.Point(255, 353);
+            this.txtNoSeatsTo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNoSeatsTo.Name = "txtNoSeatsTo";
+            this.txtNoSeatsTo.Size = new System.Drawing.Size(181, 30);
+            this.txtNoSeatsTo.TabIndex = 31;
+            // 
             // frmUpdateCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -204,5 +250,9 @@ namespace SoccerSYS
         private System.Windows.Forms.Label lbldescription;
         private System.Windows.Forms.Label lblCatCode;
         private System.Windows.Forms.ComboBox cobCatCode;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtNoSeatsFrom;
+        private System.Windows.Forms.TextBox txtNoSeatsTo;
     }
 }
