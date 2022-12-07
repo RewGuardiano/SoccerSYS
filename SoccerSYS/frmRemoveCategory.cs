@@ -19,6 +19,14 @@ namespace SoccerSYS
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            DialogResult dialog = MessageBox.Show("Are you sure you want to Exit?", "Confirm Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dialog == DialogResult.Yes)
+            {
+                this.Close();
+            }
+
             frmMainMenu to = new frmMainMenu();
             to.Show();
             this.Close();
@@ -26,35 +34,28 @@ namespace SoccerSYS
 
         private void btnRemoveCategory_Click(object sender, EventArgs e)
         {
-            if (txtdescription.Text.Equals(""))
+
+            if (cobRemoveDescription.Text.Equals(""))
             {
                 MessageBox.Show("Description must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtdescription.Focus();
-                return;
+               
             }
-            bool isNumber = int.TryParse(txtPrice.Text, out int i);
-            if (txtPrice.Text.Equals("") && (!txtPrice.Text.Contains('.')) && (isNumber == false))
+
+            if (cobRemovePrice.Text.Equals(""))
             {
 
                 MessageBox.Show("Price must be mumeric and a decimal ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtPrice.Focus();
-                return;
+           
             }
-
-            bool numeric = int.TryParse(txtNoSeats.Text, out int j);
-            if (txtNoSeats.Text.Equals("") && txtNoSeats.Text.Contains("0") || numeric == false)
+            if (cobRemoveSeats.Text.Equals(""))
             {
                 MessageBox.Show("Number of Seats must be numeric and must be greater than 0 ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtNoSeats.Focus();
-                return;
+
             }
-            MessageBox.Show("Category Updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Category Removed!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
-
-            txtdescription.Clear();
-            txtPrice.Clear();
-            txtNoSeats.Clear();
         }
+
+       
     }
 }

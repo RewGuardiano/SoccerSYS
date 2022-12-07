@@ -131,11 +131,13 @@ namespace SoccerSYS
             // 
             // txtCatCode
             // 
-            this.txtCatCode.Location = new System.Drawing.Point(255, 47);
+            this.txtCatCode.Location = new System.Drawing.Point(268, 47);
             this.txtCatCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCatCode.MaxLength = 1;
             this.txtCatCode.Name = "txtCatCode";
             this.txtCatCode.Size = new System.Drawing.Size(140, 22);
             this.txtCatCode.TabIndex = 21;
+            this.txtCatCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtPrice
             // 
@@ -203,7 +205,7 @@ namespace SoccerSYS
             // 
             this.lblCatCode.AutoSize = true;
             this.lblCatCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCatCode.Location = new System.Drawing.Point(44, 47);
+            this.lblCatCode.Location = new System.Drawing.Point(53, 47);
             this.lblCatCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCatCode.Name = "lblCatCode";
             this.lblCatCode.Size = new System.Drawing.Size(195, 29);
@@ -221,7 +223,6 @@ namespace SoccerSYS
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmSetCategory";
             this.Text = "Set Category Type";
-            this.Load += new System.EventHandler(this.frmSetCategory_Load);
             this.grpCategory.ResumeLayout(false);
             this.grpCategory.PerformLayout();
             this.ResumeLayout(false);

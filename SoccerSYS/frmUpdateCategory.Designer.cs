@@ -34,8 +34,8 @@ namespace SoccerSYS
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUpdateCategory));
             this.button1 = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
+            this.cobCatCode = new System.Windows.Forms.ComboBox();
             this.txtNoSeats = new System.Windows.Forms.TextBox();
-            this.txtCatCode = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.btnUpdateCategory = new System.Windows.Forms.Button();
             this.lblNoSeats = new System.Windows.Forms.Label();
@@ -59,8 +59,8 @@ namespace SoccerSYS
             // 
             // grpCategory
             // 
+            this.grpCategory.Controls.Add(this.cobCatCode);
             this.grpCategory.Controls.Add(this.txtNoSeats);
-            this.grpCategory.Controls.Add(this.txtCatCode);
             this.grpCategory.Controls.Add(this.txtPrice);
             this.grpCategory.Controls.Add(this.btnUpdateCategory);
             this.grpCategory.Controls.Add(this.lblNoSeats);
@@ -79,6 +79,18 @@ namespace SoccerSYS
             this.grpCategory.Text = "Enter Details:";
             this.grpCategory.Enter += new System.EventHandler(this.grpCategory_Enter);
             // 
+            // cobCatCode
+            // 
+            this.cobCatCode.FormattingEnabled = true;
+            this.cobCatCode.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C"});
+            this.cobCatCode.Location = new System.Drawing.Point(266, 48);
+            this.cobCatCode.Name = "cobCatCode";
+            this.cobCatCode.Size = new System.Drawing.Size(157, 33);
+            this.cobCatCode.TabIndex = 28;
+            // 
             // txtNoSeats
             // 
             this.txtNoSeats.Location = new System.Drawing.Point(255, 221);
@@ -86,14 +98,6 @@ namespace SoccerSYS
             this.txtNoSeats.Name = "txtNoSeats";
             this.txtNoSeats.Size = new System.Drawing.Size(181, 30);
             this.txtNoSeats.TabIndex = 27;
-            // 
-            // txtCatCode
-            // 
-            this.txtCatCode.Location = new System.Drawing.Point(278, 47);
-            this.txtCatCode.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCatCode.Name = "txtCatCode";
-            this.txtCatCode.Size = new System.Drawing.Size(140, 30);
-            this.txtCatCode.TabIndex = 21;
             // 
             // txtPrice
             // 
@@ -192,7 +196,6 @@ namespace SoccerSYS
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox grpCategory;
         private System.Windows.Forms.TextBox txtNoSeats;
-        private System.Windows.Forms.TextBox txtCatCode;
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Button btnUpdateCategory;
         private System.Windows.Forms.Label lblNoSeats;
@@ -200,5 +203,6 @@ namespace SoccerSYS
         private System.Windows.Forms.TextBox txtdescription;
         private System.Windows.Forms.Label lbldescription;
         private System.Windows.Forms.Label lblCatCode;
+        private System.Windows.Forms.ComboBox cobCatCode;
     }
 }

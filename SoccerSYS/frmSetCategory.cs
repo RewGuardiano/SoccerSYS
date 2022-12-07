@@ -17,37 +17,9 @@ namespace SoccerSYS
             InitializeComponent();
         }
 
-        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         internal class Show
         {
            
-        }
-
-       
-
-        private void frmSetCategory_Load(object sender, EventArgs e)
-        {
-     
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -57,19 +29,18 @@ namespace SoccerSYS
             this.Close();
         }
 
-        private void txtPrice_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCatCode_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+     
 
         private void btnSetCategory_Click(object sender, EventArgs e)
         {
-     
+            if (txtCatCode.Text.Equals(""))
+            {
+                MessageBox.Show("Category code must be 1 character long", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtCatCode.Focus();
+                return;
+
+            }
+
             if (txtdescription.Text.Equals(""))
             {
                 MessageBox.Show("Description must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -121,5 +92,7 @@ namespace SoccerSYS
       
 
         }
+
+       
     }
 }

@@ -31,22 +31,22 @@ namespace SoccerSYS
         {
             this.button1 = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
-            this.txtNoSeats = new System.Windows.Forms.TextBox();
-            this.txtCatCode = new System.Windows.Forms.TextBox();
-            this.txtPrice = new System.Windows.Forms.TextBox();
             this.btnRemoveCategory = new System.Windows.Forms.Button();
             this.lblNoSeats = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
-            this.txtdescription = new System.Windows.Forms.TextBox();
             this.lbldescription = new System.Windows.Forms.Label();
             this.lblCatCode = new System.Windows.Forms.Label();
+            this.cobRemoveCatCode = new System.Windows.Forms.ComboBox();
+            this.cobRemoveDescription = new System.Windows.Forms.ComboBox();
+            this.cobRemovePrice = new System.Windows.Forms.ComboBox();
+            this.cobRemoveSeats = new System.Windows.Forms.ComboBox();
             this.grpCategory.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(0, -1);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 10;
@@ -56,13 +56,13 @@ namespace SoccerSYS
             // 
             // grpCategory
             // 
-            this.grpCategory.Controls.Add(this.txtNoSeats);
-            this.grpCategory.Controls.Add(this.txtCatCode);
-            this.grpCategory.Controls.Add(this.txtPrice);
+            this.grpCategory.Controls.Add(this.cobRemoveSeats);
+            this.grpCategory.Controls.Add(this.cobRemovePrice);
+            this.grpCategory.Controls.Add(this.cobRemoveDescription);
+            this.grpCategory.Controls.Add(this.cobRemoveCatCode);
             this.grpCategory.Controls.Add(this.btnRemoveCategory);
             this.grpCategory.Controls.Add(this.lblNoSeats);
             this.grpCategory.Controls.Add(this.lblPrice);
-            this.grpCategory.Controls.Add(this.txtdescription);
             this.grpCategory.Controls.Add(this.lbldescription);
             this.grpCategory.Controls.Add(this.lblCatCode);
             this.grpCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -74,30 +74,6 @@ namespace SoccerSYS
             this.grpCategory.TabIndex = 15;
             this.grpCategory.TabStop = false;
             this.grpCategory.Text = "Enter Details:";
-            // 
-            // txtNoSeats
-            // 
-            this.txtNoSeats.Location = new System.Drawing.Point(255, 221);
-            this.txtNoSeats.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNoSeats.Name = "txtNoSeats";
-            this.txtNoSeats.Size = new System.Drawing.Size(181, 30);
-            this.txtNoSeats.TabIndex = 27;
-            // 
-            // txtCatCode
-            // 
-            this.txtCatCode.Location = new System.Drawing.Point(277, 46);
-            this.txtCatCode.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCatCode.Name = "txtCatCode";
-            this.txtCatCode.Size = new System.Drawing.Size(140, 30);
-            this.txtCatCode.TabIndex = 21;
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.Location = new System.Drawing.Point(255, 162);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(181, 30);
-            this.txtPrice.TabIndex = 20;
             // 
             // btnRemoveCategory
             // 
@@ -134,14 +110,6 @@ namespace SoccerSYS
             this.lblPrice.TabIndex = 16;
             this.lblPrice.Text = "Price";
             // 
-            // txtdescription
-            // 
-            this.txtdescription.Location = new System.Drawing.Point(255, 104);
-            this.txtdescription.Margin = new System.Windows.Forms.Padding(4);
-            this.txtdescription.Name = "txtdescription";
-            this.txtdescription.Size = new System.Drawing.Size(181, 30);
-            this.txtdescription.TabIndex = 15;
-            // 
             // lbldescription
             // 
             this.lbldescription.AutoSize = true;
@@ -164,6 +132,55 @@ namespace SoccerSYS
             this.lblCatCode.TabIndex = 13;
             this.lblCatCode.Text = "Category Code";
             // 
+            // cobRemoveCatCode
+            // 
+            this.cobRemoveCatCode.FormattingEnabled = true;
+            this.cobRemoveCatCode.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C"});
+            this.cobRemoveCatCode.Location = new System.Drawing.Point(264, 48);
+            this.cobRemoveCatCode.Name = "cobRemoveCatCode";
+            this.cobRemoveCatCode.Size = new System.Drawing.Size(153, 33);
+            this.cobRemoveCatCode.TabIndex = 30;
+            // 
+            // cobRemoveDescription
+            // 
+            this.cobRemoveDescription.FormattingEnabled = true;
+            this.cobRemoveDescription.Items.AddRange(new object[] {
+            "low sideline",
+            "Middle Seats",
+            "VIP Seats",
+            ""});
+            this.cobRemoveDescription.Location = new System.Drawing.Point(264, 105);
+            this.cobRemoveDescription.Name = "cobRemoveDescription";
+            this.cobRemoveDescription.Size = new System.Drawing.Size(153, 33);
+            this.cobRemoveDescription.TabIndex = 31;
+            // 
+            // cobRemovePrice
+            // 
+            this.cobRemovePrice.FormattingEnabled = true;
+            this.cobRemovePrice.Items.AddRange(new object[] {
+            "100",
+            "200",
+            "400"});
+            this.cobRemovePrice.Location = new System.Drawing.Point(264, 164);
+            this.cobRemovePrice.Name = "cobRemovePrice";
+            this.cobRemovePrice.Size = new System.Drawing.Size(153, 33);
+            this.cobRemovePrice.TabIndex = 32;
+            // 
+            // cobRemoveSeats
+            // 
+            this.cobRemoveSeats.FormattingEnabled = true;
+            this.cobRemoveSeats.Items.AddRange(new object[] {
+            "10,000",
+            "25,000",
+            "15,000"});
+            this.cobRemoveSeats.Location = new System.Drawing.Point(264, 215);
+            this.cobRemoveSeats.Name = "cobRemoveSeats";
+            this.cobRemoveSeats.Size = new System.Drawing.Size(153, 33);
+            this.cobRemoveSeats.TabIndex = 33;
+            // 
             // frmRemoveCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -171,7 +188,7 @@ namespace SoccerSYS
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.grpCategory);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmRemoveCategory";
             this.Text = "RemoveCategory";
             this.grpCategory.ResumeLayout(false);
@@ -184,14 +201,14 @@ namespace SoccerSYS
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox grpCategory;
-        private System.Windows.Forms.TextBox txtNoSeats;
-        private System.Windows.Forms.TextBox txtCatCode;
-        private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Button btnRemoveCategory;
         private System.Windows.Forms.Label lblNoSeats;
         private System.Windows.Forms.Label lblPrice;
-        private System.Windows.Forms.TextBox txtdescription;
         private System.Windows.Forms.Label lbldescription;
         private System.Windows.Forms.Label lblCatCode;
+        private System.Windows.Forms.ComboBox cobRemoveCatCode;
+        private System.Windows.Forms.ComboBox cobRemoveSeats;
+        private System.Windows.Forms.ComboBox cobRemovePrice;
+        private System.Windows.Forms.ComboBox cobRemoveDescription;
     }
 }

@@ -62,7 +62,7 @@ namespace SoccerSYS
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(982, 45);
+            this.menuStrip1.Size = new System.Drawing.Size(1057, 45);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -221,13 +221,13 @@ namespace SoccerSYS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.BackgroundImage = global::SoccerSYS.Properties.Resources.footballBackground;
-            this.ClientSize = new System.Drawing.Size(982, 437);
+            this.ClientSize = new System.Drawing.Size(1057, 437);
             this.Controls.Add(this.lblSoccerTitle);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMainMenu";
             this.Text = "Soccer Booking System";
             this.Load += new System.EventHandler(this.frmMainMenu_Load);

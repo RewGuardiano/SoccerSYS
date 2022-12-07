@@ -34,6 +34,9 @@ namespace SoccerSYS
             frmSetCategory to = new frmSetCategory();
             to.Show();
             this.Hide();
+
+
+          
         }
 
         private void mbuProcessSales_Click(object sender, EventArgs e)
@@ -43,7 +46,7 @@ namespace SoccerSYS
 
         private void frmMainMenu_Load(object sender, EventArgs e)
         {
-
+          
         }
 
 
@@ -108,5 +111,6 @@ namespace SoccerSYS
             to.Show();
             this.Hide();
         }
+
     }
 }
