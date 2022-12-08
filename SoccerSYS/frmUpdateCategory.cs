@@ -36,6 +36,7 @@ namespace SoccerSYS
         }
         private void btnUpdateCategory_Click(object sender, EventArgs e)
         {
+
             if (txtdescription.Text.Equals(""))
             {
                 MessageBox.Show("Description must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -58,14 +59,31 @@ namespace SoccerSYS
                 txtNoSeats.Focus();
                 return;
             }
-            MessageBox.Show("Category Updated!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            bool numeric1 = int.TryParse(txtNoSeats.Text, out int k);
+            if (txtNoSeatsFrom.Text.Equals("") && txtNoSeatsFrom.Text.Contains("0") || numeric1 == false)
+            {
+                MessageBox.Show("Number of Seats from must be numeric and must be greater than 0 ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNoSeatsFrom.Focus();
+                return;
 
+            }
+            bool numeric2 = int.TryParse(txtNoSeats.Text, out int l);
+            if (txtNoSeatsTo.Text.Equals("") && txtNoSeatsTo.Text.Contains("0") || numeric2 == false)
+            {
+                MessageBox.Show("Number of Seats to must be numeric and must be greater than 0 ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNoSeatsTo.Focus();
+                return;
+
+            }
+            MessageBox.Show("Category Added", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
             txtdescription.Clear();
             txtPrice.Clear();
             txtNoSeats.Clear();
-         
+            txtNoSeatsFrom.Clear();
+            txtNoSeatsTo.Clear();
+
         }
 
        

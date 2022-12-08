@@ -31,23 +31,23 @@ namespace SoccerSYS
         {
             this.button1 = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
-            this.lblCatCode = new System.Windows.Forms.Label();
-            this.txtdescription = new System.Windows.Forms.TextBox();
-            this.lblPrice = new System.Windows.Forms.Label();
-            this.lbldescription = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.txtMatchID = new System.Windows.Forms.TextBox();
+            this.txtMatchDate = new System.Windows.Forms.TextBox();
+            this.txtMatchTime = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.btnUpdateCategory = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.txtTeams = new System.Windows.Forms.TextBox();
+            this.lbldescription = new System.Windows.Forms.Label();
+            this.lblCatCode = new System.Windows.Forms.Label();
             this.grpCategory.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(-3, 2);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 11;
@@ -57,14 +57,14 @@ namespace SoccerSYS
             // 
             // grpCategory
             // 
-            this.grpCategory.Controls.Add(this.btnUpdateCategory);
-            this.grpCategory.Controls.Add(this.textBox3);
-            this.grpCategory.Controls.Add(this.textBox2);
-            this.grpCategory.Controls.Add(this.textBox1);
+            this.grpCategory.Controls.Add(this.btnSubmit);
+            this.grpCategory.Controls.Add(this.txtMatchID);
+            this.grpCategory.Controls.Add(this.txtMatchDate);
+            this.grpCategory.Controls.Add(this.txtMatchTime);
             this.grpCategory.Controls.Add(this.label2);
             this.grpCategory.Controls.Add(this.label1);
             this.grpCategory.Controls.Add(this.lblPrice);
-            this.grpCategory.Controls.Add(this.txtdescription);
+            this.grpCategory.Controls.Add(this.txtTeams);
             this.grpCategory.Controls.Add(this.lbldescription);
             this.grpCategory.Controls.Add(this.lblCatCode);
             this.grpCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -77,56 +77,42 @@ namespace SoccerSYS
             this.grpCategory.TabStop = false;
             this.grpCategory.Text = "Enter Match Details:";
             // 
-            // lblCatCode
+            // btnSubmit
             // 
-            this.lblCatCode.AutoSize = true;
-            this.lblCatCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCatCode.Location = new System.Drawing.Point(53, 47);
-            this.lblCatCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCatCode.Name = "lblCatCode";
-            this.lblCatCode.Size = new System.Drawing.Size(117, 29);
-            this.lblCatCode.TabIndex = 13;
-            this.lblCatCode.Text = "Match Id";
+            this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnSubmit.Location = new System.Drawing.Point(228, 413);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(193, 72);
+            this.btnSubmit.TabIndex = 22;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // txtdescription
+            // txtMatchID
             // 
-            this.txtdescription.Location = new System.Drawing.Point(228, 142);
-            this.txtdescription.Margin = new System.Windows.Forms.Padding(4);
-            this.txtdescription.Name = "txtdescription";
-            this.txtdescription.Size = new System.Drawing.Size(273, 30);
-            this.txtdescription.TabIndex = 15;
+            this.txtMatchID.Location = new System.Drawing.Point(228, 48);
+            this.txtMatchID.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMatchID.Name = "txtMatchID";
+            this.txtMatchID.Size = new System.Drawing.Size(181, 30);
+            this.txtMatchID.TabIndex = 21;
             // 
-            // lblPrice
+            // txtMatchDate
             // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(53, 154);
-            this.lblPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(0, 29);
-            this.lblPrice.TabIndex = 16;
+            this.txtMatchDate.Location = new System.Drawing.Point(228, 336);
+            this.txtMatchDate.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMatchDate.Name = "txtMatchDate";
+            this.txtMatchDate.Size = new System.Drawing.Size(305, 30);
+            this.txtMatchDate.TabIndex = 20;
             // 
-            // lbldescription
+            // txtMatchTime
             // 
-            this.lbldescription.AutoSize = true;
-            this.lbldescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldescription.Location = new System.Drawing.Point(53, 142);
-            this.lbldescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbldescription.Name = "lbldescription";
-            this.lbldescription.Size = new System.Drawing.Size(96, 29);
-            this.lbldescription.TabIndex = 14;
-            this.lbldescription.Text = "Teams";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(66, 335);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 29);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Date";
+            this.txtMatchTime.Location = new System.Drawing.Point(228, 246);
+            this.txtMatchTime.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMatchTime.Name = "txtMatchTime";
+            this.txtMatchTime.Size = new System.Drawing.Size(154, 30);
+            this.txtMatchTime.TabIndex = 19;
             // 
             // label2
             // 
@@ -139,41 +125,56 @@ namespace SoccerSYS
             this.label2.TabIndex = 18;
             this.label2.Text = "Time";
             // 
-            // textBox1
+            // label1
             // 
-            this.textBox1.Location = new System.Drawing.Point(228, 246);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(154, 30);
-            this.textBox1.TabIndex = 19;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(66, 335);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 29);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Date";
             // 
-            // textBox2
+            // lblPrice
             // 
-            this.textBox2.Location = new System.Drawing.Point(228, 336);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(217, 30);
-            this.textBox2.TabIndex = 20;
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice.Location = new System.Drawing.Point(53, 154);
+            this.lblPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(0, 29);
+            this.lblPrice.TabIndex = 16;
             // 
-            // textBox3
+            // txtTeams
             // 
-            this.textBox3.Location = new System.Drawing.Point(228, 48);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(181, 30);
-            this.textBox3.TabIndex = 21;
+            this.txtTeams.Location = new System.Drawing.Point(228, 142);
+            this.txtTeams.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTeams.Name = "txtTeams";
+            this.txtTeams.Size = new System.Drawing.Size(273, 30);
+            this.txtTeams.TabIndex = 15;
             // 
-            // btnUpdateCategory
+            // lbldescription
             // 
-            this.btnUpdateCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateCategory.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnUpdateCategory.Location = new System.Drawing.Point(228, 413);
-            this.btnUpdateCategory.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUpdateCategory.Name = "btnUpdateCategory";
-            this.btnUpdateCategory.Size = new System.Drawing.Size(193, 72);
-            this.btnUpdateCategory.TabIndex = 22;
-            this.btnUpdateCategory.Text = "Submit";
-            this.btnUpdateCategory.UseVisualStyleBackColor = true;
+            this.lbldescription.AutoSize = true;
+            this.lbldescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbldescription.Location = new System.Drawing.Point(53, 142);
+            this.lbldescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbldescription.Name = "lbldescription";
+            this.lbldescription.Size = new System.Drawing.Size(96, 29);
+            this.lbldescription.TabIndex = 14;
+            this.lbldescription.Text = "Teams";
+            // 
+            // lblCatCode
+            // 
+            this.lblCatCode.AutoSize = true;
+            this.lblCatCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCatCode.Location = new System.Drawing.Point(53, 47);
+            this.lblCatCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCatCode.Name = "lblCatCode";
+            this.lblCatCode.Size = new System.Drawing.Size(117, 29);
+            this.lblCatCode.TabIndex = 13;
+            this.lblCatCode.Text = "Match Id";
             // 
             // frmScheduleMatch
             // 
@@ -182,7 +183,7 @@ namespace SoccerSYS
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.grpCategory);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmScheduleMatch";
             this.Text = "ScheduleMatch";
             this.grpCategory.ResumeLayout(false);
@@ -195,15 +196,15 @@ namespace SoccerSYS
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox grpCategory;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMatchID;
+        private System.Windows.Forms.TextBox txtMatchDate;
+        private System.Windows.Forms.TextBox txtMatchTime;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblPrice;
-        private System.Windows.Forms.TextBox txtdescription;
+        private System.Windows.Forms.TextBox txtTeams;
         private System.Windows.Forms.Label lbldescription;
         private System.Windows.Forms.Label lblCatCode;
-        private System.Windows.Forms.Button btnUpdateCategory;
+        private System.Windows.Forms.Button btnSubmit;
     }
 }

@@ -17,7 +17,7 @@ namespace SoccerSYS
             InitializeComponent();
         }
 
-        internal class Show
+        internal class  Show
         {
            
         }
@@ -33,7 +33,7 @@ namespace SoccerSYS
 
         private void btnSetCategory_Click(object sender, EventArgs e)
         {
-            if (txtCatCode.Text.Equals(""))
+            if (!txtCatCode.TextLength.Equals(1))
             {
                 MessageBox.Show("Category code must be 1 character long", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtCatCode.Focus();
@@ -82,7 +82,7 @@ namespace SoccerSYS
             MessageBox.Show("Category Added", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-
+            txtCatCode.Clear();
             txtdescription.Clear();
             txtPrice.Clear();
             txtNoSeats.Clear();

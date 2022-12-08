@@ -133,7 +133,7 @@ namespace SoccerSYS
             // 
             this.txtCatCode.Location = new System.Drawing.Point(268, 47);
             this.txtCatCode.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCatCode.MaxLength = 1;
+            this.txtCatCode.MaxLength = 327567;
             this.txtCatCode.Name = "txtCatCode";
             this.txtCatCode.Size = new System.Drawing.Size(140, 22);
             this.txtCatCode.TabIndex = 21;
