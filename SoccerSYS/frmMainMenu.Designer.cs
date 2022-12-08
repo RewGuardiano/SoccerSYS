@@ -208,7 +208,7 @@ namespace SoccerSYS
             this.lblSoccerTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblSoccerTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSoccerTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblSoccerTitle.Location = new System.Drawing.Point(364, 85);
+            this.lblSoccerTitle.Location = new System.Drawing.Point(376, 71);
             this.lblSoccerTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSoccerTitle.Name = "lblSoccerTitle";
             this.lblSoccerTitle.Size = new System.Drawing.Size(318, 46);
@@ -221,7 +221,8 @@ namespace SoccerSYS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.BackgroundImage = global::SoccerSYS.Properties.Resources.footballBackground;
-            this.ClientSize = new System.Drawing.Size(1057, 437);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(1057, 433);
             this.Controls.Add(this.lblSoccerTitle);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;

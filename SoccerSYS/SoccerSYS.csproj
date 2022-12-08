@@ -175,6 +175,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\Soccer_Ball_icon.ico" />
+    <None Include="Resources\RevenueImage.png" />
+    <None Include="Resources\RevenueChart.png" />
     <Content Include="Resources\Soccer_Ball_icon.ico" />
     <Content Include="Soccer_Ball_icon.ico" />
   </ItemGroup>

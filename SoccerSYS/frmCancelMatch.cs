@@ -19,6 +19,13 @@ namespace SoccerSYS
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            DialogResult dialog = MessageBox.Show("Are you sure you want to Exit?", "Confirm Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dialog == DialogResult.Yes)
+            {
+                this.Close();
+            }
             frmMainMenu to = new frmMainMenu();
             to.Show();
             this.Close();
