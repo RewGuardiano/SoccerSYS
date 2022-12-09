@@ -29,6 +29,7 @@ namespace SoccerSYS
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCheckAvailability));
             this.btnBackCA = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
             this.cobTeams = new System.Windows.Forms.ComboBox();
@@ -53,6 +54,9 @@ namespace SoccerSYS
             // 
             // grpCategory
             // 
+            this.grpCategory.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.grpCategory.BackgroundImage = global::SoccerSYS.Properties.Resources.footballBackground;
+            this.grpCategory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.grpCategory.Controls.Add(this.cobMatchDate);
             this.grpCategory.Controls.Add(this.lbDate);
             this.grpCategory.Controls.Add(this.cobTeams);
@@ -60,6 +64,7 @@ namespace SoccerSYS
             this.grpCategory.Controls.Add(this.lblPrice);
             this.grpCategory.Controls.Add(this.lbldescription);
             this.grpCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpCategory.ForeColor = System.Drawing.SystemColors.Desktop;
             this.grpCategory.Location = new System.Drawing.Point(73, 48);
             this.grpCategory.Margin = new System.Windows.Forms.Padding(4);
             this.grpCategory.Name = "grpCategory";
@@ -135,9 +140,12 @@ namespace SoccerSYS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.grpCategory);
             this.Controls.Add(this.btnBackCA);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCheckAvailability";
             this.Text = "CheckAvailability";

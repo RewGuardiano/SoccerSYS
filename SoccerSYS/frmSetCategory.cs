@@ -48,7 +48,7 @@ namespace SoccerSYS
                 return;
             }
             bool isNumber = int.TryParse(txtPrice.Text, out int i);
-            if (txtPrice.Text.Equals("") && (!txtPrice.Text.Contains('.')) && (isNumber==false))
+            if (isNumber==false || !txtPrice.Text.Contains("."))
             {
 
                 MessageBox.Show("Price must be mumeric and a decimal ", "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -57,22 +57,22 @@ namespace SoccerSYS
             }
 
             bool numeric = int.TryParse(txtNoSeats.Text, out int j);
-            if (txtNoSeats.Text.Equals("") && txtNoSeats.Text.Contains("0") || numeric == false)
+            if (numeric == false || txtNoSeats.Text.Equals("0"))
             {
                 MessageBox.Show("Number of Seats must be numeric and must be greater than 0 ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtNoSeats.Focus();
                 return;
             }
-            bool numeric1 = int.TryParse(txtNoSeats.Text, out int k);
-            if (txtNoSeatsFrom.Text.Equals("") && txtNoSeatsFrom.Text.Contains("0") || numeric1 == false)
+            bool numeric1 = int.TryParse(txtNoSeatsFrom.Text, out int k);
+            if ( numeric1 == false || txtNoSeatsFrom.Text.Equals("0"))
             {
                 MessageBox.Show("Number of Seats from must be numeric and must be greater than 0 ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtNoSeatsFrom.Focus();
                 return;
 
             }
-            bool numeric2 = int.TryParse(txtNoSeats.Text, out int l);
-            if (txtNoSeatsTo.Text.Equals("") && txtNoSeatsTo.Text.Contains("0") || numeric2 == false)
+            bool numeric2 = int.TryParse(txtNoSeatsTo.Text, out int l);
+            if (numeric2 == false || txtNoSeatsTo.Text.Equals("0"))
             {
                 MessageBox.Show("Number of Seats to must be numeric and must be greater than 0 ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtNoSeatsTo.Focus();

@@ -61,6 +61,7 @@ namespace SoccerSYS
             // 
             // grpCategory
             // 
+            this.grpCategory.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.grpCategory.Controls.Add(this.txtNoSeatsTo);
             this.grpCategory.Controls.Add(this.txtNoSeatsFrom);
             this.grpCategory.Controls.Add(this.txtNoSeats);
@@ -74,6 +75,7 @@ namespace SoccerSYS
             this.grpCategory.Controls.Add(this.txtdescription);
             this.grpCategory.Controls.Add(this.lbldescription);
             this.grpCategory.Controls.Add(this.lblCatCode);
+            this.grpCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpCategory.Location = new System.Drawing.Point(60, 36);
             this.grpCategory.Margin = new System.Windows.Forms.Padding(4);
             this.grpCategory.Name = "grpCategory";
@@ -85,18 +87,18 @@ namespace SoccerSYS
             // 
             // txtNoSeatsTo
             // 
-            this.txtNoSeatsTo.Location = new System.Drawing.Point(255, 340);
+            this.txtNoSeatsTo.Location = new System.Drawing.Point(255, 331);
             this.txtNoSeatsTo.Margin = new System.Windows.Forms.Padding(4);
             this.txtNoSeatsTo.Name = "txtNoSeatsTo";
-            this.txtNoSeatsTo.Size = new System.Drawing.Size(181, 22);
+            this.txtNoSeatsTo.Size = new System.Drawing.Size(181, 30);
             this.txtNoSeatsTo.TabIndex = 28;
             // 
             // txtNoSeatsFrom
             // 
-            this.txtNoSeatsFrom.Location = new System.Drawing.Point(255, 263);
+            this.txtNoSeatsFrom.Location = new System.Drawing.Point(255, 257);
             this.txtNoSeatsFrom.Margin = new System.Windows.Forms.Padding(4);
             this.txtNoSeatsFrom.Name = "txtNoSeatsFrom";
-            this.txtNoSeatsFrom.Size = new System.Drawing.Size(181, 22);
+            this.txtNoSeatsFrom.Size = new System.Drawing.Size(181, 30);
             this.txtNoSeatsFrom.TabIndex = 28;
             // 
             // txtNoSeats
@@ -104,7 +106,7 @@ namespace SoccerSYS
             this.txtNoSeats.Location = new System.Drawing.Point(255, 194);
             this.txtNoSeats.Margin = new System.Windows.Forms.Padding(4);
             this.txtNoSeats.Name = "txtNoSeats";
-            this.txtNoSeats.Size = new System.Drawing.Size(181, 22);
+            this.txtNoSeats.Size = new System.Drawing.Size(181, 30);
             this.txtNoSeats.TabIndex = 27;
             // 
             // label2
@@ -135,7 +137,7 @@ namespace SoccerSYS
             this.txtCatCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtCatCode.MaxLength = 327567;
             this.txtCatCode.Name = "txtCatCode";
-            this.txtCatCode.Size = new System.Drawing.Size(140, 22);
+            this.txtCatCode.Size = new System.Drawing.Size(140, 30);
             this.txtCatCode.TabIndex = 21;
             this.txtCatCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -144,7 +146,7 @@ namespace SoccerSYS
             this.txtPrice.Location = new System.Drawing.Point(255, 139);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(181, 22);
+            this.txtPrice.Size = new System.Drawing.Size(181, 30);
             this.txtPrice.TabIndex = 20;
             // 
             // btnSetCategory
@@ -187,7 +189,7 @@ namespace SoccerSYS
             this.txtdescription.Location = new System.Drawing.Point(255, 96);
             this.txtdescription.Margin = new System.Windows.Forms.Padding(4);
             this.txtdescription.Name = "txtdescription";
-            this.txtdescription.Size = new System.Drawing.Size(181, 22);
+            this.txtdescription.Size = new System.Drawing.Size(181, 30);
             this.txtdescription.TabIndex = 15;
             // 
             // lbldescription
@@ -216,6 +218,7 @@ namespace SoccerSYS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1175, 554);
             this.Controls.Add(this.grpCategory);
             this.Controls.Add(this.btnBackbutton);

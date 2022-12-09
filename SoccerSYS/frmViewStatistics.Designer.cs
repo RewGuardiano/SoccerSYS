@@ -73,6 +73,7 @@ namespace SoccerSYS
             // 
             // grpCategory
             // 
+            this.grpCategory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.grpCategory.Controls.Add(this.cobPossessions);
             this.grpCategory.Controls.Add(this.cobPossessions2);
             this.grpCategory.Controls.Add(this.cobRedCards2);
@@ -394,6 +395,7 @@ namespace SoccerSYS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1067, 641);
             this.Controls.Add(this.grpCategory);
             this.Controls.Add(this.button1);

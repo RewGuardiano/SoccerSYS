@@ -29,8 +29,10 @@ namespace SoccerSYS
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCancelMatch));
             this.button1 = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
+            this.txtMatchDate = new System.Windows.Forms.TextBox();
             this.cobMatchTime = new System.Windows.Forms.ComboBox();
             this.cobTeams = new System.Windows.Forms.ComboBox();
             this.cobMatchID = new System.Windows.Forms.ComboBox();
@@ -40,7 +42,6 @@ namespace SoccerSYS
             this.lblPrice = new System.Windows.Forms.Label();
             this.lbldescription = new System.Windows.Forms.Label();
             this.lblCatCode = new System.Windows.Forms.Label();
-            this.txtMatchDate = new System.Windows.Forms.TextBox();
             this.grpCategory.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,6 +78,14 @@ namespace SoccerSYS
             this.grpCategory.TabStop = false;
             this.grpCategory.Text = "Enter Match Details:";
             this.grpCategory.Enter += new System.EventHandler(this.grpCategory_Enter);
+            // 
+            // txtMatchDate
+            // 
+            this.txtMatchDate.Location = new System.Drawing.Point(257, 328);
+            this.txtMatchDate.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMatchDate.Name = "txtMatchDate";
+            this.txtMatchDate.Size = new System.Drawing.Size(305, 30);
+            this.txtMatchDate.TabIndex = 27;
             // 
             // cobMatchTime
             // 
@@ -169,21 +178,15 @@ namespace SoccerSYS
             this.lblCatCode.TabIndex = 13;
             this.lblCatCode.Text = "Match Id";
             // 
-            // txtMatchDate
-            // 
-            this.txtMatchDate.Location = new System.Drawing.Point(257, 328);
-            this.txtMatchDate.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMatchDate.Name = "txtMatchDate";
-            this.txtMatchDate.Size = new System.Drawing.Size(305, 30);
-            this.txtMatchDate.TabIndex = 27;
-            // 
             // frmCancelMatch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.grpCategory);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCancelMatch";
             this.Text = "CancelMatch";

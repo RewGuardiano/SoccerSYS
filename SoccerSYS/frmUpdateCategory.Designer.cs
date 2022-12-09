@@ -34,6 +34,10 @@ namespace SoccerSYS
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUpdateCategory));
             this.button1 = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
+            this.txtNoSeatsTo = new System.Windows.Forms.TextBox();
+            this.txtNoSeatsFrom = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.cobCatCode = new System.Windows.Forms.ComboBox();
             this.txtNoSeats = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
@@ -43,10 +47,6 @@ namespace SoccerSYS
             this.txtdescription = new System.Windows.Forms.TextBox();
             this.lbldescription = new System.Windows.Forms.Label();
             this.lblCatCode = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtNoSeatsFrom = new System.Windows.Forms.TextBox();
-            this.txtNoSeatsTo = new System.Windows.Forms.TextBox();
             this.grpCategory.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,6 +86,44 @@ namespace SoccerSYS
             this.grpCategory.TabStop = false;
             this.grpCategory.Text = "Enter Details:";
             this.grpCategory.Enter += new System.EventHandler(this.grpCategory_Enter);
+            // 
+            // txtNoSeatsTo
+            // 
+            this.txtNoSeatsTo.Location = new System.Drawing.Point(255, 353);
+            this.txtNoSeatsTo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNoSeatsTo.Name = "txtNoSeatsTo";
+            this.txtNoSeatsTo.Size = new System.Drawing.Size(181, 30);
+            this.txtNoSeatsTo.TabIndex = 31;
+            // 
+            // txtNoSeatsFrom
+            // 
+            this.txtNoSeatsFrom.Location = new System.Drawing.Point(255, 283);
+            this.txtNoSeatsFrom.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNoSeatsFrom.Name = "txtNoSeatsFrom";
+            this.txtNoSeatsFrom.Size = new System.Drawing.Size(181, 30);
+            this.txtNoSeatsFrom.TabIndex = 30;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(53, 352);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(148, 29);
+            this.label2.TabIndex = 29;
+            this.label2.Text = "NoSeats to";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(53, 282);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(188, 29);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "NoSeats From";
             // 
             // cobCatCode
             // 
@@ -180,48 +218,11 @@ namespace SoccerSYS
             this.lblCatCode.TabIndex = 13;
             this.lblCatCode.Text = "Category Code";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(53, 282);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 29);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "NoSeats From";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(53, 352);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 29);
-            this.label2.TabIndex = 29;
-            this.label2.Text = "NoSeats to";
-            // 
-            // txtNoSeatsFrom
-            // 
-            this.txtNoSeatsFrom.Location = new System.Drawing.Point(255, 283);
-            this.txtNoSeatsFrom.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNoSeatsFrom.Name = "txtNoSeatsFrom";
-            this.txtNoSeatsFrom.Size = new System.Drawing.Size(181, 30);
-            this.txtNoSeatsFrom.TabIndex = 30;
-            // 
-            // txtNoSeatsTo
-            // 
-            this.txtNoSeatsTo.Location = new System.Drawing.Point(255, 353);
-            this.txtNoSeatsTo.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNoSeatsTo.Name = "txtNoSeatsTo";
-            this.txtNoSeatsTo.Size = new System.Drawing.Size(181, 30);
-            this.txtNoSeatsTo.TabIndex = 31;
-            // 
             // frmUpdateCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.grpCategory);
             this.Controls.Add(this.button1);

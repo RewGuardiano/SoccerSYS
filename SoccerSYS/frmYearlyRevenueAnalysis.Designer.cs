@@ -48,7 +48,7 @@ namespace SoccerSYS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::SoccerSYS.Properties.Resources.RevenueChart;
+            this.BackgroundImage = global::SoccerSYS.Properties.Resources.RevenueChart1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(932, 653);
             this.Controls.Add(this.button1);
