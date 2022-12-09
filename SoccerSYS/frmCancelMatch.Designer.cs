@@ -30,31 +30,31 @@ namespace SoccerSYS
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCancelMatch));
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCancelMatch = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
             this.txtMatchDate = new System.Windows.Forms.TextBox();
             this.cobMatchTime = new System.Windows.Forms.ComboBox();
             this.cobTeams = new System.Windows.Forms.ComboBox();
             this.cobMatchID = new System.Windows.Forms.ComboBox();
             this.btnCancelSubmit = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbTime = new System.Windows.Forms.Label();
+            this.lbDate = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
-            this.lbldescription = new System.Windows.Forms.Label();
-            this.lblCatCode = new System.Windows.Forms.Label();
+            this.lbdescription = new System.Windows.Forms.Label();
+            this.lbMatchID = new System.Windows.Forms.Label();
             this.grpCategory.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // btnCancelMatch
             // 
-            this.button1.Location = new System.Drawing.Point(1, 4);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
-            this.button1.TabIndex = 12;
-            this.button1.Text = " < Back";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCancelMatch.Location = new System.Drawing.Point(1, 4);
+            this.btnCancelMatch.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelMatch.Name = "btnCancelMatch";
+            this.btnCancelMatch.Size = new System.Drawing.Size(100, 28);
+            this.btnCancelMatch.TabIndex = 12;
+            this.btnCancelMatch.Text = " < Back";
+            this.btnCancelMatch.UseVisualStyleBackColor = true;
+            this.btnCancelMatch.Click += new System.EventHandler(this.button1_Click);
             // 
             // grpCategory
             // 
@@ -63,11 +63,11 @@ namespace SoccerSYS
             this.grpCategory.Controls.Add(this.cobTeams);
             this.grpCategory.Controls.Add(this.cobMatchID);
             this.grpCategory.Controls.Add(this.btnCancelSubmit);
-            this.grpCategory.Controls.Add(this.label2);
-            this.grpCategory.Controls.Add(this.label1);
+            this.grpCategory.Controls.Add(this.lbTime);
+            this.grpCategory.Controls.Add(this.lbDate);
             this.grpCategory.Controls.Add(this.lblPrice);
-            this.grpCategory.Controls.Add(this.lbldescription);
-            this.grpCategory.Controls.Add(this.lblCatCode);
+            this.grpCategory.Controls.Add(this.lbdescription);
+            this.grpCategory.Controls.Add(this.lbMatchID);
             this.grpCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpCategory.Location = new System.Drawing.Point(86, 31);
             this.grpCategory.Margin = new System.Windows.Forms.Padding(4);
@@ -124,27 +124,27 @@ namespace SoccerSYS
             this.btnCancelSubmit.UseVisualStyleBackColor = true;
             this.btnCancelSubmit.Click += new System.EventHandler(this.btnCancelSubmit_Click);
             // 
-            // label2
+            // lbTime
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(89, 246);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 29);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Time";
+            this.lbTime.AutoSize = true;
+            this.lbTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTime.Location = new System.Drawing.Point(89, 246);
+            this.lbTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbTime.Name = "lbTime";
+            this.lbTime.Size = new System.Drawing.Size(74, 29);
+            this.lbTime.TabIndex = 18;
+            this.lbTime.Text = "Time";
             // 
-            // label1
+            // lbDate
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(93, 327);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 29);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Date";
+            this.lbDate.AutoSize = true;
+            this.lbDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDate.Location = new System.Drawing.Point(93, 327);
+            this.lbDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbDate.Name = "lbDate";
+            this.lbDate.Size = new System.Drawing.Size(70, 29);
+            this.lbDate.TabIndex = 17;
+            this.lbDate.Text = "Date";
             // 
             // lblPrice
             // 
@@ -156,27 +156,27 @@ namespace SoccerSYS
             this.lblPrice.Size = new System.Drawing.Size(0, 29);
             this.lblPrice.TabIndex = 16;
             // 
-            // lbldescription
+            // lbdescription
             // 
-            this.lbldescription.AutoSize = true;
-            this.lbldescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldescription.Location = new System.Drawing.Point(89, 146);
-            this.lbldescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbldescription.Name = "lbldescription";
-            this.lbldescription.Size = new System.Drawing.Size(96, 29);
-            this.lbldescription.TabIndex = 14;
-            this.lbldescription.Text = "Teams";
+            this.lbdescription.AutoSize = true;
+            this.lbdescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbdescription.Location = new System.Drawing.Point(89, 146);
+            this.lbdescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbdescription.Name = "lbdescription";
+            this.lbdescription.Size = new System.Drawing.Size(96, 29);
+            this.lbdescription.TabIndex = 14;
+            this.lbdescription.Text = "Teams";
             // 
-            // lblCatCode
+            // lbMatchID
             // 
-            this.lblCatCode.AutoSize = true;
-            this.lblCatCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCatCode.Location = new System.Drawing.Point(89, 52);
-            this.lblCatCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCatCode.Name = "lblCatCode";
-            this.lblCatCode.Size = new System.Drawing.Size(117, 29);
-            this.lblCatCode.TabIndex = 13;
-            this.lblCatCode.Text = "Match Id";
+            this.lbMatchID.AutoSize = true;
+            this.lbMatchID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMatchID.Location = new System.Drawing.Point(89, 52);
+            this.lbMatchID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbMatchID.Name = "lbMatchID";
+            this.lbMatchID.Size = new System.Drawing.Size(117, 29);
+            this.lbMatchID.TabIndex = 13;
+            this.lbMatchID.Text = "Match Id";
             // 
             // frmCancelMatch
             // 
@@ -185,7 +185,7 @@ namespace SoccerSYS
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.grpCategory);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCancelMatch);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCancelMatch";
@@ -198,14 +198,14 @@ namespace SoccerSYS
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCancelMatch;
         private System.Windows.Forms.GroupBox grpCategory;
         private System.Windows.Forms.Button btnCancelSubmit;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbTime;
+        private System.Windows.Forms.Label lbDate;
         private System.Windows.Forms.Label lblPrice;
-        private System.Windows.Forms.Label lbldescription;
-        private System.Windows.Forms.Label lblCatCode;
+        private System.Windows.Forms.Label lbdescription;
+        private System.Windows.Forms.Label lbMatchID;
         private System.Windows.Forms.ComboBox cobMatchTime;
         private System.Windows.Forms.ComboBox cobTeams;
         private System.Windows.Forms.ComboBox cobMatchID;

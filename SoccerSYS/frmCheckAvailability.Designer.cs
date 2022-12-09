@@ -32,12 +32,12 @@ namespace SoccerSYS
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCheckAvailability));
             this.btnBackCA = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
+            this.cobMatchDate = new System.Windows.Forms.ComboBox();
+            this.lbDate = new System.Windows.Forms.Label();
             this.cobTeams = new System.Windows.Forms.ComboBox();
             this.btnCheckAvailability = new System.Windows.Forms.Button();
             this.lblPrice = new System.Windows.Forms.Label();
-            this.lbldescription = new System.Windows.Forms.Label();
-            this.lbDate = new System.Windows.Forms.Label();
-            this.cobMatchDate = new System.Windows.Forms.ComboBox();
+            this.lbTeams = new System.Windows.Forms.Label();
             this.grpCategory.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +62,7 @@ namespace SoccerSYS
             this.grpCategory.Controls.Add(this.cobTeams);
             this.grpCategory.Controls.Add(this.btnCheckAvailability);
             this.grpCategory.Controls.Add(this.lblPrice);
-            this.grpCategory.Controls.Add(this.lbldescription);
+            this.grpCategory.Controls.Add(this.lbTeams);
             this.grpCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpCategory.ForeColor = System.Drawing.SystemColors.Desktop;
             this.grpCategory.Location = new System.Drawing.Point(73, 48);
@@ -74,6 +74,25 @@ namespace SoccerSYS
             this.grpCategory.TabStop = false;
             this.grpCategory.Text = "Select Match:";
             this.grpCategory.Enter += new System.EventHandler(this.grpCategory_Enter);
+            // 
+            // cobMatchDate
+            // 
+            this.cobMatchDate.FormattingEnabled = true;
+            this.cobMatchDate.Location = new System.Drawing.Point(336, 192);
+            this.cobMatchDate.Name = "cobMatchDate";
+            this.cobMatchDate.Size = new System.Drawing.Size(193, 33);
+            this.cobMatchDate.TabIndex = 27;
+            // 
+            // lbDate
+            // 
+            this.lbDate.AutoSize = true;
+            this.lbDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDate.Location = new System.Drawing.Point(203, 196);
+            this.lbDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbDate.Name = "lbDate";
+            this.lbDate.Size = new System.Drawing.Size(70, 29);
+            this.lbDate.TabIndex = 26;
+            this.lbDate.Text = "Date";
             // 
             // cobTeams
             // 
@@ -87,7 +106,7 @@ namespace SoccerSYS
             // 
             this.btnCheckAvailability.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCheckAvailability.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCheckAvailability.Location = new System.Drawing.Point(336, 270);
+            this.btnCheckAvailability.Location = new System.Drawing.Point(336, 277);
             this.btnCheckAvailability.Margin = new System.Windows.Forms.Padding(4);
             this.btnCheckAvailability.Name = "btnCheckAvailability";
             this.btnCheckAvailability.Size = new System.Drawing.Size(193, 72);
@@ -106,35 +125,16 @@ namespace SoccerSYS
             this.lblPrice.Size = new System.Drawing.Size(0, 29);
             this.lblPrice.TabIndex = 16;
             // 
-            // lbldescription
+            // lbTeams
             // 
-            this.lbldescription.AutoSize = true;
-            this.lbldescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldescription.Location = new System.Drawing.Point(203, 114);
-            this.lbldescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbldescription.Name = "lbldescription";
-            this.lbldescription.Size = new System.Drawing.Size(96, 29);
-            this.lbldescription.TabIndex = 14;
-            this.lbldescription.Text = "Teams";
-            // 
-            // lbDate
-            // 
-            this.lbDate.AutoSize = true;
-            this.lbDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDate.Location = new System.Drawing.Point(203, 196);
-            this.lbDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbDate.Name = "lbDate";
-            this.lbDate.Size = new System.Drawing.Size(70, 29);
-            this.lbDate.TabIndex = 26;
-            this.lbDate.Text = "Date";
-            // 
-            // cobMatchDate
-            // 
-            this.cobMatchDate.FormattingEnabled = true;
-            this.cobMatchDate.Location = new System.Drawing.Point(336, 192);
-            this.cobMatchDate.Name = "cobMatchDate";
-            this.cobMatchDate.Size = new System.Drawing.Size(193, 33);
-            this.cobMatchDate.TabIndex = 27;
+            this.lbTeams.AutoSize = true;
+            this.lbTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTeams.Location = new System.Drawing.Point(203, 114);
+            this.lbTeams.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbTeams.Name = "lbTeams";
+            this.lbTeams.Size = new System.Drawing.Size(96, 29);
+            this.lbTeams.TabIndex = 14;
+            this.lbTeams.Text = "Teams";
             // 
             // frmCheckAvailability
             // 
@@ -162,7 +162,7 @@ namespace SoccerSYS
         private System.Windows.Forms.ComboBox cobTeams;
         private System.Windows.Forms.Button btnCheckAvailability;
         private System.Windows.Forms.Label lblPrice;
-        private System.Windows.Forms.Label lbldescription;
+        private System.Windows.Forms.Label lbTeams;
         private System.Windows.Forms.ComboBox cobMatchDate;
         private System.Windows.Forms.Label lbDate;
     }

@@ -30,19 +30,19 @@ namespace SoccerSYS
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmYearlyTicketAnalysis));
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnbackYTA = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnbackYTA
             // 
-            this.button1.Location = new System.Drawing.Point(3, 1);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
-            this.button1.TabIndex = 16;
-            this.button1.Text = " < Back";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnbackYTA.Location = new System.Drawing.Point(3, 1);
+            this.btnbackYTA.Margin = new System.Windows.Forms.Padding(4);
+            this.btnbackYTA.Name = "btnbackYTA";
+            this.btnbackYTA.Size = new System.Drawing.Size(100, 28);
+            this.btnbackYTA.TabIndex = 16;
+            this.btnbackYTA.Text = " < Back";
+            this.btnbackYTA.UseVisualStyleBackColor = true;
+            this.btnbackYTA.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmYearlyTicketAnalysis
             // 
@@ -51,9 +51,10 @@ namespace SoccerSYS
             this.BackgroundImage = global::SoccerSYS.Properties.Resources.TicketChart;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnbackYTA);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmYearlyTicketAnalysis";
             this.Text = "YearlyTicketAnalysis";
             this.ResumeLayout(false);
@@ -62,6 +63,6 @@ namespace SoccerSYS
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnbackYTA;
     }
 }

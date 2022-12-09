@@ -12,6 +12,7 @@ namespace SoccerSYS
 {
     public partial class frmSetCategory : Form
     {
+        
         public frmSetCategory()
         {
             InitializeComponent();

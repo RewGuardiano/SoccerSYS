@@ -32,15 +32,15 @@ namespace SoccerSYS
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmScheduleMatch));
             this.button1 = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
-            this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnSubmitSchedule = new System.Windows.Forms.Button();
             this.txtMatchID = new System.Windows.Forms.TextBox();
             this.txtMatchDate = new System.Windows.Forms.TextBox();
             this.txtMatchTime = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbTime = new System.Windows.Forms.Label();
+            this.lbDate = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.txtTeams = new System.Windows.Forms.TextBox();
-            this.lbldescription = new System.Windows.Forms.Label();
+            this.lbTeams = new System.Windows.Forms.Label();
             this.lblCatCode = new System.Windows.Forms.Label();
             this.grpCategory.SuspendLayout();
             this.SuspendLayout();
@@ -58,15 +58,15 @@ namespace SoccerSYS
             // 
             // grpCategory
             // 
-            this.grpCategory.Controls.Add(this.btnSubmit);
+            this.grpCategory.Controls.Add(this.btnSubmitSchedule);
             this.grpCategory.Controls.Add(this.txtMatchID);
             this.grpCategory.Controls.Add(this.txtMatchDate);
             this.grpCategory.Controls.Add(this.txtMatchTime);
-            this.grpCategory.Controls.Add(this.label2);
-            this.grpCategory.Controls.Add(this.label1);
+            this.grpCategory.Controls.Add(this.lbTime);
+            this.grpCategory.Controls.Add(this.lbDate);
             this.grpCategory.Controls.Add(this.lblPrice);
             this.grpCategory.Controls.Add(this.txtTeams);
-            this.grpCategory.Controls.Add(this.lbldescription);
+            this.grpCategory.Controls.Add(this.lbTeams);
             this.grpCategory.Controls.Add(this.lblCatCode);
             this.grpCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpCategory.Location = new System.Drawing.Point(86, 31);
@@ -78,18 +78,18 @@ namespace SoccerSYS
             this.grpCategory.TabStop = false;
             this.grpCategory.Text = "Enter Match Details:";
             // 
-            // btnSubmit
+            // btnSubmitSchedule
             // 
-            this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSubmit.Location = new System.Drawing.Point(228, 413);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(193, 72);
-            this.btnSubmit.TabIndex = 22;
-            this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            this.btnSubmitSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmitSchedule.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnSubmitSchedule.Location = new System.Drawing.Point(228, 413);
+            this.btnSubmitSchedule.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSubmitSchedule.Name = "btnSubmitSchedule";
+            this.btnSubmitSchedule.Size = new System.Drawing.Size(193, 72);
+            this.btnSubmitSchedule.TabIndex = 22;
+            this.btnSubmitSchedule.Text = "Submit";
+            this.btnSubmitSchedule.UseVisualStyleBackColor = true;
+            this.btnSubmitSchedule.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // txtMatchID
             // 
@@ -115,27 +115,27 @@ namespace SoccerSYS
             this.txtMatchTime.Size = new System.Drawing.Size(154, 30);
             this.txtMatchTime.TabIndex = 19;
             // 
-            // label2
+            // lbTime
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(66, 247);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 29);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Time";
+            this.lbTime.AutoSize = true;
+            this.lbTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTime.Location = new System.Drawing.Point(66, 247);
+            this.lbTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbTime.Name = "lbTime";
+            this.lbTime.Size = new System.Drawing.Size(74, 29);
+            this.lbTime.TabIndex = 18;
+            this.lbTime.Text = "Time";
             // 
-            // label1
+            // lbDate
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(66, 335);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 29);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Date";
+            this.lbDate.AutoSize = true;
+            this.lbDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDate.Location = new System.Drawing.Point(66, 335);
+            this.lbDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbDate.Name = "lbDate";
+            this.lbDate.Size = new System.Drawing.Size(70, 29);
+            this.lbDate.TabIndex = 17;
+            this.lbDate.Text = "Date";
             // 
             // lblPrice
             // 
@@ -155,16 +155,16 @@ namespace SoccerSYS
             this.txtTeams.Size = new System.Drawing.Size(273, 30);
             this.txtTeams.TabIndex = 15;
             // 
-            // lbldescription
+            // lbTeams
             // 
-            this.lbldescription.AutoSize = true;
-            this.lbldescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldescription.Location = new System.Drawing.Point(53, 142);
-            this.lbldescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbldescription.Name = "lbldescription";
-            this.lbldescription.Size = new System.Drawing.Size(96, 29);
-            this.lbldescription.TabIndex = 14;
-            this.lbldescription.Text = "Teams";
+            this.lbTeams.AutoSize = true;
+            this.lbTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTeams.Location = new System.Drawing.Point(53, 142);
+            this.lbTeams.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbTeams.Name = "lbTeams";
+            this.lbTeams.Size = new System.Drawing.Size(96, 29);
+            this.lbTeams.TabIndex = 14;
+            this.lbTeams.Text = "Teams";
             // 
             // lblCatCode
             // 
@@ -202,12 +202,12 @@ namespace SoccerSYS
         private System.Windows.Forms.TextBox txtMatchID;
         private System.Windows.Forms.TextBox txtMatchDate;
         private System.Windows.Forms.TextBox txtMatchTime;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbTime;
+        private System.Windows.Forms.Label lbDate;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.TextBox txtTeams;
-        private System.Windows.Forms.Label lbldescription;
+        private System.Windows.Forms.Label lbTeams;
         private System.Windows.Forms.Label lblCatCode;
-        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button btnSubmitSchedule;
     }
 }

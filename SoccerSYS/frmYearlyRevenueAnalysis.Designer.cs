@@ -30,19 +30,19 @@ namespace SoccerSYS
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frrmYearlyRevenueAnalysis));
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnbackYRA = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btnbackYRA
             // 
-            this.button1.Location = new System.Drawing.Point(1, 2);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
-            this.button1.TabIndex = 15;
-            this.button1.Text = " < Back";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnbackYRA.Location = new System.Drawing.Point(1, 2);
+            this.btnbackYRA.Margin = new System.Windows.Forms.Padding(4);
+            this.btnbackYRA.Name = "btnbackYRA";
+            this.btnbackYRA.Size = new System.Drawing.Size(100, 28);
+            this.btnbackYRA.TabIndex = 15;
+            this.btnbackYRA.Text = " < Back";
+            this.btnbackYRA.UseVisualStyleBackColor = true;
+            this.btnbackYRA.Click += new System.EventHandler(this.button1_Click);
             // 
             // frrmYearlyRevenueAnalysis
             // 
@@ -51,7 +51,7 @@ namespace SoccerSYS
             this.BackgroundImage = global::SoccerSYS.Properties.Resources.RevenueChart1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(932, 653);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnbackYRA);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -64,6 +64,6 @@ namespace SoccerSYS
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnbackYRA;
     }
 }
