@@ -78,7 +78,7 @@ namespace SoccerSYS
                 MessageBox.Show("Number of Seats to must be numeric and must be greater than 0 ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtNoSeatsTo.Focus();
                 return;
-
+                
             }
             MessageBox.Show("Category Added", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -90,9 +90,12 @@ namespace SoccerSYS
             txtNoSeatsFrom.Clear();
             txtNoSeatsTo.Clear();
 
-      
 
+            //I wasn't able to validate the bussiness rule for //
+            //where NoSeats for the category must not generate a total capacity for all categories greater than stadium capacity//
+            //Also I couldn't do the validation where No of seats in range SeatFrom to SeatTo must equal number of seats// 
         }
+    }
 
        
     }
