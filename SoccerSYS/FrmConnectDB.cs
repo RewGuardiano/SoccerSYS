@@ -22,7 +22,7 @@ namespace SoccerSYS
         private void btnOpenConnection_Click(object sender, EventArgs e)
         {
             conn.Open();
-            lblStatusConnection.Text = "Connection Opened;
+            lblStatusConnection.Text = "Connection Open;
 
         }
 
