@@ -16,7 +16,7 @@ namespace SoccerSYS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmConnectDB());
+            Application.Run(new frmMainMenu());
         }
     }
 }

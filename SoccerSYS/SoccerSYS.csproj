@@ -92,12 +92,6 @@
     <Compile Include="frmCheckAvailability.Designer.cs">
       <DependentUpon>frmCheckAvailability.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmConnectDB.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmConnectDB.Designer.cs">
-      <DependentUpon>FrmConnectDB.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmScheduleMatch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,14 +148,12 @@
     <Compile Include="frmYearlyRevenueAnalysis.Designer.cs">
       <DependentUpon>frmYearlyRevenueAnalysis.cs</DependentUpon>
     </Compile>
+    <Compile Include="Category.cs" />
     <EmbeddedResource Include="frmCancelMatch.resx">
       <DependentUpon>frmCancelMatch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCheckAvailability.resx">
       <DependentUpon>frmCheckAvailability.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmConnectDB.resx">
-      <DependentUpon>FrmConnectDB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProcessSales.resx">
       <DependentUpon>frmProcessSales.cs</DependentUpon>
