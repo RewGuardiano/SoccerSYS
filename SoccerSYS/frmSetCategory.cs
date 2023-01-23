@@ -80,6 +80,11 @@ namespace SoccerSYS
                 return;
                 
             }
+            Category aCategory = new Category(txtCatCode.Text, txtdescription.Text, Convert.ToInt32(txtNoSeats.Text),
+                Convert.ToInt32(txtNoSeatsFrom.Text), Convert.ToInt32(txtNoSeatsTo.Text),Convert.ToInt32(txtPrice.Text));
+
+            aCategory.SetCategory();
+
             MessageBox.Show("Category Added", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 

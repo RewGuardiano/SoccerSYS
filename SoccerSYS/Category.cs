@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using Oracle.ManagedDataAccess.Client;
+
 
 namespace SoccerSYS
 {
@@ -87,6 +90,26 @@ namespace SoccerSYS
         public void setSeatTo(int seatTo)
         {
             SeatTo = seatTo;
+        }
+
+        public void SetCategory()
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            String sqlQuery = "INSERT INTO CATEGORY Values (" +
+                this.CatCode + "','" +
+                this.description + "','" +
+                this.Price + "','" +
+                this.NoSeats + "','" +
+                this.SeatFrom + "','" +
+                this.SeatTo + "')";
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
         }
     }
 }
