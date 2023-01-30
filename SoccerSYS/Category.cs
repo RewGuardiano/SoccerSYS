@@ -111,5 +111,25 @@ namespace SoccerSYS
 
             conn.Close();
         }
+        public void UpdateCategory()
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            String sqlQuery = "Update Category Ticket " +
+                "CategoryCode = " + this.CatCode + "," +
+                "Description = " + this.description + "," +
+                "Price = " + this.Price + "," +
+                "NoSeats = " + this.NoSeats + "," +
+                "NoSeatFrom = " + this.SeatFrom + "," +
+                "NoSeatTo = " + this.SeatTo + " " +
+                "Where CategoryCode = " + this.CatCode;
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
     }
 }
