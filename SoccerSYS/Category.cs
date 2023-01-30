@@ -92,6 +92,30 @@ namespace SoccerSYS
             SeatTo = seatTo;
         }
 
+        public void getCategory(int id)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            String sqlQuery = "SELECT * FROM Category WHERE CategoryID =  " + id;
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            OracleDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+
+            setCatCode(dr.GetString(1));
+            setdescription(dr.GetString(20));
+            setprice(dr.GetDecimal(5));
+            setNoSeats(dr.GetInt32(4));
+            setSeatFrom(dr.GetInt32(4));
+            setSeatTo(dr.GetInt32(4));
+
+            conn.Close();
+            
+
+        }
+
         public void SetCategory()
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);

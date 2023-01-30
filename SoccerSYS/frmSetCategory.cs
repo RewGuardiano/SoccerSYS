@@ -49,7 +49,7 @@ namespace SoccerSYS
                 return;
             }
             bool isNumber = int.TryParse(txtPrice.Text, out int i);
-            if (isNumber==false || !txtPrice.Text.Contains("."))
+            if (isNumber==true || !txtPrice.Text.Contains("."))
             {
 
                 MessageBox.Show("Price must be mumeric and a decimal ", "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);

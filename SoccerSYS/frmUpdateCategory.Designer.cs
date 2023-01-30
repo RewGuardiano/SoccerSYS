@@ -47,15 +47,15 @@ namespace SoccerSYS
             this.txtdescription = new System.Windows.Forms.TextBox();
             this.lbldescription = new System.Windows.Forms.Label();
             this.lblCatCode = new System.Windows.Forms.Label();
+            this.lbEnterCatCode = new System.Windows.Forms.Label();
             this.grpCategory.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnbackUpdateCat
             // 
             this.btnbackUpdateCat.Location = new System.Drawing.Point(1, 0);
-            this.btnbackUpdateCat.Margin = new System.Windows.Forms.Padding(4);
             this.btnbackUpdateCat.Name = "btnbackUpdateCat";
-            this.btnbackUpdateCat.Size = new System.Drawing.Size(100, 28);
+            this.btnbackUpdateCat.Size = new System.Drawing.Size(75, 23);
             this.btnbackUpdateCat.TabIndex = 9;
             this.btnbackUpdateCat.Text = " < Back";
             this.btnbackUpdateCat.UseVisualStyleBackColor = true;
@@ -77,11 +77,9 @@ namespace SoccerSYS
             this.grpCategory.Controls.Add(this.lbldescription);
             this.grpCategory.Controls.Add(this.lblCatCode);
             this.grpCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpCategory.Location = new System.Drawing.Point(62, 48);
-            this.grpCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.grpCategory.Location = new System.Drawing.Point(46, 39);
             this.grpCategory.Name = "grpCategory";
-            this.grpCategory.Padding = new System.Windows.Forms.Padding(4);
-            this.grpCategory.Size = new System.Drawing.Size(894, 493);
+            this.grpCategory.Size = new System.Drawing.Size(670, 401);
             this.grpCategory.TabIndex = 14;
             this.grpCategory.TabStop = false;
             this.grpCategory.Text = "Enter Details:";
@@ -89,28 +87,25 @@ namespace SoccerSYS
             // 
             // txtNoSeatsTo
             // 
-            this.txtNoSeatsTo.Location = new System.Drawing.Point(255, 353);
-            this.txtNoSeatsTo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNoSeatsTo.Location = new System.Drawing.Point(191, 287);
             this.txtNoSeatsTo.Name = "txtNoSeatsTo";
-            this.txtNoSeatsTo.Size = new System.Drawing.Size(181, 30);
+            this.txtNoSeatsTo.Size = new System.Drawing.Size(137, 26);
             this.txtNoSeatsTo.TabIndex = 31;
             // 
             // txtNoSeatsFrom
             // 
-            this.txtNoSeatsFrom.Location = new System.Drawing.Point(255, 283);
-            this.txtNoSeatsFrom.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNoSeatsFrom.Location = new System.Drawing.Point(191, 230);
             this.txtNoSeatsFrom.Name = "txtNoSeatsFrom";
-            this.txtNoSeatsFrom.Size = new System.Drawing.Size(181, 30);
+            this.txtNoSeatsFrom.Size = new System.Drawing.Size(137, 26);
             this.txtNoSeatsFrom.TabIndex = 30;
             // 
             // lbSeatTo
             // 
             this.lbSeatTo.AutoSize = true;
             this.lbSeatTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSeatTo.Location = new System.Drawing.Point(53, 352);
-            this.lbSeatTo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbSeatTo.Location = new System.Drawing.Point(40, 286);
             this.lbSeatTo.Name = "lbSeatTo";
-            this.lbSeatTo.Size = new System.Drawing.Size(148, 29);
+            this.lbSeatTo.Size = new System.Drawing.Size(119, 25);
             this.lbSeatTo.TabIndex = 29;
             this.lbSeatTo.Text = "NoSeats to";
             // 
@@ -118,10 +113,9 @@ namespace SoccerSYS
             // 
             this.lbSeatFrom.AutoSize = true;
             this.lbSeatFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSeatFrom.Location = new System.Drawing.Point(53, 282);
-            this.lbSeatFrom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbSeatFrom.Location = new System.Drawing.Point(40, 229);
             this.lbSeatFrom.Name = "lbSeatFrom";
-            this.lbSeatFrom.Size = new System.Drawing.Size(188, 29);
+            this.lbSeatFrom.Size = new System.Drawing.Size(150, 25);
             this.lbSeatFrom.TabIndex = 26;
             this.lbSeatFrom.Text = "NoSeats From";
             // 
@@ -132,35 +126,33 @@ namespace SoccerSYS
             "A",
             "B",
             "C"});
-            this.cobCatCode.Location = new System.Drawing.Point(266, 48);
+            this.cobCatCode.Location = new System.Drawing.Point(200, 39);
+            this.cobCatCode.Margin = new System.Windows.Forms.Padding(2);
             this.cobCatCode.Name = "cobCatCode";
-            this.cobCatCode.Size = new System.Drawing.Size(157, 33);
+            this.cobCatCode.Size = new System.Drawing.Size(119, 28);
             this.cobCatCode.TabIndex = 28;
             // 
             // txtNoSeats
             // 
-            this.txtNoSeats.Location = new System.Drawing.Point(255, 221);
-            this.txtNoSeats.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNoSeats.Location = new System.Drawing.Point(191, 180);
             this.txtNoSeats.Name = "txtNoSeats";
-            this.txtNoSeats.Size = new System.Drawing.Size(181, 30);
+            this.txtNoSeats.Size = new System.Drawing.Size(137, 26);
             this.txtNoSeats.TabIndex = 27;
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(255, 162);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPrice.Location = new System.Drawing.Point(191, 132);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(181, 30);
+            this.txtPrice.Size = new System.Drawing.Size(137, 26);
             this.txtPrice.TabIndex = 20;
             // 
             // btnUpdateCategory
             // 
             this.btnUpdateCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateCategory.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnUpdateCategory.Location = new System.Drawing.Point(255, 413);
-            this.btnUpdateCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpdateCategory.Location = new System.Drawing.Point(191, 336);
             this.btnUpdateCategory.Name = "btnUpdateCategory";
-            this.btnUpdateCategory.Size = new System.Drawing.Size(193, 72);
+            this.btnUpdateCategory.Size = new System.Drawing.Size(145, 58);
             this.btnUpdateCategory.TabIndex = 19;
             this.btnUpdateCategory.Text = "Update Category";
             this.btnUpdateCategory.UseVisualStyleBackColor = true;
@@ -170,10 +162,9 @@ namespace SoccerSYS
             // 
             this.lblNoSeats.AutoSize = true;
             this.lblNoSeats.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNoSeats.Location = new System.Drawing.Point(53, 214);
-            this.lblNoSeats.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNoSeats.Location = new System.Drawing.Point(40, 174);
             this.lblNoSeats.Name = "lblNoSeats";
-            this.lblNoSeats.Size = new System.Drawing.Size(117, 29);
+            this.lblNoSeats.Size = new System.Drawing.Size(95, 25);
             this.lblNoSeats.TabIndex = 17;
             this.lblNoSeats.Text = "NoSeats";
             // 
@@ -181,29 +172,26 @@ namespace SoccerSYS
             // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(53, 154);
-            this.lblPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPrice.Location = new System.Drawing.Point(40, 125);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(76, 29);
+            this.lblPrice.Size = new System.Drawing.Size(61, 25);
             this.lblPrice.TabIndex = 16;
             this.lblPrice.Text = "Price";
             // 
             // txtdescription
             // 
-            this.txtdescription.Location = new System.Drawing.Point(255, 104);
-            this.txtdescription.Margin = new System.Windows.Forms.Padding(4);
+            this.txtdescription.Location = new System.Drawing.Point(191, 84);
             this.txtdescription.Name = "txtdescription";
-            this.txtdescription.Size = new System.Drawing.Size(181, 30);
+            this.txtdescription.Size = new System.Drawing.Size(137, 26);
             this.txtdescription.TabIndex = 15;
             // 
             // lbldescription
             // 
             this.lbldescription.AutoSize = true;
             this.lbldescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldescription.Location = new System.Drawing.Point(53, 104);
-            this.lbldescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbldescription.Location = new System.Drawing.Point(40, 84);
             this.lbldescription.Name = "lbldescription";
-            this.lbldescription.Size = new System.Drawing.Size(151, 29);
+            this.lbldescription.Size = new System.Drawing.Size(120, 25);
             this.lbldescription.TabIndex = 14;
             this.lbldescription.Text = "Description";
             // 
@@ -211,28 +199,37 @@ namespace SoccerSYS
             // 
             this.lblCatCode.AutoSize = true;
             this.lblCatCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCatCode.Location = new System.Drawing.Point(53, 47);
-            this.lblCatCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCatCode.Location = new System.Drawing.Point(40, 38);
             this.lblCatCode.Name = "lblCatCode";
-            this.lblCatCode.Size = new System.Drawing.Size(195, 29);
+            this.lblCatCode.Size = new System.Drawing.Size(158, 25);
             this.lblCatCode.TabIndex = 13;
             this.lblCatCode.Text = "Category Code";
             // 
+            // lbEnterCatCode
+            // 
+            this.lbEnterCatCode.AutoSize = true;
+            this.lbEnterCatCode.Location = new System.Drawing.Point(106, 9);
+            this.lbEnterCatCode.Name = "lbEnterCatCode";
+            this.lbEnterCatCode.Size = new System.Drawing.Size(104, 13);
+            this.lbEnterCatCode.TabIndex = 32;
+            this.lbEnterCatCode.Text = "Enter Category Type";
+            // 
             // frmUpdateCategory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lbEnterCatCode);
             this.Controls.Add(this.grpCategory);
             this.Controls.Add(this.btnbackUpdateCat);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmUpdateCategory";
             this.Text = "UpdateCategory";
             this.grpCategory.ResumeLayout(false);
             this.grpCategory.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -255,5 +252,6 @@ namespace SoccerSYS
         private System.Windows.Forms.Label lbSeatTo;
         private System.Windows.Forms.TextBox txtNoSeatsFrom;
         private System.Windows.Forms.TextBox txtNoSeatsTo;
+        private System.Windows.Forms.Label lbEnterCatCode;
     }
 }
