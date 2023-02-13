@@ -155,5 +155,28 @@ namespace SoccerSYS
 
             conn.Close();
         }
+
+        public static DataSet findCategory(String CatType)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            String sqlQuery = "SELECT CatCode,description,Price From Categories " +
+                "WHERE description LIKE '%" + CatType + "%' ORDER BY Description";
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Cat");
+
+            conn.Close();
+
+            return ds;
+   
+        }
     }
 }

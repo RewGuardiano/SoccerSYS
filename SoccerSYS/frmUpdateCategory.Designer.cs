@@ -31,6 +31,7 @@ namespace SoccerSYS
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUpdateCategory));
             this.btnbackUpdateCat = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
@@ -48,7 +49,12 @@ namespace SoccerSYS
             this.lbldescription = new System.Windows.Forms.Label();
             this.lblCatCode = new System.Windows.Forms.Label();
             this.lbEnterCatCode = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.grdCategory = new System.Windows.Forms.DataGridView();
             this.grpCategory.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdCategory)).BeginInit();
             this.SuspendLayout();
             // 
             // btnbackUpdateCat
@@ -77,13 +83,12 @@ namespace SoccerSYS
             this.grpCategory.Controls.Add(this.lbldescription);
             this.grpCategory.Controls.Add(this.lblCatCode);
             this.grpCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpCategory.Location = new System.Drawing.Point(46, 39);
+            this.grpCategory.Location = new System.Drawing.Point(46, 126);
             this.grpCategory.Name = "grpCategory";
-            this.grpCategory.Size = new System.Drawing.Size(670, 401);
+            this.grpCategory.Size = new System.Drawing.Size(670, 405);
             this.grpCategory.TabIndex = 14;
             this.grpCategory.TabStop = false;
             this.grpCategory.Text = "Enter Details:";
-            this.grpCategory.Enter += new System.EventHandler(this.grpCategory_Enter);
             // 
             // txtNoSeatsTo
             // 
@@ -214,12 +219,46 @@ namespace SoccerSYS
             this.lbEnterCatCode.TabIndex = 32;
             this.lbEnterCatCode.Text = "Enter Category Type";
             // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(237, 9);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(227, 20);
+            this.txtSearch.TabIndex = 33;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(501, 7);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 35;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // grdCategory
+            // 
+            this.grdCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdCategory.Location = new System.Drawing.Point(58, 36);
+            this.grdCategory.Name = "grdCategory";
+            this.grdCategory.Size = new System.Drawing.Size(658, 85);
+            this.grdCategory.TabIndex = 36;
+            this.grdCategory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCategory_CellContentClick);
+            // 
             // frmUpdateCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 543);
+            this.Controls.Add(this.grdCategory);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lbEnterCatCode);
             this.Controls.Add(this.grpCategory);
             this.Controls.Add(this.btnbackUpdateCat);
@@ -228,6 +267,7 @@ namespace SoccerSYS
             this.Text = "UpdateCategory";
             this.grpCategory.ResumeLayout(false);
             this.grpCategory.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdCategory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,5 +293,9 @@ namespace SoccerSYS
         private System.Windows.Forms.TextBox txtNoSeatsFrom;
         private System.Windows.Forms.TextBox txtNoSeatsTo;
         private System.Windows.Forms.Label lbEnterCatCode;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.DataGridView grdCategory;
     }
 }

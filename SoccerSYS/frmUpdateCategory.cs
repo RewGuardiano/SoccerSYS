@@ -12,6 +12,7 @@ namespace SoccerSYS
 {
     public partial class frmUpdateCategory : Form
     {
+        Category theCategory = new Category();
         public frmUpdateCategory()
         {
             InitializeComponent();
@@ -29,11 +30,8 @@ namespace SoccerSYS
             to.Show();
             this.Close();
         }
-
-        private void grpCategory_Enter(object sender, EventArgs e)
-        {
-
-        }
+       
+     
         private void btnUpdateCategory_Click(object sender, EventArgs e)
         {
 
@@ -77,15 +75,44 @@ namespace SoccerSYS
             }
             MessageBox.Show("Category Added", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            theCategory.UpdateCategory();
 
             txtdescription.Clear();
             txtPrice.Clear();
             txtNoSeats.Clear();
             txtNoSeatsFrom.Clear();
             txtNoSeatsTo.Clear();
+            grpCategory.Visible = false;
+            grdCategory.Visible = false;
 
         }
 
-       
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            grdCategory.DataSource = Category.findCategory(txtSearch.Text).Tables["Cat"];
+
+            if(grdCategory.Rows.Count == 1 )
+            {
+                MessageBox.Show("No Data Found");
+                txtSearch.Focus();
+                return;
+            }
+        }
+
+        private void grdCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int Id = Convert.ToInt32(grdCategory.Rows[grdCategory.CurrentCell.RowIndex].Cells[0].Value.ToString());
+
+            theCategory.getCategory(Id);
+
+            txtdescription.Text = theCategory.getdescription();
+            txtPrice.Text = theCategory.getprice().ToString("###0.00");
+            txtNoSeats.Text = theCategory.getNoSeats().ToString("00000");
+            txtNoSeatsFrom.Text = theCategory.getSeatFrom().ToString("000");
+            txtNoSeatsTo.Text = theCategory.getSeatTo().ToString("0000");
+
+
+            grpCategory.Visible = true;
+        }
     }
 }
