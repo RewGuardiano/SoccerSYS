@@ -29,7 +29,7 @@ namespace SoccerSYS
             this.SeatTo = 0;
 
         }
-        public Category(string CatCode, string description, decimal price, int Noseats, int SeatFrom, int SeatTo)
+        public Category(string CatCode, string description, decimal price, int NoSeats, int SeatFrom, int SeatTo)
         {
             this.CatCode = CatCode;
             this.description = description;
@@ -67,7 +67,7 @@ namespace SoccerSYS
         }
         public void setCatCode(string CatCode)
         {
-            CatCode = CatCode;
+            this.CatCode = CatCode;
 
         }
         public void setdescription(string Description)
@@ -96,7 +96,7 @@ namespace SoccerSYS
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            String sqlQuery = "SELECT * FROM Category WHERE CategoryID =  " + id;
+            String sqlQuery = "SELECT * FROM CATEGORIES WHERE CategoryID =  " + id;
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
@@ -120,13 +120,13 @@ namespace SoccerSYS
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            String sqlQuery = "INSERT INTO CATEGORY Values (" +
+            String sqlQuery = "INSERT INTO CATEGORIES Values ('" +
                 this.CatCode + "','" +
-                this.description + "','" +
-                this.Price + "','" +
-                this.NoSeats + "','" +
-                this.SeatFrom + "','" +
-                this.SeatTo + "')";
+                this.description + "'," +
+                this.Price + "," +
+                this.NoSeats + "," +
+                this.SeatFrom + "," +
+                this.SeatTo + ")";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
@@ -139,7 +139,7 @@ namespace SoccerSYS
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            String sqlQuery = "Update Category Ticket " +
+            String sqlQuery = "Update Categories Ticket " +
                 "CategoryCode = " + this.CatCode + "," +
                 "Description = " + this.description + "," +
                 "Price = " + this.Price + "," +
