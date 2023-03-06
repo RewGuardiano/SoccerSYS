@@ -89,7 +89,7 @@ namespace SoccerSYS
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            grdCategory.DataSource = Category.findCategory(txtSearch.Text).Tables["Cat"];
+            grdCategory.DataSource = Category.FindCategory(txtSearch.Text).Tables["Cat"];
 
             if(grdCategory.Rows.Count == 1 )
             {

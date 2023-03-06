@@ -91,6 +91,25 @@ namespace SoccerSYS
         {
             SeatTo = seatTo;
         }
+        public static DataSet getAllCategories(String CatType)
+        {
+
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            String sqlQuery = "Select CatCode, description,Price,NoSeats" + "FROM CATEGORIES WHERE Catcode = " + CatType + " ORDER BY description";
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Cat");
+
+            conn.Close();
+
+            return ds;
+        }
+
 
         public void getCategory(int id)
         {
@@ -139,14 +158,13 @@ namespace SoccerSYS
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            String sqlQuery = "Update Categories Ticket " +
-                "CategoryCode = " + this.CatCode + "," +
-                "Description = " + this.description + "," +
+            String sqlQuery = "Update Categories Set CatCode = '" + CatCode +
+                "',Description = '" + this.description + "'," +
                 "Price = " + this.Price + "," +
                 "NoSeats = " + this.NoSeats + "," +
                 "NoSeatFrom = " + this.SeatFrom + "," +
                 "NoSeatTo = " + this.SeatTo + " " +
-                "Where CategoryCode = " + this.CatCode;
+                "Where CategoryCode = '" + this.CatCode + "'";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
@@ -156,12 +174,12 @@ namespace SoccerSYS
             conn.Close();
         }
 
-        public static DataSet findCategory(String CatType)
+        public static DataSet FindCategory(String CatType)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            String sqlQuery = "SELECT CatCode,description,Price From Categories " +
-                "WHERE description LIKE '%" + CatType + "%' ORDER BY Description";
+            String sqlQuery = "SELECT CatCode,Description,Price From Categories " +
+                "WHERE Catcode LIKE '%" + CatType + "%' ORDER BY Catcode";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
 
