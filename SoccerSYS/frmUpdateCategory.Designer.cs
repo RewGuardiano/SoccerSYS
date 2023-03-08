@@ -31,7 +31,6 @@ namespace SoccerSYS
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUpdateCategory));
             this.btnbackUpdateCat = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
@@ -50,7 +49,6 @@ namespace SoccerSYS
             this.lblCatCode = new System.Windows.Forms.Label();
             this.lbEnterCatCode = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnSearch = new System.Windows.Forms.Button();
             this.grdCategory = new System.Windows.Forms.DataGridView();
             this.grpCategory.SuspendLayout();
@@ -226,11 +224,6 @@ namespace SoccerSYS
             this.txtSearch.Size = new System.Drawing.Size(227, 20);
             this.txtSearch.TabIndex = 33;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(501, 7);
@@ -294,7 +287,6 @@ namespace SoccerSYS
         private System.Windows.Forms.TextBox txtNoSeatsTo;
         private System.Windows.Forms.Label lbEnterCatCode;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DataGridView grdCategory;
     }

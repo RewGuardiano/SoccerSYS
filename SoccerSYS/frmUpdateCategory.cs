@@ -73,7 +73,7 @@ namespace SoccerSYS
                 return;
 
             }
-            MessageBox.Show("Category Added", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Category Updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             theCategory.UpdateCategory();
 
@@ -104,6 +104,7 @@ namespace SoccerSYS
             int Id = Convert.ToInt32(grdCategory.Rows[grdCategory.CurrentCell.RowIndex].Cells[0].Value.ToString());
 
             theCategory.getCategory(Id);
+
 
             txtdescription.Text = theCategory.getdescription();
             txtPrice.Text = theCategory.getprice().ToString("###0.00");

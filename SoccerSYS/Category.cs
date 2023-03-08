@@ -115,7 +115,7 @@ namespace SoccerSYS
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            String sqlQuery = "SELECT * FROM CATEGORIES WHERE CategoryID =  " + id;
+            String sqlQuery = "SELECT * FROM CATEGORIES WHERE Catcode =  " + id;
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
@@ -162,9 +162,9 @@ namespace SoccerSYS
                 "',Description = '" + this.description + "'," +
                 "Price = " + this.Price + "," +
                 "NoSeats = " + this.NoSeats + "," +
-                "NoSeatFrom = " + this.SeatFrom + "," +
-                "NoSeatTo = " + this.SeatTo + " " +
-                "Where CategoryCode = '" + this.CatCode + "'";
+                "SeatFrom = " + this.SeatFrom + "," +
+                "SeatTo = " + this.SeatTo + " " +
+                "Where CatCode = '" + this.CatCode + "'";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
@@ -178,7 +178,7 @@ namespace SoccerSYS
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            String sqlQuery = "SELECT CatCode,Description,Price From Categories " +
+            String sqlQuery = "SELECT CatCode,Description,Price,NoSeats,SeatFrom,SeatTo From Categories " +
                 "WHERE Catcode LIKE '%" + CatType + "%' ORDER BY Catcode";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
