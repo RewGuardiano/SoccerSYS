@@ -34,51 +34,46 @@ namespace SoccerSYS
 
         private void btnSetCategory_Click(object sender, EventArgs e)
         {
-            if (!txtCatCode.TextLength.Equals(1))
-            {
-                MessageBox.Show("Category code must be 1 character long", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtCatCode.Focus();
-                return;
-
-            }
-
+            // Validate form inputs
             if (txtdescription.Text.Equals(""))
             {
                 MessageBox.Show("Description must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtdescription.Focus();
                 return;
             }
-            bool isNumber = int.TryParse(txtPrice.Text, out int i);
-            if (isNumber==true || !txtPrice.Text.Contains("."))
-            {
 
-                MessageBox.Show("Price must be mumeric and a decimal ", "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            decimal price;
+            if (!decimal.TryParse(txtPrice.Text, out price))
+            {
+                MessageBox.Show("Price must be a decimal value", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPrice.Focus();
                 return;
             }
 
-            bool numeric = int.TryParse(txtNoSeats.Text, out int j);
-            if (numeric == false || txtNoSeats.Text.Equals("0"))
+            int noSeats, seatFrom, seatTo;
+            if (!int.TryParse(txtNoSeats.Text, out noSeats) || noSeats <= 0)
             {
-                MessageBox.Show("Number of Seats must be numeric and must be greater than 0 ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Number of Seats must be a positive integer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtNoSeats.Focus();
                 return;
             }
-            bool numeric1 = int.TryParse(txtNoSeatsFrom.Text, out int k);
-            if ( numeric1 == false || txtNoSeatsFrom.Text.Equals("0"))
+            if (!int.TryParse(txtNoSeatsFrom.Text, out seatFrom) || seatFrom <= 0)
             {
-                MessageBox.Show("Number of Seats from must be numeric and must be greater than 0 ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Number of Seats from must be a positive integer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtNoSeatsFrom.Focus();
                 return;
-
             }
-            bool numeric2 = int.TryParse(txtNoSeatsTo.Text, out int l);
-            if (numeric2 == false || txtNoSeatsTo.Text.Equals("0"))
+            if (!int.TryParse(txtNoSeatsTo.Text, out seatTo) || seatTo <= 0)
             {
-                MessageBox.Show("Number of Seats to must be numeric and must be greater than 0 ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Number of Seats to must be a positive integer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtNoSeatsTo.Focus();
                 return;
-                
+            }
+            if (seatTo < seatFrom)
+            {
+                MessageBox.Show("Number of Seats To must be greater than or equal to Number of Seats from", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNoSeatsTo.Focus();
+                return;
             }
             Category aCategory = new Category(txtCatCode.Text, txtdescription.Text, Convert.ToDecimal(txtPrice.Text),Convert.ToInt32(txtNoSeats.Text),
                 Convert.ToInt32(txtNoSeatsFrom.Text), Convert.ToInt32(txtNoSeatsTo.Text));

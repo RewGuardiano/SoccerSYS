@@ -157,14 +157,15 @@ namespace SoccerSYS
         public void UpdateCategory()
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            string sqlQuery = "UPDATE CATEGORIES SET " +
+                              "CatCode = '" + this.CatCode + "'," +
+                              "description = '" + this.description + "'," +
+                              "Price = " + this.Price + "," +
+                              "NoSeats = " + this.NoSeats + "," +
+                              "SeatFrom = " + this.SeatFrom + "," +
+                              "SeatTo = " + this.SeatTo + " " +
+                              "WHERE CatCode = '" + this.CatCode + "'";
 
-            String sqlQuery = "Update Categories Set CatCode = '" + CatCode +
-                "',Description = '" + this.description + "'," +
-                "Price = " + this.Price + "," +
-                "NoSeats = " + this.NoSeats + "," +
-                "SeatFrom = " + this.SeatFrom + "," +
-                "SeatTo = " + this.SeatTo + " " +
-                "Where CatCode = '" + this.CatCode + "'";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
@@ -173,6 +174,7 @@ namespace SoccerSYS
 
             conn.Close();
         }
+
 
         public static DataSet FindCategory(String CatType)
         {
