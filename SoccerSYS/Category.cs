@@ -91,12 +91,12 @@ namespace SoccerSYS
         {
             SeatTo = seatTo;
         }
-        public static DataSet getAllCategories(String CatType)
+        public static DataSet getAllCategories(String CatCode)
         {
 
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            String sqlQuery = "Select CatCode, description,Price,NoSeats" + "FROM CATEGORIES WHERE Catcode = " + CatType + " ORDER BY description";
+            String sqlQuery = "Select CatCode, description,Price,NoSeats" + "FROM CATEGORIES WHERE Catcode = " + CatCode + " ORDER BY description";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
 
@@ -111,11 +111,11 @@ namespace SoccerSYS
         }
 
 
-        public void getCategory(int id)
+        public void getCategory(String CatCode)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            String sqlQuery = "SELECT * FROM CATEGORIES WHERE Catcode =  " + id;
+            String sqlQuery = "SELECT * FROM CATEGORIES WHERE Catcode =  " + CatCode;
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
@@ -176,12 +176,12 @@ namespace SoccerSYS
         }
 
 
-        public static DataSet FindCategory(String CatType)
+        public static DataSet FindCategory(String CatCode)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
             String sqlQuery = "SELECT CatCode,Description,Price,NoSeats,SeatFrom,SeatTo From Categories " +
-                "WHERE Catcode LIKE '%" + CatType + "%' ORDER BY Catcode";
+                "WHERE Catcode LIKE '%" + CatCode + "%' ORDER BY Catcode";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
 

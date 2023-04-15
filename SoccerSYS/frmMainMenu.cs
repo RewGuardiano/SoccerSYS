@@ -17,13 +17,6 @@ namespace SoccerSYS
             InitializeComponent();
         }
 
-        private void viewStatsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmViewStatistics to = new frmViewStatistics();
-            to.Show();
-            this.Hide();
-        }
-
         private void performAdminToolStripMenuItem_Click(object sender, EventArgs e)
         {
 

@@ -32,30 +32,5 @@ namespace SoccerSYS
             this.Close();
         }
 
-        private void btnRemoveCategory_Click(object sender, EventArgs e)
-        {
-
-            if (cobRemoveDescription.Text.Equals(""))
-            {
-                MessageBox.Show("Description must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-               
-            }
-
-            if (cobRemovePrice.Text.Equals(""))
-            {
-
-                MessageBox.Show("Price must be mumeric and a decimal ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-           
-            }
-            if (cobRemoveSeats.Text.Equals(""))
-            {
-                MessageBox.Show("Number of Seats must be numeric and must be greater than 0 ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-            MessageBox.Show("Category Removed!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-        }
-
-       
     }
 }

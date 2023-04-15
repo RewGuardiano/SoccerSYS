@@ -108,9 +108,9 @@ namespace SoccerSYS
 
         private void grdCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int Id = Convert.ToInt32(grdCategory.Rows[grdCategory.CurrentCell.RowIndex].Cells[0].Value.ToString());
+            String CatCode = Convert.ToString(grdCategory.Rows[grdCategory.CurrentCell.RowIndex].Cells[0].Value.ToString());
 
-            theCategory.getCategory(Id);
+            theCategory.getCategory(CatCode);
 
 
             txtdescription.Text = theCategory.getdescription();
