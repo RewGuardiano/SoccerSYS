@@ -91,13 +91,17 @@ namespace SoccerSYS
         {
             SeatTo = seatTo;
         }
-        public static DataSet getAllCategories(String CatCode)
+        public static DataSet GetAllCategories()
         {
 
+            //Open a db connection
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            String sqlQuery = "Select CatCode, description,Price,NoSeats" + "FROM CATEGORIES WHERE Catcode = " + CatCode + " ORDER BY description";
+            //Define the SQL query to be executed
+            String sqlQuery = "SELECT CatCode, description,Price,NoSeats " +
+                "FROM CATEGORIES ORDER BY CatCode";
 
+            //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
 
             OracleDataAdapter da = new OracleDataAdapter(cmd);
@@ -105,6 +109,7 @@ namespace SoccerSYS
             DataSet ds = new DataSet();
             da.Fill(ds, "Cat");
 
+            //Close db connection
             conn.Close();
 
             return ds;
@@ -164,7 +169,8 @@ namespace SoccerSYS
                               "NoSeats = " + this.NoSeats + "," +
                               "SeatFrom = " + this.SeatFrom + "," +
                               "SeatTo = " + this.SeatTo + " " +
-                              "WHERE CatCode = '" + this.CatCode + "'";
+                               "WHERE CatCode = '" + this.CatCode + "'";
+
 
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
