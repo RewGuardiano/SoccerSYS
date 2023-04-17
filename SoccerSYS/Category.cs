@@ -162,19 +162,24 @@ namespace SoccerSYS
         public void UpdateCategory()
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
             string sqlQuery = "UPDATE CATEGORIES SET " +
-                              "CatCode = '" + this.CatCode + "'," +
-                              "description = '" + this.description + "'," +
-                              "Price = " + this.Price + "," +
-                              "NoSeats = " + this.NoSeats + "," +
-                              "SeatFrom = " + this.SeatFrom + "," +
-                              "SeatTo = " + this.SeatTo + " " +
-                               "WHERE CatCode = '" + this.CatCode + "'";
-
-
+                              "description = :description," +
+                              "Price = :Price," +
+                              "NoSeats = :NoSeats," +
+                              "SeatFrom = :SeatFrom," +
+                              "SeatTo = :SeatTo " + 
+                              "WHERE CatCode = :Catcode"; 
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-            conn.Open();
+   
+            cmd.Parameters.Add(new OracleParameter(":description", description));
+            cmd.Parameters.Add(new OracleParameter(":Price",Price));
+            cmd.Parameters.Add(new OracleParameter(":NoSeats",NoSeats)); 
+            cmd.Parameters.Add(new OracleParameter(":SeatFrom", SeatFrom));
+            cmd.Parameters.Add(new OracleParameter(":SeatTo",SeatTo));
+            cmd.Parameters.Add(new OracleParameter(":CatCode", CatCode));
 
             cmd.ExecuteNonQuery();
 
