@@ -48,9 +48,9 @@ namespace SoccerSYS
             this.lbldescription = new System.Windows.Forms.Label();
             this.lblCatCode = new System.Windows.Forms.Label();
             this.lbEnterCatCode = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.grdCategory = new System.Windows.Forms.DataGridView();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.grpCategory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdCategory)).BeginInit();
             this.SuspendLayout();
@@ -217,13 +217,6 @@ namespace SoccerSYS
             this.lbEnterCatCode.TabIndex = 32;
             this.lbEnterCatCode.Text = "Enter Category Type";
             // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(237, 9);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(227, 20);
-            this.txtSearch.TabIndex = 33;
-            // 
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(501, 7);
@@ -242,6 +235,13 @@ namespace SoccerSYS
             this.grdCategory.Size = new System.Drawing.Size(658, 85);
             this.grdCategory.TabIndex = 36;
             this.grdCategory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCategory_CellContentClick);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(237, 9);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(227, 20);
+            this.txtSearch.TabIndex = 33;
             // 
             // frmUpdateCategory
             // 
@@ -286,8 +286,8 @@ namespace SoccerSYS
         private System.Windows.Forms.TextBox txtNoSeatsFrom;
         private System.Windows.Forms.TextBox txtNoSeatsTo;
         private System.Windows.Forms.Label lbEnterCatCode;
-        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DataGridView grdCategory;
+        private System.Windows.Forms.TextBox txtSearch;
     }
 }

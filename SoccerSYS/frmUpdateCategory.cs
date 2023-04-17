@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -105,6 +106,28 @@ namespace SoccerSYS
                 txtSearch.Focus();
                 return;
             }
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            String sqlQuery = "SELECT * FROM CATEGORIES WHERE CatCode =" + (txtSearch.Text) ;
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+            OracleDataReader dr = cmd.ExecuteReader();
+            if (dr.Read())
+            {
+
+                txtdescription.Text = dr.GetString(1);
+                txtPrice.Text = dr.GetDecimal(2).ToString();
+                txtNoSeats.Text = dr.GetInt32(3).ToString();
+                txtNoSeatsFrom.Text = dr.GetInt32(4).ToString();
+                txtNoSeatsTo.Text = dr.GetInt32(5).ToString();
+
+            }
+            else
+                MessageBox.Show("No data found! ");
+            conn.Close();
+
         }
 
         private void grdCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
