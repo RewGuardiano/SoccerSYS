@@ -75,6 +75,7 @@ namespace SoccerSYS
                 txtNoSeatsTo.Focus();
                 return;
             }
+            theCategory.setCatCode(cobCatCode.Text);
             theCategory.setdescription(txtdescription.Text);
             theCategory.setprice(decimal.Parse(txtPrice.Text));
             theCategory.setNoSeats(int.Parse(txtNoSeats.Text));

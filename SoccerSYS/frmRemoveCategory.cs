@@ -12,6 +12,7 @@ namespace SoccerSYS
 {
     public partial class frmRemoveCategory : Form
     {
+       Category theCategory = new Category();
         public frmRemoveCategory()
         {
             InitializeComponent();
@@ -32,5 +33,33 @@ namespace SoccerSYS
             this.Close();
         }
 
+        private void btnRemoveCategory_Click(object sender, EventArgs e)
+        {
+            theCategory.setCatCode(cobCatCode.Text);
+            theCategory.RemoveCategory();
+            MessageBox.Show("Category Removed", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnSearchRemove_Click(object sender, EventArgs e)
+        {
+            grdCategoryRemove.DataSource = Category.FindCategory(txtSearchRemove.Text).Tables["Cat"];
+
+            if (grdCategoryRemove.Rows.Count == 1)
+            {
+                MessageBox.Show("No Data Found");
+                txtSearchRemove.Focus();
+                return;
+            }
+        }
+
+        private void grdCategoryRemove_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            String CatCode = Convert.ToString(grdCategoryRemove.Rows[grdCategoryRemove.CurrentCell.RowIndex].Cells[0].Value.ToString());
+
+            theCategory.getCategory(CatCode);
+
+
+          
+        }
     }
 }

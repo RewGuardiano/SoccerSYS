@@ -209,5 +209,23 @@ namespace SoccerSYS
             return ds;
    
         }
+        public void RemoveCategory()
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+        
+
+            string sqlQuery = "DELETE FROM CATEGORIES WHERE CatCode = :CatCode";
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            cmd.Parameters.Add(new OracleParameter(":CatCode", CatCode));
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+
+
+        }
     }
 }

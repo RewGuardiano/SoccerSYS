@@ -32,11 +32,13 @@ namespace SoccerSYS
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRemoveCategory));
             this.button1 = new System.Windows.Forms.Button();
             this.btnRemoveCategory = new System.Windows.Forms.Button();
-            this.grdCategory = new System.Windows.Forms.DataGridView();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.grdCategoryRemove = new System.Windows.Forms.DataGridView();
+            this.txtSearchRemove = new System.Windows.Forms.TextBox();
+            this.btnSearchRemove = new System.Windows.Forms.Button();
             this.lbEnterCatCode = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.grdCategory)).BeginInit();
+            this.lblCatCode = new System.Windows.Forms.Label();
+            this.cobCatCode = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.grdCategoryRemove)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -53,36 +55,39 @@ namespace SoccerSYS
             // 
             this.btnRemoveCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemoveCategory.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnRemoveCategory.Location = new System.Drawing.Point(310, 358);
+            this.btnRemoveCategory.Location = new System.Drawing.Point(302, 442);
             this.btnRemoveCategory.Name = "btnRemoveCategory";
             this.btnRemoveCategory.Size = new System.Drawing.Size(145, 58);
             this.btnRemoveCategory.TabIndex = 19;
             this.btnRemoveCategory.Text = "Remove Category";
             this.btnRemoveCategory.UseVisualStyleBackColor = true;
+            this.btnRemoveCategory.Click += new System.EventHandler(this.btnRemoveCategory_Click);
             // 
-            // grdCategory
+            // grdCategoryRemove
             // 
-            this.grdCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdCategory.Location = new System.Drawing.Point(59, 103);
-            this.grdCategory.Name = "grdCategory";
-            this.grdCategory.Size = new System.Drawing.Size(658, 236);
-            this.grdCategory.TabIndex = 37;
+            this.grdCategoryRemove.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdCategoryRemove.Location = new System.Drawing.Point(59, 103);
+            this.grdCategoryRemove.Name = "grdCategoryRemove";
+            this.grdCategoryRemove.Size = new System.Drawing.Size(658, 186);
+            this.grdCategoryRemove.TabIndex = 37;
+            this.grdCategoryRemove.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCategoryRemove_CellContentClick);
             // 
-            // txtSearch
+            // txtSearchRemove
             // 
-            this.txtSearch.Location = new System.Drawing.Point(261, 39);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(227, 20);
-            this.txtSearch.TabIndex = 38;
+            this.txtSearchRemove.Location = new System.Drawing.Point(261, 39);
+            this.txtSearchRemove.Name = "txtSearchRemove";
+            this.txtSearchRemove.Size = new System.Drawing.Size(227, 20);
+            this.txtSearchRemove.TabIndex = 38;
             // 
-            // btnSearch
+            // btnSearchRemove
             // 
-            this.btnSearch.Location = new System.Drawing.Point(566, 39);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 39;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearchRemove.Location = new System.Drawing.Point(566, 39);
+            this.btnSearchRemove.Name = "btnSearchRemove";
+            this.btnSearchRemove.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchRemove.TabIndex = 39;
+            this.btnSearchRemove.Text = "Search";
+            this.btnSearchRemove.UseVisualStyleBackColor = true;
+            this.btnSearchRemove.Click += new System.EventHandler(this.btnSearchRemove_Click);
             // 
             // lbEnterCatCode
             // 
@@ -93,22 +98,47 @@ namespace SoccerSYS
             this.lbEnterCatCode.TabIndex = 40;
             this.lbEnterCatCode.Text = "Enter Category Type";
             // 
+            // lblCatCode
+            // 
+            this.lblCatCode.AutoSize = true;
+            this.lblCatCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCatCode.Location = new System.Drawing.Point(185, 349);
+            this.lblCatCode.Name = "lblCatCode";
+            this.lblCatCode.Size = new System.Drawing.Size(158, 25);
+            this.lblCatCode.TabIndex = 41;
+            this.lblCatCode.Text = "Category Code";
+            // 
+            // cobCatCode
+            // 
+            this.cobCatCode.FormattingEnabled = true;
+            this.cobCatCode.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C"});
+            this.cobCatCode.Location = new System.Drawing.Point(410, 353);
+            this.cobCatCode.Margin = new System.Windows.Forms.Padding(2);
+            this.cobCatCode.Name = "cobCatCode";
+            this.cobCatCode.Size = new System.Drawing.Size(119, 21);
+            this.cobCatCode.TabIndex = 42;
+            // 
             // frmRemoveCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 539);
+            this.Controls.Add(this.cobCatCode);
+            this.Controls.Add(this.lblCatCode);
             this.Controls.Add(this.lbEnterCatCode);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.grdCategory);
+            this.Controls.Add(this.btnSearchRemove);
+            this.Controls.Add(this.txtSearchRemove);
+            this.Controls.Add(this.grdCategoryRemove);
             this.Controls.Add(this.btnRemoveCategory);
             this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRemoveCategory";
             this.Text = "RemoveCategory";
-            ((System.ComponentModel.ISupportInitialize)(this.grdCategory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdCategoryRemove)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,9 +148,11 @@ namespace SoccerSYS
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnRemoveCategory;
-        private System.Windows.Forms.DataGridView grdCategory;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.DataGridView grdCategoryRemove;
+        private System.Windows.Forms.TextBox txtSearchRemove;
+        private System.Windows.Forms.Button btnSearchRemove;
         private System.Windows.Forms.Label lbEnterCatCode;
+        private System.Windows.Forms.Label lblCatCode;
+        private System.Windows.Forms.ComboBox cobCatCode;
     }
 }
