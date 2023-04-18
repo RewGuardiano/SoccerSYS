@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace SoccerSYS
 {
@@ -24,8 +25,12 @@ namespace SoccerSYS
             this.Close();
         }
 
+
+        
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+
+
             bool isNumber = int.TryParse(txtMatchID.Text, out int i);
             if ( isNumber == false)
             {
@@ -33,10 +38,16 @@ namespace SoccerSYS
                 txtMatchID.Focus();
                 return;
             }
-            if (txtTeams.Text.Equals(""))
+            if (cobTeams1.Text.Equals(""))
             {
-                MessageBox.Show("Teams textbox must be entered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTeams.Focus();
+                MessageBox.Show("Team 1 textbox must be entered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cobTeams1.Focus();
+                return;
+            }
+            if (cobTeams2.Text.Equals(""))
+            {
+                MessageBox.Show("Team 2 textbox must be entered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cobTeams2.Focus();
                 return;
             }
             if (!txtMatchTime.TextLength.Equals(5))
@@ -59,10 +70,20 @@ namespace SoccerSYS
 
 
             txtMatchID.Clear();
-            txtTeams.Clear();
             txtMatchTime.Clear();
             txtMatchDate.Clear();
            
+        }
+
+        private void grpCategory_Enter(object sender, EventArgs e)
+        {
+            string[] lines = File.ReadAllLines("Teams.txt");
+            cobTeams1.Items.AddRange(lines);
+
+            string[] lines2 = File.ReadAllLines("Teams.txt");
+            cobTeams2.Items.AddRange(lines2);
+
+
         }
     }
 }

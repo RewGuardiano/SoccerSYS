@@ -34,6 +34,7 @@ namespace SoccerSYS
 
         private void btnSetCategory_Click(object sender, EventArgs e)
         {
+
             // Validate form inputs
             if (txtdescription.Text.Equals(""))
             {
@@ -57,6 +58,12 @@ namespace SoccerSYS
                 txtNoSeats.Focus();
                 return;
             }
+            int TotalSeats = 10000;
+            if (noSeats > TotalSeats)
+            {
+                MessageBox.Show("Number of Seats of the Categories must not exceed the Total Seats of the stadium of 10000", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
             if (!int.TryParse(txtNoSeatsFrom.Text, out seatFrom) || seatFrom <= 0)
             {
                 MessageBox.Show("Number of Seats from must be a positive integer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -74,6 +81,8 @@ namespace SoccerSYS
                 MessageBox.Show("Number of Seats To must be greater than or equal to Number of Seats from", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtNoSeatsTo.Focus();
                 return;
+
+           
             }
             Category aCategory = new Category(txtCatCode.Text, txtdescription.Text, Convert.ToDecimal(txtPrice.Text),Convert.ToInt32(txtNoSeats.Text),
                 Convert.ToInt32(txtNoSeatsFrom.Text), Convert.ToInt32(txtNoSeatsTo.Text));

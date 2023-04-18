@@ -79,6 +79,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="lines.cs" />
+    <Compile Include="Sales.cs" />
+    <Compile Include="Fixtures.cs" />
     <Compile Include="DBConnect.cs" />
     <Compile Include="frmCancelMatch.cs">
       <SubType>Form</SubType>
@@ -203,6 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\Soccer_Ball_icon.ico" />
+    <Content Include="Teams.txt" />
     <None Include="Resources\RevenueImage.png" />
     <None Include="Resources\RevenueChart1.png" />
     <Content Include="Resources\Soccer_Ball_icon.ico" />
