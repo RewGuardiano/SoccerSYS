@@ -118,6 +118,8 @@ namespace SoccerSYS
             OracleDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
             {
+
+                MessageBox.Show("Please Re-type the data","Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtdescription.Text = dr.GetString(2);
                 txtPrice.Text = dr.GetDecimal(3).ToString();
                 txtNoSeats.Text = dr.GetInt32(4).ToString();

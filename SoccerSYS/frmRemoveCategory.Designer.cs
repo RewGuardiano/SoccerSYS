@@ -36,8 +36,8 @@ namespace SoccerSYS
             this.txtSearchRemove = new System.Windows.Forms.TextBox();
             this.btnSearchRemove = new System.Windows.Forms.Button();
             this.lbEnterCatCode = new System.Windows.Forms.Label();
-            this.lblCatCode = new System.Windows.Forms.Label();
             this.cobCatCode = new System.Windows.Forms.ComboBox();
+            this.lblCatCode = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grdCategoryRemove)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,9 +66,9 @@ namespace SoccerSYS
             // grdCategoryRemove
             // 
             this.grdCategoryRemove.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdCategoryRemove.Location = new System.Drawing.Point(73, 105);
+            this.grdCategoryRemove.Location = new System.Drawing.Point(43, 108);
             this.grdCategoryRemove.Name = "grdCategoryRemove";
-            this.grdCategoryRemove.Size = new System.Drawing.Size(654, 186);
+            this.grdCategoryRemove.Size = new System.Drawing.Size(715, 186);
             this.grdCategoryRemove.TabIndex = 37;
             this.grdCategoryRemove.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCategoryRemove_CellContentClick);
             // 
@@ -98,16 +98,6 @@ namespace SoccerSYS
             this.lbEnterCatCode.TabIndex = 40;
             this.lbEnterCatCode.Text = "Enter Category Type";
             // 
-            // lblCatCode
-            // 
-            this.lblCatCode.AutoSize = true;
-            this.lblCatCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCatCode.Location = new System.Drawing.Point(185, 349);
-            this.lblCatCode.Name = "lblCatCode";
-            this.lblCatCode.Size = new System.Drawing.Size(158, 25);
-            this.lblCatCode.TabIndex = 41;
-            this.lblCatCode.Text = "Category Code";
-            // 
             // cobCatCode
             // 
             this.cobCatCode.FormattingEnabled = true;
@@ -120,6 +110,16 @@ namespace SoccerSYS
             this.cobCatCode.Name = "cobCatCode";
             this.cobCatCode.Size = new System.Drawing.Size(119, 21);
             this.cobCatCode.TabIndex = 42;
+            // 
+            // lblCatCode
+            // 
+            this.lblCatCode.AutoSize = true;
+            this.lblCatCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCatCode.Location = new System.Drawing.Point(185, 349);
+            this.lblCatCode.Name = "lblCatCode";
+            this.lblCatCode.Size = new System.Drawing.Size(158, 25);
+            this.lblCatCode.TabIndex = 41;
+            this.lblCatCode.Text = "Category Code";
             // 
             // frmRemoveCategory
             // 
@@ -152,7 +152,7 @@ namespace SoccerSYS
         private System.Windows.Forms.TextBox txtSearchRemove;
         private System.Windows.Forms.Button btnSearchRemove;
         private System.Windows.Forms.Label lbEnterCatCode;
-        private System.Windows.Forms.Label lblCatCode;
         private System.Windows.Forms.ComboBox cobCatCode;
+        private System.Windows.Forms.Label lblCatCode;
     }
 }

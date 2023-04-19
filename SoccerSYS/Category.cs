@@ -120,7 +120,9 @@ namespace SoccerSYS
             this.TicketID = latestTicketID;
             setStatus('A');
         }
+   
 
+   
 
 
 
@@ -162,7 +164,7 @@ namespace SoccerSYS
             dr.Read();
 
             setCatCode(dr.GetString(1));
-            setdescription(dr.GetString(20));
+            setdescription(dr.GetString(25));
             setprice(dr.GetDecimal(5));
             setNoSeats(dr.GetInt32(4));
             setSeatFrom(dr.GetInt32(4));
@@ -205,7 +207,7 @@ namespace SoccerSYS
                               "Price = :Price," +
                               "NoSeats = :NoSeats," +
                               "SeatFrom = :SeatFrom," +
-                              "SeatTo = :SeatTo " + 
+                              "SeatTo = :SeatTo " +
                               "WHERE CatCode = :Catcode"; 
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
@@ -250,7 +252,7 @@ namespace SoccerSYS
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
         
 
-            string sqlQuery = "DELETE FROM CATEGORIES WHERE CatCode = :CatCode";
+            string sqlQuery = "UPDATE Categories SET Status='U' WHERE CatCode = :CatCode";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
@@ -260,8 +262,9 @@ namespace SoccerSYS
             cmd.ExecuteNonQuery();
 
             conn.Close();
-
+   
 
         }
+       
     }
 }

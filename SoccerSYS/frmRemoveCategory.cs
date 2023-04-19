@@ -35,10 +35,26 @@ namespace SoccerSYS
 
         private void btnRemoveCategory_Click(object sender, EventArgs e)
         {
-            theCategory.setCatCode(cobCatCode.Text);
-            theCategory.RemoveCategory();
-            MessageBox.Show("Category Removed", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            DialogResult dialog = MessageBox.Show("Are you sure you want to remove?", "Confirm Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dialog == DialogResult.Yes)
+            {
+                theCategory.setCatCode(cobCatCode.Text);
+                theCategory.RemoveCategory();
+                MessageBox.Show("Category Status to Unavailable", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                this.Close();
+
+                frmMainMenu to = new frmMainMenu();
+                to.Show();
+            }
+      
         }
+
 
         private void btnSearchRemove_Click(object sender, EventArgs e)
         {
