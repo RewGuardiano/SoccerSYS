@@ -118,11 +118,11 @@ namespace SoccerSYS
             OracleDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
             {
-                txtdescription.Text = dr.GetString(1);
-                txtPrice.Text = dr.GetDecimal(2).ToString();
-                txtNoSeats.Text = dr.GetInt32(3).ToString();
-                txtNoSeatsFrom.Text = dr.GetInt32(4).ToString();
-                txtNoSeatsTo.Text = dr.GetInt32(5).ToString();
+                txtdescription.Text = dr.GetString(2);
+                txtPrice.Text = dr.GetDecimal(3).ToString();
+                txtNoSeats.Text = dr.GetInt32(4).ToString();
+                txtNoSeatsFrom.Text = dr.GetInt32(5).ToString();
+                txtNoSeatsTo.Text = dr.GetInt32(6).ToString();
             }
             else
             {

@@ -84,8 +84,11 @@ namespace SoccerSYS
 
            
             }
-            Category aCategory = new Category(txtCatCode.Text, txtdescription.Text, Convert.ToDecimal(txtPrice.Text),Convert.ToInt32(txtNoSeats.Text),
-                Convert.ToInt32(txtNoSeatsFrom.Text), Convert.ToInt32(txtNoSeatsTo.Text));
+            Category aCategory = new Category(001,txtCatCode.Text, txtdescription.Text, Convert.ToDecimal(txtPrice.Text), Convert.ToInt32(txtNoSeats.Text),
+                    Convert.ToInt32(txtNoSeatsFrom.Text), Convert.ToInt32(txtNoSeatsTo.Text),'A') ;
+            aCategory.setTicketID();
+            Console.WriteLine(aCategory.getTicketID());
+
 
             aCategory.SetCategory();
 

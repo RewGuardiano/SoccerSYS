@@ -11,6 +11,7 @@ namespace SoccerSYS
 {
     class Category
     {
+        private static int latestTicketID = 0;
         private int TicketID;
         private string CatCode;
         private string description;
@@ -38,7 +39,7 @@ namespace SoccerSYS
         }
         public Category(int TicketID,string CatCode, string description, decimal price, int NoSeats, int SeatFrom, int SeatTo, char Status)
         {
-        
+            this.TicketID = TicketID;
             this.CatCode = CatCode;
             this.description = description;
             this.Price = price;
@@ -82,10 +83,6 @@ namespace SoccerSYS
         {
             return this.Status;
         }
-        public void setTicketID(int TicketID)
-        {
-            this.TicketID = TicketID;
-        }
         public void setCatCode(string CatCode)
         {
             this.CatCode = CatCode;
@@ -117,27 +114,13 @@ namespace SoccerSYS
             Status = status;
         }
 
-
-        private int GenerateNewTicketID()
+        public void setTicketID()
         {
-            // Connect to the database
-            OracleConnection connection = new OracleConnection(DBConnect.oradb);
-            connection.Open();
-
-            // Query for the current maximum TicketID value
-            OracleCommand command = new OracleCommand("SELECT MAX(TicketID) FROM Categories", connection);
-            int maxTicketID = (int)command.ExecuteScalar();
-
-            // Generate a new TicketID by adding 1 to the current maximum value
-            int newTicketID = maxTicketID + 1;
-
-            // Close the database connection
-            connection.Close();
-
-            // Return the new TicketID
-            return newTicketID;
+            latestTicketID++;
+            this.TicketID = latestTicketID;
+            setStatus('A');
         }
-        
+
 
 
 
@@ -194,39 +177,24 @@ namespace SoccerSYS
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            String sqlQuery = "INSERT INTO CATEGORIES Values ('" +
-                this.CatCode + "','" +
-                this.description + "'," +
-                this.Price + "," +
-                this.NoSeats + "," +
-                this.SeatFrom + "," +
-                this.SeatTo + ")";
+            string sqlQuery = "INSERT INTO CATEGORIES (TICKETID, CATCODE, DESCRIPTION, PRICE, NOSEATS, SEATFROM, SEATTO,Status) " +
+                              "VALUES (:ticketID, :catCode, :description, :price, :noSeats, :seatFrom, :seatTo,:status)";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            cmd.Parameters.Add(new OracleParameter(":ticketID", this.TicketID));
+            cmd.Parameters.Add(new OracleParameter(":catCode", this.CatCode));
+            cmd.Parameters.Add(new OracleParameter(":description", this.description));
+            cmd.Parameters.Add(new OracleParameter(":price", this.Price));
+            cmd.Parameters.Add(new OracleParameter(":noSeats", this.NoSeats));
+            cmd.Parameters.Add(new OracleParameter(":seatFrom", this.SeatFrom));
+            cmd.Parameters.Add(new OracleParameter(":seatTo", this.SeatTo));
+            cmd.Parameters.Add(new OracleParameter(":status", this.Status));
+
             conn.Open();
-
             cmd.ExecuteNonQuery();
-
             conn.Close();
-
-            // Generate a new TicketID
-            int newTicketID = GenerateNewTicketID();
-
-            // Create a new ticket object
-            Category newTicket = new Category();
-            newTicket.TicketID = newTicketID;
-            // set other properties of the ticket here
-
-            // Insert the new ticket into the database
-            OracleConnection connection = new OracleConnection(DBConnect.);
-            connection.Open();
-            OracleCommand command = new OracleCommand("INSERT INTO Categories (TicketID, ...) VALUES (@TicketID, ...)", connection);
-
-            command.Parameters.Add("TicketID", newTicket.TicketID);
-            // set other parameters for the SQL command here
-            command.ExecuteNonQuery();
-            connection.Close();
         }
+
         public void UpdateCategory()
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -259,7 +227,7 @@ namespace SoccerSYS
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            String sqlQuery = "SELECT CatCode,Description,Price,NoSeats,SeatFrom,SeatTo From Categories " +
+            String sqlQuery = "SELECT TicketID,CatCode,Description,Price,NoSeats,SeatFrom,SeatTo,Status From Categories " +
                 "WHERE Catcode LIKE '%" + CatCode + "%' ORDER BY Catcode";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
