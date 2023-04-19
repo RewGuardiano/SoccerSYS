@@ -66,9 +66,9 @@ namespace SoccerSYS
             // grdCategoryRemove
             // 
             this.grdCategoryRemove.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdCategoryRemove.Location = new System.Drawing.Point(43, 108);
+            this.grdCategoryRemove.Location = new System.Drawing.Point(0, 87);
             this.grdCategoryRemove.Name = "grdCategoryRemove";
-            this.grdCategoryRemove.Size = new System.Drawing.Size(715, 186);
+            this.grdCategoryRemove.Size = new System.Drawing.Size(798, 245);
             this.grdCategoryRemove.TabIndex = 37;
             this.grdCategoryRemove.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCategoryRemove_CellContentClick);
             // 
