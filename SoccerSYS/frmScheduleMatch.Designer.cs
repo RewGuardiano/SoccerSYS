@@ -32,6 +32,7 @@ namespace SoccerSYS
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmScheduleMatch));
             this.button1 = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
+            this.dtpMatchDate = new System.Windows.Forms.DateTimePicker();
             this.lbvs = new System.Windows.Forms.Label();
             this.cobTeams2 = new System.Windows.Forms.ComboBox();
             this.cobTeams1 = new System.Windows.Forms.ComboBox();
@@ -43,7 +44,6 @@ namespace SoccerSYS
             this.lblPrice = new System.Windows.Forms.Label();
             this.lbTeams = new System.Windows.Forms.Label();
             this.lblCatCode = new System.Windows.Forms.Label();
-            this.dtpMatchDate = new System.Windows.Forms.DateTimePicker();
             this.grpCategory.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,6 +79,13 @@ namespace SoccerSYS
             this.grpCategory.TabStop = false;
             this.grpCategory.Text = "Enter Match Details:";
             this.grpCategory.Enter += new System.EventHandler(this.grpCategory_Enter);
+            // 
+            // dtpMatchDate
+            // 
+            this.dtpMatchDate.Location = new System.Drawing.Point(163, 272);
+            this.dtpMatchDate.Name = "dtpMatchDate";
+            this.dtpMatchDate.Size = new System.Drawing.Size(200, 26);
+            this.dtpMatchDate.TabIndex = 25;
             // 
             // lbvs
             // 
@@ -180,13 +187,6 @@ namespace SoccerSYS
             this.lblCatCode.Size = new System.Drawing.Size(95, 25);
             this.lblCatCode.TabIndex = 13;
             this.lblCatCode.Text = "Match Id";
-            // 
-            // dtpMatchDate
-            // 
-            this.dtpMatchDate.Location = new System.Drawing.Point(163, 272);
-            this.dtpMatchDate.Name = "dtpMatchDate";
-            this.dtpMatchDate.Size = new System.Drawing.Size(200, 26);
-            this.dtpMatchDate.TabIndex = 25;
             // 
             // frmScheduleMatch
             // 

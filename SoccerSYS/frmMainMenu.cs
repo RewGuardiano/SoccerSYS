@@ -69,12 +69,7 @@ namespace SoccerSYS
             this.Hide();
         }
 
-        private void checkAvailabilityToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmCheckAvailability to = new frmCheckAvailability();
-            to.Show();
-            this.Hide();
-        }
+       
 
         private void sellTicketsToolStripMenuItem_Click(object sender, EventArgs e)
         {

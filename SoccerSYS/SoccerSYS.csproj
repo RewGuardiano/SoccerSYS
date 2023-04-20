@@ -81,19 +81,13 @@
   <ItemGroup>
     <Compile Include="lines.cs" />
     <Compile Include="Sales.cs" />
-    <Compile Include="Fixtures.cs" />
+    <Compile Include="Fixture.cs" />
     <Compile Include="DBConnect.cs" />
     <Compile Include="frmCancelMatch.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCancelMatch.Designer.cs">
       <DependentUpon>frmCancelMatch.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmCheckAvailability.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCheckAvailability.Designer.cs">
-      <DependentUpon>frmCheckAvailability.cs</DependentUpon>
     </Compile>
     <Compile Include="frmScheduleMatch.cs">
       <SubType>Form</SubType>
@@ -149,9 +143,6 @@
     <Compile Include="Category.cs" />
     <EmbeddedResource Include="frmCancelMatch.resx">
       <DependentUpon>frmCancelMatch.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmCheckAvailability.resx">
-      <DependentUpon>frmCheckAvailability.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProcessSales.resx">
       <DependentUpon>frmProcessSales.cs</DependentUpon>

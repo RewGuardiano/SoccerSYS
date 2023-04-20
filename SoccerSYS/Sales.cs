@@ -8,5 +8,7 @@ namespace SoccerSYS
 {
     class Sales
     {
+
+
     }
 }

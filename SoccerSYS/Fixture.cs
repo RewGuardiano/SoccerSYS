@@ -7,11 +7,10 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace SoccerSYS
 {
-    class Fixtures
+    class Fixture
     {
         private DateTime Match_Date;
         private int MatchID;
-        private int TicketQuantity;
         private String Match_time;
         private int TicketsSold;
         private bool[,] SeatAvailability;
@@ -19,16 +18,15 @@ namespace SoccerSYS
 
 
 
-        public Fixtures(DateTime match_date, int matchId, int ticketQuantity, String match_time)
+        public Fixture(DateTime match_date, int matchId, string match_time, int ticketsSold, bool[,] seatAvailability)
         {
             Match_Date = match_date;
             MatchID = matchId;
-            TicketQuantity = ticketQuantity;
             Match_time = match_time;
             TicketsSold = 0;
-            SeatAvailability = new bool[100, 100];
-
+            SeatAvailability = seatAvailability;
         }
+
         // Method to update the seat availability and number of tickets sold after a sale
         public void UpdateSeatAvailability(int row, int column)
         {
@@ -70,13 +68,12 @@ namespace SoccerSYS
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            string sqlQuery = "INSERT INTO FIXTURES (Match_Date, MatchID,TicketQuantity,Match_time, TicketSold, SeatAvailability) " +
-                              "VALUES (:match_date, :matchid,ticketquantity, :match_time, :ticketsold, :seatavailability)";
+            string sqlQuery = "INSERT INTO FIXTURES (Match_Date, MatchID,Match_time, TicketSold, SeatAvailability) " +
+                              "VALUES (:match_date, :matchid,:match_time, :ticketsold, :seatavailability)";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             cmd.Parameters.Add(new OracleParameter(":Match_Date", this.Match_Date));
             cmd.Parameters.Add(new OracleParameter(":MatchID", this.MatchID));
-            cmd.Parameters.Add(new OracleParameter(":TicketQuantity", this.TicketQuantity));
             cmd.Parameters.Add(new OracleParameter(":Match_time", this.Match_time));
             cmd.Parameters.Add(new OracleParameter(":TicketSold", this.TicketsSold));
             cmd.Parameters.Add(new OracleParameter(":SeatAvailability", this.SeatAvailability));
