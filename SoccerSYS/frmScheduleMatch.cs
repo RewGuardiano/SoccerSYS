@@ -75,7 +75,6 @@ namespace SoccerSYS
             string[] lines2 = File.ReadAllLines("Teams.txt");
             cobTeams2.Items.AddRange(lines2);
 
-
         }
     }
 }
