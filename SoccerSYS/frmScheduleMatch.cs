@@ -13,7 +13,6 @@ namespace SoccerSYS
 {
     public partial class frmScheduleMatch : Form
     {
-        Fixtures aFixtures = new Fixtures();
         public frmScheduleMatch()
         {
             InitializeComponent();
@@ -59,7 +58,6 @@ namespace SoccerSYS
             }
 
 
-            Fixtures aFixtures = new Fixtures();
             MessageBox.Show("Match Scheduled", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
