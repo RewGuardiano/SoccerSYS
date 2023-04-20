@@ -13,6 +13,7 @@ namespace SoccerSYS
 {
     public partial class frmScheduleMatch : Form
     {
+        Fixtures aFixtures = new Fixtures();
         public frmScheduleMatch()
         {
             InitializeComponent();
@@ -56,22 +57,15 @@ namespace SoccerSYS
                 txtMatchTime.Focus();
                 return;
             }
-            DateTime date;
-            bool isValidDate = DateTime.TryParse(txtMatchDate.Text,out date );
 
-            if(isValidDate == false)
-            {
-                MessageBox.Show("Match Date must be entered and is in date type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtMatchDate.Focus();
-                return;
-            }
+
+            Fixtures aFixtures = new Fixtures();
             MessageBox.Show("Match Scheduled", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
 
             txtMatchID.Clear();
             txtMatchTime.Clear();
-            txtMatchDate.Clear();
            
         }
 

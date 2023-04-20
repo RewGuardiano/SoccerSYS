@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Oracle.ManagedDataAccess.Client;
 
 namespace SoccerSYS
 {
@@ -65,7 +66,29 @@ namespace SoccerSYS
             Console.WriteLine("- Available seats: " + availableSeats);
             Console.WriteLine("- Sold seats: " + soldSeats);
         }
+        public void ScheduleMatch()
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            string sqlQuery = "INSERT INTO FIXTURES (Match_Date, MatchID,TicketQuantity,Match_time, TicketSold, SeatAvailability) " +
+                              "VALUES (:match_date, :matchid,ticketquantity, :match_time, :ticketsold, :seatavailability)";
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            cmd.Parameters.Add(new OracleParameter(":Match_Date", this.Match_Date));
+            cmd.Parameters.Add(new OracleParameter(":MatchID", this.MatchID));
+            cmd.Parameters.Add(new OracleParameter(":TicketQuantity", this.TicketQuantity));
+            cmd.Parameters.Add(new OracleParameter(":Match_time", this.Match_time));
+            cmd.Parameters.Add(new OracleParameter(":TicketSold", this.TicketsSold));
+            cmd.Parameters.Add(new OracleParameter(":SeatAvailability", this.SeatAvailability));
+        
+     
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
     }
+}
 
 
 

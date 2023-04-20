@@ -32,18 +32,18 @@ namespace SoccerSYS
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmScheduleMatch));
             this.button1 = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
+            this.lbvs = new System.Windows.Forms.Label();
+            this.cobTeams2 = new System.Windows.Forms.ComboBox();
+            this.cobTeams1 = new System.Windows.Forms.ComboBox();
             this.btnSubmitSchedule = new System.Windows.Forms.Button();
             this.txtMatchID = new System.Windows.Forms.TextBox();
-            this.txtMatchDate = new System.Windows.Forms.TextBox();
             this.txtMatchTime = new System.Windows.Forms.TextBox();
             this.lbTime = new System.Windows.Forms.Label();
             this.lbDate = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lbTeams = new System.Windows.Forms.Label();
             this.lblCatCode = new System.Windows.Forms.Label();
-            this.cobTeams1 = new System.Windows.Forms.ComboBox();
-            this.cobTeams2 = new System.Windows.Forms.ComboBox();
-            this.lbvs = new System.Windows.Forms.Label();
+            this.dtpMatchDate = new System.Windows.Forms.DateTimePicker();
             this.grpCategory.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,12 +59,12 @@ namespace SoccerSYS
             // 
             // grpCategory
             // 
+            this.grpCategory.Controls.Add(this.dtpMatchDate);
             this.grpCategory.Controls.Add(this.lbvs);
             this.grpCategory.Controls.Add(this.cobTeams2);
             this.grpCategory.Controls.Add(this.cobTeams1);
             this.grpCategory.Controls.Add(this.btnSubmitSchedule);
             this.grpCategory.Controls.Add(this.txtMatchID);
-            this.grpCategory.Controls.Add(this.txtMatchDate);
             this.grpCategory.Controls.Add(this.txtMatchTime);
             this.grpCategory.Controls.Add(this.lbTime);
             this.grpCategory.Controls.Add(this.lbDate);
@@ -79,6 +79,32 @@ namespace SoccerSYS
             this.grpCategory.TabStop = false;
             this.grpCategory.Text = "Enter Match Details:";
             this.grpCategory.Enter += new System.EventHandler(this.grpCategory_Enter);
+            // 
+            // lbvs
+            // 
+            this.lbvs.AutoSize = true;
+            this.lbvs.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbvs.Location = new System.Drawing.Point(359, 123);
+            this.lbvs.Name = "lbvs";
+            this.lbvs.Size = new System.Drawing.Size(42, 25);
+            this.lbvs.TabIndex = 24;
+            this.lbvs.Text = "VS";
+            // 
+            // cobTeams2
+            // 
+            this.cobTeams2.FormattingEnabled = true;
+            this.cobTeams2.Location = new System.Drawing.Point(423, 120);
+            this.cobTeams2.Name = "cobTeams2";
+            this.cobTeams2.Size = new System.Drawing.Size(193, 28);
+            this.cobTeams2.TabIndex = 23;
+            // 
+            // cobTeams1
+            // 
+            this.cobTeams1.FormattingEnabled = true;
+            this.cobTeams1.Location = new System.Drawing.Point(171, 119);
+            this.cobTeams1.Name = "cobTeams1";
+            this.cobTeams1.Size = new System.Drawing.Size(162, 28);
+            this.cobTeams1.TabIndex = 16;
             // 
             // btnSubmitSchedule
             // 
@@ -98,13 +124,6 @@ namespace SoccerSYS
             this.txtMatchID.Name = "txtMatchID";
             this.txtMatchID.Size = new System.Drawing.Size(137, 26);
             this.txtMatchID.TabIndex = 21;
-            // 
-            // txtMatchDate
-            // 
-            this.txtMatchDate.Location = new System.Drawing.Point(171, 273);
-            this.txtMatchDate.Name = "txtMatchDate";
-            this.txtMatchDate.Size = new System.Drawing.Size(230, 26);
-            this.txtMatchDate.TabIndex = 20;
             // 
             // txtMatchTime
             // 
@@ -162,31 +181,12 @@ namespace SoccerSYS
             this.lblCatCode.TabIndex = 13;
             this.lblCatCode.Text = "Match Id";
             // 
-            // cobTeams1
+            // dtpMatchDate
             // 
-            this.cobTeams1.FormattingEnabled = true;
-            this.cobTeams1.Location = new System.Drawing.Point(171, 119);
-            this.cobTeams1.Name = "cobTeams1";
-            this.cobTeams1.Size = new System.Drawing.Size(162, 28);
-            this.cobTeams1.TabIndex = 16;
-            // 
-            // cobTeams2
-            // 
-            this.cobTeams2.FormattingEnabled = true;
-            this.cobTeams2.Location = new System.Drawing.Point(423, 120);
-            this.cobTeams2.Name = "cobTeams2";
-            this.cobTeams2.Size = new System.Drawing.Size(193, 28);
-            this.cobTeams2.TabIndex = 23;
-            // 
-            // lbvs
-            // 
-            this.lbvs.AutoSize = true;
-            this.lbvs.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbvs.Location = new System.Drawing.Point(359, 123);
-            this.lbvs.Name = "lbvs";
-            this.lbvs.Size = new System.Drawing.Size(42, 25);
-            this.lbvs.TabIndex = 24;
-            this.lbvs.Text = "VS";
+            this.dtpMatchDate.Location = new System.Drawing.Point(163, 272);
+            this.dtpMatchDate.Name = "dtpMatchDate";
+            this.dtpMatchDate.Size = new System.Drawing.Size(200, 26);
+            this.dtpMatchDate.TabIndex = 25;
             // 
             // frmScheduleMatch
             // 
@@ -210,7 +210,6 @@ namespace SoccerSYS
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox grpCategory;
         private System.Windows.Forms.TextBox txtMatchID;
-        private System.Windows.Forms.TextBox txtMatchDate;
         private System.Windows.Forms.TextBox txtMatchTime;
         private System.Windows.Forms.Label lbTime;
         private System.Windows.Forms.Label lbDate;
@@ -221,5 +220,6 @@ namespace SoccerSYS
         private System.Windows.Forms.Label lbvs;
         private System.Windows.Forms.ComboBox cobTeams2;
         private System.Windows.Forms.ComboBox cobTeams1;
+        private System.Windows.Forms.DateTimePicker dtpMatchDate;
     }
 }
