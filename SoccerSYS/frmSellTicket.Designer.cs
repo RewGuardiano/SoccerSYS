@@ -32,6 +32,7 @@ namespace SoccerSYS
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSellTicket));
             this.btnbackProcessSales = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnSelect = new System.Windows.Forms.Button();
             this.grdCategory = new System.Windows.Forms.DataGridView();
             this.NUDQuantity = new System.Windows.Forms.NumericUpDown();
@@ -40,11 +41,10 @@ namespace SoccerSYS
             this.lbQuantity = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lbSaleId = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.grpCategory.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCategory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDQuantity)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnbackProcessSales
@@ -76,6 +76,14 @@ namespace SoccerSYS
             this.grpCategory.TabStop = false;
             this.grpCategory.Text = "Enter Ticket Details:";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 267);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(658, 116);
+            this.dataGridView1.TabIndex = 39;
+            // 
             // btnSelect
             // 
             this.btnSelect.Location = new System.Drawing.Point(509, 42);
@@ -84,6 +92,7 @@ namespace SoccerSYS
             this.btnSelect.TabIndex = 38;
             this.btnSelect.Text = "Select";
             this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // grdCategory
             // 
@@ -92,6 +101,7 @@ namespace SoccerSYS
             this.grdCategory.Name = "grdCategory";
             this.grdCategory.Size = new System.Drawing.Size(658, 116);
             this.grdCategory.TabIndex = 37;
+            this.grdCategory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCategory_CellContentClick);
             // 
             // NUDQuantity
             // 
@@ -153,14 +163,6 @@ namespace SoccerSYS
             this.lbSaleId.TabIndex = 13;
             this.lbSaleId.Text = "Ticket Type";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 267);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(658, 116);
-            this.dataGridView1.TabIndex = 39;
-            // 
             // frmSellTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,9 +176,9 @@ namespace SoccerSYS
             this.Text = "ProcessSales";
             this.grpCategory.ResumeLayout(false);
             this.grpCategory.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdCategory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDQuantity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }

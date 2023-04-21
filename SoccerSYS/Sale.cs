@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Oracle.ManagedDataAccess.Client;
 
 namespace SoccerSYS
 {
@@ -13,7 +14,7 @@ namespace SoccerSYS
             private int Quantity;
             private int Salefee;
             private int MatchID;
-            private String TicketType;
+          
 
 
 
@@ -25,7 +26,7 @@ namespace SoccerSYS
                 this.Quantity = 0;
                 this.Salefee = 0;
                 this.MatchID = 0;
-                this.TicketType = "";
+              
 
             }
             public Sale(int saleId, int ticketid, int quantity, int salefee, int matchid,String ticketype)
@@ -35,7 +36,7 @@ namespace SoccerSYS
                 this.Quantity = quantity;
                 this.Salefee = salefee;
                 this.MatchID = matchid;
-                this.TicketType = ticketype;
+              
             
 
 
@@ -62,10 +63,7 @@ namespace SoccerSYS
                 return this.MatchID;
 
             }
-            public string getTicketType()
-        {
-            return this.TicketType;
-        }
+        
             public void setSaleId(int saleid)
             {
                 this.SaleID = saleid;
@@ -85,15 +83,49 @@ namespace SoccerSYS
 
             }
 
-            public void setTicketTtype(string ticketType)
+        public void getSale(int TicketID)
         {
-            this.TicketType = ticketType;
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            String sqlQuery = "SELECT * FROM CATEGORIES WHERE TicketID =  " + TicketID;
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            OracleDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+
+            conn.Close();
+
+
         }
+       /*public static DataSet FindSale(int TicketId)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-        
+            String sqlQuery = "SELECT TicketID,CatCode,Description,Price,NoSeats,SeatFrom,SeatTo,Status From Categories " +
+                "WHERE TicketID LIKE '%" +  + "%' ORDER BY TicketID";
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
 
 
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Cat");
+
+            conn.Close();
+
+            return ds;
 
         }
+       */
+
+
+
+
+    }
     }
 

@@ -78,6 +78,7 @@ namespace SoccerSYS
             this.SeatAvailability = seatAvailability;
         }
 
+      
 
 
         // Method to update the seat availability and number of tickets sold after a sale
