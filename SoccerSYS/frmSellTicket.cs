@@ -50,7 +50,15 @@ namespace SoccerSYS
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            grdCategory.DataSource = Sale.FindSale(cobTypes.Text).Tables["Cat"];
+            int typeId = 0;
+            if (!int.TryParse(cobTypes.Text, out typeId))
+            {
+                MessageBox.Show("Please select a valid type");
+                cobTypes.Focus();
+                return;
+            }
+
+            grdCategory.DataSource = Sale.FindSale(typeId).Tables["Cat"];
 
             if (grdCategory.Rows.Count == 1)
             {
@@ -62,10 +70,9 @@ namespace SoccerSYS
 
         private void grdCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            String CatCode = Convert.ToString(grdCategory.Rows[grdCategory.CurrentCell.RowIndex].Cells[0].Value.ToString());
+            int ticketId = Convert.ToInt32(grdCategory.Rows[e.RowIndex].Cells[0].Value);
 
-            Sale.getSale(CatCode);
-
+            Sale.getSale(ticketId);
         }
     }
 

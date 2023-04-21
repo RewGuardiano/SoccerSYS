@@ -114,11 +114,10 @@ namespace SoccerSYS
             Status = status;
         }
 
-        public void setTicketID()
+        public int setTicketID()
         {
-            latestTicketID++;
-            this.TicketID = latestTicketID;
             setStatus('A');
+            return TicketID = latestTicketID++;
         }
    
 

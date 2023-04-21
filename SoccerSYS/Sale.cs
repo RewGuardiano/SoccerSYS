@@ -95,13 +95,15 @@ namespace SoccerSYS
             this.TicketStatus = ticketStatus;
         }
 
-        public static void getSale(String CatCode)
+        public static void getSale(int TicketID)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            string sqlQuery = "SELECT * FROM CATEGORIES JOIN SALES ON Categories.TicketID = Sales.TicketID";
+            string sqlQuery = "SELECT * FROM CATEGORIES WHERE TicketID = :ticketID";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+            cmd.Parameters.Add(new OracleParameter("ticketID", TicketID));
 
             conn.Open();
 
@@ -118,32 +120,28 @@ namespace SoccerSYS
         }
 
 
-        public static DataSet FindSale(String CatCode) {
+        public static DataSet FindSale(int TicketID) {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             // Open connection
             conn.Open();
 
             // Define SQL command to retrieve data from Category table
-            string sql = "SELECT * FROM CATEGORIES JOIN SALES ON Categories.TicketID = Sales.TicketID";
-
-
+            string sql = "SELECT * FROM CATEGORIES WHERE TicketID = :ticketID";
 
             // Create command object
             OracleCommand cmd = new OracleCommand(sql, conn);
-       
+            cmd.Parameters.Add(new OracleParameter("ticketID", TicketID));
 
             OracleDataAdapter da = new OracleDataAdapter(cmd);
 
             DataSet ds = new DataSet();
             da.Fill(ds, "Cat");
 
-          
-
             conn.Close();
 
             return ds;
 
-            Console.WriteLine("Data inserted successfully.");
+
         }
 
     }
