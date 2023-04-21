@@ -9,8 +9,8 @@ namespace SoccerSYS
 {
     class Fixture
     {
-        private DateTime Match_Date;
         private int MatchID;
+        private DateTime Match_Date;
         private String Match_time;
         private int TicketsSold;
         private bool[,] SeatAvailability;
@@ -19,7 +19,7 @@ namespace SoccerSYS
 
 
 
-        public Fixture(DateTime match_date, int matchId, string match_time, int ticketsSold, bool[,] seatAvailability,int saleID)
+        public Fixture(int matchId,DateTime match_date, string match_time, int ticketsSold, bool[,] seatAvailability,int saleID)
         {
             Match_Date = match_date;
             MatchID = matchId;
@@ -122,12 +122,12 @@ namespace SoccerSYS
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            string sqlQuery = "INSERT INTO FIXTURES (Match_Date, MatchID,Match_time, TicketSold, SeatAvailability,SaleID) " +
+            string sqlQuery = "INSERT INTO FIXTURES (MatchID, Match_Date,Match_time, TicketSold, SeatAvailability,SaleID) " +
                               "VALUES (:match_date, :matchid,:match_time, :ticketsold, :seatavailability,:saleID)";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-            cmd.Parameters.Add(new OracleParameter(":Match_Date", this.Match_Date));
             cmd.Parameters.Add(new OracleParameter(":MatchID", this.MatchID));
+            cmd.Parameters.Add(new OracleParameter(":Match_Date", this.Match_Date));
             cmd.Parameters.Add(new OracleParameter(":Match_time", this.Match_time));
             cmd.Parameters.Add(new OracleParameter(":TicketSold", this.TicketsSold));
             cmd.Parameters.Add(new OracleParameter(":SeatAvailability", this.SeatAvailability));

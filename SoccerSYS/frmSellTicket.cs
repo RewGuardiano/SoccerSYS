@@ -65,7 +65,7 @@ namespace SoccerSYS
         {
             int TicketID = Convert.ToInt32(grdCategory.Rows[grdCategory.CurrentCell.RowIndex].Cells[0].Value.ToString());
 
-             aticket = getSale(TicketID);
+            // aticket = getSale(TicketID);
 
 
         
