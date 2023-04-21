@@ -76,5 +76,8 @@ namespace SoccerSYS
             cobTeams2.Items.AddRange(lines2);
 
         }
+
+        //Didn't get to finish Function. In schedule match it would allow you to the manager to pick a team from a reference file Teams.txt and Record the tickets sold after a Ticket was 
+        //from the Sales Table which would allow the manage the SeatAvailability
     }
 }

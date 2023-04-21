@@ -78,4 +78,4 @@ namespace SoccerSYS
 
     
     }
-
+// This function along with the Fixture function would help us acculate the Revenue and Category ticket analysis which couldn't finish//

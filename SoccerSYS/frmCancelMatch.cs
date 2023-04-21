@@ -66,5 +66,6 @@ namespace SoccerSYS
          
             txtMatchDate.Clear();
         }
+        //The match Status would become unavailable after canceling match.
     }
 }
