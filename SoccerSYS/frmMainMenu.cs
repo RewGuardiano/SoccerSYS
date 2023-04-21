@@ -73,7 +73,7 @@ namespace SoccerSYS
 
         private void sellTicketsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmProcessSales to = new frmProcessSales();
+            frmSellTicket to = new frmSellTicket();
             to.Show();
             this.Hide();
 
@@ -100,6 +100,6 @@ namespace SoccerSYS
             this.Hide();
         }
 
-       
+     
     }
 }

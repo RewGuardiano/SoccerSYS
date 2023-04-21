@@ -80,7 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="lines.cs" />
-    <Compile Include="Sales.cs" />
+    <Compile Include="Sale.cs" />
     <Compile Include="Fixture.cs" />
     <Compile Include="DBConnect.cs" />
     <Compile Include="frmCancelMatch.cs">
@@ -107,11 +107,11 @@
     <Compile Include="frmYearlyTicketAnalysis.Designer.cs">
       <DependentUpon>frmYearlyTicketAnalysis.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmProcessSales.cs">
+    <Compile Include="frmSellTicket.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProcessSales.Designer.cs">
-      <DependentUpon>frmProcessSales.cs</DependentUpon>
+    <Compile Include="frmSellTicket.Designer.cs">
+      <DependentUpon>frmSellTicket.cs</DependentUpon>
     </Compile>
     <Compile Include="OracleDataRender.cs" />
     <Compile Include="Program.cs" />
@@ -144,8 +144,8 @@
     <EmbeddedResource Include="frmCancelMatch.resx">
       <DependentUpon>frmCancelMatch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProcessSales.resx">
-      <DependentUpon>frmProcessSales.cs</DependentUpon>
+    <EmbeddedResource Include="frmSellTicket.resx">
+      <DependentUpon>frmSellTicket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmScheduleMatch.resx">
       <DependentUpon>frmScheduleMatch.cs</DependentUpon>
@@ -178,6 +178,7 @@
     <EmbeddedResource Include="frmYearlyRevenueAnalysis.resx">
       <DependentUpon>frmYearlyRevenueAnalysis.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

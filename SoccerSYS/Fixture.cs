@@ -14,18 +14,71 @@ namespace SoccerSYS
         private String Match_time;
         private int TicketsSold;
         private bool[,] SeatAvailability;
+        private int SaleID;
 
 
 
 
-        public Fixture(DateTime match_date, int matchId, string match_time, int ticketsSold, bool[,] seatAvailability)
+        public Fixture(DateTime match_date, int matchId, string match_time, int ticketsSold, bool[,] seatAvailability,int saleID)
         {
             Match_Date = match_date;
             MatchID = matchId;
             Match_time = match_time;
             TicketsSold = 0;
             SeatAvailability = seatAvailability;
+            SaleID = saleID;
         }
+        public DateTime getmatchdate()
+        {
+            return this.Match_Date;
+        }
+        public int getmatchId()
+        {
+            return this.MatchID;
+
+        }
+        public string getMatchtime()
+        {
+            return this.Match_time;
+        }
+        public int getTicketSold()
+        {
+            return this.TicketsSold;
+        }
+        public bool[,]getSeatAvailability ()
+        {
+            return this.SeatAvailability;
+
+        }
+        public int getSaleID()
+        {
+            return this.SaleID;
+        }
+        public void setMatchDate(DateTime matchDate)
+        {
+            this.Match_Date = matchDate;
+
+        }
+        public void setMatchId(int matchid)
+        {
+            this.MatchID = matchid;
+        }
+        public void setMatchTime(string matchTime)
+        {
+            this.Match_time = matchTime;
+        }
+        public void setTicketSold(int ticketSold)
+        {
+            this.TicketsSold = ticketSold;
+
+        }
+
+        public void setSeatAvailability(bool[,] seatAvailability)
+        {
+            this.SeatAvailability = seatAvailability;
+        }
+
+
 
         // Method to update the seat availability and number of tickets sold after a sale
         public void UpdateSeatAvailability(int row, int column)
@@ -68,8 +121,8 @@ namespace SoccerSYS
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            string sqlQuery = "INSERT INTO FIXTURES (Match_Date, MatchID,Match_time, TicketSold, SeatAvailability) " +
-                              "VALUES (:match_date, :matchid,:match_time, :ticketsold, :seatavailability)";
+            string sqlQuery = "INSERT INTO FIXTURES (Match_Date, MatchID,Match_time, TicketSold, SeatAvailability,SaleID) " +
+                              "VALUES (:match_date, :matchid,:match_time, :ticketsold, :seatavailability,:saleID)";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             cmd.Parameters.Add(new OracleParameter(":Match_Date", this.Match_Date));
@@ -77,8 +130,8 @@ namespace SoccerSYS
             cmd.Parameters.Add(new OracleParameter(":Match_time", this.Match_time));
             cmd.Parameters.Add(new OracleParameter(":TicketSold", this.TicketsSold));
             cmd.Parameters.Add(new OracleParameter(":SeatAvailability", this.SeatAvailability));
-        
-     
+            cmd.Parameters.Add(new OracleParameter(":SaleID", this.SaleID));
+
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();

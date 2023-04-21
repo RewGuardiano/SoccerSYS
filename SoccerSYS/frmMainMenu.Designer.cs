@@ -107,8 +107,8 @@ namespace SoccerSYS
             this.mbaUpdateFixtures.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Italic);
             this.mbaUpdateFixtures.Name = "mbaUpdateFixtures";
             this.mbaUpdateFixtures.Padding = new System.Windows.Forms.Padding(40, 0, 4, 0);
-            this.mbaUpdateFixtures.Size = new System.Drawing.Size(195, 30);
-            this.mbaUpdateFixtures.Text = "Update Fixtures";
+            this.mbaUpdateFixtures.Size = new System.Drawing.Size(204, 30);
+            this.mbaUpdateFixtures.Text = "Manage Fixtures";
             // 
             // mbascheduleMatch
             // 
@@ -141,7 +141,7 @@ namespace SoccerSYS
             // 
             this.mbaSellTickets.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbaSellTickets.Name = "mbaSellTickets";
-            this.mbaSellTickets.Size = new System.Drawing.Size(180, 26);
+            this.mbaSellTickets.Size = new System.Drawing.Size(158, 26);
             this.mbaSellTickets.Text = "Sell Tickets";
             this.mbaSellTickets.Click += new System.EventHandler(this.sellTicketsToolStripMenuItem_Click);
             // 

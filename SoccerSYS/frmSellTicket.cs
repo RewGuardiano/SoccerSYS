@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SoccerSYS
 {
-    public partial class frmProcessSales : Form
+    public partial class frmSellTicket : Form
     {
-        public frmProcessSales()
+        public frmSellTicket()
         {
             InitializeComponent();
         }
@@ -32,23 +32,19 @@ namespace SoccerSYS
 
         private void btnProcessSalesSubmit_Click(object sender, EventArgs e)
         {
-            bool IsNumber = int.TryParse(txtTotalPrice.Text, out int i);
-            if ( IsNumber== false || txtTotalPrice.Text.Equals("0"))
+          
+            
+            if( NUDQuantity.Equals("0"))
             {
-                MessageBox.Show("Total Price must be numeric and greater than zero ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTotalPrice.Focus();
+                MessageBox.Show("Quantity must be greater than zero ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                NUDQuantity.Focus();
                 return;
             }
-            bool IsNumeric = int.TryParse(txtQty.Text, out int j);
-            if(IsNumeric==false || txtQty.Text.Equals("0"))
-            {
-                MessageBox.Show("Quantity must be numeric and greater than zero ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtQty.Focus();
-                return;
-            }
-            MessageBox.Show("Sales Processed ", "Sales", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Ticket Processed ", "Sales", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
         }
+
+      
     }
 }
