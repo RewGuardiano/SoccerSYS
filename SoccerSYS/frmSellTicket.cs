@@ -50,7 +50,7 @@ namespace SoccerSYS
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            grdCategory.DataSource = Category.FindCategory(cobTypes.Text).Tables["Cat"];
+            grdCategory.DataSource = Sale.FindSale(cobTypes.Text).Tables["Cat"];
 
             if (grdCategory.Rows.Count == 1)
             {
@@ -58,19 +58,17 @@ namespace SoccerSYS
                 cobTypes.Focus();
                 return;
             }
-
         }
 
         private void grdCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int TicketID = Convert.ToInt32(grdCategory.Rows[grdCategory.CurrentCell.RowIndex].Cells[0].Value.ToString());
+            String CatCode = Convert.ToString(grdCategory.Rows[grdCategory.CurrentCell.RowIndex].Cells[0].Value.ToString());
 
-            // aticket = getSale(TicketID);
+            Sale.getSale(CatCode);
 
-
-        
-
-            
         }
     }
-}
+
+    
+    }
+

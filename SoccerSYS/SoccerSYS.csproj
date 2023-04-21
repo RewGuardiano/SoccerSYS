@@ -79,7 +79,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="lines.cs" />
     <Compile Include="Sale.cs" />
     <Compile Include="Fixture.cs" />
     <Compile Include="DBConnect.cs" />

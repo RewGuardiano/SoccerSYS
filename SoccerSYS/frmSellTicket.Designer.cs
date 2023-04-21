@@ -114,9 +114,9 @@ namespace SoccerSYS
             // 
             this.cobTypes.FormattingEnabled = true;
             this.cobTypes.Items.AddRange(new object[] {
-            "Category A",
-            "Category B",
-            "Category C"});
+            " A",
+            " B",
+            "C"});
             this.cobTypes.Location = new System.Drawing.Point(219, 43);
             this.cobTypes.Name = "cobTypes";
             this.cobTypes.Size = new System.Drawing.Size(264, 28);
