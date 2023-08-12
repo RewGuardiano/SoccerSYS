@@ -34,7 +34,7 @@ namespace SoccerSYS
 
         private void btnSetCategory_Click(object sender, EventArgs e)
         {
-
+            // trying to validate so there is no duplicate data//
             HashSet<string> enteredData = new HashSet<string>();
 
             while (true)
