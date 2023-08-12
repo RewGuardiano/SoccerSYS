@@ -79,6 +79,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAddTeam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddTeam.Designer.cs">
+      <DependentUpon>frmAddTeam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUpdateTeam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpdateTeam.Designer.cs">
+      <DependentUpon>frmUpdateTeam.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sale.cs" />
     <Compile Include="Fixture.cs" />
     <Compile Include="DBConnect.cs" />
@@ -140,6 +152,10 @@
       <DependentUpon>frmYearlyRevenueAnalysis.cs</DependentUpon>
     </Compile>
     <Compile Include="Category.cs" />
+    <Compile Include="Team.cs" />
+    <EmbeddedResource Include="frmAddTeam.resx">
+      <DependentUpon>frmAddTeam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCancelMatch.resx">
       <DependentUpon>frmCancelMatch.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSetCategory.resx">
       <DependentUpon>frmSetCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpdateTeam.resx">
+      <DependentUpon>frmUpdateTeam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmYearlyTicketAnalysis.resx">
       <DependentUpon>frmYearlyTicketAnalysis.cs</DependentUpon>

@@ -37,12 +37,12 @@ namespace SoccerSYS
 
 
         }
-        public Category(int TicketID,string CatCode, string description, decimal price, int NoSeats, int SeatFrom, int SeatTo, char Status)
+        public Category(int TicketID,string CatCode, string description, decimal Price, int NoSeats, int SeatFrom, int SeatTo, char Status)
         {
             this.TicketID = TicketID;
             this.CatCode = CatCode;
             this.description = description;
-            this.Price = price;
+            this.Price = Price;
             this.NoSeats = NoSeats;
             this.SeatFrom = SeatFrom;
             this.SeatTo = SeatTo;
@@ -133,7 +133,7 @@ namespace SoccerSYS
 
             //Define the SQL query to be executed
             String sqlQuery = "SELECT CatCode, description,Price,NoSeats " +
-                "FROM CATEGORIES ORDER BY CatCode";
+                "FROM CATEGORYS ORDER BY CatCode";
 
             //Execute the SQL query (OracleCommand)
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
@@ -154,7 +154,7 @@ namespace SoccerSYS
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            String sqlQuery = "SELECT * FROM CATEGORIES WHERE Catcode =  " + CatCode;
+            String sqlQuery = "SELECT * FROM CATEGORYS WHERE Catcode =  " + CatCode;
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();
@@ -178,7 +178,7 @@ namespace SoccerSYS
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            string sqlQuery = "INSERT INTO CATEGORIES (TICKETID, CATCODE, DESCRIPTION, PRICE, NOSEATS, SEATFROM, SEATTO,Status) " +
+            string sqlQuery = "INSERT INTO CATEGORYS (TICKETID, CATCODE, DESCRIPTION, PRICE, NOSEATS, SEATFROM, SEATTO,Status) " +
                               "VALUES (:ticketID, :catCode, :description, :price, :noSeats, :seatFrom, :seatTo,:status)";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
@@ -201,7 +201,7 @@ namespace SoccerSYS
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
 
-            string sqlQuery = "UPDATE CATEGORIES SET " +
+            string sqlQuery = "UPDATE CATEGORYS SET " +
                               "description = :description," +
                               "Price = :Price," +
                               "NoSeats = :NoSeats," +
@@ -228,7 +228,7 @@ namespace SoccerSYS
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            String sqlQuery = "SELECT TicketID,CatCode,Description,Price,NoSeats,SeatFrom,SeatTo,Status From Categories " +
+            String sqlQuery = "SELECT TicketID,CatCode,Description,Price,NoSeats,SeatFrom,SeatTo,Status From CATEGORYS " +
                 "WHERE Catcode LIKE '%" + CatCode + "%' ORDER BY Catcode";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
@@ -251,7 +251,7 @@ namespace SoccerSYS
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
         
 
-            string sqlQuery = "UPDATE Categories SET Status='U' WHERE CatCode = :CatCode";
+            string sqlQuery = "UPDATE CATEGORYS SET Status='U' WHERE CatCode = :CatCode";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             conn.Open();

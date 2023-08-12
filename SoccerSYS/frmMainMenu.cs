@@ -37,10 +37,7 @@ namespace SoccerSYS
 
         }
 
-        private void frmMainMenu_Load(object sender, EventArgs e)
-        {
-          
-        }
+    
 
 
         private void mbuManageCategories_Click(object sender, EventArgs e)
@@ -100,6 +97,18 @@ namespace SoccerSYS
             this.Hide();
         }
 
-     
+        private void mbaAddTeam_Click(object sender, EventArgs e)
+        {
+            frmAddTeam to = new frmAddTeam();
+            to.Show();
+            this.Hide();
+        }
+
+        private void mbaUpdateTeam_Click(object sender, EventArgs e)
+        {
+            frmUpdateCategory to = new frmUpdateCategory();
+            to.Show();
+            this.Hide();
+        }
     }
 }

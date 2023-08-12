@@ -14,8 +14,7 @@ namespace SoccerSYS
         private int TicketID;
         private int Quantity;
         private int Salefee;
-        private int MatchID;
-        private char TicketStatus;
+    
 
 
 
@@ -27,18 +26,16 @@ namespace SoccerSYS
             this.TicketID = 0;
             this.Quantity = 0;
             this.Salefee = 0;
-            this.MatchID = 0;
-            this.TicketStatus = ' ';
+            
 
         }
-        public Sale(int saleId, int ticketid, int quantity, int salefee, int matchid, String ticketype, char ticketstatus)
+        public Sale(int saleId, int ticketid, int quantity, int salefee)
         {
             this.SaleID = saleId;
             this.TicketID = ticketid;
             this.Quantity = quantity;
             this.Salefee = salefee;
-            this.MatchID = matchid;
-            this.TicketStatus = ticketstatus;
+           
 
 
 
@@ -61,15 +58,7 @@ namespace SoccerSYS
         {
             return this.Salefee;
         }
-        public int getmatchid()
-        {
-            return this.MatchID;
 
-        }
-        public char getTicketStatus()
-        {
-            return this.TicketStatus;
-        }
 
         public void setSaleId(int saleid)
         {
@@ -84,22 +73,12 @@ namespace SoccerSYS
         {
             this.SaleID = salefee;
         }
-        public void setMatchID(int matchId)
-        {
-            this.MatchID = matchId;
-
-        }
-
-        public void setticketStatus(char ticketStatus)
-        {
-            this.TicketStatus = ticketStatus;
-        }
-
+       
         public static void getSale(int TicketID)
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            string sqlQuery = "SELECT * FROM CATEGORIES WHERE TicketID = :ticketID";
+            string sqlQuery = "SELECT * FROM CATEGORYS WHERE TicketID = :ticketID";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
 
@@ -126,7 +105,7 @@ namespace SoccerSYS
             conn.Open();
 
             // Define SQL command to retrieve data from Category table
-            string sql = "SELECT * FROM CATEGORIES WHERE TicketID = :ticketID";
+            string sql = "SELECT * FROM CATEGORYS WHERE TicketID = :ticketID";
 
             // Create command object
             OracleCommand cmd = new OracleCommand(sql, conn);

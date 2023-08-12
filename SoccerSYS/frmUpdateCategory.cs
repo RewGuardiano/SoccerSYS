@@ -110,7 +110,7 @@ namespace SoccerSYS
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
             conn.Open();
 
-            string sqlQuery = "SELECT * FROM CATEGORIES WHERE CatCode = :catCode"; // Use parameterized query
+            string sqlQuery = "SELECT * FROM CATEGORYS WHERE CatCode = :catCode"; // Use parameterized query
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             cmd.Parameters.Add(new OracleParameter("catCode", txtSearch.Text)); // Add parameter
