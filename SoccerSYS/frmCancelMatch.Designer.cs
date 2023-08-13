@@ -32,7 +32,6 @@ namespace SoccerSYS
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCancelMatch));
             this.btnCancelMatch = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
-            this.txtMatchDate = new System.Windows.Forms.TextBox();
             this.cobMatchTime = new System.Windows.Forms.ComboBox();
             this.cobTeams = new System.Windows.Forms.ComboBox();
             this.cobMatchID = new System.Windows.Forms.ComboBox();
@@ -42,6 +41,7 @@ namespace SoccerSYS
             this.lblPrice = new System.Windows.Forms.Label();
             this.lbdescription = new System.Windows.Forms.Label();
             this.lbMatchID = new System.Windows.Forms.Label();
+            this.dtpMatchDate = new System.Windows.Forms.DateTimePicker();
             this.grpCategory.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +58,7 @@ namespace SoccerSYS
             // 
             // grpCategory
             // 
-            this.grpCategory.Controls.Add(this.txtMatchDate);
+            this.grpCategory.Controls.Add(this.dtpMatchDate);
             this.grpCategory.Controls.Add(this.cobMatchTime);
             this.grpCategory.Controls.Add(this.cobTeams);
             this.grpCategory.Controls.Add(this.cobMatchID);
@@ -78,14 +78,6 @@ namespace SoccerSYS
             this.grpCategory.TabStop = false;
             this.grpCategory.Text = "Enter Match Details:";
             this.grpCategory.Enter += new System.EventHandler(this.grpCategory_Enter);
-            // 
-            // txtMatchDate
-            // 
-            this.txtMatchDate.Location = new System.Drawing.Point(257, 328);
-            this.txtMatchDate.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMatchDate.Name = "txtMatchDate";
-            this.txtMatchDate.Size = new System.Drawing.Size(305, 30);
-            this.txtMatchDate.TabIndex = 27;
             // 
             // cobMatchTime
             // 
@@ -178,6 +170,14 @@ namespace SoccerSYS
             this.lbMatchID.TabIndex = 13;
             this.lbMatchID.Text = "Match Id";
             // 
+            // dtpMatchDate
+            // 
+            this.dtpMatchDate.Location = new System.Drawing.Point(257, 327);
+            this.dtpMatchDate.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpMatchDate.Name = "dtpMatchDate";
+            this.dtpMatchDate.Size = new System.Drawing.Size(265, 30);
+            this.dtpMatchDate.TabIndex = 27;
+            // 
             // frmCancelMatch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -209,6 +209,6 @@ namespace SoccerSYS
         private System.Windows.Forms.ComboBox cobMatchTime;
         private System.Windows.Forms.ComboBox cobTeams;
         private System.Windows.Forms.ComboBox cobMatchID;
-        private System.Windows.Forms.TextBox txtMatchDate;
+        private System.Windows.Forms.DateTimePicker dtpMatchDate;
     }
 }

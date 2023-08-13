@@ -31,48 +31,10 @@ namespace SoccerSYS
             to.Show();
             this.Close();
         }
-       
 
-        private void btnProcessSalesSubmit_Click(object sender, EventArgs e)
+        private void btnConfirm_Click(object sender, EventArgs e)
         {
 
-
-            if (NUDQuantity.Equals("0"))
-            {
-                MessageBox.Show("Quantity must be greater than zero ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                NUDQuantity.Focus();
-                return;
-            }
-            MessageBox.Show("Ticket Processed ", "Sales", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-        }
-
-        private void btnSelect_Click(object sender, EventArgs e)
-        {
-            int typeId = 0;
-            if (!int.TryParse(cobTypes.Text, out typeId))
-            {
-                MessageBox.Show("Please select a valid type");
-                cobTypes.Focus();
-                return;
-            }
-
-            grdCategory.DataSource = Sale.FindSale(typeId).Tables["Cat"];
-
-            if (grdCategory.Rows.Count == 1)
-            {
-                MessageBox.Show("No Data Found");
-                cobTypes.Focus();
-                return;
-            }
-        }
-
-        private void grdCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int ticketId = Convert.ToInt32(grdCategory.Rows[e.RowIndex].Cells[0].Value);
-
-            Sale.getSale(ticketId);
         }
     }
 

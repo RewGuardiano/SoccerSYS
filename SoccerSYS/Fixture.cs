@@ -75,7 +75,8 @@ namespace SoccerSYS
         }
         public void setMatchAvailability(char matchAvailability)
         {
-            MatchAvailability = matchAvailability;
+            setMatchAvailability('A');
+           
         }
         public void setTeamID(string teamID)
         {
@@ -106,7 +107,23 @@ namespace SoccerSYS
             cmd.ExecuteNonQuery();
             conn.Close();
         }
-        
+        public void CancelMatch()
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            string sqlQuery = "UPDATE Fixtures SET MatchAvailability='U' WHERE MatchID = :MatchID";
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            cmd.Parameters.Add(new OracleParameter(":MatchID",MatchID ));
+
+            cmd.ExecuteNonQuery();
+
+            conn.Close();
+        }
+
+
     }
 }
 
