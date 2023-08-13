@@ -69,11 +69,18 @@ namespace SoccerSYS
 
         private void grpCategory_Enter(object sender, EventArgs e)
         {
-            string[] lines = File.ReadAllLines("Teams.txt");
-            cobTeams1.Items.AddRange(lines);
+            // Assuming you have a List of Team objects named 'teams' in your 'table' class.
+            List<Team> teams = Team.GetTeams();
 
-            string[] lines2 = File.ReadAllLines("Teams.txt");
-            cobTeams2.Items.AddRange(lines2);
+            // Clear existing items before adding new ones
+            cobTeams1.Items.Clear();
+            cobTeams2.Items.Clear();
+
+            foreach (Team team in teams)
+            {
+                cobTeams1.Items.Add(team.TeamName);
+                cobTeams2.Items.Add(team.TeamName);
+            }
 
         }
 

@@ -40,8 +40,17 @@ namespace SoccerSYS
         {
             TeamName = teamName;
         }
+        public static List<Team> GetTeams()
+        {
+            List<Team> teams = new List<Team>();
 
+            // Replace the following lines with actual data retrieval logic.
+            teams.Add(new Team { TeamName = "Chelsea" });
+            teams.Add(new Team { TeamName = "Manchester United" });
+            teams.Add(new Team { TeamName = "Livperpool" });
 
+            return teams;
+        }
         public static DataSet GetAllTeams()
         {
 
