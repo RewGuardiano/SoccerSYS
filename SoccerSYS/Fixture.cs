@@ -76,6 +76,7 @@ namespace SoccerSYS
         public void setMatchAvailability(char matchAvailability)
         {
             setMatchAvailability('A');
+            MatchAvailability = matchAvailability;
            
         }
         public void setTeamID(string teamID)
@@ -93,16 +94,17 @@ namespace SoccerSYS
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            string sqlQuery = "INSERT INTO FIXTURES (MatchID, Match_Date,Match_time, TicketSold, MatchAvailability) " +
-                              "VALUES (:match_date, :matchid,:match_time, :ticketsold, :matchavailability)";
+            string sqlQuery = "INSERT INTO FIXTURES (MatchID,TeamID,Match_Date,Match_time, TicketSold, MatchAvailability) " +
+                              "VALUES (:matchid,:teamid,:match_date,:match_time, :ticketsold, :matchavailability)";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
             cmd.Parameters.Add(new OracleParameter(":MatchID", this.MatchID));
+            cmd.Parameters.Add(new OracleParameter(":TeamID", this.TeamID));
             cmd.Parameters.Add(new OracleParameter(":Match_Date", this.Match_Date));
             cmd.Parameters.Add(new OracleParameter(":Match_time", this.Match_time));
             cmd.Parameters.Add(new OracleParameter(":TicketSold", this.TicketsSold));
             cmd.Parameters.Add(new OracleParameter(":MatchAvailability ", this.MatchAvailability));
-        
+
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();

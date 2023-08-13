@@ -264,6 +264,23 @@ namespace SoccerSYS
    
 
         }
-       
+        public static bool CategoryCodeExists(string catCode)
+        {
+            using (OracleConnection connection = new OracleConnection("YourConnectionString"))
+            {
+                connection.Open();
+
+                string query = "SELECT COUNT(*) FROM Categorys WHERE CatCode = @CatCode";
+
+                using (OracleCommand command = new OracleCommand(query, connection))
+                {
+                    command.Parameters.Add("@CatCode", catCode);
+                    int count = (int)command.ExecuteScalar();
+
+                    return count > 0;
+                }
+            }
+        }
+
     }
 }

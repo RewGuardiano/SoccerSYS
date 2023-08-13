@@ -34,27 +34,20 @@ namespace SoccerSYS
 
         private void btnSetCategory_Click(object sender, EventArgs e)
         {
-            // trying to validate so there is no duplicate data//
-            HashSet<string> enteredData = new HashSet<string>();
-
-            while (true)
+            // try to validate so there are no duplicate Category Codes//
+            try
             {
-                Console.Write("Enter data: ");
-                string userInput = Console.ReadLine();
+                string catCode = txtCatCode.Text.Trim(); // Get the category code
 
-                if (enteredData.Contains(userInput))
+                // Check if the category code already exists in the database
+                if (Category.CategoryCodeExists(catCode))
                 {
-                    Console.WriteLine("This data has already been entered.");
+                    MessageBox.Show("Category Code already exists. Please enter a different Category Code.",
+                                    "Duplicate Category Code", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; // Exit the method without inserting the data
                 }
-                else
-                {
-                    enteredData.Add(userInput);
-                    Console.WriteLine("Data saved.");
-                }
-            }
-
-            // Validate form inputs
-            if (txtdescription.Text.Equals(""))
+                // Validate form inputs
+                if (txtdescription.Text.Equals(""))
                 {
                     MessageBox.Show("Description must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtdescription.Focus();
@@ -113,10 +106,18 @@ namespace SoccerSYS
 
                 aCategory.SetCategory();
 
+
                 MessageBox.Show("Category Added", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
 
-                txtCatCode.Clear();
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+
+            txtCatCode.Clear();
                 txtdescription.Clear();
                 txtPrice.Clear();
                 txtNoSeats.Clear();

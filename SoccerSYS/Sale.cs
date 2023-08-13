@@ -122,6 +122,23 @@ namespace SoccerSYS
 
 
         }
+        public void ConfirmSales()
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            string sqlQuery = "INSERT INTO Sale (SALEID, TICKETID, QUANTITY, Salefee) " +
+                              "VALUES (:saleid, :ticketid, :quantity, :salefee)";
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            cmd.Parameters.Add(new OracleParameter(":saleID", this.SaleID));
+            cmd.Parameters.Add(new OracleParameter(":ticketID", this.TicketID));
+            cmd.Parameters.Add(new OracleParameter(":quantity", this.Quantity));
+            cmd.Parameters.Add(new OracleParameter(":salefee", this.Salefee));
+          
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
 
     }
 

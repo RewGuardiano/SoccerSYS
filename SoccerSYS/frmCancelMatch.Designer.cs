@@ -31,18 +31,14 @@ namespace SoccerSYS
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCancelMatch));
             this.btnCancelMatch = new System.Windows.Forms.Button();
-            this.grpCategory = new System.Windows.Forms.GroupBox();
-            this.cobMatchTime = new System.Windows.Forms.ComboBox();
-            this.cobTeams = new System.Windows.Forms.ComboBox();
-            this.cobMatchID = new System.Windows.Forms.ComboBox();
-            this.btnCancelSubmit = new System.Windows.Forms.Button();
-            this.lbTime = new System.Windows.Forms.Label();
-            this.lbDate = new System.Windows.Forms.Label();
-            this.lblPrice = new System.Windows.Forms.Label();
-            this.lbdescription = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.lbMatchID = new System.Windows.Forms.Label();
-            this.dtpMatchDate = new System.Windows.Forms.DateTimePicker();
-            this.grpCategory.SuspendLayout();
+            this.btnCancelSubmit = new System.Windows.Forms.Button();
+            this.cobMatchID = new System.Windows.Forms.ComboBox();
+            this.grdMatchRemove = new System.Windows.Forms.DataGridView();
+            this.txtSearchCancelMatch = new System.Windows.Forms.TextBox();
+            this.btnSearchCancelMatch = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.grdMatchRemove)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancelMatch
@@ -56,127 +52,78 @@ namespace SoccerSYS
             this.btnCancelMatch.UseVisualStyleBackColor = true;
             this.btnCancelMatch.Click += new System.EventHandler(this.button1_Click);
             // 
-            // grpCategory
+            // label1
             // 
-            this.grpCategory.Controls.Add(this.dtpMatchDate);
-            this.grpCategory.Controls.Add(this.cobMatchTime);
-            this.grpCategory.Controls.Add(this.cobTeams);
-            this.grpCategory.Controls.Add(this.cobMatchID);
-            this.grpCategory.Controls.Add(this.btnCancelSubmit);
-            this.grpCategory.Controls.Add(this.lbTime);
-            this.grpCategory.Controls.Add(this.lbDate);
-            this.grpCategory.Controls.Add(this.lblPrice);
-            this.grpCategory.Controls.Add(this.lbdescription);
-            this.grpCategory.Controls.Add(this.lbMatchID);
-            this.grpCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpCategory.Location = new System.Drawing.Point(86, 31);
-            this.grpCategory.Margin = new System.Windows.Forms.Padding(4);
-            this.grpCategory.Name = "grpCategory";
-            this.grpCategory.Padding = new System.Windows.Forms.Padding(4);
-            this.grpCategory.Size = new System.Drawing.Size(894, 493);
-            this.grpCategory.TabIndex = 16;
-            this.grpCategory.TabStop = false;
-            this.grpCategory.Text = "Enter Match Details:";
-            this.grpCategory.Enter += new System.EventHandler(this.grpCategory_Enter);
-            // 
-            // cobMatchTime
-            // 
-            this.cobMatchTime.FormattingEnabled = true;
-            this.cobMatchTime.Location = new System.Drawing.Point(257, 242);
-            this.cobMatchTime.Name = "cobMatchTime";
-            this.cobMatchTime.Size = new System.Drawing.Size(171, 33);
-            this.cobMatchTime.TabIndex = 26;
-            // 
-            // cobTeams
-            // 
-            this.cobTeams.FormattingEnabled = true;
-            this.cobTeams.Location = new System.Drawing.Point(257, 142);
-            this.cobTeams.Name = "cobTeams";
-            this.cobTeams.Size = new System.Drawing.Size(260, 33);
-            this.cobTeams.TabIndex = 25;
-            // 
-            // cobMatchID
-            // 
-            this.cobMatchID.FormattingEnabled = true;
-            this.cobMatchID.Location = new System.Drawing.Point(257, 48);
-            this.cobMatchID.Name = "cobMatchID";
-            this.cobMatchID.Size = new System.Drawing.Size(121, 33);
-            this.cobMatchID.TabIndex = 24;
-            // 
-            // btnCancelSubmit
-            // 
-            this.btnCancelSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelSubmit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCancelSubmit.Location = new System.Drawing.Point(257, 413);
-            this.btnCancelSubmit.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancelSubmit.Name = "btnCancelSubmit";
-            this.btnCancelSubmit.Size = new System.Drawing.Size(193, 72);
-            this.btnCancelSubmit.TabIndex = 22;
-            this.btnCancelSubmit.Text = "Submit";
-            this.btnCancelSubmit.UseVisualStyleBackColor = true;
-            this.btnCancelSubmit.Click += new System.EventHandler(this.btnCancelSubmit_Click);
-            // 
-            // lbTime
-            // 
-            this.lbTime.AutoSize = true;
-            this.lbTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTime.Location = new System.Drawing.Point(89, 246);
-            this.lbTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbTime.Name = "lbTime";
-            this.lbTime.Size = new System.Drawing.Size(74, 29);
-            this.lbTime.TabIndex = 18;
-            this.lbTime.Text = "Time";
-            // 
-            // lbDate
-            // 
-            this.lbDate.AutoSize = true;
-            this.lbDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDate.Location = new System.Drawing.Point(93, 327);
-            this.lbDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbDate.Name = "lbDate";
-            this.lbDate.Size = new System.Drawing.Size(70, 29);
-            this.lbDate.TabIndex = 17;
-            this.lbDate.Text = "Date";
-            // 
-            // lblPrice
-            // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(53, 154);
-            this.lblPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(0, 29);
-            this.lblPrice.TabIndex = 16;
-            // 
-            // lbdescription
-            // 
-            this.lbdescription.AutoSize = true;
-            this.lbdescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbdescription.Location = new System.Drawing.Point(89, 146);
-            this.lbdescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbdescription.Name = "lbdescription";
-            this.lbdescription.Size = new System.Drawing.Size(96, 29);
-            this.lbdescription.TabIndex = 14;
-            this.lbdescription.Text = "Teams";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(158, 23);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(190, 29);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Enter Match Id";
             // 
             // lbMatchID
             // 
             this.lbMatchID.AutoSize = true;
             this.lbMatchID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMatchID.Location = new System.Drawing.Point(89, 52);
+            this.lbMatchID.Location = new System.Drawing.Point(331, 385);
             this.lbMatchID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMatchID.Name = "lbMatchID";
             this.lbMatchID.Size = new System.Drawing.Size(117, 29);
             this.lbMatchID.TabIndex = 13;
             this.lbMatchID.Text = "Match Id";
             // 
-            // dtpMatchDate
+            // btnCancelSubmit
             // 
-            this.dtpMatchDate.Location = new System.Drawing.Point(257, 327);
-            this.dtpMatchDate.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpMatchDate.Name = "dtpMatchDate";
-            this.dtpMatchDate.Size = new System.Drawing.Size(265, 30);
-            this.dtpMatchDate.TabIndex = 27;
+            this.btnCancelSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelSubmit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCancelSubmit.Location = new System.Drawing.Point(436, 453);
+            this.btnCancelSubmit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelSubmit.Name = "btnCancelSubmit";
+            this.btnCancelSubmit.Size = new System.Drawing.Size(193, 44);
+            this.btnCancelSubmit.TabIndex = 22;
+            this.btnCancelSubmit.Text = "Cancel Match";
+            this.btnCancelSubmit.UseVisualStyleBackColor = true;
+            this.btnCancelSubmit.Click += new System.EventHandler(this.btnCancelSubmit_Click);
+            // 
+            // cobMatchID
+            // 
+            this.cobMatchID.FormattingEnabled = true;
+            this.cobMatchID.Location = new System.Drawing.Point(496, 390);
+            this.cobMatchID.Name = "cobMatchID";
+            this.cobMatchID.Size = new System.Drawing.Size(234, 24);
+            this.cobMatchID.TabIndex = 24;
+            // 
+            // grdMatchRemove
+            // 
+            this.grdMatchRemove.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdMatchRemove.Location = new System.Drawing.Point(23, 76);
+            this.grdMatchRemove.Margin = new System.Windows.Forms.Padding(4);
+            this.grdMatchRemove.Name = "grdMatchRemove";
+            this.grdMatchRemove.RowHeadersWidth = 51;
+            this.grdMatchRemove.Size = new System.Drawing.Size(1031, 285);
+            this.grdMatchRemove.TabIndex = 38;
+            this.grdMatchRemove.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdMatchRemove_CellContentClick);
+            // 
+            // txtSearchCancelMatch
+            // 
+            this.txtSearchCancelMatch.Location = new System.Drawing.Point(387, 23);
+            this.txtSearchCancelMatch.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearchCancelMatch.Name = "txtSearchCancelMatch";
+            this.txtSearchCancelMatch.Size = new System.Drawing.Size(301, 22);
+            this.txtSearchCancelMatch.TabIndex = 39;
+            // 
+            // btnSearchCancelMatch
+            // 
+            this.btnSearchCancelMatch.Location = new System.Drawing.Point(743, 20);
+            this.btnSearchCancelMatch.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearchCancelMatch.Name = "btnSearchCancelMatch";
+            this.btnSearchCancelMatch.Size = new System.Drawing.Size(100, 28);
+            this.btnSearchCancelMatch.TabIndex = 40;
+            this.btnSearchCancelMatch.Text = "Search";
+            this.btnSearchCancelMatch.UseVisualStyleBackColor = true;
+            this.btnSearchCancelMatch.Click += new System.EventHandler(this.btnSearchCancelMatch_Click);
             // 
             // frmCancelMatch
             // 
@@ -184,31 +131,33 @@ namespace SoccerSYS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.grpCategory);
+            this.Controls.Add(this.btnSearchCancelMatch);
+            this.Controls.Add(this.txtSearchCancelMatch);
+            this.Controls.Add(this.grdMatchRemove);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelMatch);
+            this.Controls.Add(this.btnCancelSubmit);
+            this.Controls.Add(this.cobMatchID);
+            this.Controls.Add(this.lbMatchID);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCancelMatch";
             this.Text = "CancelMatch";
-            this.grpCategory.ResumeLayout(false);
-            this.grpCategory.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdMatchRemove)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button btnCancelMatch;
-        private System.Windows.Forms.GroupBox grpCategory;
-        private System.Windows.Forms.Button btnCancelSubmit;
-        private System.Windows.Forms.Label lbTime;
-        private System.Windows.Forms.Label lbDate;
-        private System.Windows.Forms.Label lblPrice;
-        private System.Windows.Forms.Label lbdescription;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbMatchID;
-        private System.Windows.Forms.ComboBox cobMatchTime;
-        private System.Windows.Forms.ComboBox cobTeams;
+        private System.Windows.Forms.Button btnCancelSubmit;
         private System.Windows.Forms.ComboBox cobMatchID;
-        private System.Windows.Forms.DateTimePicker dtpMatchDate;
+        private System.Windows.Forms.DataGridView grdMatchRemove;
+        private System.Windows.Forms.TextBox txtSearchCancelMatch;
+        private System.Windows.Forms.Button btnSearchCancelMatch;
     }
 }

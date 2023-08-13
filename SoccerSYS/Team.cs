@@ -75,23 +75,7 @@ namespace SoccerSYS
             return ds;
         }
  
-    /* public void getTeams(String TeamID)
-     {
-         OracleConnection conn = new OracleConnection(DBConnect.oradb);
-
-         String sqlQuery = "SELECT * FROM Teams WHERE TeamID =  " + TeamID;
-
-         OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-         conn.Open();
-
-         OracleDataReader dr = cmd.ExecuteReader();
-         dr.Read();
-
-         setTeamID(dr.GetString(20));
-         setTeamName(dr.GetString(25));
-
-
-         conn.Close();*/
+        
     public void AddTeam()
     {
         OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -108,7 +92,47 @@ namespace SoccerSYS
          cmd.ExecuteNonQuery();
             conn.Close();
     }
+        public static DataSet FindTeams(String TeamID)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            String sqlQuery = "SELECT TeamID, TeamName From Teams " +
+                "WHERE TeamID LIKE '%" + TeamID;
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
 
 
-}
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+
+
+
+            DataSet ds = new DataSet();
+            da.Fill(ds, "TeamID");
+
+            conn.Close();
+
+            return ds;
+
+        }
+        public void getTeams(String TeamID)
+        {
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            String sqlQuery = "SELECT * FROM Teams WHERE TeamID =  " + TeamID;
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            conn.Open();
+
+            OracleDataReader dr = cmd.ExecuteReader();
+            dr.Read();
+
+            setTeamID(dr.GetString(20));
+            setTeamName(dr.GetString(25));
+           
+
+            conn.Close();
+
+
+        }
+    }
 }

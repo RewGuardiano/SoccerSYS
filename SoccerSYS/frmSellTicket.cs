@@ -34,10 +34,46 @@ namespace SoccerSYS
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+          
+
+
+
+            MessageBox.Show("Sale Added", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+       
+
+        private void btnSearchSale_Click(object sender, EventArgs e)
+        {
+            GrdSale.DataSource = Category.FindCategory(txtTicketIDSale.Text).Tables["Cat"];
+
+            if (GrdSale.Rows.Count == 1)
+            {
+                MessageBox.Show("No Data Found");
+                txtTicketIDSale.Focus();
+                return;
+            }
+
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+            conn.Open();
+
+            string sqlQuery = "SELECT * FROM CATEGORYS WHERE CatCode = :catCode"; // Use parameterized query
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            cmd.Parameters.Add(new OracleParameter("catCode", txtTicketIDSale.Text)); // Add parameter
+
+          
+
+            conn.Close();
+        }
+
+        private void GrdSale_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }
+}
 
     
-    }
+    
 // This function along with the Fixture function would help us acculate the Revenue and Category ticket analysis which couldn't finish//

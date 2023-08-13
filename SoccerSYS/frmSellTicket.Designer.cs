@@ -32,19 +32,21 @@ namespace SoccerSYS
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSellTicket));
             this.btnbackProcessSales = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
+            this.btnSearchSale = new System.Windows.Forms.Button();
+            this.txtTicketIDSale = new System.Windows.Forms.TextBox();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblSalefee = new System.Windows.Forms.Label();
             this.lblQuantity = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.GrdSale = new System.Windows.Forms.DataGridView();
             this.lblTicketID = new System.Windows.Forms.Label();
             this.txtSaleID = new System.Windows.Forms.TextBox();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lbSaleId = new System.Windows.Forms.Label();
             this.grpCategory.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GrdSale)).BeginInit();
             this.SuspendLayout();
             // 
             // btnbackProcessSales
@@ -60,13 +62,15 @@ namespace SoccerSYS
             // 
             // grpCategory
             // 
+            this.grpCategory.Controls.Add(this.btnSearchSale);
+            this.grpCategory.Controls.Add(this.txtTicketIDSale);
             this.grpCategory.Controls.Add(this.btnConfirm);
             this.grpCategory.Controls.Add(this.textBox2);
             this.grpCategory.Controls.Add(this.textBox1);
             this.grpCategory.Controls.Add(this.comboBox1);
             this.grpCategory.Controls.Add(this.lblSalefee);
             this.grpCategory.Controls.Add(this.lblQuantity);
-            this.grpCategory.Controls.Add(this.dataGridView1);
+            this.grpCategory.Controls.Add(this.GrdSale);
             this.grpCategory.Controls.Add(this.lblTicketID);
             this.grpCategory.Controls.Add(this.txtSaleID);
             this.grpCategory.Controls.Add(this.lblPrice);
@@ -76,10 +80,28 @@ namespace SoccerSYS
             this.grpCategory.Margin = new System.Windows.Forms.Padding(4);
             this.grpCategory.Name = "grpCategory";
             this.grpCategory.Padding = new System.Windows.Forms.Padding(4);
-            this.grpCategory.Size = new System.Drawing.Size(893, 686);
+            this.grpCategory.Size = new System.Drawing.Size(956, 686);
             this.grpCategory.TabIndex = 17;
             this.grpCategory.TabStop = false;
             this.grpCategory.Text = "Enter Details";
+            // 
+            // btnSearchSale
+            // 
+            this.btnSearchSale.Location = new System.Drawing.Point(824, 169);
+            this.btnSearchSale.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearchSale.Name = "btnSearchSale";
+            this.btnSearchSale.Size = new System.Drawing.Size(100, 28);
+            this.btnSearchSale.TabIndex = 41;
+            this.btnSearchSale.Text = "Search";
+            this.btnSearchSale.UseVisualStyleBackColor = true;
+            this.btnSearchSale.Click += new System.EventHandler(this.btnSearchSale_Click);
+            // 
+            // txtTicketIDSale
+            // 
+            this.txtTicketIDSale.Location = new System.Drawing.Point(163, 167);
+            this.txtTicketIDSale.Name = "txtTicketIDSale";
+            this.txtTicketIDSale.Size = new System.Drawing.Size(196, 30);
+            this.txtTicketIDSale.TabIndex = 26;
             // 
             // btnConfirm
             // 
@@ -104,7 +126,6 @@ namespace SoccerSYS
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(205, 30);
             this.textBox1.TabIndex = 23;
-            this.textBox1.Text = "v";
             // 
             // comboBox1
             // 
@@ -136,21 +157,22 @@ namespace SoccerSYS
             this.lblQuantity.TabIndex = 20;
             this.lblQuantity.Text = "Monthly Quantity";
             // 
-            // dataGridView1
+            // GrdSale
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(259, 116);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(406, 150);
-            this.dataGridView1.TabIndex = 19;
+            this.GrdSale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GrdSale.Location = new System.Drawing.Point(381, 115);
+            this.GrdSale.Name = "GrdSale";
+            this.GrdSale.RowHeadersWidth = 51;
+            this.GrdSale.RowTemplate.Height = 24;
+            this.GrdSale.Size = new System.Drawing.Size(406, 150);
+            this.GrdSale.TabIndex = 19;
+            this.GrdSale.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdSale_CellContentClick);
             // 
             // lblTicketID
             // 
             this.lblTicketID.AutoSize = true;
             this.lblTicketID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTicketID.Location = new System.Drawing.Point(90, 144);
+            this.lblTicketID.Location = new System.Drawing.Point(30, 167);
             this.lblTicketID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTicketID.Name = "lblTicketID";
             this.lblTicketID.Size = new System.Drawing.Size(113, 29);
@@ -199,7 +221,7 @@ namespace SoccerSYS
             this.Text = "ProcessSales";
             this.grpCategory.ResumeLayout(false);
             this.grpCategory.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GrdSale)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -214,10 +236,12 @@ namespace SoccerSYS
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label lblSalefee;
         private System.Windows.Forms.Label lblQuantity;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView GrdSale;
         private System.Windows.Forms.Label lblTicketID;
         private System.Windows.Forms.TextBox txtSaleID;
         private System.Windows.Forms.Label lbSaleId;
         private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.TextBox txtTicketIDSale;
+        private System.Windows.Forms.Button btnSearchSale;
     }
 }
