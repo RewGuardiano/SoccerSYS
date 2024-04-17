@@ -13,7 +13,7 @@ namespace SoccerSYS
 {
     public partial class frmUpdateCategory : Form
     {
-        Category theCategory = new Category();
+        
         public frmUpdateCategory()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace SoccerSYS
             to.Show();
             this.Close();
         }
-
+/*
 
         private void btnUpdateCategory_Click(object sender, EventArgs e)
         {
@@ -98,7 +98,7 @@ namespace SoccerSYS
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            grdCategory.DataSource = Category.FindCategory(txtSearch.Text).Tables["Cat"];
+            grdCategory.DataSource = Categories.FindCategory(txtSearch.Text).Tables["Cat"];
 
             if (grdCategory.Rows.Count == 1)
             {
@@ -151,7 +151,7 @@ namespace SoccerSYS
 
             grpCategory.Visible = true;
         }
-        
+        */
 
     }
 }

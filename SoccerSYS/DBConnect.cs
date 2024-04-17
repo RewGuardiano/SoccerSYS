@@ -9,6 +9,6 @@ namespace SoccerSYS
 {
     class DBConnect
     {
-        public const String oradb = "Data Source = oracle/orcl; User Id = T00224519; Password = r9cde#cg7Qw6;";
+        public const String oradb = "Data Source = localhost/orcl; User Id = C##UserRew; Password = Sql12345;"; 
     }
 }

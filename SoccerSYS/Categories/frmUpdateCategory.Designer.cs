@@ -159,7 +159,7 @@ namespace SoccerSYS
             this.btnUpdateCategory.TabIndex = 19;
             this.btnUpdateCategory.Text = "Update Category";
             this.btnUpdateCategory.UseVisualStyleBackColor = true;
-            this.btnUpdateCategory.Click += new System.EventHandler(this.btnUpdateCategory_Click);
+       
             // 
             // lblNoSeats
             // 
@@ -225,7 +225,7 @@ namespace SoccerSYS
             this.btnSearch.TabIndex = 35;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+         
             // 
             // grdCategory
             // 
@@ -234,7 +234,7 @@ namespace SoccerSYS
             this.grdCategory.Name = "grdCategory";
             this.grdCategory.Size = new System.Drawing.Size(658, 85);
             this.grdCategory.TabIndex = 36;
-            this.grdCategory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCategory_CellContentClick);
+
             // 
             // txtSearch
             // 

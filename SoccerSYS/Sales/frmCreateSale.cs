@@ -11,10 +11,10 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace SoccerSYS
 {
-    public partial class frmSellTicket : Form
+    public partial class frmCreateSale : Form
     {
-        Sale aticket = new Sale();
-        public frmSellTicket()
+        
+        public frmCreateSale()
         {
             InitializeComponent();
         }
@@ -31,7 +31,7 @@ namespace SoccerSYS
             to.Show();
             this.Close();
         }
-
+        /*
         private void btnConfirm_Click(object sender, EventArgs e)
         {
           
@@ -45,7 +45,7 @@ namespace SoccerSYS
 
         private void btnSearchSale_Click(object sender, EventArgs e)
         {
-            GrdSale.DataSource = Category.FindCategory(txtTicketIDSale.Text).Tables["Cat"];
+            GrdSale.DataSource = Categories.FindCategory(txtTicketIDSale.Text).Tables["Cat"];
 
             if (GrdSale.Rows.Count == 1)
             {
@@ -71,6 +71,7 @@ namespace SoccerSYS
         {
 
         }
+        */
     }
 }
 

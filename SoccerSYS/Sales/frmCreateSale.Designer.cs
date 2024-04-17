@@ -1,7 +1,7 @@
 ﻿
 namespace SoccerSYS
 {
-    partial class frmSellTicket
+    partial class frmCreateSale
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace SoccerSYS
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSellTicket));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCreateSale));
             this.btnbackProcessSales = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
             this.btnSearchSale = new System.Windows.Forms.Button();
@@ -94,7 +94,7 @@ namespace SoccerSYS
             this.btnSearchSale.TabIndex = 41;
             this.btnSearchSale.Text = "Search";
             this.btnSearchSale.UseVisualStyleBackColor = true;
-            this.btnSearchSale.Click += new System.EventHandler(this.btnSearchSale_Click);
+            
             // 
             // txtTicketIDSale
             // 
@@ -111,7 +111,7 @@ namespace SoccerSYS
             this.btnConfirm.TabIndex = 25;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+         
             // 
             // textBox2
             // 
@@ -166,7 +166,7 @@ namespace SoccerSYS
             this.GrdSale.RowTemplate.Height = 24;
             this.GrdSale.Size = new System.Drawing.Size(406, 150);
             this.GrdSale.TabIndex = 19;
-            this.GrdSale.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrdSale_CellContentClick);
+       
             // 
             // lblTicketID
             // 

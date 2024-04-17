@@ -7,89 +7,58 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace SoccerSYS
 {
-    class Fixture
+    class Fixtures
     {
-        private int MatchID;
-        private string TeamID;
-        private DateTime Match_Date;
-        private string Match_time;
-        private int TicketsSold;
-        private char MatchAvailability;
+        private int FixtureID;
+        private char AwayTeam_ID;
+        private DateTime Fixture_Time;
 
+        public Fixtures(int fixtureID, char awayTeam_ID, DateTime fixture_Time)
+        {
+            FixtureID = fixtureID;
+            AwayTeam_ID = awayTeam_ID;
+            Fixture_Time = fixture_Time;
+        }
 
+        // Getter for FixtureID
+        public int GetFixtureID()
+        {
+            return FixtureID;
+        }
 
+        // Setter for FixtureID
+        public void SetFixtureID(int fixtureID)
+        {
+            FixtureID = fixtureID;
+        }
 
-        public Fixture(int MatchID,string TeamID,DateTime Match_Date, string Match_time, int TicketsSold, char MatchAvailability)
+        // Getter for AwayTeam_ID
+        public char GetAwayTeamID()
         {
-            this.MatchID = MatchID;
-            this.TeamID = TeamID;
-            this.Match_Date = Match_Date;
-            this.Match_time = Match_time;
-            this.TicketsSold = TicketsSold;
-            this.MatchAvailability = MatchAvailability;
-           
+            return AwayTeam_ID;
         }
-        public DateTime getmatchdate()
-        {
-            return this.Match_Date;
-        }
-        public int getmatchId()
-        {
-            return this.MatchID;
 
-        }
-        public string getTeamID()
+        // Setter for AwayTeam_ID
+        public void SetAwayTeamID(char awayTeamID)
         {
-            return this.TeamID;
+            AwayTeam_ID = awayTeamID;
         }
-        public string getMatchtime()
-        {
-            return this.Match_time;
-        }
-        public int getTicketSold()
-        {
-            return this.TicketsSold;
-        }
-       
-        public int getMatchAvailability()
-        {
-            return this.MatchAvailability;
-        }
-        public void setMatchDate(DateTime matchDate)
-        {
-            this.Match_Date = matchDate;
 
-        }
-        public void setMatchId(int matchid)
+        // Getter for Fixture_Time
+        public DateTime GetFixtureTime()
         {
-            this.MatchID = matchid;
+            return Fixture_Time;
         }
-        public void setMatchTime(string matchTime)
-        {
-            this.Match_time = matchTime;
-        }
-        public void setTicketSold(int ticketSold)
-        {
-            this.TicketsSold = ticketSold;
 
-        }
-        public void setMatchAvailability(char matchAvailability)
+        // Setter for Fixture_Time
+        public void SetFixtureTime(DateTime fixtureTime)
         {
-            setMatchAvailability('A');
-            MatchAvailability = matchAvailability;
-           
+            Fixture_Time = fixtureTime;
         }
-        public void setTeamID(string teamID)
-        {
-            TeamID = teamID;
 
-        }
-       
+    }
       
-
-
-      
-      
+      /*
         public void ScheduleMatch()
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
@@ -124,10 +93,10 @@ namespace SoccerSYS
 
             conn.Close();
         }
-
+      */
 
     }
-}
+
 
 
 

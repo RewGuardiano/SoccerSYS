@@ -11,10 +11,10 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace SoccerSYS
 {
-    public partial class frmUpdateTeam : Form
+    public partial class frmUpdateFixture : Form
     {
-        Team NewTeam = new Team();
-        public frmUpdateTeam()
+
+        public frmUpdateFixture()
         {
             InitializeComponent();
         }
@@ -26,8 +26,18 @@ namespace SoccerSYS
             this.Close();
         }
 
-      
+        private void grdTeams_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
+
+        private void btnSearchTeam_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        /*
         private void btnSearchTeam_Click(object sender, EventArgs e)
         {
             grdTeams.DataSource = Team.FindTeams(txtEnterTeamID.Text).Tables["TeamID"];
@@ -95,4 +105,7 @@ namespace SoccerSYS
             MessageBox.Show("Team Updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
+        */
+    }
 }
+        

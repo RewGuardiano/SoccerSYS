@@ -79,50 +79,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmAddTeam.cs">
+    <Compile Include="Classes\AwayTeam.cs" />
+    <Compile Include="Classes\SaleItem.cs" />
+    <Compile Include="Fixtures\frmUpdateFixture.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAddTeam.Designer.cs">
-      <DependentUpon>frmAddTeam.cs</DependentUpon>
+    <Compile Include="Fixtures\frmUpdateFixture.Designer.cs">
+      <DependentUpon>frmUpdateFixture.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmUpdateTeam.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmUpdateTeam.Designer.cs">
-      <DependentUpon>frmUpdateTeam.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sale.cs" />
-    <Compile Include="Fixture.cs" />
+    <Compile Include="Classes\Sale.cs" />
+    <Compile Include="Classes\Fixtures.cs" />
     <Compile Include="DBConnect.cs" />
-    <Compile Include="frmCancelMatch.cs">
+    <Compile Include="Fixtures\frmCreateFixture.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCancelMatch.Designer.cs">
-      <DependentUpon>frmCancelMatch.cs</DependentUpon>
+    <Compile Include="Fixtures\frmCreateFixture.Designer.cs">
+      <DependentUpon>frmCreateFixture.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmScheduleMatch.cs">
+    <Compile Include="Categories\frmCreateCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmScheduleMatch.Designer.cs">
-      <DependentUpon>frmScheduleMatch.cs</DependentUpon>
+    <Compile Include="Categories\frmCreateCategory.Designer.cs">
+      <DependentUpon>frmCreateCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSetCategory.cs">
+    <Compile Include="Admin\frmYearlyTicketAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSetCategory.Designer.cs">
-      <DependentUpon>frmSetCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmYearlyTicketAnalysis.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmYearlyTicketAnalysis.Designer.cs">
+    <Compile Include="Admin\frmYearlyTicketAnalysis.Designer.cs">
       <DependentUpon>frmYearlyTicketAnalysis.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSellTicket.cs">
+    <Compile Include="Sales\frmCreateSale.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSellTicket.Designer.cs">
-      <DependentUpon>frmSellTicket.cs</DependentUpon>
+    <Compile Include="Sales\frmCreateSale.Designer.cs">
+      <DependentUpon>frmCreateSale.cs</DependentUpon>
     </Compile>
     <Compile Include="OracleDataRender.cs" />
     <Compile Include="Program.cs" />
@@ -133,45 +123,32 @@
     <Compile Include="frmMainMenu.Designer.cs">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRemoveCategory.cs">
+    <Compile Include="Categories\frmUpdateCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRemoveCategory.Designer.cs">
-      <DependentUpon>frmRemoveCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmUpdateCategory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmUpdateCategory.Designer.cs">
+    <Compile Include="Categories\frmUpdateCategory.Designer.cs">
       <DependentUpon>frmUpdateCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmYearlyRevenueAnalysis.cs">
+    <Compile Include="Admin\frmYearlyRevenueAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmYearlyRevenueAnalysis.Designer.cs">
+    <Compile Include="Admin\frmYearlyRevenueAnalysis.Designer.cs">
       <DependentUpon>frmYearlyRevenueAnalysis.cs</DependentUpon>
     </Compile>
-    <Compile Include="Category.cs" />
-    <Compile Include="Team.cs" />
-    <EmbeddedResource Include="frmAddTeam.resx">
-      <DependentUpon>frmAddTeam.cs</DependentUpon>
+    <Compile Include="Classes\Categories.cs" />
+    <EmbeddedResource Include="Sales\frmCreateSale.resx">
+      <DependentUpon>frmCreateSale.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCancelMatch.resx">
-      <DependentUpon>frmCancelMatch.cs</DependentUpon>
+    <EmbeddedResource Include="Fixtures\frmCreateFixture.resx">
+      <DependentUpon>frmCreateFixture.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSellTicket.resx">
-      <DependentUpon>frmSellTicket.cs</DependentUpon>
+    <EmbeddedResource Include="Categories\frmCreateCategory.resx">
+      <DependentUpon>frmCreateCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmScheduleMatch.resx">
-      <DependentUpon>frmScheduleMatch.cs</DependentUpon>
+    <EmbeddedResource Include="Fixtures\frmUpdateFixture.resx">
+      <DependentUpon>frmUpdateFixture.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSetCategory.resx">
-      <DependentUpon>frmSetCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmUpdateTeam.resx">
-      <DependentUpon>frmUpdateTeam.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmYearlyTicketAnalysis.resx">
+    <EmbeddedResource Include="Admin\frmYearlyTicketAnalysis.resx">
       <DependentUpon>frmYearlyTicketAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -187,13 +164,10 @@
     <EmbeddedResource Include="frmMainMenu.resx">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRemoveCategory.resx">
-      <DependentUpon>frmRemoveCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmUpdateCategory.resx">
+    <EmbeddedResource Include="Categories\frmUpdateCategory.resx">
       <DependentUpon>frmUpdateCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmYearlyRevenueAnalysis.resx">
+    <EmbeddedResource Include="Admin\frmYearlyRevenueAnalysis.resx">
       <DependentUpon>frmYearlyRevenueAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />

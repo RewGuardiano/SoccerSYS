@@ -9,123 +9,89 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace SoccerSYS
 {
-    class Category
+    class Categories
     {
-        private static int latestTicketID = 0;
-        private int TicketID;
+
         private string CatCode;
-        private string description;
+        private string Description;
         private decimal Price;
-        private int NoSeats;
-        private int SeatFrom;
-        private int SeatTo;
-        private char Status;
+        private int AvailableSeats;
+        private int MaxSeats;
 
-        
+        public Categories(string catCode, string description, decimal price, int availableSeats, int maxSeats)
+        {
+            CatCode = catCode;
+            Description = description;
+            Price = price;
+            AvailableSeats = availableSeats;
+            MaxSeats = maxSeats;
+        }
 
+        // Getter for CatCode
+        public string GetCatCode()
+        {
+            return CatCode;
+        }
 
-        public Category()
+        // Setter for CatCode
+        public void SetCatCode(string catCode)
         {
-            this.TicketID = 0;
-            this.CatCode = "";
-            this.description = "";
-            this.Price = 0;
-            this.NoSeats = 0;
-            this.SeatFrom = 0;
-            this.SeatTo = 0;
-            this.Status = ' ' ;
+            CatCode = catCode;
+        }
 
+        // Getter for Description
+        public string GetDescription()
+        {
+            return Description;
+        }
 
-        }
-        public Category(int TicketID,string CatCode, string description, decimal Price, int NoSeats, int SeatFrom, int SeatTo, char Status)
+        // Setter for Description
+        public void SetDescription(string description)
         {
-            this.TicketID = TicketID;
-            this.CatCode = CatCode;
-            this.description = description;
-            this.Price = Price;
-            this.NoSeats = NoSeats;
-            this.SeatFrom = SeatFrom;
-            this.SeatTo = SeatTo;
-            this.Status = Status;
+            Description = description;
+        }
 
-        }
-        public int getTicketID()
+        // Getter for Price
+        public decimal GetPrice()
         {
-            return this.TicketID;
+            return Price;
         }
-        public string getCatCode()
-        {
-            return this.CatCode;
 
-        }
-        public string getdescription()
-        {
-            return this.description;
-        }
-        public decimal getprice()
-        {
-            return this.Price;
-        }
-        public int getNoSeats()
-        {
-            return this.NoSeats;
-
-        }
-        public int getSeatFrom()
-        {
-            return this.SeatFrom;
-        }
-        public int getSeatTo()
-        {
-            return this.SeatTo;
-        }
-        public char getStatus()
-        {
-            return this.Status;
-        }
-        public void setCatCode(string CatCode)
-        {
-            this.CatCode = CatCode;
-
-        }
-        public void setdescription(string Description)
-        {
-            description = Description;
-        }
-        public void setprice(decimal price)
+        // Setter for Price
+        public void SetPrice(decimal price)
         {
             Price = price;
         }
-        public void setNoSeats(int noSeats)
-        {
-            NoSeats= noSeats;
 
-        }
-        public void setSeatFrom(int seatFrom)
+        // Getter for AvailableSeats
+        public int GetAvailableSeats()
         {
-            SeatFrom = seatFrom;
-        }
-        public void setSeatTo(int seatTo)
-        {
-            SeatTo = seatTo;
-        }
-        public void setStatus(char status)
-        {
-            Status = status;
+            return AvailableSeats;
         }
 
-        public int setTicketID()
+        // Setter for AvailableSeats
+        public void SetAvailableSeats(int availableSeats)
         {
-            setStatus('A');
-            return TicketID = latestTicketID++;
+            AvailableSeats = availableSeats;
         }
-   
 
-   
+        // Getter for MaxSeats
+        public int GetMaxSeats()
+        {
+            return MaxSeats;
+        }
+
+        // Setter for MaxSeats
+        public void SetMaxSeats(int maxSeats)
+        {
+            MaxSeats = maxSeats;
+        }
+
+    }
 
 
-
-        public static DataSet GetAllCategories()
+    /*
+    public static DataSet GetAllCategories()
         {
 
             //Open a db connection
@@ -246,24 +212,7 @@ namespace SoccerSYS
             return ds;
    
         }
-        public void RemoveCategory()
-        {
-            OracleConnection conn = new OracleConnection(DBConnect.oradb);
         
-
-            string sqlQuery = "UPDATE CATEGORYS SET Status='U' WHERE CatCode = :CatCode";
-
-            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-            conn.Open();
-
-            cmd.Parameters.Add(new OracleParameter(":CatCode", CatCode));
-
-            cmd.ExecuteNonQuery();
-
-            conn.Close();
-   
-
-        }
         public static bool CategoryCodeExists(string catCode)
         {
             using (OracleConnection connection = new OracleConnection("YourConnectionString"))
@@ -282,5 +231,5 @@ namespace SoccerSYS
             }
         }
 
-    }
+    }*/
 }

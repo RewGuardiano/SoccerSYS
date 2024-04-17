@@ -11,9 +11,9 @@ using System.IO;
 
 namespace SoccerSYS
 {
-    public partial class frmScheduleMatch : Form
+    public partial class frmCreateFixture : Form
     {
-        public frmScheduleMatch()
+        public frmCreateFixture()
         {
             InitializeComponent();
         }
@@ -25,7 +25,16 @@ namespace SoccerSYS
             this.Close();
         }
 
+        private void btnSubmitSchedule_Click(object sender, EventArgs e)
+        {
+            DateTime Fixture_Time = dtpFixture.Value;
 
+            string sqlQuery = "INSERT INTO Fixtures (Away_Team_ID, Fixture_Time) VALUES (" + Fixture_Time.Year + "-" + Fixture_Time.Month + "-" + Fixture_Time.Day + " 22:00:00)";
+
+            MessageBox.Show(Fixture_Time.ToString());
+        }
+
+        /*
         
         private void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -67,24 +76,30 @@ namespace SoccerSYS
            
         }
 
-        private void grpCategory_Enter(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
-            // Assuming you have a List of Team objects named 'teams' in your 'table' class.
-            List<Team> teams = Team.GetTeams();
-
-            // Clear existing items before adding new ones
-            cobTeams1.Items.Clear();
-            cobTeams2.Items.Clear();
-
-            foreach (Team team in teams)
-            {
-                cobTeams1.Items.Add(team.TeamName);
-                cobTeams2.Items.Add(team.TeamName);
-            }
 
         }
+        /*
+private void grpCategory_Enter(object sender, EventArgs e)
+{
+   // Assuming you have a List of Team objects named 'teams' in your 'table' class.
+   List<Team> teams = Team.GetTeams();
+
+   // Clear existing items before adding new ones
+   cobTeams1.Items.Clear();
+   cobTeams2.Items.Clear();
+
+   foreach (Team team in teams)
+   {
+       cobTeams1.Items.Add(team.TeamName);
+       cobTeams2.Items.Add(team.TeamName);
+   }
+
+}
 
         //Didn't get to finish Function. In schedule match it would allow you to the manager to pick a team from a reference file Teams.txt and Record the tickets sold after a Ticket was 
         //from the Sales Table which would allow the manage the SeatAvailability
+    }*/
     }
 }

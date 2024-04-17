@@ -24,7 +24,7 @@ namespace SoccerSYS
 
         private void setCategoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSetCategory to = new frmSetCategory();
+            frmCreateCategory to = new frmCreateCategory();
             to.Show();
             this.Hide();
 
@@ -32,10 +32,7 @@ namespace SoccerSYS
           
         }
 
-        private void mbuProcessSales_Click(object sender, EventArgs e)
-        {
 
-        }
 
     
 
@@ -54,14 +51,14 @@ namespace SoccerSYS
 
         private void scheduleMatchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmScheduleMatch to = new frmScheduleMatch();
+            frmCreateFixture to = new frmCreateFixture();
             to.Show();
             this.Hide();
         }
 
         private void cancelMatchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCancelMatch to = new frmCancelMatch();
+            frmUpdateFixture to = new frmUpdateFixture();
             to.Show();
             this.Hide();
         }
@@ -70,7 +67,7 @@ namespace SoccerSYS
 
         private void sellTicketsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSellTicket to = new frmSellTicket();
+            frmCreateSale to = new frmCreateSale();
             to.Show();
             this.Hide();
 
@@ -90,12 +87,7 @@ namespace SoccerSYS
             this.Hide();
         }
 
-        private void removeCategoryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmRemoveCategory to = new frmRemoveCategory();
-            to.Show();
-            this.Hide();
-        }
+       
 
         private void mbaAddTeam_Click(object sender, EventArgs e)
         {
@@ -110,5 +102,12 @@ namespace SoccerSYS
             to.Show();
             this.Hide();
         }
+
+        private void removeSaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+      
     }
 }
