@@ -45,14 +45,17 @@ namespace SoccerSYS
                     // Check if the category code contains only uppercase letters
                     if (Regex.IsMatch(catCode, "^[A-Z]+$"))
                     {
-                        Console.WriteLine("Category code is valid and in uppercase.");
-                        // Proceed with your code logic here
+                       
                     }
                     else
                     {
-                        MessageBox.Show("Category code must contain only uppercase letters.");
+                        MessageBox.Show("Category code must not be special characters,  only uppercase letters.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         // Handle the case where the category code is not in uppercase
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Must not be Empty.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 // Validate form inputs
@@ -62,7 +65,9 @@ namespace SoccerSYS
                     txtdescription.Focus();
                     return;
                 }
-            }
+
+                
+            } 
 
 
 

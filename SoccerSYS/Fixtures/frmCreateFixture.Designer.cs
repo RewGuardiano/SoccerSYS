@@ -56,6 +56,7 @@ namespace SoccerSYS
             // 
             // grpCategory
             // 
+            this.grpCategory.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.grpCategory.Controls.Add(this.dtpFixture);
             this.grpCategory.Controls.Add(this.label1);
             this.grpCategory.Controls.Add(this.label2);
@@ -163,6 +164,8 @@ namespace SoccerSYS
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.BackgroundImage = global::SoccerSYS.Properties.Resources.footballBackground;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.grpCategory);
             this.Controls.Add(this.button1);

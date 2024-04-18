@@ -40,12 +40,12 @@ namespace SoccerSYS
             this.mbaCancelMatch = new System.Windows.Forms.ToolStripMenuItem();
             this.mbaProcessSales = new System.Windows.Forms.ToolStripMenuItem();
             this.mbaSellTickets = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeSaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mbaPerformAdmin = new System.Windows.Forms.ToolStripMenuItem();
             this.yearlyRevenueAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.mbayearlyTicketRevenueAnalysis = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.removeSaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +61,6 @@ namespace SoccerSYS
             this.lblSoccerTitle.Size = new System.Drawing.Size(318, 46);
             this.lblSoccerTitle.TabIndex = 2;
             this.lblSoccerTitle.Text = "Soccer Booking";
-       
             // 
             // mbaManageCategories
             // 
@@ -129,15 +128,22 @@ namespace SoccerSYS
             this.mbaProcessSales.Padding = new System.Windows.Forms.Padding(40, 0, 4, 0);
             this.mbaProcessSales.Size = new System.Drawing.Size(208, 37);
             this.mbaProcessSales.Text = "Process Sales";
-       
             // 
             // mbaSellTickets
             // 
             this.mbaSellTickets.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbaSellTickets.Name = "mbaSellTickets";
-            this.mbaSellTickets.Size = new System.Drawing.Size(224, 32);
+            this.mbaSellTickets.Size = new System.Drawing.Size(212, 32);
             this.mbaSellTickets.Text = "Create Sale";
             this.mbaSellTickets.Click += new System.EventHandler(this.sellTicketsToolStripMenuItem_Click);
+            // 
+            // removeSaleToolStripMenuItem
+            // 
+            this.removeSaleToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.removeSaleToolStripMenuItem.Name = "removeSaleToolStripMenuItem";
+            this.removeSaleToolStripMenuItem.Size = new System.Drawing.Size(212, 32);
+            this.removeSaleToolStripMenuItem.Text = "Remove Sale";
+            this.removeSaleToolStripMenuItem.Click += new System.EventHandler(this.removeSaleToolStripMenuItem_Click);
             // 
             // mbaPerformAdmin
             // 
@@ -190,14 +196,6 @@ namespace SoccerSYS
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // removeSaleToolStripMenuItem
-            // 
-            this.removeSaleToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.removeSaleToolStripMenuItem.Name = "removeSaleToolStripMenuItem";
-            this.removeSaleToolStripMenuItem.Size = new System.Drawing.Size(224, 32);
-            this.removeSaleToolStripMenuItem.Text = "Remove Sale";
-            this.removeSaleToolStripMenuItem.Click += new System.EventHandler(this.removeSaleToolStripMenuItem_Click);
-            // 
             // frmMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -211,7 +209,7 @@ namespace SoccerSYS
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Soccer Booking System";

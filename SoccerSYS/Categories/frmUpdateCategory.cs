@@ -43,39 +43,9 @@ namespace SoccerSYS
                 return;
             }
 
-            decimal price;
-            if (!decimal.TryParse(txtPrice.Text, out price))
-            {
-                MessageBox.Show("Price must be a decimal value", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtPrice.Focus();
-                return;
-            }
+            
 
-            int noSeats, seatFrom, seatTo;
-            if (!int.TryParse(txtNoSeats.Text, out noSeats) || noSeats <= 0)
-            {
-                MessageBox.Show("Number of Seats must be a positive integer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtNoSeats.Focus();
-                return;
-            }
-            if (!int.TryParse(txtNoSeatsFrom.Text, out seatFrom) || seatFrom <= 0)
-            {
-                MessageBox.Show("Number of Seats from must be a positive integer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtNoSeatsFrom.Focus();
-                return;
-            }
-            if (!int.TryParse(txtNoSeatsTo.Text, out seatTo) || seatTo <= 0)
-            {
-                MessageBox.Show("Number of Seats to must be a positive integer", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtNoSeatsTo.Focus();
-                return;
-            }
-            if (seatTo < seatFrom)
-            {
-                MessageBox.Show("Number of Seats To must be greater than or equal to Number of Seats from", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtNoSeatsTo.Focus();
-                return;
-            }
+           
             theCategory.setCatCode(cobCatCode.Text);
             theCategory.setdescription(txtdescription.Text);
             theCategory.setprice(decimal.Parse(txtPrice.Text));
@@ -88,9 +58,7 @@ namespace SoccerSYS
 
             txtdescription.Clear();
             txtPrice.Clear();
-            txtNoSeats.Clear();
-            txtNoSeatsFrom.Clear();
-            txtNoSeatsTo.Clear();
+           
             grpCategory.Visible = false;
             grdCategory.Visible = false;
 
@@ -122,9 +90,7 @@ namespace SoccerSYS
                 MessageBox.Show("Please Re-type the data","Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtdescription.Text = dr.GetString(2);
                 txtPrice.Text = dr.GetDecimal(3).ToString();
-                txtNoSeats.Text = dr.GetInt32(4).ToString();
-                txtNoSeatsFrom.Text = dr.GetInt32(5).ToString();
-                txtNoSeatsTo.Text = dr.GetInt32(6).ToString();
+               
             }
             else
             {
@@ -144,9 +110,7 @@ namespace SoccerSYS
 
             txtdescription.Text = theCategory.getdescription();
             txtPrice.Text = theCategory.getprice().ToString("###0.00");
-            txtNoSeats.Text = theCategory.getNoSeats().ToString("00000");
-            txtNoSeatsFrom.Text = theCategory.getSeatFrom().ToString("000");
-            txtNoSeatsTo.Text = theCategory.getSeatTo().ToString("0000");
+         
 
 
             grpCategory.Visible = true;

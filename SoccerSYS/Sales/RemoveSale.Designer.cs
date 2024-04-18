@@ -1,7 +1,7 @@
 ﻿
-namespace SoccerSYS
+namespace SoccerSYS.Sales
 {
-    partial class frmCreateSale
+    partial class RemoveSale
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,6 @@ namespace SoccerSYS
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCreateSale));
-            this.btnbackProcessSales = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
             this.btnSearchSale = new System.Windows.Forms.Button();
             this.txtTicketIDSale = new System.Windows.Forms.TextBox();
@@ -44,17 +42,6 @@ namespace SoccerSYS
             ((System.ComponentModel.ISupportInitialize)(this.GrdSale)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnbackProcessSales
-            // 
-            this.btnbackProcessSales.Location = new System.Drawing.Point(4, 4);
-            this.btnbackProcessSales.Margin = new System.Windows.Forms.Padding(4);
-            this.btnbackProcessSales.Name = "btnbackProcessSales";
-            this.btnbackProcessSales.Size = new System.Drawing.Size(100, 28);
-            this.btnbackProcessSales.TabIndex = 14;
-            this.btnbackProcessSales.Text = " < Back";
-            this.btnbackProcessSales.UseVisualStyleBackColor = true;
-            this.btnbackProcessSales.Click += new System.EventHandler(this.button1_Click);
-            // 
             // grpCategory
             // 
             this.grpCategory.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -67,12 +54,12 @@ namespace SoccerSYS
             this.grpCategory.Controls.Add(this.lblPrice);
             this.grpCategory.Controls.Add(this.lbSaleId);
             this.grpCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpCategory.Location = new System.Drawing.Point(178, 13);
+            this.grpCategory.Location = new System.Drawing.Point(193, 25);
             this.grpCategory.Margin = new System.Windows.Forms.Padding(4);
             this.grpCategory.Name = "grpCategory";
             this.grpCategory.Padding = new System.Windows.Forms.Padding(4);
-            this.grpCategory.Size = new System.Drawing.Size(945, 620);
-            this.grpCategory.TabIndex = 17;
+            this.grpCategory.Size = new System.Drawing.Size(933, 521);
+            this.grpCategory.TabIndex = 18;
             this.grpCategory.TabStop = false;
             this.grpCategory.Text = "Enter Details";
             // 
@@ -95,7 +82,7 @@ namespace SoccerSYS
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(391, 468);
+            this.btnConfirm.Location = new System.Drawing.Point(346, 346);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(180, 45);
             this.btnConfirm.TabIndex = 25;
@@ -151,20 +138,16 @@ namespace SoccerSYS
             this.lbSaleId.TabIndex = 13;
             this.lbSaleId.Text = "SaleID";
             // 
-            // frmCreateSale
+            // RemoveSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.BackgroundImage = global::SoccerSYS.Properties.Resources.footballBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1264, 831);
+            this.ClientSize = new System.Drawing.Size(1230, 574);
             this.Controls.Add(this.grpCategory);
-            this.Controls.Add(this.btnbackProcessSales);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmCreateSale";
-            this.Text = "ProcessSales";
+            this.Name = "RemoveSale";
+            this.Text = "RemoveSale";
             this.grpCategory.ResumeLayout(false);
             this.grpCategory.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrdSale)).EndInit();
@@ -174,15 +157,14 @@ namespace SoccerSYS
 
         #endregion
 
-        private System.Windows.Forms.Button btnbackProcessSales;
         private System.Windows.Forms.GroupBox grpCategory;
-        private System.Windows.Forms.Label lblPrice;
+        private System.Windows.Forms.Button btnSearchSale;
+        private System.Windows.Forms.TextBox txtTicketIDSale;
+        private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.DataGridView GrdSale;
         private System.Windows.Forms.Label lblTicketID;
         private System.Windows.Forms.TextBox txtSaleID;
+        private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lbSaleId;
-        private System.Windows.Forms.Button btnConfirm;
-        private System.Windows.Forms.TextBox txtTicketIDSale;
-        private System.Windows.Forms.Button btnSearchSale;
     }
 }

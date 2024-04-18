@@ -89,12 +89,7 @@ namespace SoccerSYS
 
        
 
-        private void mbaAddTeam_Click(object sender, EventArgs e)
-        {
-            frmAddTeam to = new frmAddTeam();
-            to.Show();
-            this.Hide();
-        }
+        
 
         private void mbaUpdateTeam_Click(object sender, EventArgs e)
         {
