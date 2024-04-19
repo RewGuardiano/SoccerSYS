@@ -13,7 +13,7 @@ namespace SoccerSYS
 {
     public partial class frmUpdateCategory : Form
     {
-       
+        
         public frmUpdateCategory()
         {
             InitializeComponent();
@@ -33,18 +33,29 @@ namespace SoccerSYS
             this.Close();
         }
 
-        private void btnUpdateCategory_Click(object sender, EventArgs e)
+        private void cobCatCode_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(cobCatCode.SelectedIndex != -1)
+            {
+                OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
+                string sqlQuery = $"SELECT Description, Price,Max_Seats FROM Categories WHERE CatCode = '{cobCatCode.SelectedItem.ToString().Substring(0, 3)}'";
+
+                OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+                OracleDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    txtdescription.Text = dr["Description"].ToString();
+                    NUDCategoriesPrice.Text = dr["Price"].ToString();
+                }
+                dr.Close();
+                
+            }
         }
 
-
-
-
-
-
         /*
-
                 private void btnUpdateCategory_Click(object sender, EventArgs e)
                 {
                     // Validate form inputs
@@ -56,20 +67,18 @@ namespace SoccerSYS
                     }
 
 
-
+                    Categories theCategory = new Categories();
 
                     theCategory.setCatCode(cobCatCode.Text);
                     theCategory.setdescription(txtdescription.Text);
-                    theCategory.setprice(decimal.Parse(txtPrice.Text));
-                    theCategory.setNoSeats(int.Parse(txtNoSeats.Text));
-                    theCategory.setSeatFrom(int.Parse(txtNoSeatsFrom.Text));
-                    theCategory.setSeatTo(int.Parse(txtNoSeatsTo.Text));
+                    theCategory.setprice(decimal.Parse(NUDCategoriesPrice.Text));
+
 
                     theCategory.UpdateCategory();
                     MessageBox.Show("Category Updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     txtdescription.Clear();
-                    txtPrice.Clear();
+                    
 
                     grpCategory.Visible = false;
                     grdCategory.Visible = false;
@@ -121,8 +130,7 @@ namespace SoccerSYS
 
 
                     txtdescription.Text = theCategory.getdescription();
-                    txtPrice.Text = theCategory.getprice().ToString("###0.00");
-
+                    
 
 
                     grpCategory.Visible = true;

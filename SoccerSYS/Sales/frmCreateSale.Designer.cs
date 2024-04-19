@@ -29,19 +29,29 @@ namespace SoccerSYS
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCreateSale));
             this.btnCreateSale = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
-            this.btnSearchSale = new System.Windows.Forms.Button();
-            this.txtTicketIDSale = new System.Windows.Forms.TextBox();
             this.btnConfirm = new System.Windows.Forms.Button();
-            this.GrdSale = new System.Windows.Forms.DataGridView();
             this.lblTicketID = new System.Windows.Forms.Label();
             this.txtSaleID = new System.Windows.Forms.TextBox();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lbSaleId = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.grpBoxCart = new System.Windows.Forms.GroupBox();
+            this.btnCheckOut = new System.Windows.Forms.Button();
+            this.txtTotPrice = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dgvCart = new System.Windows.Forms.DataGridView();
+            this.CatCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FixtureID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpCategory.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GrdSale)).BeginInit();
+            this.grpBoxCart.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCreateSale
@@ -58,76 +68,50 @@ namespace SoccerSYS
             // grpCategory
             // 
             this.grpCategory.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.grpCategory.Controls.Add(this.btnSearchSale);
-            this.grpCategory.Controls.Add(this.txtTicketIDSale);
+            this.grpCategory.Controls.Add(this.grpBoxCart);
+            this.grpCategory.Controls.Add(this.comboBox2);
+            this.grpCategory.Controls.Add(this.label1);
+            this.grpCategory.Controls.Add(this.comboBox1);
             this.grpCategory.Controls.Add(this.btnConfirm);
-            this.grpCategory.Controls.Add(this.GrdSale);
             this.grpCategory.Controls.Add(this.lblTicketID);
             this.grpCategory.Controls.Add(this.txtSaleID);
             this.grpCategory.Controls.Add(this.lblPrice);
             this.grpCategory.Controls.Add(this.lbSaleId);
             this.grpCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpCategory.Location = new System.Drawing.Point(178, 13);
+            this.grpCategory.Location = new System.Drawing.Point(168, 27);
             this.grpCategory.Margin = new System.Windows.Forms.Padding(4);
             this.grpCategory.Name = "grpCategory";
             this.grpCategory.Padding = new System.Windows.Forms.Padding(4);
-            this.grpCategory.Size = new System.Drawing.Size(945, 620);
+            this.grpCategory.Size = new System.Drawing.Size(952, 521);
             this.grpCategory.TabIndex = 17;
             this.grpCategory.TabStop = false;
-            this.grpCategory.Text = "Enter Details";
-            // 
-            // btnSearchSale
-            // 
-            this.btnSearchSale.Location = new System.Drawing.Point(824, 169);
-            this.btnSearchSale.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSearchSale.Name = "btnSearchSale";
-            this.btnSearchSale.Size = new System.Drawing.Size(100, 28);
-            this.btnSearchSale.TabIndex = 41;
-            this.btnSearchSale.Text = "Search";
-            this.btnSearchSale.UseVisualStyleBackColor = true;
-            // 
-            // txtTicketIDSale
-            // 
-            this.txtTicketIDSale.Location = new System.Drawing.Point(163, 167);
-            this.txtTicketIDSale.Name = "txtTicketIDSale";
-            this.txtTicketIDSale.Size = new System.Drawing.Size(196, 30);
-            this.txtTicketIDSale.TabIndex = 26;
+            this.grpCategory.Text = "Create Sale";
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(391, 468);
+            this.btnConfirm.Location = new System.Drawing.Point(145, 377);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(180, 45);
             this.btnConfirm.TabIndex = 25;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
             // 
-            // GrdSale
-            // 
-            this.GrdSale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GrdSale.Location = new System.Drawing.Point(381, 115);
-            this.GrdSale.Name = "GrdSale";
-            this.GrdSale.RowHeadersWidth = 51;
-            this.GrdSale.RowTemplate.Height = 24;
-            this.GrdSale.Size = new System.Drawing.Size(406, 150);
-            this.GrdSale.TabIndex = 19;
-            // 
             // lblTicketID
             // 
             this.lblTicketID.AutoSize = true;
             this.lblTicketID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTicketID.Location = new System.Drawing.Point(30, 167);
+            this.lblTicketID.Location = new System.Drawing.Point(39, 169);
             this.lblTicketID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTicketID.Name = "lblTicketID";
-            this.lblTicketID.Size = new System.Drawing.Size(113, 29);
+            this.lblTicketID.Size = new System.Drawing.Size(110, 29);
             this.lblTicketID.TabIndex = 18;
-            this.lblTicketID.Text = "TicketID";
+            this.lblTicketID.Text = "Fixtures";
             // 
             // txtSaleID
             // 
-            this.txtSaleID.Location = new System.Drawing.Point(259, 51);
+            this.txtSaleID.Location = new System.Drawing.Point(167, 92);
             this.txtSaleID.Name = "txtSaleID";
-            this.txtSaleID.Size = new System.Drawing.Size(380, 30);
+            this.txtSaleID.Size = new System.Drawing.Size(293, 30);
             this.txtSaleID.TabIndex = 17;
             // 
             // lblPrice
@@ -144,12 +128,142 @@ namespace SoccerSYS
             // 
             this.lbSaleId.AutoSize = true;
             this.lbSaleId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaleId.Location = new System.Drawing.Point(97, 52);
+            this.lbSaleId.Location = new System.Drawing.Point(39, 93);
             this.lbSaleId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbSaleId.Name = "lbSaleId";
-            this.lbSaleId.Size = new System.Drawing.Size(94, 29);
+            this.lbSaleId.Size = new System.Drawing.Size(83, 29);
             this.lbSaleId.TabIndex = 13;
-            this.lbSaleId.Text = "SaleID";
+            this.lbSaleId.Text = "Email";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(167, 169);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(301, 33);
+            this.comboBox1.TabIndex = 42;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(8, 244);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(296, 29);
+            this.label1.TabIndex = 43;
+            this.label1.Text = "Choose Category Code";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(311, 240);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(157, 33);
+            this.comboBox2.TabIndex = 44;
+            // 
+            // grpBoxCart
+            // 
+            this.grpBoxCart.Controls.Add(this.btnCheckOut);
+            this.grpBoxCart.Controls.Add(this.txtTotPrice);
+            this.grpBoxCart.Controls.Add(this.label2);
+            this.grpBoxCart.Controls.Add(this.dgvCart);
+            this.grpBoxCart.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpBoxCart.Location = new System.Drawing.Point(491, 64);
+            this.grpBoxCart.Margin = new System.Windows.Forms.Padding(4);
+            this.grpBoxCart.Name = "grpBoxCart";
+            this.grpBoxCart.Padding = new System.Windows.Forms.Padding(4);
+            this.grpBoxCart.Size = new System.Drawing.Size(437, 383);
+            this.grpBoxCart.TabIndex = 49;
+            this.grpBoxCart.TabStop = false;
+            this.grpBoxCart.Text = "Cart";
+            this.grpBoxCart.Visible = false;
+            // 
+            // btnCheckOut
+            // 
+            this.btnCheckOut.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCheckOut.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckOut.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnCheckOut.Location = new System.Drawing.Point(282, 309);
+            this.btnCheckOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCheckOut.Name = "btnCheckOut";
+            this.btnCheckOut.Size = new System.Drawing.Size(124, 36);
+            this.btnCheckOut.TabIndex = 34;
+            this.btnCheckOut.Text = "CHECKOUT";
+            this.btnCheckOut.UseVisualStyleBackColor = false;
+            // 
+            // txtTotPrice
+            // 
+            this.txtTotPrice.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotPrice.Location = new System.Drawing.Point(135, 313);
+            this.txtTotPrice.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTotPrice.MaxLength = 28888;
+            this.txtTotPrice.Name = "txtTotPrice";
+            this.txtTotPrice.Size = new System.Drawing.Size(113, 32);
+            this.txtTotPrice.TabIndex = 33;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(17, 313);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(121, 29);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "Total Price:";
+            // 
+            // dgvCart
+            // 
+            this.dgvCart.AllowUserToAddRows = false;
+            this.dgvCart.AllowUserToResizeColumns = false;
+            this.dgvCart.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCart.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CatCode,
+            this.Price,
+            this.FixtureID});
+            this.dgvCart.Location = new System.Drawing.Point(25, 37);
+            this.dgvCart.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvCart.Name = "dgvCart";
+            this.dgvCart.ReadOnly = true;
+            this.dgvCart.RowHeadersVisible = false;
+            this.dgvCart.RowHeadersWidth = 51;
+            this.dgvCart.Size = new System.Drawing.Size(381, 255);
+            this.dgvCart.TabIndex = 10;
+            // 
+            // CatCode
+            // 
+            this.CatCode.HeaderText = "Category Code";
+            this.CatCode.MinimumWidth = 6;
+            this.CatCode.Name = "CatCode";
+            this.CatCode.ReadOnly = true;
+            this.CatCode.Width = 125;
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Price";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            this.Price.Width = 125;
+            // 
+            // FixtureID
+            // 
+            this.FixtureID.HeaderText = "Fixture";
+            this.FixtureID.MinimumWidth = 6;
+            this.FixtureID.Name = "FixtureID";
+            this.FixtureID.ReadOnly = true;
+            this.FixtureID.Width = 125;
             // 
             // frmCreateSale
             // 
@@ -167,7 +281,9 @@ namespace SoccerSYS
             this.Text = "ProcessSales";
             this.grpCategory.ResumeLayout(false);
             this.grpCategory.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GrdSale)).EndInit();
+            this.grpBoxCart.ResumeLayout(false);
+            this.grpBoxCart.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -177,12 +293,20 @@ namespace SoccerSYS
         private System.Windows.Forms.Button btnCreateSale;
         private System.Windows.Forms.GroupBox grpCategory;
         private System.Windows.Forms.Label lblPrice;
-        private System.Windows.Forms.DataGridView GrdSale;
         private System.Windows.Forms.Label lblTicketID;
         private System.Windows.Forms.TextBox txtSaleID;
         private System.Windows.Forms.Label lbSaleId;
         private System.Windows.Forms.Button btnConfirm;
-        private System.Windows.Forms.TextBox txtTicketIDSale;
-        private System.Windows.Forms.Button btnSearchSale;
+        private System.Windows.Forms.GroupBox grpBoxCart;
+        private System.Windows.Forms.Button btnCheckOut;
+        private System.Windows.Forms.TextBox txtTotPrice;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dgvCart;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CatCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FixtureID;
     }
 }

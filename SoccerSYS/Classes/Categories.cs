@@ -124,7 +124,20 @@ namespace SoccerSYS
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
 
+            
+          
+            cmd.Parameters.Add(new OracleParameter(":catCode", this.CatCode));
+            cmd.Parameters.Add(new OracleParameter(":description", this.Description));
+            cmd.Parameters.Add(new OracleParameter(":price", this.Price));
+            cmd.Parameters.Add(new OracleParameter(":availableseats", this.AvailableSeats));
+            cmd.Parameters.Add(new OracleParameter(":maxseats", this.MaxSeats));
+      
+
+
+
+            conn.Open();
             cmd.ExecuteNonQuery();
+            conn.Close();
 
 
         }
