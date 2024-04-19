@@ -5,36 +5,37 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
+using System.Collections.Generic;
 
 
 namespace SoccerSYS
 {
     class Categories
     {
-
-        private string CatCode;
+        OracleConnection conn = new OracleConnection(DBConnect.oradb);
+        private char CatCode;
         private string Description;
         private decimal Price;
         private int AvailableSeats;
         private int MaxSeats;
 
-        public Categories(string catCode, string description, decimal price, int availableSeats, int maxSeats)
+        public Categories(char catCode, string description, decimal price, int maxSeats)
         {
             CatCode = catCode;
             Description = description;
             Price = price;
-            AvailableSeats = availableSeats;
+            AvailableSeats = maxSeats;
             MaxSeats = maxSeats;
         }
 
         // Getter for CatCode
-        public string GetCatCode()
+        public char GetCatCode()
         {
             return CatCode;
         }
 
         // Setter for CatCode
-        public void SetCatCode(string catCode)
+        public void SetCatCode(char catCode)
         {
             CatCode = catCode;
         }
@@ -87,9 +88,54 @@ namespace SoccerSYS
             MaxSeats = maxSeats;
         }
 
-    }
+        public override string ToString()
+        {
+            return $"Category Code: {CatCode}\nDescription: {Description}\nPrice: {Price:C}\nAvailable Seats: {AvailableSeats}\nMax Seats: {MaxSeats}";
+        }
+        public void createCategory()
+        {
 
 
+            string sqlQuery = "INSERT INTO CATEGORIES (CATCODE, DESCRIPTION, PRICE, AVAILABLE_SEATS, MAX_SEATS) " +
+                  "VALUES (:CatCode, :Description, :Price, :AvailableSeats, :MaxSeats)";
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+
+            cmd.Parameters.Add(new OracleParameter(":Catcode", this.CatCode));
+            cmd.Parameters.Add(new OracleParameter(":Description", this.Description));
+            cmd.Parameters.Add(new OracleParameter(":Price", this.Price));
+            cmd.Parameters.Add(new OracleParameter(":AvailableSeats", this.AvailableSeats));
+            cmd.Parameters.Add(new OracleParameter(":MaxSeats", this.MaxSeats));
+            
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close(); 
+        }
+        public void updateCategory()
+        {
+            string sqlQuery = "UPDATE CATEGORIES SET " +
+                  "DESCRIPTION = :Description, " +
+                  "PRICE = :Price, " +
+                  "AVAILABLESEATS = :AvailableSeats, " +
+                  "MAXSEATS = :MaxSeats " +
+                  "WHERE CATCODE = :CatCode";
+
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+            cmd.ExecuteNonQuery();
+
+
+        }
+    }/*
+    public static char[] getAllCatCode()
+    {
+        string sqlQuery = "Select Catcode FROM Categories ";
+
+        //OracleCommand 
+
+    }*/
     /*
     public static DataSet GetAllCategories()
         {
@@ -139,8 +185,7 @@ namespace SoccerSYS
             
 
         }
-
-        public void SetCategory()
+       public void SetCategory()
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
@@ -161,6 +206,7 @@ namespace SoccerSYS
             cmd.ExecuteNonQuery();
             conn.Close();
         }
+     
 
         public void UpdateCategory()
         {
@@ -212,24 +258,9 @@ namespace SoccerSYS
             return ds;
    
         }
+   */     
         
-        public static bool CategoryCodeExists(string catCode)
-        {
-            using (OracleConnection connection = new OracleConnection("YourConnectionString"))
-            {
-                connection.Open();
 
-                string query = "SELECT COUNT(*) FROM Categorys WHERE CatCode = @CatCode";
+    }
 
-                using (OracleCommand command = new OracleCommand(query, connection))
-                {
-                    command.Parameters.Add("@CatCode", catCode);
-                    int count = (int)command.ExecuteScalar();
-
-                    return count > 0;
-                }
-            }
-        }
-
-    }*/
-}
+  

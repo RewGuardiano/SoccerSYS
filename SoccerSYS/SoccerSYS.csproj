@@ -108,6 +108,12 @@
     <Compile Include="Admin\frmYearlyTicketAnalysis.Designer.cs">
       <DependentUpon>frmYearlyTicketAnalysis.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sales\frmRemoveSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\frmRemoveSale.Designer.cs">
+      <DependentUpon>frmRemoveSale.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sales\frmCreateSale.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,12 +142,9 @@
       <DependentUpon>frmYearlyRevenueAnalysis.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Categories.cs" />
-    <Compile Include="Sales\RemoveSale.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\RemoveSale.Designer.cs">
-      <DependentUpon>RemoveSale.cs</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="Sales\frmRemoveSale.resx">
+      <DependentUpon>frmRemoveSale.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sales\frmCreateSale.resx">
       <DependentUpon>frmCreateSale.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,9 +178,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\frmYearlyRevenueAnalysis.resx">
       <DependentUpon>frmYearlyRevenueAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sales\RemoveSale.resx">
-      <DependentUpon>RemoveSale.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />

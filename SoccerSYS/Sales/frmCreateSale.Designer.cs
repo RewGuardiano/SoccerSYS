@@ -30,7 +30,7 @@ namespace SoccerSYS
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCreateSale));
-            this.btnbackProcessSales = new System.Windows.Forms.Button();
+            this.btnCreateSale = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
             this.btnSearchSale = new System.Windows.Forms.Button();
             this.txtTicketIDSale = new System.Windows.Forms.TextBox();
@@ -44,16 +44,16 @@ namespace SoccerSYS
             ((System.ComponentModel.ISupportInitialize)(this.GrdSale)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnbackProcessSales
+            // btnCreateSale
             // 
-            this.btnbackProcessSales.Location = new System.Drawing.Point(4, 4);
-            this.btnbackProcessSales.Margin = new System.Windows.Forms.Padding(4);
-            this.btnbackProcessSales.Name = "btnbackProcessSales";
-            this.btnbackProcessSales.Size = new System.Drawing.Size(100, 28);
-            this.btnbackProcessSales.TabIndex = 14;
-            this.btnbackProcessSales.Text = " < Back";
-            this.btnbackProcessSales.UseVisualStyleBackColor = true;
-            this.btnbackProcessSales.Click += new System.EventHandler(this.button1_Click);
+            this.btnCreateSale.Location = new System.Drawing.Point(4, 4);
+            this.btnCreateSale.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCreateSale.Name = "btnCreateSale";
+            this.btnCreateSale.Size = new System.Drawing.Size(100, 28);
+            this.btnCreateSale.TabIndex = 14;
+            this.btnCreateSale.Text = " < Back";
+            this.btnCreateSale.UseVisualStyleBackColor = true;
+            this.btnCreateSale.Click += new System.EventHandler(this.btnCreateSale_Click);
             // 
             // grpCategory
             // 
@@ -160,7 +160,7 @@ namespace SoccerSYS
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1264, 831);
             this.Controls.Add(this.grpCategory);
-            this.Controls.Add(this.btnbackProcessSales);
+            this.Controls.Add(this.btnCreateSale);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCreateSale";
@@ -174,7 +174,7 @@ namespace SoccerSYS
 
         #endregion
 
-        private System.Windows.Forms.Button btnbackProcessSales;
+        private System.Windows.Forms.Button btnCreateSale;
         private System.Windows.Forms.GroupBox grpCategory;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.DataGridView GrdSale;

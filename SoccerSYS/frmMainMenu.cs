@@ -100,9 +100,9 @@ namespace SoccerSYS
 
         private void removeSaleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmRemoveSale to = new frmRemoveSale();
+            to.Show();
+            this.Hide();
         }
-
-      
     }
 }

@@ -19,7 +19,7 @@ namespace SoccerSYS
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnCreateSale_Click(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show("Are you sure you want to Exit?", "Confirm Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -31,6 +31,8 @@ namespace SoccerSYS
             to.Show();
             this.Close();
         }
+
+
         /*
         private void btnConfirm_Click(object sender, EventArgs e)
         {

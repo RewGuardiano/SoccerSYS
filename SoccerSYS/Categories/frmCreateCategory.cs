@@ -20,11 +20,6 @@ namespace SoccerSYS
             InitializeComponent();
         }
 
-        internal class Show
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             frmMainMenu to = new frmMainMenu();
@@ -67,42 +62,26 @@ namespace SoccerSYS
                 }
 
                 
-            } 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            /*
-            Categories ticketIDCat = new Categories();
-            int ticketId = ticketIDCat.setTicketID();
-
-            Categories aCategory = new Category(ticketId, txtCatCode.Text, txtdescription.Text, Convert.ToDecimal(txtPrice.Text), Convert.ToInt32(txtNoSeats.Text));
-            ;
-
-            Console.WriteLine(aCategory.getTicketID());
-
-
-            aCategory.SetCategory();
-
-
-            MessageBox.Show("Category Added", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-            */
-
+            }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            Categories category = new Categories(txtCatCode.Text[0], txtdescription.Text, NUDCategoriesPrice.Value, Convert.ToInt32(NUDCategory.Value));
+
+            category.createCategory();
+
+            MessageBox.Show("Category has been Created Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            txtCatCode.Clear();
+            txtdescription.Clear();
+           
+
+            txtCatCode.Focus();
         }
+
 
       
     }

@@ -87,23 +87,6 @@ namespace SoccerSYS
             grpTeams.Visible = true;
         }
 
-        private void btnAddTeam_Click(object sender, EventArgs e)
-        {
-            if (txtTeamID.Text.Equals(""))
-            {
-                MessageBox.Show("A TeamID must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTeamID.Focus();
-                return;
-            }
-            if (txtTeamName.Text.Equals(""))
-            {
-                MessageBox.Show("A Team Name must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTeamName.Focus();
-                return;
-            }
-
-            MessageBox.Show("Team Updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
     }
         */
     }

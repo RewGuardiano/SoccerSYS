@@ -1,7 +1,7 @@
 ﻿
-namespace SoccerSYS.Sales
+namespace SoccerSYS
 {
-    partial class RemoveSale
+    partial class frmRemoveSale
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@ namespace SoccerSYS.Sales
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRemoveSale));
             this.grpCategory = new System.Windows.Forms.GroupBox();
             this.btnSearchSale = new System.Windows.Forms.Button();
             this.txtTicketIDSale = new System.Windows.Forms.TextBox();
@@ -38,6 +39,7 @@ namespace SoccerSYS.Sales
             this.txtSaleID = new System.Windows.Forms.TextBox();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lbSaleId = new System.Windows.Forms.Label();
+            this.btnRemoveSales = new System.Windows.Forms.Button();
             this.grpCategory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrdSale)).BeginInit();
             this.SuspendLayout();
@@ -54,11 +56,11 @@ namespace SoccerSYS.Sales
             this.grpCategory.Controls.Add(this.lblPrice);
             this.grpCategory.Controls.Add(this.lbSaleId);
             this.grpCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpCategory.Location = new System.Drawing.Point(193, 25);
+            this.grpCategory.Location = new System.Drawing.Point(177, 24);
             this.grpCategory.Margin = new System.Windows.Forms.Padding(4);
             this.grpCategory.Name = "grpCategory";
             this.grpCategory.Padding = new System.Windows.Forms.Padding(4);
-            this.grpCategory.Size = new System.Drawing.Size(933, 521);
+            this.grpCategory.Size = new System.Drawing.Size(952, 514);
             this.grpCategory.TabIndex = 18;
             this.grpCategory.TabStop = false;
             this.grpCategory.Text = "Enter Details";
@@ -82,7 +84,7 @@ namespace SoccerSYS.Sales
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(346, 346);
+            this.btnConfirm.Location = new System.Drawing.Point(371, 372);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(180, 45);
             this.btnConfirm.TabIndex = 25;
@@ -138,16 +140,29 @@ namespace SoccerSYS.Sales
             this.lbSaleId.TabIndex = 13;
             this.lbSaleId.Text = "SaleID";
             // 
-            // RemoveSale
+            // btnRemoveSales
+            // 
+            this.btnRemoveSales.Location = new System.Drawing.Point(13, 13);
+            this.btnRemoveSales.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRemoveSales.Name = "btnRemoveSales";
+            this.btnRemoveSales.Size = new System.Drawing.Size(100, 28);
+            this.btnRemoveSales.TabIndex = 19;
+            this.btnRemoveSales.Text = " < Back";
+            this.btnRemoveSales.UseVisualStyleBackColor = true;
+            this.btnRemoveSales.Click += new System.EventHandler(this.btnRemoveSales_Click);
+            // 
+            // frmRemoveSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SoccerSYS.Properties.Resources.footballBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1230, 574);
+            this.ClientSize = new System.Drawing.Size(1228, 574);
+            this.Controls.Add(this.btnRemoveSales);
             this.Controls.Add(this.grpCategory);
-            this.Name = "RemoveSale";
-            this.Text = "RemoveSale";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "frmRemoveSale";
+            this.Text = "FrmRemoveSale";
             this.grpCategory.ResumeLayout(false);
             this.grpCategory.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrdSale)).EndInit();
@@ -166,5 +181,6 @@ namespace SoccerSYS.Sales
         private System.Windows.Forms.TextBox txtSaleID;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lbSaleId;
+        private System.Windows.Forms.Button btnRemoveSales;
     }
 }

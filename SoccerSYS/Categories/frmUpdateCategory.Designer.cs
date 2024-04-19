@@ -34,6 +34,8 @@ namespace SoccerSYS
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUpdateCategory));
             this.btnbackUpdateCat = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
+            this.NUDCategory = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.cobCatCode = new System.Windows.Forms.ComboBox();
             this.btnUpdateCategory = new System.Windows.Forms.Button();
             this.lblNoSeats = new System.Windows.Forms.Label();
@@ -45,18 +47,16 @@ namespace SoccerSYS
             this.btnSearch = new System.Windows.Forms.Button();
             this.grdCategory = new System.Windows.Forms.DataGridView();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.NUDCategory = new System.Windows.Forms.NumericUpDown();
             this.grpCategory.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdCategory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDCategory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdCategory)).BeginInit();
             this.SuspendLayout();
             // 
             // btnbackUpdateCat
             // 
             this.btnbackUpdateCat.Location = new System.Drawing.Point(1, 0);
-            this.btnbackUpdateCat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnbackUpdateCat.Margin = new System.Windows.Forms.Padding(4);
             this.btnbackUpdateCat.Name = "btnbackUpdateCat";
             this.btnbackUpdateCat.Size = new System.Drawing.Size(100, 28);
             this.btnbackUpdateCat.TabIndex = 9;
@@ -78,13 +78,48 @@ namespace SoccerSYS
             this.grpCategory.Controls.Add(this.lblCatCode);
             this.grpCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpCategory.Location = new System.Drawing.Point(169, 157);
-            this.grpCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpCategory.Margin = new System.Windows.Forms.Padding(4);
             this.grpCategory.Name = "grpCategory";
-            this.grpCategory.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpCategory.Padding = new System.Windows.Forms.Padding(4);
             this.grpCategory.Size = new System.Drawing.Size(703, 429);
             this.grpCategory.TabIndex = 14;
             this.grpCategory.TabStop = false;
             this.grpCategory.Text = "Enter Details:";
+            // 
+            // NUDCategory
+            // 
+            this.NUDCategory.Location = new System.Drawing.Point(306, 216);
+            this.NUDCategory.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NUDCategory.Name = "NUDCategory";
+            this.NUDCategory.Size = new System.Drawing.Size(166, 30);
+            this.NUDCategory.TabIndex = 33;
+            this.NUDCategory.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.DecimalPlaces = 2;
+            this.numericUpDown1.Location = new System.Drawing.Point(306, 156);
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(166, 30);
+            this.numericUpDown1.TabIndex = 32;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // cobCatCode
             // 
@@ -104,12 +139,13 @@ namespace SoccerSYS
             this.btnUpdateCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateCategory.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnUpdateCategory.Location = new System.Drawing.Point(279, 298);
-            this.btnUpdateCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdateCategory.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateCategory.Name = "btnUpdateCategory";
             this.btnUpdateCategory.Size = new System.Drawing.Size(193, 71);
             this.btnUpdateCategory.TabIndex = 19;
             this.btnUpdateCategory.Text = "Update Category";
             this.btnUpdateCategory.UseVisualStyleBackColor = true;
+            this.btnUpdateCategory.Click += new System.EventHandler(this.btnUpdateCategory_Click);
             // 
             // lblNoSeats
             // 
@@ -136,7 +172,7 @@ namespace SoccerSYS
             // txtdescription
             // 
             this.txtdescription.Location = new System.Drawing.Point(320, 104);
-            this.txtdescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtdescription.Margin = new System.Windows.Forms.Padding(4);
             this.txtdescription.Name = "txtdescription";
             this.txtdescription.Size = new System.Drawing.Size(181, 30);
             this.txtdescription.TabIndex = 15;
@@ -178,7 +214,7 @@ namespace SoccerSYS
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(772, 8);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(100, 28);
             this.btnSearch.TabIndex = 35;
@@ -190,7 +226,7 @@ namespace SoccerSYS
             this.grdCategory.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.grdCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdCategory.Location = new System.Drawing.Point(169, 45);
-            this.grdCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grdCategory.Margin = new System.Windows.Forms.Padding(4);
             this.grdCategory.Name = "grdCategory";
             this.grdCategory.RowHeadersWidth = 51;
             this.grdCategory.Size = new System.Drawing.Size(703, 105);
@@ -199,45 +235,10 @@ namespace SoccerSYS
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(403, 11);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(301, 22);
             this.txtSearch.TabIndex = 33;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.DecimalPlaces = 2;
-            this.numericUpDown1.Location = new System.Drawing.Point(306, 156);
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(166, 30);
-            this.numericUpDown1.TabIndex = 32;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // NUDCategory
-            // 
-            this.NUDCategory.Location = new System.Drawing.Point(306, 216);
-            this.NUDCategory.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.NUDCategory.Name = "NUDCategory";
-            this.NUDCategory.Size = new System.Drawing.Size(166, 30);
-            this.NUDCategory.TabIndex = 33;
-            this.NUDCategory.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // frmUpdateCategory
             // 
@@ -254,14 +255,14 @@ namespace SoccerSYS
             this.Controls.Add(this.grpCategory);
             this.Controls.Add(this.btnbackUpdateCat);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmUpdateCategory";
             this.Text = "UpdateCategory";
             this.grpCategory.ResumeLayout(false);
             this.grpCategory.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grdCategory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDCategory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdCategory)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -55,7 +55,7 @@ namespace SoccerSYS
             this.lblSoccerTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblSoccerTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSoccerTitle.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblSoccerTitle.Location = new System.Drawing.Point(339, 84);
+            this.lblSoccerTitle.Location = new System.Drawing.Point(390, 109);
             this.lblSoccerTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSoccerTitle.Name = "lblSoccerTitle";
             this.lblSoccerTitle.Size = new System.Drawing.Size(318, 46);
@@ -133,7 +133,7 @@ namespace SoccerSYS
             // 
             this.mbaSellTickets.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mbaSellTickets.Name = "mbaSellTickets";
-            this.mbaSellTickets.Size = new System.Drawing.Size(212, 32);
+            this.mbaSellTickets.Size = new System.Drawing.Size(224, 32);
             this.mbaSellTickets.Text = "Create Sale";
             this.mbaSellTickets.Click += new System.EventHandler(this.sellTicketsToolStripMenuItem_Click);
             // 
@@ -141,7 +141,7 @@ namespace SoccerSYS
             // 
             this.removeSaleToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.removeSaleToolStripMenuItem.Name = "removeSaleToolStripMenuItem";
-            this.removeSaleToolStripMenuItem.Size = new System.Drawing.Size(212, 32);
+            this.removeSaleToolStripMenuItem.Size = new System.Drawing.Size(224, 32);
             this.removeSaleToolStripMenuItem.Text = "Remove Sale";
             this.removeSaleToolStripMenuItem.Click += new System.EventHandler(this.removeSaleToolStripMenuItem_Click);
             // 
@@ -151,7 +151,7 @@ namespace SoccerSYS
             this.yearlyRevenueAnalysis,
             this.mbayearlyTicketRevenueAnalysis});
             this.mbaPerformAdmin.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Italic);
-            this.mbaPerformAdmin.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.mbaPerformAdmin.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.mbaPerformAdmin.Name = "mbaPerformAdmin";
             this.mbaPerformAdmin.Padding = new System.Windows.Forms.Padding(40, 0, 4, 0);
             this.mbaPerformAdmin.Size = new System.Drawing.Size(227, 37);
@@ -186,7 +186,7 @@ namespace SoccerSYS
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1003, 41);
+            this.menuStrip1.Size = new System.Drawing.Size(1074, 41);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -203,7 +203,7 @@ namespace SoccerSYS
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.BackgroundImage = global::SoccerSYS.Properties.Resources.footballBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1003, 340);
+            this.ClientSize = new System.Drawing.Size(1074, 431);
             this.Controls.Add(this.lblSoccerTitle);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;

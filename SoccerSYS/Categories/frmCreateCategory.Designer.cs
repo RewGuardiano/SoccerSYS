@@ -32,7 +32,8 @@ namespace SoccerSYS
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCreateCategory));
             this.btnBackbutton = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.NUDCategory = new System.Windows.Forms.NumericUpDown();
+            this.NUDCategoriesPrice = new System.Windows.Forms.NumericUpDown();
             this.txtCatCode = new System.Windows.Forms.TextBox();
             this.btnSetCategory = new System.Windows.Forms.Button();
             this.lblNoSeats = new System.Windows.Forms.Label();
@@ -40,10 +41,9 @@ namespace SoccerSYS
             this.txtdescription = new System.Windows.Forms.TextBox();
             this.lbldescription = new System.Windows.Forms.Label();
             this.lblCatCode = new System.Windows.Forms.Label();
-            this.NUDCategory = new System.Windows.Forms.NumericUpDown();
             this.grpCategory.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDCategory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDCategoriesPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBackbutton
@@ -61,7 +61,7 @@ namespace SoccerSYS
             // 
             this.grpCategory.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.grpCategory.Controls.Add(this.NUDCategory);
-            this.grpCategory.Controls.Add(this.numericUpDown1);
+            this.grpCategory.Controls.Add(this.NUDCategoriesPrice);
             this.grpCategory.Controls.Add(this.txtCatCode);
             this.grpCategory.Controls.Add(this.btnSetCategory);
             this.grpCategory.Controls.Add(this.lblNoSeats);
@@ -79,19 +79,41 @@ namespace SoccerSYS
             this.grpCategory.TabStop = false;
             this.grpCategory.Text = "Enter Details";
             // 
-            // numericUpDown1
+            // NUDCategory
             // 
-            this.numericUpDown1.DecimalPlaces = 2;
-            this.numericUpDown1.Location = new System.Drawing.Point(435, 138);
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.NUDCategory.Location = new System.Drawing.Point(435, 192);
+            this.NUDCategory.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.NUDCategory.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(166, 30);
-            this.numericUpDown1.TabIndex = 29;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.NUDCategory.Name = "NUDCategory";
+            this.NUDCategory.Size = new System.Drawing.Size(166, 30);
+            this.NUDCategory.TabIndex = 30;
+            this.NUDCategory.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // NUDCategoriesPrice
+            // 
+            this.NUDCategoriesPrice.DecimalPlaces = 2;
+            this.NUDCategoriesPrice.Location = new System.Drawing.Point(435, 138);
+            this.NUDCategoriesPrice.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NUDCategoriesPrice.Name = "NUDCategoriesPrice";
+            this.NUDCategoriesPrice.Size = new System.Drawing.Size(166, 30);
+            this.NUDCategoriesPrice.TabIndex = 29;
+            this.NUDCategoriesPrice.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -173,23 +195,6 @@ namespace SoccerSYS
             this.lblCatCode.TabIndex = 13;
             this.lblCatCode.Text = "Category Code";
             // 
-            // NUDCategory
-            // 
-            this.NUDCategory.Location = new System.Drawing.Point(435, 192);
-            this.NUDCategory.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.NUDCategory.Name = "NUDCategory";
-            this.NUDCategory.Size = new System.Drawing.Size(166, 30);
-            this.NUDCategory.TabIndex = 30;
-            this.NUDCategory.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // frmCreateCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -206,8 +211,8 @@ namespace SoccerSYS
             this.Text = "Set Category Type";
             this.grpCategory.ResumeLayout(false);
             this.grpCategory.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDCategory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDCategoriesPrice)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -222,7 +227,7 @@ namespace SoccerSYS
         private System.Windows.Forms.TextBox txtdescription;
         private System.Windows.Forms.Label lbldescription;
         private System.Windows.Forms.Label lblCatCode;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown NUDCategoriesPrice;
         private System.Windows.Forms.NumericUpDown NUDCategory;
     }
 }
