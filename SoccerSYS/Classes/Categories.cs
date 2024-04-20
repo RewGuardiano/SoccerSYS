@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 
 namespace SoccerSYS
@@ -94,23 +95,40 @@ namespace SoccerSYS
         }
         public void createCategory()
         {
+            // Check if the CatCode already exists in the database
+            string checkQuery = "SELECT COUNT(*) FROM CATEGORIES WHERE CATCODE = :CatCode";
+            OracleCommand checkCmd = new OracleCommand(checkQuery, conn);
+            checkCmd.Parameters.Add(new OracleParameter(":CatCode", this.CatCode));
 
-
-            string sqlQuery = "INSERT INTO CATEGORIES (CATCODE, DESCRIPTION, PRICE, AVAILABLE_SEATS, MAX_SEATS) " +
-                  "VALUES (:CatCode, :Description, :Price, :AvailableSeats, :MaxSeats)";
-
-            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-
-
-            cmd.Parameters.Add(new OracleParameter(":Catcode", this.CatCode));
-            cmd.Parameters.Add(new OracleParameter(":Description", this.Description));
-            cmd.Parameters.Add(new OracleParameter(":Price", this.Price));
-            cmd.Parameters.Add(new OracleParameter(":AvailableSeats", this.AvailableSeats));
-            cmd.Parameters.Add(new OracleParameter(":MaxSeats", this.MaxSeats));
-            
             conn.Open();
-            cmd.ExecuteNonQuery();
-            conn.Close(); 
+            int count = Convert.ToInt32(checkCmd.ExecuteScalar());
+            conn.Close();
+
+            // If the CatCode does not exist, insert a new record
+            if (count == 0)
+            {
+                string sqlQuery = "INSERT INTO CATEGORIES (CATCODE, DESCRIPTION, PRICE, AVAILABLESEATS, MAXSEATS) " +
+                                 "VALUES (:CatCode, :Description, :Price, :AvailableSeats, :MaxSeats)";
+
+                OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+                cmd.Parameters.Add(new OracleParameter(":Catcode", this.CatCode));
+                cmd.Parameters.Add(new OracleParameter(":Description", this.Description));
+                cmd.Parameters.Add(new OracleParameter(":Price", this.Price));
+                cmd.Parameters.Add(new OracleParameter(":AvailableSeats", this.AvailableSeats));
+                cmd.Parameters.Add(new OracleParameter(":MaxSeats", this.MaxSeats));
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            else
+            {
+                // Display an error message or throw an exception
+                MessageBox.Show("Error: The CatCode already exists.","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Or, throw an exception
+                // throw new Exception("The CatCode already exists.");
+            }
         }
         public void updateCategory()
         {

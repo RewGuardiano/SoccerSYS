@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using Oracle.ManagedDataAccess.Client;
 
 
 namespace SoccerSYS
@@ -29,61 +30,78 @@ namespace SoccerSYS
 
         private void btnSetCategory_Click_1(object sender, EventArgs e)
         {
-            // try to validate so there are no duplicate Category Codes//
             try
             {
                 string catCode = txtCatCode.Text.Trim(); // Get the category code
-                //write validation to not allow number sybmbol and must be uppercase. 
-                // Check if the category code already exists in the database
+
+                // Validate CatCode format and uniqueness
                 if (!string.IsNullOrEmpty(catCode))
                 {
-                    // Check if the category code contains only uppercase letters
                     if (Regex.IsMatch(catCode, "^[A-Z]+$"))
                     {
-                       
+                        // Check if the CatCode already exists in the database
+                        if (CheckIfCatCodeExists(catCode))
+                        {
+                            MessageBox.Show("Category code already exists. Please enter a unique CatCode.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Category code must not be special characters,  only uppercase letters.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        // Handle the case where the category code is not in uppercase
+                        MessageBox.Show("Category code must only contain uppercase letters.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Must not be Empty.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Category code must not be empty.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
-                // Validate form inputs
-                if (txtdescription.Text.Equals(""))
+                // Validate other form inputs
+                if (string.IsNullOrEmpty(txtdescription.Text))
                 {
-                    MessageBox.Show("Description must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Description must be entered.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtdescription.Focus();
                     return;
                 }
 
-                
+                // Create the category if all validations pass
+                Categories category = new Categories(txtCatCode.Text[0], txtdescription.Text, NUDCategoriesPrice.Value, Convert.ToInt32(NUDCategory.Value));
+                category.createCategory();
+
+                MessageBox.Show("Category has been created successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Clear input fields
+                txtCatCode.Clear();
+                txtdescription.Clear();
+                txtCatCode.Focus();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private bool CheckIfCatCodeExists(string catCode)
+        {
+            using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
+            {
+                conn.Open();
 
-            Categories category = new Categories(txtCatCode.Text[0], txtdescription.Text, NUDCategoriesPrice.Value, Convert.ToInt32(NUDCategory.Value));
+                string query = "SELECT COUNT(*) FROM CATEGORIES WHERE CATCODE = :CatCode";
 
-            category.createCategory();
+                OracleCommand command = new OracleCommand(query, conn);
+                command.Parameters.Add(":CatCode", catCode.ToUpper());
 
-            MessageBox.Show("Category has been Created Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                int count = Convert.ToInt32(command.ExecuteScalar());
 
+                conn.Close();
 
-            txtCatCode.Clear();
-            txtdescription.Clear();
-           
-
-            txtCatCode.Focus();
+                return count > 0;
+            }
         }
 
 
-      
     }
 }
 
