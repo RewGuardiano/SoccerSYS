@@ -176,25 +176,32 @@ namespace SoccerSYS
         }
         public void updateCategory()
         {
-            /*string sqlQuery = "UPDATE CATEGORIES SET " +
-                  "DESCRIPTION = :Description, " +
-                  "PRICE = :Price, " +
-                  "AVAILABLESEATS = :AvailableSeats, " +
-                  "MAXSEATS = :MaxSeats " +
-                  "WHERE CATCODE = :CatCode";
-            */
-            string sqlQuery = "UPDATE CATEGORIES SET Description = '" + this.Description + ",Price = " + this.Price + ",AvailableSeats = " +
-                this.AvailableSeats + ",MaxSeats = " + this.MaxSeats + " Where CatCode = '" + this.CatCode + "'";
 
-            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+            try
+            {
+                using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
+                {
+                    string sqlQuery = "UPDATE CATEGORIES SET Description = :description, Price = :price, AvailableSeats = :availableSeats, MaxSeats = :maxSeats WHERE CatCode = :catCode";
 
+                    using (OracleCommand cmd = new OracleCommand(sqlQuery, conn))
+                    {
+                        // Add parameters to the command
+                        cmd.Parameters.Add(new OracleParameter(":description", this.Description));
+                        cmd.Parameters.Add(new OracleParameter(":price", this.Price));
+                        cmd.Parameters.Add(new OracleParameter(":availableSeats", this.AvailableSeats));
+                        cmd.Parameters.Add(new OracleParameter(":maxSeats", this.MaxSeats));
+                        cmd.Parameters.Add(new OracleParameter(":catCode", this.CatCode));
 
-
-            conn.Open();
-            cmd.ExecuteNonQuery();
-            conn.Close();
-
-
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error updating category: " + ex.Message);
+                // Optionally handle or log the exception
+            }
         }
 
         public static void getCategoryDetails(ref List<string> allCategories)

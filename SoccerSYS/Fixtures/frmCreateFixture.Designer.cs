@@ -35,7 +35,7 @@ namespace SoccerSYS
             this.dtpFixture = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cobTeams1 = new System.Windows.Forms.ComboBox();
+            this.cobAwayTeam = new System.Windows.Forms.ComboBox();
             this.btnSubmitSchedule = new System.Windows.Forms.Button();
             this.lbDate = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
@@ -60,7 +60,7 @@ namespace SoccerSYS
             this.grpCategory.Controls.Add(this.dtpFixture);
             this.grpCategory.Controls.Add(this.label1);
             this.grpCategory.Controls.Add(this.label2);
-            this.grpCategory.Controls.Add(this.cobTeams1);
+            this.grpCategory.Controls.Add(this.cobAwayTeam);
             this.grpCategory.Controls.Add(this.btnSubmitSchedule);
             this.grpCategory.Controls.Add(this.lbDate);
             this.grpCategory.Controls.Add(this.lblPrice);
@@ -105,14 +105,14 @@ namespace SoccerSYS
             this.label2.TabIndex = 24;
             this.label2.Text = "Vs";
             // 
-            // cobTeams1
+            // cobAwayTeam
             // 
-            this.cobTeams1.FormattingEnabled = true;
-            this.cobTeams1.Location = new System.Drawing.Point(566, 66);
-            this.cobTeams1.Margin = new System.Windows.Forms.Padding(4);
-            this.cobTeams1.Name = "cobTeams1";
-            this.cobTeams1.Size = new System.Drawing.Size(215, 33);
-            this.cobTeams1.TabIndex = 16;
+            this.cobAwayTeam.FormattingEnabled = true;
+            this.cobAwayTeam.Location = new System.Drawing.Point(566, 66);
+            this.cobAwayTeam.Margin = new System.Windows.Forms.Padding(4);
+            this.cobAwayTeam.Name = "cobAwayTeam";
+            this.cobAwayTeam.Size = new System.Drawing.Size(215, 33);
+            this.cobAwayTeam.TabIndex = 16;
             // 
             // btnSubmitSchedule
             // 
@@ -187,7 +187,7 @@ namespace SoccerSYS
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lbTeams;
         private System.Windows.Forms.Button btnSubmitSchedule;
-        private System.Windows.Forms.ComboBox cobTeams1;
+        private System.Windows.Forms.ComboBox cobAwayTeam;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtpFixture;

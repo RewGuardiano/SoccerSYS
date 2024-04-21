@@ -56,46 +56,32 @@ namespace SoccerSYS
             Fixture_Time = fixtureTime;
         }
 
-    }
-      
-      /*
-        public void ScheduleMatch()
+        public override string ToString()
+        {
+            return "FixtureID: " + FixtureID + "\nAwayTeam_ID: " + AwayTeam_ID + "\nFixture Time: " + Fixture_Time; 
+        }
+
+
+        public void Createfixture()
         {
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            string sqlQuery = "INSERT INTO FIXTURES (MatchID,TeamID,Match_Date,Match_time, TicketSold, MatchAvailability) " +
-                              "VALUES (:matchid,:teamid,:match_date,:match_time, :ticketsold, :matchavailability)";
+            string sqlQuery = "INSERT INTO FIXTURES (FixtureID,AwayTeam_ID,Fixture_Time) " +
+                              "VALUES (:FixtureID,:Awayteam_id,:Fixture_time)";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-            cmd.Parameters.Add(new OracleParameter(":MatchID", this.MatchID));
-            cmd.Parameters.Add(new OracleParameter(":TeamID", this.TeamID));
-            cmd.Parameters.Add(new OracleParameter(":Match_Date", this.Match_Date));
-            cmd.Parameters.Add(new OracleParameter(":Match_time", this.Match_time));
-            cmd.Parameters.Add(new OracleParameter(":TicketSold", this.TicketsSold));
-            cmd.Parameters.Add(new OracleParameter(":MatchAvailability ", this.MatchAvailability));
+            cmd.Parameters.Add(new OracleParameter(":FixutureID", this.FixtureID));
+            cmd.Parameters.Add(new OracleParameter(":AwayTeamID", this.AwayTeam_ID));
+            cmd.Parameters.Add(new OracleParameter(":Fixture_Time", this.Fixture_Time));
 
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
         }
-        public void CancelMatch()
-        {
-            OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
-            string sqlQuery = "UPDATE Fixtures SET MatchAvailability='U' WHERE MatchID = :MatchID";
-
-            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-            conn.Open();
-
-            cmd.Parameters.Add(new OracleParameter(":MatchID",MatchID ));
-
-            cmd.ExecuteNonQuery();
-
-            conn.Close();
-        }
-      */
 
     }
+}
 
 
 

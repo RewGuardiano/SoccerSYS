@@ -72,10 +72,19 @@ namespace SoccerSYS
                 txtdescription.Focus();
                 return;
             }
+            if (Categories.ValidateMaxSeatsLimit() == false)
+            {
 
 
-          
-            
+            }
+            else
+            {
+                MessageBox.Show("Cannot create more categories. Maximum seats limit (" + Categories.maxSeatsLimit + ") reached.", "Limit Exceeded", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+
 
             Category = new Categories(cobCatCode.SelectedItem.ToString().Substring(0,1),txtdescription.Text,NUDCategoriesPrice.Value,Convert.ToInt32(NUDCategorySeats.Value));
             Category.updateCategory();
