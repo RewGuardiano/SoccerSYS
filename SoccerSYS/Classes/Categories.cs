@@ -230,6 +230,58 @@ namespace SoccerSYS
             }
             dr.Close(); 
         }
+
+        public static int getAvailableSeats(string Catcode)
+        {
+            int availableSeats = 0;
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            conn.Open();
+
+            string sqlQuery = $"SELECT AvailableSeats FROM CATEGORIES Where CatCode = '{Catcode}'";
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+            OracleDataReader dr = cmd.ExecuteReader();
+
+
+            while (dr.Read() && !dr.IsDBNull(0))
+            {
+                 availableSeats  += dr.GetInt32(0);
+
+            }
+     
+
+            conn.Close();
+            return availableSeats; 
+            
+
+        }
+        public static decimal getCategoryPrice(string CatCode)
+        {
+            decimal price = 0;
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            conn.Open();
+
+            string sqlQuery = $"SELECT Price FROM CATEGORIES Where CatCode = '{CatCode}'";
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+            OracleDataReader dr = cmd.ExecuteReader();
+
+
+            while (dr.Read() && !dr.IsDBNull(0))
+            {
+                price += dr.GetInt32(0);
+
+            }
+
+
+            conn.Close();
+            return price;
+        }
+        
     }
 }
 

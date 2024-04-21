@@ -31,7 +31,7 @@ namespace SoccerSYS
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frrmYearlyRevenueAnalysis));
             this.btnbackYRA = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.graph1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnbackYRA
@@ -45,14 +45,14 @@ namespace SoccerSYS
             this.btnbackYRA.UseVisualStyleBackColor = true;
             this.btnbackYRA.Click += new System.EventHandler(this.button1_Click);
             // 
-            // panel1
+            // graph1
             // 
-            this.panel1.BackgroundImage = global::SoccerSYS.Properties.Resources.RevenueChart1;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel1.Location = new System.Drawing.Point(174, 27);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(583, 431);
-            this.panel1.TabIndex = 16;
+            this.graph1.BackgroundImage = global::SoccerSYS.Properties.Resources.RevenueChart1;
+            this.graph1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.graph1.Location = new System.Drawing.Point(174, 27);
+            this.graph1.Name = "graph1";
+            this.graph1.Size = new System.Drawing.Size(583, 431);
+            this.graph1.TabIndex = 16;
             // 
             // frrmYearlyRevenueAnalysis
             // 
@@ -60,7 +60,7 @@ namespace SoccerSYS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(932, 653);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.graph1);
             this.Controls.Add(this.btnbackYRA);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -68,6 +68,7 @@ namespace SoccerSYS
             this.MinimizeBox = false;
             this.Name = "frrmYearlyRevenueAnalysis";
             this.Text = "YearlyRevenueAnalysis";
+            this.Load += new System.EventHandler(this.frrmYearlyRevenueAnalysis_Load);
             this.ResumeLayout(false);
 
         }
@@ -75,6 +76,6 @@ namespace SoccerSYS
         #endregion
 
         private System.Windows.Forms.Button btnbackYRA;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel graph1;
     }
 }

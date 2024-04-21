@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using SoccerSYS.Classes;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Oracle.ManagedDataAccess.Client;
 
 namespace SoccerSYS
 {
@@ -16,6 +18,7 @@ namespace SoccerSYS
     {
         private Fixtures fixture;
         private static List<AwayTeam> allTeams;
+        private static string AwayTeamID;
         public frmCreateFixture()
         {
             InitializeComponent();
@@ -52,8 +55,14 @@ namespace SoccerSYS
             */
 
             //Save to class
-           // fixture = new Fixtures(dtp)
+            fixture = new Fixtures(AwayTeamID, dtpFixture.Value.ToString("yyyy-MM-dd"));
 
+            Console.WriteLine(fixture);
+            fixture.Createfixture();
+            
+
+
+            MessageBox.Show("Fixture has been Created ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             //Reset UI
             dtpFixture.Value = DateTime.Now;
@@ -61,9 +70,47 @@ namespace SoccerSYS
 
         }
 
-        
-        
-        
+        private void frmCreateFixture_Load(object sender, EventArgs e)
+        {
+            dtpFixture.Value = DateTime.Now;
+            dtpFixture.Format = DateTimePickerFormat.Custom;
+            dtpFixture.CustomFormat = "yyyy-MM-dd";
+            //load teams into combobox
 
+           
+
+            List<AwayTeam> allTeams = new List<AwayTeam>();
+            AwayTeam.viewAllTeams(ref allTeams);
+
+            cobAwayTeam.DisplayMember = "TeamName"; // Set DisplayMember to "TeamName"
+            cobAwayTeam.DataSource = allTeams; // Set DataSource to the list of AwayTeam objects
+        }
+
+        private void cobAwayTeam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cobAwayTeam.SelectedIndex != -1)
+            {
+                OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+                string sqlQuery = $"SELECT AwayTeam_ID FROM AwayTeams WHERE TeamName = '{cobAwayTeam.SelectedItem.ToString()}'";
+
+                OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+                conn.Open();
+
+
+                OracleDataReader dr = cmd.ExecuteReader();
+
+
+                if (dr.Read())
+                {
+                    AwayTeamID = dr["AwayTeam_ID"].ToString();
+
+                }
+                Console.WriteLine(AwayTeamID);
+                dr.Close();
+                conn.Close();
+            }
+        }
     }
 }

@@ -33,30 +33,32 @@ namespace SoccerSYS
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCreateSale));
             this.btnCreateSale = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
+            this.gpbCatCode = new System.Windows.Forms.GroupBox();
+            this.NUDQuantity = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CobCatCodes = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnConfirmCart = new System.Windows.Forms.Button();
+            this.btnConfirmEmail = new System.Windows.Forms.Button();
             this.grpBoxCart = new System.Windows.Forms.GroupBox();
             this.btnCheckOut = new System.Windows.Forms.Button();
             this.txtTotPrice = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvCart = new System.Windows.Forms.DataGridView();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.btnConfirm = new System.Windows.Forms.Button();
-            this.lblTicketID = new System.Windows.Forms.Label();
-            this.txtSaleID = new System.Windows.Forms.TextBox();
-            this.lblPrice = new System.Windows.Forms.Label();
-            this.lbSaleId = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.CatCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FixtureID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cobFixtures = new System.Windows.Forms.ComboBox();
+            this.lblTicketID = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.lbSaleId = new System.Windows.Forms.Label();
             this.grpCategory.SuspendLayout();
+            this.gpbCatCode.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDQuantity)).BeginInit();
             this.grpBoxCart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCreateSale
@@ -73,27 +75,99 @@ namespace SoccerSYS
             // grpCategory
             // 
             this.grpCategory.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.grpCategory.Controls.Add(this.button1);
-            this.grpCategory.Controls.Add(this.numericUpDown1);
-            this.grpCategory.Controls.Add(this.label3);
+            this.grpCategory.Controls.Add(this.gpbCatCode);
+            this.grpCategory.Controls.Add(this.btnConfirmEmail);
             this.grpCategory.Controls.Add(this.grpBoxCart);
-            this.grpCategory.Controls.Add(this.comboBox2);
-            this.grpCategory.Controls.Add(this.label1);
-            this.grpCategory.Controls.Add(this.comboBox1);
-            this.grpCategory.Controls.Add(this.btnConfirm);
+            this.grpCategory.Controls.Add(this.cobFixtures);
             this.grpCategory.Controls.Add(this.lblTicketID);
-            this.grpCategory.Controls.Add(this.txtSaleID);
+            this.grpCategory.Controls.Add(this.txtEmail);
             this.grpCategory.Controls.Add(this.lblPrice);
             this.grpCategory.Controls.Add(this.lbSaleId);
             this.grpCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpCategory.Location = new System.Drawing.Point(168, 27);
+            this.grpCategory.Location = new System.Drawing.Point(112, 27);
             this.grpCategory.Margin = new System.Windows.Forms.Padding(4);
             this.grpCategory.Name = "grpCategory";
             this.grpCategory.Padding = new System.Windows.Forms.Padding(4);
-            this.grpCategory.Size = new System.Drawing.Size(952, 521);
+            this.grpCategory.Size = new System.Drawing.Size(1113, 521);
             this.grpCategory.TabIndex = 17;
             this.grpCategory.TabStop = false;
             this.grpCategory.Text = "Create Sale";
+            // 
+            // gpbCatCode
+            // 
+            this.gpbCatCode.Controls.Add(this.NUDQuantity);
+            this.gpbCatCode.Controls.Add(this.label3);
+            this.gpbCatCode.Controls.Add(this.CobCatCodes);
+            this.gpbCatCode.Controls.Add(this.label1);
+            this.gpbCatCode.Controls.Add(this.btnConfirmCart);
+            this.gpbCatCode.Location = new System.Drawing.Point(24, 262);
+            this.gpbCatCode.Name = "gpbCatCode";
+            this.gpbCatCode.Size = new System.Drawing.Size(516, 229);
+            this.gpbCatCode.TabIndex = 53;
+            this.gpbCatCode.TabStop = false;
+            this.gpbCatCode.Visible = false;
+            // 
+            // NUDQuantity
+            // 
+            this.NUDQuantity.Location = new System.Drawing.Point(177, 104);
+            this.NUDQuantity.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.NUDQuantity.Name = "NUDQuantity";
+            this.NUDQuantity.Size = new System.Drawing.Size(120, 30);
+            this.NUDQuantity.TabIndex = 56;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(43, 102);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(123, 29);
+            this.label3.TabIndex = 55;
+            this.label3.Text = "Quantity:";
+            // 
+            // CobCatCodes
+            // 
+            this.CobCatCodes.FormattingEnabled = true;
+            this.CobCatCodes.Location = new System.Drawing.Point(293, 34);
+            this.CobCatCodes.Name = "CobCatCodes";
+            this.CobCatCodes.Size = new System.Drawing.Size(217, 33);
+            this.CobCatCodes.TabIndex = 54;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(29, 42);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(246, 25);
+            this.label1.TabIndex = 53;
+            this.label1.Text = "Choose Category Code:";
+            // 
+            // btnConfirmCart
+            // 
+            this.btnConfirmCart.Location = new System.Drawing.Point(167, 155);
+            this.btnConfirmCart.Name = "btnConfirmCart";
+            this.btnConfirmCart.Size = new System.Drawing.Size(180, 45);
+            this.btnConfirmCart.TabIndex = 52;
+            this.btnConfirmCart.Text = "Add Cart";
+            this.btnConfirmCart.UseVisualStyleBackColor = true;
+            this.btnConfirmCart.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
+            // btnConfirmEmail
+            // 
+            this.btnConfirmEmail.Location = new System.Drawing.Point(239, 217);
+            this.btnConfirmEmail.Name = "btnConfirmEmail";
+            this.btnConfirmEmail.Size = new System.Drawing.Size(120, 39);
+            this.btnConfirmEmail.TabIndex = 52;
+            this.btnConfirmEmail.Text = "Confirm";
+            this.btnConfirmEmail.UseVisualStyleBackColor = true;
+            this.btnConfirmEmail.Click += new System.EventHandler(this.button1_Click);
             // 
             // grpBoxCart
             // 
@@ -102,7 +176,7 @@ namespace SoccerSYS
             this.grpBoxCart.Controls.Add(this.label2);
             this.grpBoxCart.Controls.Add(this.dgvCart);
             this.grpBoxCart.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpBoxCart.Location = new System.Drawing.Point(433, 54);
+            this.grpBoxCart.Location = new System.Drawing.Point(590, 48);
             this.grpBoxCart.Margin = new System.Windows.Forms.Padding(4);
             this.grpBoxCart.Name = "grpBoxCart";
             this.grpBoxCart.Padding = new System.Windows.Forms.Padding(4);
@@ -124,6 +198,7 @@ namespace SoccerSYS
             this.btnCheckOut.TabIndex = 34;
             this.btnCheckOut.Text = "CHECKOUT";
             this.btnCheckOut.UseVisualStyleBackColor = false;
+            this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_Click);
             // 
             // txtTotPrice
             // 
@@ -175,100 +250,6 @@ namespace SoccerSYS
             this.dgvCart.Size = new System.Drawing.Size(481, 255);
             this.dgvCart.TabIndex = 10;
             // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(316, 277);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(110, 33);
-            this.comboBox2.TabIndex = 44;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(-5, 276);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(296, 29);
-            this.label1.TabIndex = 43;
-            this.label1.Text = "Choose Category Code";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(125, 169);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(301, 33);
-            this.comboBox1.TabIndex = 42;
-            // 
-            // btnConfirm
-            // 
-            this.btnConfirm.Location = new System.Drawing.Point(177, 402);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(180, 45);
-            this.btnConfirm.TabIndex = 25;
-            this.btnConfirm.Text = "Add Cart";
-            this.btnConfirm.UseVisualStyleBackColor = true;
-            // 
-            // lblTicketID
-            // 
-            this.lblTicketID.AutoSize = true;
-            this.lblTicketID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTicketID.Location = new System.Drawing.Point(8, 168);
-            this.lblTicketID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTicketID.Name = "lblTicketID";
-            this.lblTicketID.Size = new System.Drawing.Size(110, 29);
-            this.lblTicketID.TabIndex = 18;
-            this.lblTicketID.Text = "Fixtures";
-            // 
-            // txtSaleID
-            // 
-            this.txtSaleID.Location = new System.Drawing.Point(98, 94);
-            this.txtSaleID.Name = "txtSaleID";
-            this.txtSaleID.Size = new System.Drawing.Size(265, 30);
-            this.txtSaleID.TabIndex = 17;
-            // 
-            // lblPrice
-            // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(53, 154);
-            this.lblPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(0, 29);
-            this.lblPrice.TabIndex = 16;
-            // 
-            // lbSaleId
-            // 
-            this.lbSaleId.AutoSize = true;
-            this.lbSaleId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaleId.Location = new System.Drawing.Point(8, 93);
-            this.lbSaleId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbSaleId.Name = "lbSaleId";
-            this.lbSaleId.Size = new System.Drawing.Size(83, 29);
-            this.lbSaleId.TabIndex = 13;
-            this.lbSaleId.Text = "Email";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(39, 327);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 29);
-            this.label3.TabIndex = 50;
-            this.label3.Text = "Quantity";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(167, 326);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 30);
-            this.numericUpDown1.TabIndex = 51;
-            // 
             // CatCode
             // 
             this.CatCode.HeaderText = "Category Code";
@@ -301,14 +282,53 @@ namespace SoccerSYS
             this.FixtureID.ReadOnly = true;
             this.FixtureID.Width = 125;
             // 
-            // button1
+            // cobFixtures
             // 
-            this.button1.Location = new System.Drawing.Point(201, 208);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 39);
-            this.button1.TabIndex = 52;
-            this.button1.Text = "Confirm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.cobFixtures.FormattingEnabled = true;
+            this.cobFixtures.Location = new System.Drawing.Point(156, 169);
+            this.cobFixtures.Name = "cobFixtures";
+            this.cobFixtures.Size = new System.Drawing.Size(301, 33);
+            this.cobFixtures.TabIndex = 42;
+            this.cobFixtures.SelectedIndexChanged += new System.EventHandler(this.label1_Click);
+            // 
+            // lblTicketID
+            // 
+            this.lblTicketID.AutoSize = true;
+            this.lblTicketID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTicketID.Location = new System.Drawing.Point(31, 169);
+            this.lblTicketID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTicketID.Name = "lblTicketID";
+            this.lblTicketID.Size = new System.Drawing.Size(118, 29);
+            this.lblTicketID.TabIndex = 18;
+            this.lblTicketID.Text = "Fixtures:";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(165, 94);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(265, 30);
+            this.txtEmail.TabIndex = 17;
+            // 
+            // lblPrice
+            // 
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice.Location = new System.Drawing.Point(53, 154);
+            this.lblPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(0, 29);
+            this.lblPrice.TabIndex = 16;
+            // 
+            // lbSaleId
+            // 
+            this.lbSaleId.AutoSize = true;
+            this.lbSaleId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSaleId.Location = new System.Drawing.Point(31, 95);
+            this.lbSaleId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbSaleId.Name = "lbSaleId";
+            this.lbSaleId.Size = new System.Drawing.Size(91, 29);
+            this.lbSaleId.TabIndex = 13;
+            this.lbSaleId.Text = "Email:";
             // 
             // frmCreateSale
             // 
@@ -324,12 +344,15 @@ namespace SoccerSYS
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCreateSale";
             this.Text = "ProcessSales";
+            this.Load += new System.EventHandler(this.frmCreateSale_Load);
             this.grpCategory.ResumeLayout(false);
             this.grpCategory.PerformLayout();
+            this.gpbCatCode.ResumeLayout(false);
+            this.gpbCatCode.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDQuantity)).EndInit();
             this.grpBoxCart.ResumeLayout(false);
             this.grpBoxCart.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -340,23 +363,24 @@ namespace SoccerSYS
         private System.Windows.Forms.GroupBox grpCategory;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblTicketID;
-        private System.Windows.Forms.TextBox txtSaleID;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lbSaleId;
-        private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.GroupBox grpBoxCart;
         private System.Windows.Forms.Button btnCheckOut;
         private System.Windows.Forms.TextBox txtTotPrice;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvCart;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cobFixtures;
+        private System.Windows.Forms.Button btnConfirmEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn CatCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn FixtureID;
+        private System.Windows.Forms.GroupBox gpbCatCode;
+        private System.Windows.Forms.NumericUpDown NUDQuantity;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox CobCatCodes;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnConfirmCart;
     }
 }

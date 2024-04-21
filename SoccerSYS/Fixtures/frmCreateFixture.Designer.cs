@@ -108,11 +108,12 @@ namespace SoccerSYS
             // cobAwayTeam
             // 
             this.cobAwayTeam.FormattingEnabled = true;
-            this.cobAwayTeam.Location = new System.Drawing.Point(566, 66);
+            this.cobAwayTeam.Location = new System.Drawing.Point(518, 71);
             this.cobAwayTeam.Margin = new System.Windows.Forms.Padding(4);
             this.cobAwayTeam.Name = "cobAwayTeam";
-            this.cobAwayTeam.Size = new System.Drawing.Size(215, 33);
+            this.cobAwayTeam.Size = new System.Drawing.Size(346, 33);
             this.cobAwayTeam.TabIndex = 16;
+            this.cobAwayTeam.SelectedIndexChanged += new System.EventHandler(this.cobAwayTeam_SelectedIndexChanged);
             // 
             // btnSubmitSchedule
             // 
@@ -123,7 +124,7 @@ namespace SoccerSYS
             this.btnSubmitSchedule.Name = "btnSubmitSchedule";
             this.btnSubmitSchedule.Size = new System.Drawing.Size(193, 48);
             this.btnSubmitSchedule.TabIndex = 22;
-            this.btnSubmitSchedule.Text = "Submit";
+            this.btnSubmitSchedule.Text = "Schedule";
             this.btnSubmitSchedule.UseVisualStyleBackColor = true;
             this.btnSubmitSchedule.Click += new System.EventHandler(this.btnSubmitSchedule_Click);
             // 
@@ -172,7 +173,8 @@ namespace SoccerSYS
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCreateFixture";
-            this.Text = "ScheduleMatch";
+            this.Text = "Create Fixture";
+            this.Load += new System.EventHandler(this.frmCreateFixture_Load);
             this.grpCategory.ResumeLayout(false);
             this.grpCategory.PerformLayout();
             this.ResumeLayout(false);
