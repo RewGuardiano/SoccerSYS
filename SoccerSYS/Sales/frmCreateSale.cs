@@ -32,6 +32,11 @@ namespace SoccerSYS
             this.Close();
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
         /*
         private void btnConfirm_Click(object sender, EventArgs e)

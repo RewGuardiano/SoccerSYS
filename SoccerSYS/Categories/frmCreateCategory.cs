@@ -65,9 +65,19 @@ namespace SoccerSYS
                     txtdescription.Focus();
                     return;
                 }
+                if (Categories.ValidateMaxSeatsLimit()==false)
+                {
+                    
+
+                }
+                else
+                {
+                    MessageBox.Show("Cannot create more categories. Maximum seats limit (" + Categories.maxSeatsLimit + ") reached.", "Limit Exceeded", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
                 // Create the category if all validations pass
-                Categories category = new Categories(txtCatCode.Text[0], txtdescription.Text, NUDCategoriesPrice.Value, Convert.ToInt32(NUDCategory.Value));
+                Categories category = new Categories(txtCatCode.Text, txtdescription.Text, NUDCategoriesPrice.Value, Convert.ToInt32(NUDCategorySeats.Value));
                 category.createCategory();
 
                 MessageBox.Show("Category has been created successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);

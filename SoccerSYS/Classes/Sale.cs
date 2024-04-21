@@ -13,14 +13,14 @@ namespace SoccerSYS
         private int SaleID;
         private string Email;
         private int fixtureID;
-        private Boolean CancelSale;
+        private bool CancelSale;
 
-        public Sale(int saleID, string email, int fixtureID, bool cancelSale)
+        public Sale(int saleID, string email, int fixtureID )
         {
             SaleID = saleID;
             Email = email;
             this.fixtureID = fixtureID;
-            CancelSale = cancelSale;
+            CancelSale = false;
         }
         public int GetSaleID()
         {

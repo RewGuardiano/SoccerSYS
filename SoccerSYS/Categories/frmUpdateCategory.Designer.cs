@@ -34,7 +34,7 @@ namespace SoccerSYS
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUpdateCategory));
             this.btnbackUpdateCat = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
-            this.NUDCategory = new System.Windows.Forms.NumericUpDown();
+            this.NUDCategorySeats = new System.Windows.Forms.NumericUpDown();
             this.NUDCategoriesPrice = new System.Windows.Forms.NumericUpDown();
             this.cobCatCode = new System.Windows.Forms.ComboBox();
             this.btnUpdateCategory = new System.Windows.Forms.Button();
@@ -44,7 +44,7 @@ namespace SoccerSYS
             this.lbldescription = new System.Windows.Forms.Label();
             this.lblCatCode = new System.Windows.Forms.Label();
             this.grpCategory.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NUDCategory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDCategorySeats)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDCategoriesPrice)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +63,7 @@ namespace SoccerSYS
             // 
             this.grpCategory.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.grpCategory.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.grpCategory.Controls.Add(this.NUDCategory);
+            this.grpCategory.Controls.Add(this.NUDCategorySeats);
             this.grpCategory.Controls.Add(this.NUDCategoriesPrice);
             this.grpCategory.Controls.Add(this.cobCatCode);
             this.grpCategory.Controls.Add(this.btnUpdateCategory);
@@ -82,18 +82,18 @@ namespace SoccerSYS
             this.grpCategory.TabStop = false;
             this.grpCategory.Text = "Update Category";
             // 
-            // NUDCategory
+            // NUDCategorySeats
             // 
-            this.NUDCategory.Location = new System.Drawing.Point(317, 280);
-            this.NUDCategory.Minimum = new decimal(new int[] {
+            this.NUDCategorySeats.Location = new System.Drawing.Point(317, 280);
+            this.NUDCategorySeats.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.NUDCategory.Name = "NUDCategory";
-            this.NUDCategory.Size = new System.Drawing.Size(166, 30);
-            this.NUDCategory.TabIndex = 33;
-            this.NUDCategory.Value = new decimal(new int[] {
+            this.NUDCategorySeats.Name = "NUDCategorySeats";
+            this.NUDCategorySeats.Size = new System.Drawing.Size(166, 30);
+            this.NUDCategorySeats.TabIndex = 33;
+            this.NUDCategorySeats.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -103,6 +103,11 @@ namespace SoccerSYS
             // 
             this.NUDCategoriesPrice.DecimalPlaces = 2;
             this.NUDCategoriesPrice.Location = new System.Drawing.Point(317, 224);
+            this.NUDCategoriesPrice.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.NUDCategoriesPrice.Minimum = new decimal(new int[] {
             1,
             0,
@@ -120,10 +125,6 @@ namespace SoccerSYS
             // cobCatCode
             // 
             this.cobCatCode.FormattingEnabled = true;
-            this.cobCatCode.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C"});
             this.cobCatCode.Location = new System.Drawing.Point(364, 55);
             this.cobCatCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cobCatCode.Name = "cobCatCode";
@@ -142,6 +143,7 @@ namespace SoccerSYS
             this.btnUpdateCategory.TabIndex = 19;
             this.btnUpdateCategory.Text = "Update Category";
             this.btnUpdateCategory.UseVisualStyleBackColor = true;
+            this.btnUpdateCategory.Click += new System.EventHandler(this.btnUpdateCategory_Click);
             // 
             // lblNoSeats
             // 
@@ -209,9 +211,10 @@ namespace SoccerSYS
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmUpdateCategory";
             this.Text = "UpdateCategory";
+            this.Load += new System.EventHandler(this.frmUpdateCategory_Load);
             this.grpCategory.ResumeLayout(false);
             this.grpCategory.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NUDCategory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDCategorySeats)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDCategoriesPrice)).EndInit();
             this.ResumeLayout(false);
 
@@ -224,13 +227,13 @@ namespace SoccerSYS
         private System.Windows.Forms.Button btnbackUpdateCat;
         private System.Windows.Forms.GroupBox grpCategory;
         private System.Windows.Forms.Button btnUpdateCategory;
-        private System.Windows.Forms.Label lblNoSeats;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.TextBox txtdescription;
         private System.Windows.Forms.Label lbldescription;
         private System.Windows.Forms.Label lblCatCode;
         private System.Windows.Forms.ComboBox cobCatCode;
         private System.Windows.Forms.NumericUpDown NUDCategoriesPrice;
-        private System.Windows.Forms.NumericUpDown NUDCategory;
+        private System.Windows.Forms.NumericUpDown NUDCategorySeats;
+        private System.Windows.Forms.Label lblNoSeats;
     }
 }

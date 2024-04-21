@@ -24,11 +24,16 @@ namespace SoccerSYS
 
         private void setCategoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (Categories.ValidateMaxSeatsLimit())
+            {
+                MessageBox.Show("Cannot create more categories. Maximum seats limit reached.", "Limit Exceeded", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Exit the method without proceeding to create a new category
+            }
+
+
             frmCreateCategory to = new frmCreateCategory();
             to.Show();
             this.Hide();
-
-
           
         }
 

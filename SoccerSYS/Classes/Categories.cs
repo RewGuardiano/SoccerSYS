@@ -7,6 +7,7 @@ using System.Data;
 using Oracle.ManagedDataAccess.Client;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 
 namespace SoccerSYS
@@ -14,13 +15,14 @@ namespace SoccerSYS
     class Categories
     {
         OracleConnection conn = new OracleConnection(DBConnect.oradb);
-        private char CatCode;
+        internal static int maxSeatsLimit = 500;
+        private string CatCode;
         private string Description;
         private decimal Price;
         private int AvailableSeats;
         private int MaxSeats;
 
-        public Categories(char catCode, string description, decimal price, int maxSeats)
+        public Categories(string catCode, string description, decimal price, int maxSeats)
         {
             CatCode = catCode;
             Description = description;
@@ -30,13 +32,13 @@ namespace SoccerSYS
         }
 
         // Getter for CatCode
-        public char GetCatCode()
+        public string GetCatCode()
         {
             return CatCode;
         }
 
         // Setter for CatCode
-        public void SetCatCode(char catCode)
+        public void SetCatCode(string catCode)
         {
             CatCode = catCode;
         }
@@ -93,6 +95,48 @@ namespace SoccerSYS
         {
             return $"Category Code: {CatCode}\nDescription: {Description}\nPrice: {Price:C}\nAvailable Seats: {AvailableSeats}\nMax Seats: {MaxSeats}";
         }
+        public static bool ValidateMaxSeatsLimit()
+        {
+            bool exceedsLimit = false;
+
+            try
+            {
+                using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
+                {
+                    conn.Open();
+
+                    string query = "SELECT SUM(MaxSeats) AS TotalMaxSeats FROM categories";
+
+                    using (OracleCommand cmd = new OracleCommand(query, conn))
+                    {
+                        object result = cmd.ExecuteScalar();
+
+                        if (result != DBNull.Value)
+                        {
+                            int totalMaxSeats = Convert.ToInt32(result);
+
+                            // Check if the totalMaxSeats exceeds the specified limit
+                            if (totalMaxSeats >= maxSeatsLimit)
+                            {
+                                exceedsLimit = true;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                // Optionally, handle the exception (e.g., log the error)
+            }
+
+            return exceedsLimit;
+        }
+
+
+
+
+
         public void createCategory()
         {
             // Check if the CatCode already exists in the database
@@ -125,31 +169,24 @@ namespace SoccerSYS
             else
             {
                 // Display an error message or throw an exception
-                MessageBox.Show("Error: The CatCode already exists.","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: The CatCode already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 // Or, throw an exception
                 // throw new Exception("The CatCode already exists.");
             }
         }
         public void updateCategory()
         {
-            string sqlQuery = "UPDATE CATEGORIES SET " +
+            /*string sqlQuery = "UPDATE CATEGORIES SET " +
                   "DESCRIPTION = :Description, " +
                   "PRICE = :Price, " +
                   "AVAILABLESEATS = :AvailableSeats, " +
                   "MAXSEATS = :MaxSeats " +
                   "WHERE CATCODE = :CatCode";
-
+            */
+            string sqlQuery = "UPDATE CATEGORIES SET Description = '" + this.Description + ",Price = " + this.Price + ",AvailableSeats = " +
+                this.AvailableSeats + ",MaxSeats = " + this.MaxSeats + " Where CatCode = '" + this.CatCode + "'";
 
             OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-
-            
-          
-            cmd.Parameters.Add(new OracleParameter(":catCode", this.CatCode));
-            cmd.Parameters.Add(new OracleParameter(":description", this.Description));
-            cmd.Parameters.Add(new OracleParameter(":price", this.Price));
-            cmd.Parameters.Add(new OracleParameter(":availableseats", this.AvailableSeats));
-            cmd.Parameters.Add(new OracleParameter(":maxseats", this.MaxSeats));
-      
 
 
 
@@ -159,7 +196,58 @@ namespace SoccerSYS
 
 
         }
-    }/*
+
+        public static void getCategoryDetails(ref List<string> allCategories)
+        {
+            allCategories = new List<string>();
+
+            OracleConnection conn = new OracleConnection(DBConnect.oradb);
+
+            conn.Open();
+
+            string sqlQuery = "Select CatCode, Description From Categories";
+
+            OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+            OracleDataReader dr = cmd.ExecuteReader();
+
+           
+
+            while (dr.Read() && !dr.IsDBNull(0))
+
+            {
+                string category = $"{dr.GetString(0)} - {dr.GetString(1)}" ;
+
+                allCategories.Add(category);
+            
+            }
+            dr.Close(); 
+        }
+    }
+}
+
+    /*
+    public static void getCategoryDetails(ref List<string> allSeatTypes)
+    {
+        allSeatTypes = new List<string>();
+        
+
+        string sqlQuery = "SELECT Type_Code, Description FROM SeatTypes";
+
+        OracleCommand cmd = new OracleCommand(sqlQuery, conn);
+
+        OracleDataReader dr = cmd.ExecuteReader();
+
+        while (dr.Read() && !dr.IsDBNull(0))
+        {
+            string seatType = $"{dr.GetString(0)} - {dr.GetString(1)}";
+
+            allSeatTypes.Add(seatType);
+        }
+
+        dr.Close();
+    }*/
+    /*
     public static char[] getAllCatCode()
     {
         string sqlQuery = "Select Catcode FROM Categories ";
@@ -289,9 +377,9 @@ namespace SoccerSYS
             return ds;
    
         }
-   */     
-        
+   */
 
-    }
+
+
 
   
