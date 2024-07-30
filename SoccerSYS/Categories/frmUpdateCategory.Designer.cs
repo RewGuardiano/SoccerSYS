@@ -91,6 +91,7 @@ namespace SoccerSYS
             0,
             0});
             this.NUDCategorySeats.Name = "NUDCategorySeats";
+            this.NUDCategorySeats.ReadOnly = true;
             this.NUDCategorySeats.Size = new System.Drawing.Size(166, 30);
             this.NUDCategorySeats.TabIndex = 33;
             this.NUDCategorySeats.Value = new decimal(new int[] {

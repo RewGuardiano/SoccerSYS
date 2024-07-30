@@ -72,16 +72,7 @@ namespace SoccerSYS
                 txtdescription.Focus();
                 return;
             }
-            if (Categories.ValidateMaxSeatsLimit() == false)
-            {
-
-
-            }
-            else
-            {
-                MessageBox.Show("Cannot create more categories. Maximum seats limit (" + Categories.maxSeatsLimit + ") reached.", "Limit Exceeded", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+        
 
 
 
