@@ -29,6 +29,13 @@ namespace SoccerSYS
 
         private void frmUpdateFixture_Load(object sender, EventArgs e)
         {
+            
+
+            // Add the event handler for the SelectionChanged event
+            grdTeams.SelectionChanged += new EventHandler(grdTeams_SelectionChanged);
+
+
+            // Load data into the DataGridView when the form loads
             gridbind();
         }
 
@@ -53,7 +60,33 @@ namespace SoccerSYS
             }
         }
 
-        
+
+
+        private void grdTeams_SelectionChanged(object sender, EventArgs e)
+        {
+            if (grdTeams.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = grdTeams.SelectedRows[0];
+
+                txtTeamName.Text = selectedRow.Cells["TeamName"].Value.ToString();
+
+                if (DateTime.TryParse(selectedRow.Cells["Fixture_Time"].Value.ToString(), out DateTime fixtureTime))
+                {
+                    dtpFixture.Value = fixtureTime;
+                }
+                else
+                {
+                    // Handle the case where parsing fails if necessary
+                    MessageBox.Show("Invalid date format in Fixture_Time.");
+                }
+            }
+        }
+
+
+
+
+
+
 
         /*
 private void btnSearchTeam_Click(object sender, EventArgs e)

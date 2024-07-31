@@ -33,7 +33,6 @@ namespace SoccerSYS
             this.grdTeams = new System.Windows.Forms.DataGridView();
             this.dtpFixture = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSearchTeam = new System.Windows.Forms.Button();
             this.btnBackbutton = new System.Windows.Forms.Button();
             this.btnAddTeam = new System.Windows.Forms.Button();
             this.txtTeamName = new System.Windows.Forms.TextBox();
@@ -50,7 +49,6 @@ namespace SoccerSYS
             this.grpTeams.Controls.Add(this.grdTeams);
             this.grpTeams.Controls.Add(this.dtpFixture);
             this.grpTeams.Controls.Add(this.label1);
-            this.grpTeams.Controls.Add(this.btnSearchTeam);
             this.grpTeams.Controls.Add(this.btnBackbutton);
             this.grpTeams.Controls.Add(this.btnAddTeam);
             this.grpTeams.Controls.Add(this.txtTeamName);
@@ -70,12 +68,14 @@ namespace SoccerSYS
             this.grdTeams.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdTeams.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.grdTeams.ColumnHeadersHeight = 40;
-            this.grdTeams.Location = new System.Drawing.Point(209, 39);
+            this.grdTeams.Location = new System.Drawing.Point(232, 42);
             this.grdTeams.Name = "grdTeams";
             this.grdTeams.RowHeadersWidth = 51;
             this.grdTeams.RowTemplate.Height = 24;
             this.grdTeams.Size = new System.Drawing.Size(676, 232);
             this.grdTeams.TabIndex = 42;
+         
+            this.grdTeams.SelectionChanged += new System.EventHandler(this.grdTeams_SelectionChanged);
             // 
             // dtpFixture
             // 
@@ -96,16 +96,6 @@ namespace SoccerSYS
             this.label1.Size = new System.Drawing.Size(165, 29);
             this.label1.TabIndex = 40;
             this.label1.Text = "Fixture Time";
-            // 
-            // btnSearchTeam
-            // 
-            this.btnSearchTeam.Location = new System.Drawing.Point(916, 149);
-            this.btnSearchTeam.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSearchTeam.Name = "btnSearchTeam";
-            this.btnSearchTeam.Size = new System.Drawing.Size(100, 28);
-            this.btnSearchTeam.TabIndex = 36;
-            this.btnSearchTeam.Text = "Select";
-            this.btnSearchTeam.UseVisualStyleBackColor = true;
             // 
             // btnBackbutton
             // 
@@ -174,7 +164,6 @@ namespace SoccerSYS
         private System.Windows.Forms.TextBox txtTeamName;
         private System.Windows.Forms.Label lblTeamName;
         private System.Windows.Forms.Button btnBackbutton;
-        private System.Windows.Forms.Button btnSearchTeam;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtpFixture;
         private System.Windows.Forms.DataGridView grdTeams;
