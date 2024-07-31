@@ -29,14 +29,17 @@ namespace SoccerSYS
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUpdateFixture));
             this.grpTeams = new System.Windows.Forms.GroupBox();
             this.grdTeams = new System.Windows.Forms.DataGridView();
             this.dtpFixture = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBackbutton = new System.Windows.Forms.Button();
-            this.btnAddTeam = new System.Windows.Forms.Button();
+            this.btnUpdateTeam = new System.Windows.Forms.Button();
             this.txtTeamName = new System.Windows.Forms.TextBox();
             this.lblTeamName = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTeamID = new System.Windows.Forms.TextBox();
             this.grpTeams.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTeams)).BeginInit();
             this.SuspendLayout();
@@ -46,11 +49,13 @@ namespace SoccerSYS
             this.grpTeams.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.grpTeams.BackgroundImage = global::SoccerSYS.Properties.Resources.footballBackground;
             this.grpTeams.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.grpTeams.Controls.Add(this.txtTeamID);
+            this.grpTeams.Controls.Add(this.label2);
             this.grpTeams.Controls.Add(this.grdTeams);
             this.grpTeams.Controls.Add(this.dtpFixture);
             this.grpTeams.Controls.Add(this.label1);
             this.grpTeams.Controls.Add(this.btnBackbutton);
-            this.grpTeams.Controls.Add(this.btnAddTeam);
+            this.grpTeams.Controls.Add(this.btnUpdateTeam);
             this.grpTeams.Controls.Add(this.txtTeamName);
             this.grpTeams.Controls.Add(this.lblTeamName);
             this.grpTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -68,19 +73,18 @@ namespace SoccerSYS
             this.grdTeams.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdTeams.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.grdTeams.ColumnHeadersHeight = 40;
-            this.grdTeams.Location = new System.Drawing.Point(232, 42);
+            this.grdTeams.Location = new System.Drawing.Point(195, 41);
             this.grdTeams.Name = "grdTeams";
             this.grdTeams.RowHeadersWidth = 51;
             this.grdTeams.RowTemplate.Height = 24;
             this.grdTeams.Size = new System.Drawing.Size(676, 232);
             this.grdTeams.TabIndex = 42;
-         
             this.grdTeams.SelectionChanged += new System.EventHandler(this.grdTeams_SelectionChanged);
             // 
             // dtpFixture
             // 
             this.dtpFixture.AllowDrop = true;
-            this.dtpFixture.Location = new System.Drawing.Point(462, 379);
+            this.dtpFixture.Location = new System.Drawing.Point(462, 400);
             this.dtpFixture.Name = "dtpFixture";
             this.dtpFixture.Size = new System.Drawing.Size(345, 30);
             this.dtpFixture.TabIndex = 41;
@@ -90,7 +94,7 @@ namespace SoccerSYS
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(271, 379);
+            this.label1.Location = new System.Drawing.Point(268, 401);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(165, 29);
@@ -108,21 +112,22 @@ namespace SoccerSYS
             this.btnBackbutton.UseVisualStyleBackColor = true;
             this.btnBackbutton.Click += new System.EventHandler(this.btnBackbutton_Click);
             // 
-            // btnAddTeam
+            // btnUpdateTeam
             // 
-            this.btnAddTeam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddTeam.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnAddTeam.Location = new System.Drawing.Point(413, 452);
-            this.btnAddTeam.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAddTeam.Name = "btnAddTeam";
-            this.btnAddTeam.Size = new System.Drawing.Size(193, 52);
-            this.btnAddTeam.TabIndex = 19;
-            this.btnAddTeam.Text = "Update";
-            this.btnAddTeam.UseVisualStyleBackColor = true;
+            this.btnUpdateTeam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateTeam.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnUpdateTeam.Location = new System.Drawing.Point(413, 452);
+            this.btnUpdateTeam.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUpdateTeam.Name = "btnUpdateTeam";
+            this.btnUpdateTeam.Size = new System.Drawing.Size(193, 52);
+            this.btnUpdateTeam.TabIndex = 19;
+            this.btnUpdateTeam.Text = "Update";
+            this.btnUpdateTeam.UseVisualStyleBackColor = true;
+            this.btnUpdateTeam.Click += new System.EventHandler(this.btnAddTeam_Click);
             // 
             // txtTeamName
             // 
-            this.txtTeamName.Location = new System.Drawing.Point(462, 298);
+            this.txtTeamName.Location = new System.Drawing.Point(462, 350);
             this.txtTeamName.Margin = new System.Windows.Forms.Padding(4);
             this.txtTeamName.Name = "txtTeamName";
             this.txtTeamName.Size = new System.Drawing.Size(345, 30);
@@ -133,12 +138,33 @@ namespace SoccerSYS
             this.lblTeamName.AutoSize = true;
             this.lblTeamName.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblTeamName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTeamName.Location = new System.Drawing.Point(271, 297);
+            this.lblTeamName.Location = new System.Drawing.Point(268, 349);
             this.lblTeamName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTeamName.Name = "lblTeamName";
             this.lblTeamName.Size = new System.Drawing.Size(162, 29);
             this.lblTeamName.TabIndex = 14;
             this.lblTeamName.Text = "Team Name";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(268, 297);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(116, 29);
+            this.label2.TabIndex = 43;
+            this.label2.Text = "Team ID";
+            // 
+            // txtTeamID
+            // 
+            this.txtTeamID.Location = new System.Drawing.Point(462, 298);
+            this.txtTeamID.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTeamID.Name = "txtTeamID";
+            this.txtTeamID.ReadOnly = true;
+            this.txtTeamID.Size = new System.Drawing.Size(345, 30);
+            this.txtTeamID.TabIndex = 44;
             // 
             // frmUpdateFixture
             // 
@@ -146,6 +172,7 @@ namespace SoccerSYS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.grpTeams);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmUpdateFixture";
             this.Text = "frmUpdateTeam";
@@ -160,12 +187,14 @@ namespace SoccerSYS
         #endregion
 
         private System.Windows.Forms.GroupBox grpTeams;
-        private System.Windows.Forms.Button btnAddTeam;
+        private System.Windows.Forms.Button btnUpdateTeam;
         private System.Windows.Forms.TextBox txtTeamName;
         private System.Windows.Forms.Label lblTeamName;
         private System.Windows.Forms.Button btnBackbutton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtpFixture;
         private System.Windows.Forms.DataGridView grdTeams;
+        private System.Windows.Forms.TextBox txtTeamID;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -14,7 +14,7 @@ namespace SoccerSYS
 {
     public partial class frmUpdateFixture : Form
     {
-
+      
         public frmUpdateFixture()
         {
             InitializeComponent();
@@ -68,6 +68,7 @@ namespace SoccerSYS
             {
                 DataGridViewRow selectedRow = grdTeams.SelectedRows[0];
 
+                txtTeamID.Text = selectedRow.Cells["AwayTeam_ID"].Value.ToString();
                 txtTeamName.Text = selectedRow.Cells["TeamName"].Value.ToString();
 
                 if (DateTime.TryParse(selectedRow.Cells["Fixture_Time"].Value.ToString(), out DateTime fixtureTime))
@@ -82,64 +83,30 @@ namespace SoccerSYS
             }
         }
 
+        private void btnAddTeam_Click(object sender, EventArgs e)
+        {
+
+            string fixtureTime = dtpFixture.Value.ToString("dd-MMM-yy").ToUpper();
+
+            Fixtures fixture = new Fixtures(txtTeamID.Text,fixtureTime);
+            fixture.UpdateFixture();
+            MessageBox.Show("Fixture Updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            AwayTeam awayteam = new AwayTeam(txtTeamID.Text,txtTeamName.Text);
+            awayteam.UpdateFixtureAwayTeams();
+            
 
 
 
+            //Reset UI
+            txtTeamID.Clear();
+            txtTeamName.Clear();
+            dtpFixture.Value = DateTime.Now;
+            grdTeams.Visible = true;
+            
+        }
 
-
-
-        /*
-private void btnSearchTeam_Click(object sender, EventArgs e)
-{
-grdTeams.DataSource = Team.FindTeams(txtEnterTeamID.Text).Tables["TeamID"];
-
-if (grdTeams.Rows.Count == 1)
-{
-MessageBox.Show("No Data Found");
-txtEnterTeamID.Focus();
-return;
-}
-
-OracleConnection conn = new OracleConnection(DBConnect.oradb);
-conn.Open();
-
-string sqlQuery = "SELECT * FROM Teams WHERE TeamID = :TeamID"; // Use parameterized query
-
-OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-cmd.Parameters.Add(new OracleParameter("TeamID", txtEnterTeamID.Text)); // Add parameter
-
-OracleDataReader dr = cmd.ExecuteReader();
-if (dr.Read())
-{
-
-MessageBox.Show("Please Re-type the data", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-txtTeamID.Text = dr.GetString(1);
-txtTeamName.Text = dr.GetString(3);
-
-}
-else
-{
-MessageBox.Show("No data found! ");
-}
-
-conn.Close();
-}
-private void grdTeams_CellContentClick(object sender, DataGridViewCellEventArgs e)
-{
-String TeamID = Convert.ToString(grdTeams.Rows[grdTeams.CurrentCell.RowIndex].Cells[0].Value.ToString());
-
-NewTeam.getTeams(TeamID);
-
-
-txtTeamID.Text = NewTeam.getTeamID();
-txtTeamName.Text = NewTeam.getTeamName();
-
-
-grpTeams.Visible = true;
-}
-
-}
-*/
     }
 }
 

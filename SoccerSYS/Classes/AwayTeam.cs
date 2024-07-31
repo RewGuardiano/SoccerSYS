@@ -66,5 +66,34 @@ namespace SoccerSYS.Classes
             }
             dr.Close();
         }
+
+        public void UpdateFixtureAwayTeams()
+        {
+            try
+            {
+                using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
+                {
+                    conn.Open();
+
+                    // Update AwayTeams table
+                    string updateTeamNameQuery = "UPDATE AwayTeams SET TeamName = :teamName WHERE AwayTeam_ID = :awayTeam_ID";
+                    using (OracleCommand cmd = new OracleCommand(updateTeamNameQuery, conn))
+                    {
+                        cmd.Parameters.Add(new OracleParameter("teamName", OracleDbType.Varchar2)).Value = this.TeamName;
+                        cmd.Parameters.Add(new OracleParameter("awayTeam_ID", OracleDbType.Varchar2)).Value = this.awayTeam_ID;
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error updating team: " + ex.Message);
+                // Optionally handle or log the exception
+            }
+        }
     }
-}
+
+    }
+

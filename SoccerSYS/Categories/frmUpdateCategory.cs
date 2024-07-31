@@ -87,7 +87,7 @@ namespace SoccerSYS
             //Reset UI
             cobCatCode.SelectedIndex = -1;
             txtdescription.Clear();
-            grpCategory.Visible = false;
+            grpCategory.Visible = true;
             cobCatCode.Focus();
         }
 

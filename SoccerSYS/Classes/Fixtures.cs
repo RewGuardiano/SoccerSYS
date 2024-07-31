@@ -143,9 +143,39 @@ namespace SoccerSYS
             dr.Close();
         }
 
+        public void UpdateFixture()
+        {
 
+            try
+            {
+                using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
+                {
+                    conn.Open();
+
+                    // Update Fixtures table
+                    string updateFixtureQuery = "UPDATE Fixtures SET Fixture_Time = TO_DATE(:fixtureTime, 'DD-MON-YY') WHERE AwayTeam_ID = :awayTeam_ID";
+                    using (OracleCommand cmd = new OracleCommand(updateFixtureQuery, conn))
+                    {
+                        cmd.Parameters.Add(new OracleParameter("fixtureTime", OracleDbType.Varchar2)).Value = this.Fixture_Time;
+                        cmd.Parameters.Add(new OracleParameter("awayTeam_ID", OracleDbType.Varchar2)).Value = this.AwayTeam_ID;
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error updating fixture: " + ex.Message);
+                // Optionally handle or log the exception
+            }
+        }
     }
-}
+    }
+
+
+    
+
 
 
 

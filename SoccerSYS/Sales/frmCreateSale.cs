@@ -38,27 +38,7 @@ namespace SoccerSYS
             this.Close();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            if (!IsValid(txtEmail.Text.ToString()))
-            {
-                MessageBox.Show("Email invalid, Must be email format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtEmail.Clear();
-                return;
-            }
-
-
-
-
-
-                gpbCatCode.Visible = true; 
-        }
+        
 
 
         public bool IsValid(string emailaddress)
@@ -73,6 +53,27 @@ namespace SoccerSYS
             {
                 return false;
             }
+        }
+
+        private void btnConfirmEmail_Click(object sender, EventArgs e)
+        {
+            
+            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            {
+                MessageBox.Show("Email must not be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Then, check if the email is in a valid format
+            if (!IsValid(txtEmail.Text))
+            {
+                MessageBox.Show("Email invalid, Must be email format", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtEmail.Clear();
+                return;
+            }
+
+            // If both checks pass, make the group box visible
+            gpbCatCode.Visible = true;
         }
 
         private void frmCreateSale_Load(object sender, EventArgs e)
@@ -164,6 +165,8 @@ namespace SoccerSYS
             //Confirmation message
             MessageBox.Show("Succesfully Made a Sale", "Sales", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        
     }
 }
 

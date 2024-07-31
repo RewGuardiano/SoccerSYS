@@ -167,7 +167,7 @@ namespace SoccerSYS
             this.btnConfirmEmail.TabIndex = 52;
             this.btnConfirmEmail.Text = "Confirm";
             this.btnConfirmEmail.UseVisualStyleBackColor = true;
-            this.btnConfirmEmail.Click += new System.EventHandler(this.button1_Click);
+            this.btnConfirmEmail.Click += new System.EventHandler(this.btnConfirmEmail_Click);
             // 
             // grpBoxCart
             // 
@@ -289,7 +289,6 @@ namespace SoccerSYS
             this.cobFixtures.Name = "cobFixtures";
             this.cobFixtures.Size = new System.Drawing.Size(301, 33);
             this.cobFixtures.TabIndex = 42;
-            this.cobFixtures.SelectedIndexChanged += new System.EventHandler(this.label1_Click);
             // 
             // lblTicketID
             // 
