@@ -9,24 +9,24 @@ namespace SoccerSYS.Classes
 {
     class AwayTeam
     {
-        private string awayTeam_ID;
+        private string AwayTeam_ID;
         private string TeamName;
 
         public AwayTeam(string awayTeam_ID, string teamName)
         {
-            this.awayTeam_ID = awayTeam_ID;
+            this.AwayTeam_ID = awayTeam_ID;
             TeamName = teamName;
         }
 
         public string GetAwayTeamID()
         {
-            return awayTeam_ID;
+            return AwayTeam_ID;
         }
 
         // Setter for awayTeam_ID
         public void SetAwayTeamID(string awayTeamID)
         {
-            awayTeam_ID = awayTeamID;
+            AwayTeam_ID = awayTeamID;
         }
 
         // Getter for TeamName
@@ -69,31 +69,32 @@ namespace SoccerSYS.Classes
 
         public void UpdateFixtureAwayTeams()
         {
-            try
-            {
-                using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
-                {
-                    conn.Open();
+          try
+        {
+         using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
+         {
+            conn.Open();
 
                     // Update AwayTeams table
-                    string updateTeamNameQuery = "UPDATE AwayTeams SET TeamName = :teamName WHERE AwayTeam_ID = :awayTeam_ID";
-                    using (OracleCommand cmd = new OracleCommand(updateTeamNameQuery, conn))
-                    {
-                        cmd.Parameters.Add(new OracleParameter("teamName", OracleDbType.Varchar2)).Value = this.TeamName;
-                        cmd.Parameters.Add(new OracleParameter("awayTeam_ID", OracleDbType.Varchar2)).Value = this.awayTeam_ID;
-                        cmd.ExecuteNonQuery();
-                    }
-
-                    conn.Close();
-                }
-            }
-            catch (Exception ex)
+            string updateTeamNameQuery = "UPDATE AwayTeams SET AwayTeam_ID = :awayTeam_ID, TeamName = :teamName Where TeamName = :teamName";
+            using (OracleCommand cmd = new OracleCommand(updateTeamNameQuery, conn))
             {
-                Console.WriteLine("Error updating team: " + ex.Message);
-                // Optionally handle or log the exception
+                cmd.Parameters.Add(new OracleParameter("awayTeam_ID",this.AwayTeam_ID));
+                cmd.Parameters.Add(new OracleParameter("teamName", this.TeamName));
+               
+                cmd.ExecuteNonQuery();
             }
+
+            conn.Close();
+         }
+        }
+        catch (Exception ex)
+        {
+             Console.WriteLine("Error updating team: " + ex.Message);
+            // Optionally handle or log the exception
+        }
         }
     }
 
-    }
+}
 

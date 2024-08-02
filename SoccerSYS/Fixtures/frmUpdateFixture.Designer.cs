@@ -31,6 +31,8 @@ namespace SoccerSYS
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUpdateFixture));
             this.grpTeams = new System.Windows.Forms.GroupBox();
+            this.txtTeamID = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.grdTeams = new System.Windows.Forms.DataGridView();
             this.dtpFixture = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,8 +40,6 @@ namespace SoccerSYS
             this.btnUpdateTeam = new System.Windows.Forms.Button();
             this.txtTeamName = new System.Windows.Forms.TextBox();
             this.lblTeamName = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtTeamID = new System.Windows.Forms.TextBox();
             this.grpTeams.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTeams)).BeginInit();
             this.SuspendLayout();
@@ -67,6 +67,27 @@ namespace SoccerSYS
             this.grpTeams.TabIndex = 15;
             this.grpTeams.TabStop = false;
             this.grpTeams.Text = "Fixture Time";
+            // 
+            // txtTeamID
+            // 
+            this.txtTeamID.Location = new System.Drawing.Point(462, 298);
+            this.txtTeamID.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTeamID.MaxLength = 3;
+            this.txtTeamID.Name = "txtTeamID";
+            this.txtTeamID.Size = new System.Drawing.Size(345, 30);
+            this.txtTeamID.TabIndex = 44;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(268, 297);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(116, 29);
+            this.label2.TabIndex = 43;
+            this.label2.Text = "Team ID";
             // 
             // grdTeams
             // 
@@ -144,27 +165,6 @@ namespace SoccerSYS
             this.lblTeamName.Size = new System.Drawing.Size(162, 29);
             this.lblTeamName.TabIndex = 14;
             this.lblTeamName.Text = "Team Name";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(268, 297);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 29);
-            this.label2.TabIndex = 43;
-            this.label2.Text = "Team ID";
-            // 
-            // txtTeamID
-            // 
-            this.txtTeamID.Location = new System.Drawing.Point(462, 298);
-            this.txtTeamID.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTeamID.Name = "txtTeamID";
-            this.txtTeamID.ReadOnly = true;
-            this.txtTeamID.Size = new System.Drawing.Size(345, 30);
-            this.txtTeamID.TabIndex = 44;
             // 
             // frmUpdateFixture
             // 

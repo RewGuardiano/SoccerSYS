@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -85,6 +86,28 @@ namespace SoccerSYS
 
         private void btnAddTeam_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtTeamID.Text))
+            {
+                MessageBox.Show("Team ID must not be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtTeamID.Focus();
+                return;
+            }
+
+
+            if (string.IsNullOrWhiteSpace(txtTeamName.Text))
+            {
+                MessageBox.Show("Team Name must not be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtTeamName.Focus();
+                return;
+            }
+
+            if (dtpFixture.Value <= DateTime.Now)
+            {
+                MessageBox.Show("Fixture Data must be in the future", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtpFixture.Focus();
+                return;
+            }
+
 
             string fixtureTime = dtpFixture.Value.ToString("dd-MMM-yy").ToUpper();
 
@@ -104,7 +127,42 @@ namespace SoccerSYS
             txtTeamName.Clear();
             dtpFixture.Value = DateTime.Now;
             grdTeams.Visible = true;
+
+            // Update DataGridView
+            RefreshDataGridView();
+
+
+        }
+        private void RefreshDataGridView()
+        {
+            // Fetch the updated data - replace with your actual data fetching logic
+            DataTable updatedData = GetUpdatedData();
+
+            // Bind the updated data to the DataGridView
+            grdTeams.DataSource = updatedData;
+        }
+
+        private DataTable GetUpdatedData()
+        {
+            // Replace with your actual connection string
             
+            string query = @"
+                    SELECT f.AwayTeam_ID, at.TeamName, f.Fixture_Time
+                    FROM Fixtures f
+                    JOIN AwayTeams at ON f.AwayTeam_ID = at.AwayTeam_ID";
+
+            using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
+            {
+                using (OracleCommand cmd = new OracleCommand(query, conn))
+                {
+                    using (OracleDataAdapter adapter = new OracleDataAdapter(cmd))
+                    {
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                        return dataTable;
+                    }
+                }
+            }
         }
 
     }
