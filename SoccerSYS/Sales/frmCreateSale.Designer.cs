@@ -31,7 +31,7 @@ namespace SoccerSYS
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCreateSale));
-            this.btnCreateSale = new System.Windows.Forms.Button();
+            this.btnCreateSaleBack = new System.Windows.Forms.Button();
             this.grpCategory = new System.Windows.Forms.GroupBox();
             this.gpbCatCode = new System.Windows.Forms.GroupBox();
             this.NUDQuantity = new System.Windows.Forms.NumericUpDown();
@@ -61,16 +61,16 @@ namespace SoccerSYS
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnCreateSale
+            // btnCreateSaleBack
             // 
-            this.btnCreateSale.Location = new System.Drawing.Point(4, 4);
-            this.btnCreateSale.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCreateSale.Name = "btnCreateSale";
-            this.btnCreateSale.Size = new System.Drawing.Size(100, 28);
-            this.btnCreateSale.TabIndex = 14;
-            this.btnCreateSale.Text = " < Back";
-            this.btnCreateSale.UseVisualStyleBackColor = true;
-            this.btnCreateSale.Click += new System.EventHandler(this.btnCreateSale_Click);
+            this.btnCreateSaleBack.Location = new System.Drawing.Point(4, 4);
+            this.btnCreateSaleBack.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCreateSaleBack.Name = "btnCreateSaleBack";
+            this.btnCreateSaleBack.Size = new System.Drawing.Size(100, 28);
+            this.btnCreateSaleBack.TabIndex = 14;
+            this.btnCreateSaleBack.Text = " < Back";
+            this.btnCreateSaleBack.UseVisualStyleBackColor = true;
+            this.btnCreateSaleBack.Click += new System.EventHandler(this.btnCreateSaleBack_Click);
             // 
             // grpCategory
             // 
@@ -338,7 +338,7 @@ namespace SoccerSYS
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1264, 831);
             this.Controls.Add(this.grpCategory);
-            this.Controls.Add(this.btnCreateSale);
+            this.Controls.Add(this.btnCreateSaleBack);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCreateSale";
@@ -358,7 +358,7 @@ namespace SoccerSYS
 
         #endregion
 
-        private System.Windows.Forms.Button btnCreateSale;
+        private System.Windows.Forms.Button btnCreateSaleBack;
         private System.Windows.Forms.GroupBox grpCategory;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblTicketID;

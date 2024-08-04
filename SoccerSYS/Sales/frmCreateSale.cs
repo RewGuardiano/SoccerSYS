@@ -25,7 +25,7 @@ namespace SoccerSYS
             InitializeComponent();
         }
 
-        private void btnCreateSale_Click(object sender, EventArgs e)
+        private void btnCreateSaleBack_Click(object sender, EventArgs e)
         {
             DialogResult dialog = MessageBox.Show("Are you sure you want to Exit?", "Confirm Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -35,10 +35,11 @@ namespace SoccerSYS
             }
             frmMainMenu to = new frmMainMenu();
             to.Show();
+
             this.Close();
         }
 
-        
+
 
 
         public bool IsValid(string emailaddress)
@@ -162,11 +163,35 @@ namespace SoccerSYS
 
             }
 
+
             //Confirmation message
             MessageBox.Show("Succesfully Made a Sale", "Sales", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            ResetForm();
         }
 
-        
+        private void ResetForm()
+        {
+            // Clear all fields and reset controls
+            
+            cobFixtures.SelectedIndex = -1;
+            cobFixtures.Enabled = true;
+            CobCatCodes.SelectedIndex = -1;
+            NUDQuantity.Value = 0;
+            txtTotPrice.Clear();
+            dgvCart.Rows.Clear();
+            total_price = 0;
+
+            // Hide group boxes
+            gpbCatCode.Visible = false;
+            grpBoxCart.Visible = false;
+
+            // Enable the email field and confirm email button
+            txtEmail.Enabled = true;
+            btnConfirmEmail.Enabled = true;
+        }
+
+
     }
 }
 

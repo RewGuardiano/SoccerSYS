@@ -10,9 +10,9 @@ namespace SoccerSYS
 {
     class Fixtures
     {
-        private int FixtureID;
-        private string AwayTeam_ID;
-        private string Fixture_Time;
+        internal int FixtureID;
+        internal string AwayTeam_ID;
+        internal string Fixture_Time;
         private OracleCommand cmd;
         private OracleConnection conn = new OracleConnection(DBConnect.oradb);
         private OracleDataReader dr;
@@ -61,6 +61,8 @@ namespace SoccerSYS
             conn.Close();
             return 0;
         }
+
+
 
         // Getter for FixtureID
         public int GetFixtureID()
@@ -151,15 +153,15 @@ namespace SoccerSYS
                 using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
                 {
                     conn.Open();
+
                     // Update Fixtures table
-                    string updateFixtureQuery = "UPDATE Fixtures SET AwayTeam_ID = :awayTeam_ID, Fixture_Time = TO_DATE(:fixtureTime, 'DD-MON-YY') WHERE Fixture_Time = :fixtureTime";
+                    string updateFixtureQuery = "UPDATE Fixtures SET Fixture_Time = TO_DATE(:fixtureTime, 'DD-MON-YY') WHERE AwayTeam_ID = :awayTeam_ID";
                     using (OracleCommand cmd = new OracleCommand(updateFixtureQuery, conn))
                     {
-                        
-                        cmd.Parameters.Add(new OracleParameter("awayTeam_ID", this.AwayTeam_ID));
                         cmd.Parameters.Add(new OracleParameter("fixtureTime", this.Fixture_Time));
-                        
-           
+                        cmd.Parameters.Add(new OracleParameter("awayTeam_ID", this.AwayTeam_ID));
+                       
+
                         cmd.ExecuteNonQuery();
                     }
 

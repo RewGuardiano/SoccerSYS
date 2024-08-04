@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
 using SoccerSYS.Classes;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SoccerSYS
 {
@@ -30,7 +31,12 @@ namespace SoccerSYS
 
         private void frmUpdateFixture_Load(object sender, EventArgs e)
         {
-            
+
+            cobTeamID.Items.Clear();
+            List<string> awayTeamIDs = GetAllAwayTeamIDs();
+            cobTeamID.Items.AddRange(awayTeamIDs.ToArray());
+
+
 
             // Add the event handler for the SelectionChanged event
             grdTeams.SelectionChanged += new EventHandler(grdTeams_SelectionChanged);
@@ -38,6 +44,37 @@ namespace SoccerSYS
 
             // Load data into the DataGridView when the form loads
             gridbind();
+        }
+        private List<string> GetAllAwayTeamIDs()
+        {
+            List<string> awayTeamIDs = new List<string>();
+
+            try
+            {
+                using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
+                {
+                    conn.Open();
+                    string query = "SELECT AwayTeam_ID FROM AwayTeams";
+                    using (OracleCommand cmd = new OracleCommand(query, conn))
+                    {
+                        using (OracleDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                awayTeamIDs.Add(reader["AwayTeam_ID"].ToString());
+                            }
+                        }
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error fetching AwayTeam_IDs: " + ex.Message);
+              
+            }
+
+            return awayTeamIDs;
         }
 
         private void gridbind()
@@ -69,8 +106,11 @@ namespace SoccerSYS
             {
                 DataGridViewRow selectedRow = grdTeams.SelectedRows[0];
 
-                txtTeamID.Text = selectedRow.Cells["AwayTeam_ID"].Value.ToString();
-                txtTeamName.Text = selectedRow.Cells["TeamName"].Value.ToString();
+                // Extract the AwayTeam_ID from the selected row
+                string awayTeamID = selectedRow.Cells["AwayTeam_ID"].Value.ToString();
+
+                // Set the selected item in the ComboBox
+                cobTeamID.SelectedItem = awayTeamID;
 
                 if (DateTime.TryParse(selectedRow.Cells["Fixture_Time"].Value.ToString(), out DateTime fixtureTime))
                 {
@@ -86,20 +126,7 @@ namespace SoccerSYS
 
         private void btnAddTeam_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtTeamID.Text))
-            {
-                MessageBox.Show("Team ID must not be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTeamID.Focus();
-                return;
-            }
-
-
-            if (string.IsNullOrWhiteSpace(txtTeamName.Text))
-            {
-                MessageBox.Show("Team Name must not be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTeamName.Focus();
-                return;
-            }
+            
 
             if (dtpFixture.Value <= DateTime.Now)
             {
@@ -108,23 +135,22 @@ namespace SoccerSYS
                 return;
             }
 
+            // Get the selected AwayTeam_ID from the ComboBox
+            string selectedTeamID = cobTeamID.SelectedItem.ToString();
 
             string fixtureTime = dtpFixture.Value.ToString("dd-MMM-yy").ToUpper();
 
-            Fixtures fixture = new Fixtures(txtTeamID.Text,fixtureTime);
+            Fixtures fixture = new Fixtures(selectedTeamID,fixtureTime);
             fixture.UpdateFixture();
             MessageBox.Show("Fixture Updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-            AwayTeam awayteam = new AwayTeam(txtTeamID.Text,txtTeamName.Text);
-            awayteam.UpdateFixtureAwayTeams();
-            
+
 
 
 
             //Reset UI
-            txtTeamID.Clear();
-            txtTeamName.Clear();
+            cobTeamID.SelectedIndex = -1;
             dtpFixture.Value = DateTime.Now;
             grdTeams.Visible = true;
 
@@ -137,6 +163,8 @@ namespace SoccerSYS
         {
             // Fetch the updated data - replace with your actual data fetching logic
             DataTable updatedData = GetUpdatedData();
+
+
 
             // Bind the updated data to the DataGridView
             grdTeams.DataSource = updatedData;

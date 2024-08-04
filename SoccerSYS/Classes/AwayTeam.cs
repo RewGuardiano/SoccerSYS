@@ -56,7 +56,7 @@ namespace SoccerSYS.Classes
 
             OracleDataReader dr = cmd.ExecuteReader();
 
-            while(dr.Read())
+            while (dr.Read())
             {
                 string awayTeam_ID = dr.GetString(0);
                 string teamName = dr.GetString(1);
@@ -67,34 +67,8 @@ namespace SoccerSYS.Classes
             dr.Close();
         }
 
-        public void UpdateFixtureAwayTeams()
-        {
-          try
-        {
-         using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
-         {
-            conn.Open();
 
-                    // Update AwayTeams table
-            string updateTeamNameQuery = "UPDATE AwayTeams SET AwayTeam_ID = :awayTeam_ID, TeamName = :teamName Where TeamName = :teamName";
-            using (OracleCommand cmd = new OracleCommand(updateTeamNameQuery, conn))
-            {
-                cmd.Parameters.Add(new OracleParameter("awayTeam_ID",this.AwayTeam_ID));
-                cmd.Parameters.Add(new OracleParameter("teamName", this.TeamName));
-               
-                cmd.ExecuteNonQuery();
-            }
 
-            conn.Close();
-         }
-        }
-        catch (Exception ex)
-        {
-             Console.WriteLine("Error updating team: " + ex.Message);
-            // Optionally handle or log the exception
-        }
-        }
     }
-
 }
 
