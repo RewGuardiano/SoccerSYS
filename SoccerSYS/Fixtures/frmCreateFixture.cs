@@ -46,13 +46,26 @@ namespace SoccerSYS
                 return;
             }
 
-            /*
-            DateTime Fixture_Time = dtpFixture.Value;
+            // Check if there is already a fixture on the selected date
+            DateTime selectedDate = dtpFixture.Value.Date;
+            string query = $"SELECT COUNT(*) FROM Fixtures WHERE Fixture_Time = :selectedDate";
 
-            string sqlQuery = "INSERT INTO Fixtures (Away_Team_ID, Fixture_Time) VALUES (" + Fixture_Time.Year + "-" + Fixture_Time.Month + "-" + Fixture_Time.Day + " 22:00:00)";
+            using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
+            {
+                OracleCommand cmd = new OracleCommand(query, conn);
+                cmd.Parameters.Add(new OracleParameter("selectedDate", selectedDate));
 
-            MessageBox.Show(Fixture_Time.ToString());
-            */
+                conn.Open();
+                int fixtureCount = Convert.ToInt32(cmd.ExecuteScalar());
+                conn.Close();
+
+                if (fixtureCount > 0)
+                {
+                    MessageBox.Show("A fixture is already scheduled for this date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dtpFixture.Focus();
+                    return;
+                }
+            }
 
             //Save to class
             fixture = new Fixtures(AwayTeamID, dtpFixture.Value.ToString("yyyy-MM-dd"));

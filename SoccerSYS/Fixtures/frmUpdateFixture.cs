@@ -134,6 +134,27 @@ namespace SoccerSYS
                 dtpFixture.Focus();
                 return;
             }
+            // Check if there is already a fixture on the selected date
+            DateTime selectedDate = dtpFixture.Value.Date;
+            string query = $"SELECT COUNT(*) FROM Fixtures WHERE Fixture_Time = :selectedDate";
+
+            using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
+            {
+                OracleCommand cmd = new OracleCommand(query, conn);
+                cmd.Parameters.Add(new OracleParameter("selectedDate", selectedDate));
+
+                conn.Open();
+                int fixtureCount = Convert.ToInt32(cmd.ExecuteScalar());
+                conn.Close();
+
+                if (fixtureCount > 0)
+                {
+                    MessageBox.Show("A fixture is already scheduled for this date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dtpFixture.Focus();
+                    return;
+                }
+            }
+
 
             // Get the selected AwayTeam_ID from the ComboBox
             string selectedTeamID = cobTeamID.SelectedItem.ToString();
