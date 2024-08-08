@@ -150,7 +150,7 @@ namespace SoccerSYS
 
             try
             {
-                using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
+                using (OracleConnection conn = new OracleConnection(DBConnect.oradb+))
                 {
                     conn.Open();
 
