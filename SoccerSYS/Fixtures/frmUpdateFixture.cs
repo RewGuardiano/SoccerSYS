@@ -36,7 +36,7 @@ namespace SoccerSYS
             List<string> awayTeamIDs = GetAllAwayTeamIDs();
             cobTeamID.Items.AddRange(awayTeamIDs.ToArray());
 
-
+            List<string> fixtureIDs = GetAllFixtureIDs();
 
             // Add the event handler for the SelectionChanged event
             grdTeams.SelectionChanged += new EventHandler(grdTeams_SelectionChanged);
@@ -44,6 +44,37 @@ namespace SoccerSYS
 
             // Load data into the DataGridView when the form loads
             gridbind();
+        }
+
+        private List<string> GetAllFixtureIDs()
+        {
+            List<string> fixtureIDs = new List<string>();
+
+            try
+            {
+                using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
+                {
+                    conn.Open();
+                    string query = "SELECT Fixture_ID FROM Fixtures";
+                    using (OracleCommand cmd = new OracleCommand(query, conn))
+                    {
+                        using (OracleDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                fixtureIDs.Add(reader["Fixture_ID"].ToString());
+                            }
+                        }
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error fetching Fixture_IDs: " + ex.Message);
+            }
+
+            return fixtureIDs;
         }
         private List<string> GetAllAwayTeamIDs()
         {
@@ -81,14 +112,14 @@ namespace SoccerSYS
         {
             using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
             {
-
                 conn.Open();
-                // Updated SQL query to join Fixtures and AwayTeams tables
 
+                // Updated SQL query to include Fixture_ID
                 OracleCommand cmd = new OracleCommand(@"
-                    SELECT f.AwayTeam_ID, at.TeamName, f.Fixture_Time
-                    FROM Fixtures f
-                    JOIN AwayTeams at ON f.AwayTeam_ID = at.AwayTeam_ID", conn);
+                SELECT f.FixtureID, f.AwayTeam_ID, at.TeamName, f.Fixture_Time
+                FROM Fixtures f
+                JOIN AwayTeams at ON f.AwayTeam_ID = at.AwayTeam_ID", conn);
+
                 OracleDataReader reader = cmd.ExecuteReader();
                 DataTable dt = new DataTable();
                 dt.Load(reader);
@@ -106,6 +137,11 @@ namespace SoccerSYS
             {
                 DataGridViewRow selectedRow = grdTeams.SelectedRows[0];
 
+                // Extract the Fixture_ID from the selected row and set it in the TextBox
+                string fixtureID = selectedRow.Cells["FixtureID"].Value.ToString();
+                txtFixtureID.Text = fixtureID;
+
+
                 // Extract the AwayTeam_ID from the selected row
                 string awayTeamID = selectedRow.Cells["AwayTeam_ID"].Value.ToString();
 
@@ -119,7 +155,7 @@ namespace SoccerSYS
                 else
                 {
                     // Handle the case where parsing fails if necessary
-                    MessageBox.Show("Invalid date format in Fixture_Time.");
+                    MessageBox.Show("Invalid date format in Fixture_Time.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -171,6 +207,7 @@ namespace SoccerSYS
 
 
             //Reset UI
+            txtFixtureID.Clear();
             cobTeamID.SelectedIndex = -1;
             dtpFixture.Value = DateTime.Now;
             grdTeams.Visible = true;
@@ -194,11 +231,11 @@ namespace SoccerSYS
         private DataTable GetUpdatedData()
         {
             // Replace with your actual connection string
-            
+
             string query = @"
-                    SELECT f.AwayTeam_ID, at.TeamName, f.Fixture_Time
-                    FROM Fixtures f
-                    JOIN AwayTeams at ON f.AwayTeam_ID = at.AwayTeam_ID";
+                SELECT f.FixtureID, f.AwayTeam_ID, at.TeamName, f.Fixture_Time
+                FROM Fixtures f
+                JOIN AwayTeams at ON f.AwayTeam_ID = at.AwayTeam_ID";
 
             using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
             {
@@ -214,6 +251,7 @@ namespace SoccerSYS
             }
         }
 
+        
     }
 }
 

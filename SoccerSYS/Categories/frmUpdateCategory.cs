@@ -89,6 +89,8 @@ namespace SoccerSYS
             txtdescription.Clear();
             grpCategory.Visible = true;
             cobCatCode.Focus();
+            NUDCategoriesPrice.Value = NUDCategoriesPrice.Minimum;
+            NUDCategorySeats.Value = NUDCategorySeats.Minimum;
         }
 
         

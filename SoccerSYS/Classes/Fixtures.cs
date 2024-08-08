@@ -147,21 +147,25 @@ namespace SoccerSYS
 
         public void UpdateFixture()
         {
-
             try
             {
-                using (OracleConnection conn = new OracleConnection(DBConnect.oradb+))
+                using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
                 {
                     conn.Open();
 
                     // Update Fixtures table
-                    string updateFixtureQuery = "UPDATE Fixtures SET Fixture_Time = TO_DATE(:fixtureTime, 'DD-MON-YY') WHERE AwayTeam_ID = :awayTeam_ID";
+                    string updateFixtureQuery = @"
+                    UPDATE Fixtures SET AwayTeam_ID = :awayTeam_ID,Fixture_Time = TO_DATE(:fixtureTime, 'DD-MON-YY') WHERE FixtureID = :fixtureID";
+
                     using (OracleCommand cmd = new OracleCommand(updateFixtureQuery, conn))
                     {
+                        // Add parameters
                         cmd.Parameters.Add(new OracleParameter("fixtureTime", this.Fixture_Time));
                         cmd.Parameters.Add(new OracleParameter("awayTeam_ID", this.AwayTeam_ID));
-                       
-
+                        cmd.Parameters.Add(new OracleParameter("fixtureID", this.FixtureID));
+                      
+                        
+                        // Execute the command
                         cmd.ExecuteNonQuery();
                     }
 

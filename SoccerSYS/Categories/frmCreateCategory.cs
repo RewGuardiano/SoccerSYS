@@ -86,6 +86,8 @@ namespace SoccerSYS
                 txtCatCode.Clear();
                 txtdescription.Clear();
                 txtCatCode.Focus();
+                NUDCategoriesPrice.Value = NUDCategoriesPrice.Minimum;
+                NUDCategorySeats.Value = NUDCategorySeats.Minimum;
             }
             catch (Exception ex)
             {
