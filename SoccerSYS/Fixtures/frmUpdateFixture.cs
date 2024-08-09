@@ -85,7 +85,11 @@ namespace SoccerSYS
                 using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
                 {
                     conn.Open();
+
+                    
                     string query = "SELECT AwayTeam_ID FROM AwayTeams";
+                
+
                     using (OracleCommand cmd = new OracleCommand(query, conn))
                     {
                         using (OracleDataReader reader = cmd.ExecuteReader())
@@ -96,13 +100,13 @@ namespace SoccerSYS
                             }
                         }
                     }
+
                     conn.Close();
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error fetching AwayTeam_IDs: " + ex.Message);
-              
             }
 
             return awayTeamIDs;
@@ -114,11 +118,11 @@ namespace SoccerSYS
             {
                 conn.Open();
 
-                // Updated SQL query to include Fixture_ID
+     
                 OracleCommand cmd = new OracleCommand(@"
-                SELECT f.FixtureID, f.AwayTeam_ID, at.TeamName, f.Fixture_Time
-                FROM Fixtures f
-                JOIN AwayTeams at ON f.AwayTeam_ID = at.AwayTeam_ID", conn);
+                    SELECT f.FixtureID,f.AwayTeam_ID, at.TeamName, f.Fixture_Time
+                    FROM Fixtures f
+                    JOIN AwayTeams at ON f.AwayTeam_ID = at.AwayTeam_ID", conn);
 
                 OracleDataReader reader = cmd.ExecuteReader();
                 DataTable dt = new DataTable();
@@ -154,88 +158,81 @@ namespace SoccerSYS
                 }
                 else
                 {
-                    // Handle the case where parsing fails if necessary
+                    // If parsing fails
                     MessageBox.Show("Invalid date format in Fixture_Time.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
-        private void btnAddTeam_Click(object sender, EventArgs e)
+      private void btnAddTeam_Click(object sender, EventArgs e)
         {
-            
-
+            // Ensure that the fixture date is in the future
             if (dtpFixture.Value <= DateTime.Now)
             {
-                MessageBox.Show("Fixture Data must be in the future", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Fixture Date must be in the future", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dtpFixture.Focus();
                 return;
             }
-            // Check if there is already a fixture on the selected date
-            DateTime selectedDate = dtpFixture.Value.Date;
-            string query = $"SELECT COUNT(*) FROM Fixtures WHERE Fixture_Time = :selectedDate";
 
-            using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
+            // Check if a row is selected in the DataGridView
+            if (grdTeams.SelectedRows.Count == 0)
             {
-                OracleCommand cmd = new OracleCommand(query, conn);
-                cmd.Parameters.Add(new OracleParameter("selectedDate", selectedDate));
-
-                conn.Open();
-                int fixtureCount = Convert.ToInt32(cmd.ExecuteScalar());
-                conn.Close();
-
-                if (fixtureCount > 0)
-                {
-                    MessageBox.Show("A fixture is already scheduled for this date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    dtpFixture.Focus();
-                    return;
-                }
+                MessageBox.Show("Please select a fixture to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
+            // Get the selected FixtureID from the DataGridView
+            DataGridViewRow selectedRow = grdTeams.SelectedRows[0];
+            string fixtureID = selectedRow.Cells["FixtureID"].Value.ToString();
 
             // Get the selected AwayTeam_ID from the ComboBox
+            if (cobTeamID.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a team.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             string selectedTeamID = cobTeamID.SelectedItem.ToString();
 
+            // Format the Fixture_Time
             string fixtureTime = dtpFixture.Value.ToString("dd-MMM-yy").ToUpper();
 
-            Fixtures fixture = new Fixtures(selectedTeamID,fixtureTime);
-            fixture.UpdateFixture();
+           
+            Fixtures fixture = new Fixtures(selectedTeamID, fixtureTime);
+            fixture.UpdateFixture(fixtureID, selectedTeamID, fixtureTime);
+
+            
             MessageBox.Show("Fixture Updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
-
-
-
-
-            //Reset UI
+            // Reset the UI
             txtFixtureID.Clear();
             cobTeamID.SelectedIndex = -1;
             dtpFixture.Value = DateTime.Now;
             grdTeams.Visible = true;
 
-            // Update DataGridView
+            // Refresh the DataGridView
             RefreshDataGridView();
-
-
         }
         private void RefreshDataGridView()
         {
-            // Fetch the updated data - replace with your actual data fetching logic
+            // Fetchs the updated data - replace with your actual data
             DataTable updatedData = GetUpdatedData();
 
 
 
-            // Bind the updated data to the DataGridView
+            // Binds the updated data to the DataGridView
             grdTeams.DataSource = updatedData;
         }
 
         private DataTable GetUpdatedData()
         {
-            // Replace with your actual connection string
+            
 
             string query = @"
-                SELECT f.FixtureID, f.AwayTeam_ID, at.TeamName, f.Fixture_Time
-                FROM Fixtures f
-                JOIN AwayTeams at ON f.AwayTeam_ID = at.AwayTeam_ID";
+                    SELECT f.FixtureID,f.AwayTeam_ID, at.TeamName, f.Fixture_Time
+                    FROM Fixtures f
+                    JOIN AwayTeams at ON f.AwayTeam_ID = at.AwayTeam_ID";
+
+
 
             using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
             {

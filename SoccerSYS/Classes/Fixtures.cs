@@ -145,7 +145,7 @@ namespace SoccerSYS
             dr.Close();
         }
 
-        public void UpdateFixture()
+        internal void UpdateFixture(string fixtureID, string awayTeamID, string fixtureTime)
         {
             try
             {
@@ -153,20 +153,26 @@ namespace SoccerSYS
                 {
                     conn.Open();
 
-                    // Update Fixtures table
-                    string updateFixtureQuery = @"
-                    UPDATE Fixtures SET AwayTeam_ID = :awayTeam_ID,Fixture_Time = TO_DATE(:fixtureTime, 'DD-MON-YY') WHERE FixtureID = :fixtureID";
+                    // Update the Fixtures table
+                    string updateQuery = @"
+                UPDATE Fixtures SET 
+                Fixture_Time = TO_DATE(:fixtureTime, 'DD-MON-YY'),
+                AwayTeam_ID = :awayTeam_ID 
+                WHERE FixtureID = :fixtureID";
 
-                    using (OracleCommand cmd = new OracleCommand(updateFixtureQuery, conn))
+                    using (OracleCommand cmd = new OracleCommand(updateQuery, conn))
                     {
                         // Add parameters
-                        cmd.Parameters.Add(new OracleParameter("fixtureTime", this.Fixture_Time));
-                        cmd.Parameters.Add(new OracleParameter("awayTeam_ID", this.AwayTeam_ID));
-                        cmd.Parameters.Add(new OracleParameter("fixtureID", this.FixtureID));
-                      
-                        
+                        cmd.Parameters.Add(new OracleParameter("fixtureTime", fixtureTime));
+                        cmd.Parameters.Add(new OracleParameter("awayTeam_ID", awayTeamID));
+                        cmd.Parameters.Add(new OracleParameter("fixtureID", fixtureID));
+
                         // Execute the command
-                        cmd.ExecuteNonQuery();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected == 0)
+                        {
+                            MessageBox.Show("No rows were updated. Please check the FixtureID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
 
                     conn.Close();
@@ -174,8 +180,7 @@ namespace SoccerSYS
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error updating fixture: " + ex.Message);
-                // Optionally handle or log the exception
+                MessageBox.Show("Error updating fixture: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
