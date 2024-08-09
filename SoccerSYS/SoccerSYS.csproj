@@ -170,6 +170,7 @@
   <ItemGroup>
     <Compile Include="Classes\AwayTeam.cs" />
     <Compile Include="Classes\SaleItem.cs" />
+    <Compile Include="Classes\FixtureSeats.cs" />
     <Compile Include="Fixtures\frmUpdateFixture.cs">
       <SubType>Form</SubType>
     </Compile>

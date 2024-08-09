@@ -94,7 +94,6 @@ namespace SoccerSYS
 
            
 
-            List<AwayTeam> allTeams = new List<AwayTeam>();
             AwayTeam.viewAllTeams(ref allTeams);
 
             cobAwayTeam.DisplayMember = "TeamName"; // Set DisplayMember to "TeamName"

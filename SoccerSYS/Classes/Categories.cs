@@ -19,7 +19,6 @@ namespace SoccerSYS
         private string CatCode;
         private string Description;
         private decimal Price;
-        private int AvailableSeats;
         private int MaxSeats;
 
         public Categories(string catCode, string description, decimal price, int maxSeats)
@@ -27,7 +26,6 @@ namespace SoccerSYS
             CatCode = catCode;
             Description = description;
             Price = price;
-            AvailableSeats = maxSeats;
             MaxSeats = maxSeats;
         }
 
@@ -68,16 +66,7 @@ namespace SoccerSYS
         }
 
         // Getter for AvailableSeats
-        public int GetAvailableSeats()
-        {
-            return AvailableSeats;
-        }
-
-        // Setter for AvailableSeats
-        public void SetAvailableSeats(int availableSeats)
-        {
-            AvailableSeats = availableSeats;
-        }
+       
 
         // Getter for MaxSeats
         public int GetMaxSeats()
@@ -93,7 +82,7 @@ namespace SoccerSYS
 
         public override string ToString()
         {
-            return $"Category Code: {CatCode}\nDescription: {Description}\nPrice: {Price:C}\nAvailable Seats: {AvailableSeats}\nMax Seats: {MaxSeats}";
+            return $"Category Code: {CatCode}\nDescription: {Description}\nPrice: {Price:C}\nMax Seats: {MaxSeats}";
         }
         public static bool ValidateMaxSeatsLimit()
         {
@@ -151,15 +140,14 @@ namespace SoccerSYS
             // If the CatCode does not exist, insert a new record
             if (count == 0)
             {
-                string sqlQuery = "INSERT INTO CATEGORIES (CATCODE, DESCRIPTION, PRICE, AVAILABLESEATS, MAXSEATS) " +
-                                 "VALUES (:CatCode, :Description, :Price, :AvailableSeats, :MaxSeats)";
+                string sqlQuery = "INSERT INTO CATEGORIES (CATCODE, DESCRIPTION, PRICE, MAXSEATS) " +
+                                 "VALUES (:CatCode, :Description, :Price, :MaxSeats)";
 
                 OracleCommand cmd = new OracleCommand(sqlQuery, conn);
 
                 cmd.Parameters.Add(new OracleParameter(":Catcode", this.CatCode));
                 cmd.Parameters.Add(new OracleParameter(":Description", this.Description));
                 cmd.Parameters.Add(new OracleParameter(":Price", this.Price));
-                cmd.Parameters.Add(new OracleParameter(":AvailableSeats", this.AvailableSeats));
                 cmd.Parameters.Add(new OracleParameter(":MaxSeats", this.MaxSeats));
 
                 conn.Open();
@@ -181,14 +169,13 @@ namespace SoccerSYS
             {
                 using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
                 {
-                    string sqlQuery = "UPDATE CATEGORIES SET Description = :description, Price = :price, AvailableSeats = :availableSeats, MaxSeats = :maxSeats WHERE CatCode = :catCode";
+                    string sqlQuery = "UPDATE CATEGORIES SET Description = :description, Price = :price, MaxSeats = :maxSeats WHERE CatCode = :catCode";
 
                     using (OracleCommand cmd = new OracleCommand(sqlQuery, conn))
                     {
                         // Add parameters to the command
                         cmd.Parameters.Add(new OracleParameter(":description", this.Description));
                         cmd.Parameters.Add(new OracleParameter(":price", this.Price));
-                        cmd.Parameters.Add(new OracleParameter(":availableSeats", this.AvailableSeats));
                         cmd.Parameters.Add(new OracleParameter(":maxSeats", this.MaxSeats));
                         cmd.Parameters.Add(new OracleParameter(":catCode", this.CatCode));
 
