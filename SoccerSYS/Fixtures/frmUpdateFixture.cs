@@ -166,6 +166,14 @@ namespace SoccerSYS
 
       private void btnAddTeam_Click(object sender, EventArgs e)
         {
+
+            // Check if a row is selected in the DataGridView
+            if (grdTeams.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a fixture to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             // Ensure that the fixture date is in the future
             if (dtpFixture.Value <= DateTime.Now)
             {
@@ -174,11 +182,25 @@ namespace SoccerSYS
                 return;
             }
 
-            // Check if a row is selected in the DataGridView
-            if (grdTeams.SelectedRows.Count == 0)
+            // Check if there is already a fixture on the selected date
+            DateTime selectedDate = dtpFixture.Value.Date;
+            string query = $"SELECT COUNT(*) FROM Fixtures WHERE Fixture_Time = :selectedDate";
+
+            using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
             {
-                MessageBox.Show("Please select a fixture to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                OracleCommand cmd = new OracleCommand(query, conn);
+                cmd.Parameters.Add(new OracleParameter("selectedDate", selectedDate));
+
+                conn.Open();
+                int fixtureCount = Convert.ToInt32(cmd.ExecuteScalar());
+                conn.Close();
+
+                if (fixtureCount > 0)
+                {
+                    MessageBox.Show("A fixture is already scheduled for this date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dtpFixture.Focus();
+                    return;
+                }
             }
 
             // Get the selected FixtureID from the DataGridView
