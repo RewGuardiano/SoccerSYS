@@ -46,6 +46,7 @@ namespace SoccerSYS
                 return;
             }
 
+
             // Check if there is already a fixture on the selected date
             DateTime selectedDate = dtpFixture.Value.Date;
             string query = $"SELECT COUNT(*) FROM Fixtures WHERE Fixture_Time = :selectedDate";
@@ -73,6 +74,7 @@ namespace SoccerSYS
             Console.WriteLine(fixture);
             fixture.Createfixture();
             
+
 
 
             MessageBox.Show("Fixture has been Created ", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -125,5 +127,7 @@ namespace SoccerSYS
                 conn.Close();
             }
         }
+
+        
     }
 }

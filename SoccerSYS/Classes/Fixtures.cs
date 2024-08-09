@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
+using SoccerSYS.Classes;
 
 namespace SoccerSYS
 {
@@ -30,8 +32,11 @@ namespace SoccerSYS
 
             AwayTeam_ID = awayTeam_ID;
             Fixture_Time = fixture_Time;
-        }
 
+ 
+
+        }
+       
         private int getPreviousFixtureID()
         {
             string sqlquery = "SELECT MAX (FixtureID) From Fixtures";
@@ -51,10 +56,7 @@ namespace SoccerSYS
                     conn.Close();
                     return prevID;
                 }
-                else
-                {
-                    MessageBox.Show("No FixtureID found, Have set fixture ID as 1", "Getting Fixture ID",MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                
             }
             dr.Close();
 
@@ -155,10 +157,10 @@ namespace SoccerSYS
 
                     // Update the Fixtures table
                     string updateQuery = @"
-                UPDATE Fixtures SET 
-                Fixture_Time = TO_DATE(:fixtureTime, 'DD-MON-YY'),
-                AwayTeam_ID = :awayTeam_ID 
-                WHERE FixtureID = :fixtureID";
+                    UPDATE Fixtures SET 
+                    Fixture_Time = TO_DATE(:fixtureTime, 'DD-MON-YY'),
+                    AwayTeam_ID = :awayTeam_ID 
+                    WHERE FixtureID = :fixtureID";
 
                     using (OracleCommand cmd = new OracleCommand(updateQuery, conn))
                     {

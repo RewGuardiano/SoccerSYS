@@ -104,25 +104,36 @@ namespace SoccerSYS
         }
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-       
-            if (NUDQuantity.Value > Categories.getAvailableSeats(CobCatCodes.SelectedItem.ToString().Substring(0,1)))
+            // Ensure a category is selected
+            if (CobCatCodes.SelectedItem == null)
             {
-                MessageBox.Show("Quantity is more that Available Seats in the Category ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select a category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Get the selected category code and quantity
+            string selectedCatCode = CobCatCodes.SelectedItem.ToString().Substring(0, 1);
+            int selectedQuantity = (int)NUDQuantity.Value;
+
+            // Check if there are enough available seats
+            int availableSeats = Categories.getAvailableSeats(selectedCatCode);
+            if (selectedQuantity > availableSeats)
+            {
+                MessageBox.Show("Quantity exceeds available seats in the selected category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 CobCatCodes.SelectedIndex = -1;
                 return;
             }
-            
 
-            decimal Price = Categories.getCategoryPrice(CobCatCodes.SelectedItem.ToString().Substring(0, 1))*NUDQuantity.Value;
-            dgvCart.Rows.Add(CobCatCodes.SelectedItem.ToString().Substring(0, 1), NUDQuantity.Value, Price, cobFixtures.SelectedItem.ToString().Substring(0, 1));
-                total_price += Price;
-                txtTotPrice.Text = total_price.ToString();
-
+            // Proceed with adding the sale item to the cart
+            decimal price = Categories.getCategoryPrice(selectedCatCode) * selectedQuantity;
+            dgvCart.Rows.Add(selectedCatCode, selectedQuantity, price, cobFixtures.SelectedItem.ToString().Substring(0, 1));
+            total_price += price;
+            txtTotPrice.Text = total_price.ToString();
 
             grpBoxCart.Visible = true;
             CobCatCodes.SelectedIndex = -1;
             NUDQuantity.Value = 0;
-            
+
             btnConfirmEmail.Enabled = false;
             txtEmail.Enabled = false;
             cobFixtures.Enabled = false;
@@ -159,7 +170,9 @@ namespace SoccerSYS
                 int price = int.Parse(row.Cells["Price"].Value.ToString());
 
                 SaleItem saleItem = new SaleItem(sale.GetSaleID(), catcode, quantity, price);
-                saleItem.addSaleItem(); 
+                saleItem.addSaleItem();
+
+             
 
             }
 
