@@ -11,6 +11,7 @@ using System.IO;
 using SoccerSYS.Classes;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Oracle.ManagedDataAccess.Client;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace SoccerSYS
 {
@@ -19,9 +20,12 @@ namespace SoccerSYS
         private Fixtures fixture;
         private static List<AwayTeam> allTeams;
         private static string AwayTeamID;
-        public frmCreateFixture()
+        private static new Form Parent;
+
+        public frmCreateFixture(Form parent)
         {
             InitializeComponent();
+            Parent = parent;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -29,6 +33,7 @@ namespace SoccerSYS
             frmMainMenu to = new frmMainMenu();
             to.Show();
             this.Close();
+            Parent.Visible = true;
         }
 
         private void btnSubmitSchedule_Click(object sender, EventArgs e)
@@ -127,6 +132,9 @@ namespace SoccerSYS
             }
         }
 
-        
+        private void frmCreateFixture_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Parent.Visible = true;
+        }
     }
 }

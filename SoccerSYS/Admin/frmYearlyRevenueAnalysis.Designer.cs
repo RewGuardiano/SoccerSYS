@@ -37,9 +37,8 @@ namespace SoccerSYS
             // btnbackYRA
             // 
             this.btnbackYRA.Location = new System.Drawing.Point(1, 2);
-            this.btnbackYRA.Margin = new System.Windows.Forms.Padding(4);
             this.btnbackYRA.Name = "btnbackYRA";
-            this.btnbackYRA.Size = new System.Drawing.Size(100, 28);
+            this.btnbackYRA.Size = new System.Drawing.Size(75, 23);
             this.btnbackYRA.TabIndex = 15;
             this.btnbackYRA.Text = " < Back";
             this.btnbackYRA.UseVisualStyleBackColor = true;
@@ -49,25 +48,26 @@ namespace SoccerSYS
             // 
             this.graph1.BackgroundImage = global::SoccerSYS.Properties.Resources.RevenueChart1;
             this.graph1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.graph1.Location = new System.Drawing.Point(174, 27);
+            this.graph1.Location = new System.Drawing.Point(130, 22);
+            this.graph1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.graph1.Name = "graph1";
-            this.graph1.Size = new System.Drawing.Size(583, 431);
+            this.graph1.Size = new System.Drawing.Size(437, 350);
             this.graph1.TabIndex = 16;
             // 
             // frrmYearlyRevenueAnalysis
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(932, 653);
+            this.ClientSize = new System.Drawing.Size(699, 531);
             this.Controls.Add(this.graph1);
             this.Controls.Add(this.btnbackYRA);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimizeBox = false;
             this.Name = "frrmYearlyRevenueAnalysis";
             this.Text = "YearlyRevenueAnalysis";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frrmYearlyRevenueAnalysis_FormClosed);
             this.Load += new System.EventHandler(this.frrmYearlyRevenueAnalysis_Load);
             this.ResumeLayout(false);
 

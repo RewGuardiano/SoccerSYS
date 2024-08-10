@@ -15,10 +15,12 @@ namespace SoccerSYS
 {
     public partial class frmCreateCategory : Form
     {
+        private static new Form Parent;
 
-        public frmCreateCategory()
+        public frmCreateCategory(Form parent)
         {
             InitializeComponent();
+            Parent = parent;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -26,6 +28,12 @@ namespace SoccerSYS
             frmMainMenu to = new frmMainMenu();
             to.Show();
             this.Close();
+            Parent.Visible = true;
+        }
+
+        private void frmCreateCategory_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Parent.Visible = true;
         }
 
         private void btnSetCategory_Click_1(object sender, EventArgs e)
@@ -113,7 +121,7 @@ namespace SoccerSYS
             }
         }
 
-
+      
     }
 }
 

@@ -13,11 +13,13 @@ namespace SoccerSYS
 {
     public partial class frrmYearlyRevenueAnalysis : Form
     {
+        private static new Form Parent;
         OracleConnection conn = new OracleConnection(DBConnect.oradb);
         string loadQuery = "SELECT TO_CHAR(sale_time, 'MM') AS sales_month, SUM(sub_total) AS monthly_revenue FROM sales GROUP BY TO_CHAR(sale_time, 'MM') ORDER BY TO_CHAR(sale_time, 'MM')";
-        public frrmYearlyRevenueAnalysis()
+        public frrmYearlyRevenueAnalysis(Form parent)
         {
             InitializeComponent();
+            Parent = parent;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -25,6 +27,7 @@ namespace SoccerSYS
             frmMainMenu to = new frmMainMenu();
             to.Show();
             this.Close();
+            Parent.Visible = true;
         }
 
         private void frrmYearlyRevenueAnalysis_Load(object sender, EventArgs e)
@@ -49,6 +52,11 @@ namespace SoccerSYS
             OracleDataAdapter adapt = new OracleDataAdapter(loadQuery, conn);
             adapt.Fill(ds);
             return ds;
+        }
+
+        private void frrmYearlyRevenueAnalysis_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Parent.Visible = true;
         }
     }
 }

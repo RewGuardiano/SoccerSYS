@@ -19,10 +19,12 @@ namespace SoccerSYS
     {
         private static List<string> allCategoryCodes = new List<string>();
         private static List<string> allfixtureDetails = new List<string>();
-        private static decimal total_price = 0; 
-        public frmCreateSale()
+        private static decimal total_price = 0;
+        private static new Form Parent;
+        public frmCreateSale(Form parent)
         {
             InitializeComponent();
+            Parent = parent;
         }
 
         private void btnCreateSaleBack_Click(object sender, EventArgs e)
@@ -35,10 +37,14 @@ namespace SoccerSYS
             }
             frmMainMenu to = new frmMainMenu();
             to.Show();
+            Parent.Visible = true;
 
             this.Close();
         }
-
+        private void frmCreateSale_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Parent.Visible = true;
+        }
 
 
 
@@ -224,7 +230,7 @@ namespace SoccerSYS
             btnConfirmEmail.Enabled = true;
         }
 
-
+       
     }
 }
 

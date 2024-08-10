@@ -12,9 +12,11 @@ namespace SoccerSYS
 {
     public partial class frmRemoveSale : Form
     {
-        public frmRemoveSale()
+        private static new Form Parent;
+        public frmRemoveSale(Form parent)
         {
             InitializeComponent();
+            Parent = parent;
         }
 
         private void btnRemoveSales_Click(object sender, EventArgs e)
@@ -28,6 +30,12 @@ namespace SoccerSYS
             frmMainMenu to = new frmMainMenu();
             to.Show();
             this.Close();
+            Parent.Visible = true;
+        }
+
+        private void frmRemoveSale_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Parent.Visible = true;
         }
     }
 }

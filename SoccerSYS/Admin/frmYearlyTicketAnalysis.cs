@@ -12,9 +12,11 @@ namespace SoccerSYS
 {
     public partial class frmYearlyTicketAnalysis : Form
     {
-        public frmYearlyTicketAnalysis()
+        private static new Form Parent;
+        public frmYearlyTicketAnalysis(Form parent)
         {
             InitializeComponent();
+            Parent = parent;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -22,6 +24,12 @@ namespace SoccerSYS
             frmMainMenu to = new frmMainMenu();
             to.Show();
             this.Close();
+            Parent.Visible = true;
+        }
+
+        private void frmYearlyTicketAnalysis_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Parent.Visible = true;
         }
     }
 }

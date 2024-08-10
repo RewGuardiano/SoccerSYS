@@ -16,10 +16,12 @@ namespace SoccerSYS
 {
     public partial class frmUpdateFixture : Form
     {
-      
-        public frmUpdateFixture()
+
+        private static new Form Parent;
+        public frmUpdateFixture(Form parent)
         {
             InitializeComponent();
+            Parent = parent;
         }
 
         private void btnBackbutton_Click(object sender, EventArgs e)
@@ -27,8 +29,12 @@ namespace SoccerSYS
             frmMainMenu to = new frmMainMenu();
             to.Show();
             this.Close();
+            Parent.Visible = true;
         }
-
+        private void frmUpdateFixture_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Parent.Visible = true;
+        }
         private void frmUpdateFixture_Load(object sender, EventArgs e)
         {
 
@@ -270,7 +276,7 @@ namespace SoccerSYS
             }
         }
 
-        
+       
     }
 }
 

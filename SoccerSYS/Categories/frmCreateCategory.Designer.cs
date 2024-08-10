@@ -49,9 +49,8 @@ namespace SoccerSYS
             // btnBackbutton
             // 
             this.btnBackbutton.Location = new System.Drawing.Point(0, 0);
-            this.btnBackbutton.Margin = new System.Windows.Forms.Padding(4);
             this.btnBackbutton.Name = "btnBackbutton";
-            this.btnBackbutton.Size = new System.Drawing.Size(100, 28);
+            this.btnBackbutton.Size = new System.Drawing.Size(75, 23);
             this.btnBackbutton.TabIndex = 8;
             this.btnBackbutton.Text = " < Back";
             this.btnBackbutton.UseVisualStyleBackColor = true;
@@ -70,18 +69,17 @@ namespace SoccerSYS
             this.grpCategory.Controls.Add(this.lbldescription);
             this.grpCategory.Controls.Add(this.lblCatCode);
             this.grpCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpCategory.Location = new System.Drawing.Point(144, 60);
-            this.grpCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.grpCategory.Location = new System.Drawing.Point(108, 49);
             this.grpCategory.Name = "grpCategory";
-            this.grpCategory.Padding = new System.Windows.Forms.Padding(4);
-            this.grpCategory.Size = new System.Drawing.Size(837, 386);
+            this.grpCategory.Size = new System.Drawing.Size(628, 314);
             this.grpCategory.TabIndex = 13;
             this.grpCategory.TabStop = false;
             this.grpCategory.Text = "Enter Details";
             // 
             // NUDCategorySeats
             // 
-            this.NUDCategorySeats.Location = new System.Drawing.Point(435, 192);
+            this.NUDCategorySeats.Location = new System.Drawing.Point(326, 156);
+            this.NUDCategorySeats.Margin = new System.Windows.Forms.Padding(2);
             this.NUDCategorySeats.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -93,7 +91,7 @@ namespace SoccerSYS
             0,
             0});
             this.NUDCategorySeats.Name = "NUDCategorySeats";
-            this.NUDCategorySeats.Size = new System.Drawing.Size(166, 30);
+            this.NUDCategorySeats.Size = new System.Drawing.Size(124, 26);
             this.NUDCategorySeats.TabIndex = 30;
             this.NUDCategorySeats.Value = new decimal(new int[] {
             1,
@@ -104,7 +102,8 @@ namespace SoccerSYS
             // NUDCategoriesPrice
             // 
             this.NUDCategoriesPrice.DecimalPlaces = 2;
-            this.NUDCategoriesPrice.Location = new System.Drawing.Point(435, 138);
+            this.NUDCategoriesPrice.Location = new System.Drawing.Point(326, 112);
+            this.NUDCategoriesPrice.Margin = new System.Windows.Forms.Padding(2);
             this.NUDCategoriesPrice.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -116,7 +115,7 @@ namespace SoccerSYS
             0,
             0});
             this.NUDCategoriesPrice.Name = "NUDCategoriesPrice";
-            this.NUDCategoriesPrice.Size = new System.Drawing.Size(166, 30);
+            this.NUDCategoriesPrice.Size = new System.Drawing.Size(124, 26);
             this.NUDCategoriesPrice.TabIndex = 29;
             this.NUDCategoriesPrice.Value = new decimal(new int[] {
             1,
@@ -126,11 +125,10 @@ namespace SoccerSYS
             // 
             // txtCatCode
             // 
-            this.txtCatCode.Location = new System.Drawing.Point(435, 46);
-            this.txtCatCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCatCode.Location = new System.Drawing.Point(326, 37);
             this.txtCatCode.MaxLength = 1;
             this.txtCatCode.Name = "txtCatCode";
-            this.txtCatCode.Size = new System.Drawing.Size(140, 30);
+            this.txtCatCode.Size = new System.Drawing.Size(106, 26);
             this.txtCatCode.TabIndex = 21;
             this.txtCatCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -138,10 +136,9 @@ namespace SoccerSYS
             // 
             this.btnSetCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSetCategory.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSetCategory.Location = new System.Drawing.Point(324, 284);
-            this.btnSetCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSetCategory.Location = new System.Drawing.Point(243, 231);
             this.btnSetCategory.Name = "btnSetCategory";
-            this.btnSetCategory.Size = new System.Drawing.Size(193, 52);
+            this.btnSetCategory.Size = new System.Drawing.Size(145, 42);
             this.btnSetCategory.TabIndex = 19;
             this.btnSetCategory.Text = "Create Category";
             this.btnSetCategory.UseVisualStyleBackColor = true;
@@ -151,10 +148,9 @@ namespace SoccerSYS
             // 
             this.lblNoSeats.AutoSize = true;
             this.lblNoSeats.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNoSeats.Location = new System.Drawing.Point(213, 190);
-            this.lblNoSeats.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNoSeats.Location = new System.Drawing.Point(160, 154);
             this.lblNoSeats.Name = "lblNoSeats";
-            this.lblNoSeats.Size = new System.Drawing.Size(133, 29);
+            this.lblNoSeats.Size = new System.Drawing.Size(109, 25);
             this.lblNoSeats.TabIndex = 17;
             this.lblNoSeats.Text = "MaxSeats";
             // 
@@ -162,30 +158,27 @@ namespace SoccerSYS
             // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(213, 139);
-            this.lblPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPrice.Location = new System.Drawing.Point(160, 113);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(76, 29);
+            this.lblPrice.Size = new System.Drawing.Size(61, 25);
             this.lblPrice.TabIndex = 16;
             this.lblPrice.Text = "Price";
             // 
             // txtdescription
             // 
-            this.txtdescription.Location = new System.Drawing.Point(435, 95);
-            this.txtdescription.Margin = new System.Windows.Forms.Padding(4);
+            this.txtdescription.Location = new System.Drawing.Point(326, 77);
             this.txtdescription.MaxLength = 8000;
             this.txtdescription.Name = "txtdescription";
-            this.txtdescription.Size = new System.Drawing.Size(181, 30);
+            this.txtdescription.Size = new System.Drawing.Size(137, 26);
             this.txtdescription.TabIndex = 15;
             // 
             // lbldescription
             // 
             this.lbldescription.AutoSize = true;
             this.lbldescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbldescription.Location = new System.Drawing.Point(213, 95);
-            this.lbldescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbldescription.Location = new System.Drawing.Point(160, 77);
             this.lbldescription.Name = "lbldescription";
-            this.lbldescription.Size = new System.Drawing.Size(151, 29);
+            this.lbldescription.Size = new System.Drawing.Size(120, 25);
             this.lbldescription.TabIndex = 14;
             this.lbldescription.Text = "Description";
             // 
@@ -193,27 +186,26 @@ namespace SoccerSYS
             // 
             this.lblCatCode.AutoSize = true;
             this.lblCatCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCatCode.Location = new System.Drawing.Point(213, 47);
-            this.lblCatCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCatCode.Location = new System.Drawing.Point(160, 38);
             this.lblCatCode.Name = "lblCatCode";
-            this.lblCatCode.Size = new System.Drawing.Size(195, 29);
+            this.lblCatCode.Size = new System.Drawing.Size(158, 25);
             this.lblCatCode.TabIndex = 13;
             this.lblCatCode.Text = "Category Code";
             // 
             // frmCreateCategory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.BackgroundImage = global::SoccerSYS.Properties.Resources.footballBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1175, 554);
+            this.ClientSize = new System.Drawing.Size(881, 450);
             this.Controls.Add(this.grpCategory);
             this.Controls.Add(this.btnBackbutton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCreateCategory";
             this.Text = "Set Category Type";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCreateCategory_FormClosed);
             this.grpCategory.ResumeLayout(false);
             this.grpCategory.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDCategorySeats)).EndInit();

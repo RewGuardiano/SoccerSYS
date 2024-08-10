@@ -15,10 +15,12 @@ namespace SoccerSYS
     {
     
         private Categories Category;
+        private static new Form Parent;
         private List<string> allCategories;
-        public frmUpdateCategory()
+        public frmUpdateCategory(Form parent)
         {
             InitializeComponent();
+            Parent = parent;
            
         }
 
@@ -33,6 +35,7 @@ namespace SoccerSYS
             frmMainMenu to = new frmMainMenu();
             to.Show();
             this.Close();
+            Parent.Visible = true;
         }
 
         
@@ -105,6 +108,11 @@ namespace SoccerSYS
                 cobCatCode.Items.Add(category);
             }
 
+        }
+
+        private void frmUpdateCategory_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Parent.Visible = true;
         }
 
 

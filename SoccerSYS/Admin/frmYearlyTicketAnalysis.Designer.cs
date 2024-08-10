@@ -36,10 +36,9 @@ namespace SoccerSYS
             // 
             // btnbackYTA
             // 
-            this.btnbackYTA.Location = new System.Drawing.Point(3, 1);
-            this.btnbackYTA.Margin = new System.Windows.Forms.Padding(4);
+            this.btnbackYTA.Location = new System.Drawing.Point(2, 1);
             this.btnbackYTA.Name = "btnbackYTA";
-            this.btnbackYTA.Size = new System.Drawing.Size(100, 28);
+            this.btnbackYTA.Size = new System.Drawing.Size(75, 23);
             this.btnbackYTA.TabIndex = 16;
             this.btnbackYTA.Text = " < Back";
             this.btnbackYTA.UseVisualStyleBackColor = true;
@@ -49,24 +48,25 @@ namespace SoccerSYS
             // 
             this.panel1.BackgroundImage = global::SoccerSYS.Properties.Resources.TicketChart;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(74, 36);
+            this.panel1.Location = new System.Drawing.Point(56, 29);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(575, 355);
+            this.panel1.Size = new System.Drawing.Size(431, 288);
             this.panel1.TabIndex = 17;
             // 
             // frmYearlyTicketAnalysis
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnbackYTA);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmYearlyTicketAnalysis";
             this.Text = "YearlyTicketAnalysis";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmYearlyTicketAnalysis_FormClosed);
             this.ResumeLayout(false);
 
         }

@@ -63,10 +63,9 @@ namespace SoccerSYS
             // 
             // btnCreateSaleBack
             // 
-            this.btnCreateSaleBack.Location = new System.Drawing.Point(4, 4);
-            this.btnCreateSaleBack.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCreateSaleBack.Location = new System.Drawing.Point(3, 3);
             this.btnCreateSaleBack.Name = "btnCreateSaleBack";
-            this.btnCreateSaleBack.Size = new System.Drawing.Size(100, 28);
+            this.btnCreateSaleBack.Size = new System.Drawing.Size(75, 23);
             this.btnCreateSaleBack.TabIndex = 14;
             this.btnCreateSaleBack.Text = " < Back";
             this.btnCreateSaleBack.UseVisualStyleBackColor = true;
@@ -84,11 +83,9 @@ namespace SoccerSYS
             this.grpCategory.Controls.Add(this.lblPrice);
             this.grpCategory.Controls.Add(this.lbSaleId);
             this.grpCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpCategory.Location = new System.Drawing.Point(112, 27);
-            this.grpCategory.Margin = new System.Windows.Forms.Padding(4);
+            this.grpCategory.Location = new System.Drawing.Point(84, 22);
             this.grpCategory.Name = "grpCategory";
-            this.grpCategory.Padding = new System.Windows.Forms.Padding(4);
-            this.grpCategory.Size = new System.Drawing.Size(1113, 521);
+            this.grpCategory.Size = new System.Drawing.Size(835, 423);
             this.grpCategory.TabIndex = 17;
             this.grpCategory.TabStop = false;
             this.grpCategory.Text = "Create Sale";
@@ -100,60 +97,63 @@ namespace SoccerSYS
             this.gpbCatCode.Controls.Add(this.CobCatCodes);
             this.gpbCatCode.Controls.Add(this.label1);
             this.gpbCatCode.Controls.Add(this.btnConfirmCart);
-            this.gpbCatCode.Location = new System.Drawing.Point(24, 262);
+            this.gpbCatCode.Location = new System.Drawing.Point(18, 213);
+            this.gpbCatCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gpbCatCode.Name = "gpbCatCode";
-            this.gpbCatCode.Size = new System.Drawing.Size(516, 229);
+            this.gpbCatCode.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gpbCatCode.Size = new System.Drawing.Size(387, 186);
             this.gpbCatCode.TabIndex = 53;
             this.gpbCatCode.TabStop = false;
             this.gpbCatCode.Visible = false;
             // 
             // NUDQuantity
             // 
-            this.NUDQuantity.Location = new System.Drawing.Point(177, 104);
+            this.NUDQuantity.Location = new System.Drawing.Point(133, 84);
+            this.NUDQuantity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.NUDQuantity.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
             this.NUDQuantity.Name = "NUDQuantity";
-            this.NUDQuantity.Size = new System.Drawing.Size(120, 30);
+            this.NUDQuantity.Size = new System.Drawing.Size(90, 26);
             this.NUDQuantity.TabIndex = 56;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(43, 102);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(32, 83);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(123, 29);
+            this.label3.Size = new System.Drawing.Size(100, 25);
             this.label3.TabIndex = 55;
             this.label3.Text = "Quantity:";
             // 
             // CobCatCodes
             // 
             this.CobCatCodes.FormattingEnabled = true;
-            this.CobCatCodes.Location = new System.Drawing.Point(293, 34);
+            this.CobCatCodes.Location = new System.Drawing.Point(220, 28);
+            this.CobCatCodes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CobCatCodes.Name = "CobCatCodes";
-            this.CobCatCodes.Size = new System.Drawing.Size(217, 33);
+            this.CobCatCodes.Size = new System.Drawing.Size(164, 28);
             this.CobCatCodes.TabIndex = 54;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(29, 42);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(22, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 25);
+            this.label1.Size = new System.Drawing.Size(199, 20);
             this.label1.TabIndex = 53;
             this.label1.Text = "Choose Category Code:";
             // 
             // btnConfirmCart
             // 
-            this.btnConfirmCart.Location = new System.Drawing.Point(167, 155);
+            this.btnConfirmCart.Location = new System.Drawing.Point(125, 126);
+            this.btnConfirmCart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnConfirmCart.Name = "btnConfirmCart";
-            this.btnConfirmCart.Size = new System.Drawing.Size(180, 45);
+            this.btnConfirmCart.Size = new System.Drawing.Size(135, 37);
             this.btnConfirmCart.TabIndex = 52;
             this.btnConfirmCart.Text = "Add Cart";
             this.btnConfirmCart.UseVisualStyleBackColor = true;
@@ -161,9 +161,10 @@ namespace SoccerSYS
             // 
             // btnConfirmEmail
             // 
-            this.btnConfirmEmail.Location = new System.Drawing.Point(239, 217);
+            this.btnConfirmEmail.Location = new System.Drawing.Point(179, 176);
+            this.btnConfirmEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnConfirmEmail.Name = "btnConfirmEmail";
-            this.btnConfirmEmail.Size = new System.Drawing.Size(120, 39);
+            this.btnConfirmEmail.Size = new System.Drawing.Size(90, 32);
             this.btnConfirmEmail.TabIndex = 52;
             this.btnConfirmEmail.Text = "Confirm";
             this.btnConfirmEmail.UseVisualStyleBackColor = true;
@@ -176,11 +177,9 @@ namespace SoccerSYS
             this.grpBoxCart.Controls.Add(this.label2);
             this.grpBoxCart.Controls.Add(this.dgvCart);
             this.grpBoxCart.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpBoxCart.Location = new System.Drawing.Point(590, 48);
-            this.grpBoxCart.Margin = new System.Windows.Forms.Padding(4);
+            this.grpBoxCart.Location = new System.Drawing.Point(442, 39);
             this.grpBoxCart.Name = "grpBoxCart";
-            this.grpBoxCart.Padding = new System.Windows.Forms.Padding(4);
-            this.grpBoxCart.Size = new System.Drawing.Size(497, 393);
+            this.grpBoxCart.Size = new System.Drawing.Size(373, 319);
             this.grpBoxCart.TabIndex = 49;
             this.grpBoxCart.TabStop = false;
             this.grpBoxCart.Text = "Cart";
@@ -191,10 +190,10 @@ namespace SoccerSYS
             this.btnCheckOut.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCheckOut.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCheckOut.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnCheckOut.Location = new System.Drawing.Point(282, 309);
-            this.btnCheckOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCheckOut.Location = new System.Drawing.Point(212, 251);
+            this.btnCheckOut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCheckOut.Name = "btnCheckOut";
-            this.btnCheckOut.Size = new System.Drawing.Size(124, 36);
+            this.btnCheckOut.Size = new System.Drawing.Size(93, 29);
             this.btnCheckOut.TabIndex = 34;
             this.btnCheckOut.Text = "CHECKOUT";
             this.btnCheckOut.UseVisualStyleBackColor = false;
@@ -203,11 +202,10 @@ namespace SoccerSYS
             // txtTotPrice
             // 
             this.txtTotPrice.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotPrice.Location = new System.Drawing.Point(135, 313);
-            this.txtTotPrice.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTotPrice.Location = new System.Drawing.Point(101, 254);
             this.txtTotPrice.MaxLength = 28888;
             this.txtTotPrice.Name = "txtTotPrice";
-            this.txtTotPrice.Size = new System.Drawing.Size(113, 32);
+            this.txtTotPrice.Size = new System.Drawing.Size(86, 27);
             this.txtTotPrice.TabIndex = 33;
             // 
             // label2
@@ -216,9 +214,10 @@ namespace SoccerSYS
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(17, 313);
+            this.label2.Location = new System.Drawing.Point(13, 254);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 29);
+            this.label2.Size = new System.Drawing.Size(84, 23);
             this.label2.TabIndex = 32;
             this.label2.Text = "Sub Total:";
             // 
@@ -241,13 +240,12 @@ namespace SoccerSYS
             this.Quantity,
             this.Price,
             this.FixtureID});
-            this.dgvCart.Location = new System.Drawing.Point(8, 37);
-            this.dgvCart.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvCart.Location = new System.Drawing.Point(6, 30);
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.ReadOnly = true;
             this.dgvCart.RowHeadersVisible = false;
             this.dgvCart.RowHeadersWidth = 51;
-            this.dgvCart.Size = new System.Drawing.Size(481, 255);
+            this.dgvCart.Size = new System.Drawing.Size(361, 207);
             this.dgvCart.TabIndex = 10;
             // 
             // CatCode
@@ -285,64 +283,63 @@ namespace SoccerSYS
             // cobFixtures
             // 
             this.cobFixtures.FormattingEnabled = true;
-            this.cobFixtures.Location = new System.Drawing.Point(156, 169);
+            this.cobFixtures.Location = new System.Drawing.Point(117, 137);
+            this.cobFixtures.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cobFixtures.Name = "cobFixtures";
-            this.cobFixtures.Size = new System.Drawing.Size(301, 33);
+            this.cobFixtures.Size = new System.Drawing.Size(227, 28);
             this.cobFixtures.TabIndex = 42;
             // 
             // lblTicketID
             // 
             this.lblTicketID.AutoSize = true;
             this.lblTicketID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTicketID.Location = new System.Drawing.Point(31, 169);
-            this.lblTicketID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTicketID.Location = new System.Drawing.Point(23, 137);
             this.lblTicketID.Name = "lblTicketID";
-            this.lblTicketID.Size = new System.Drawing.Size(118, 29);
+            this.lblTicketID.Size = new System.Drawing.Size(96, 25);
             this.lblTicketID.TabIndex = 18;
             this.lblTicketID.Text = "Fixtures:";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(165, 94);
+            this.txtEmail.Location = new System.Drawing.Point(124, 76);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(265, 30);
+            this.txtEmail.Size = new System.Drawing.Size(200, 26);
             this.txtEmail.TabIndex = 17;
             // 
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(53, 154);
-            this.lblPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPrice.Location = new System.Drawing.Point(40, 125);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(0, 29);
+            this.lblPrice.Size = new System.Drawing.Size(0, 25);
             this.lblPrice.TabIndex = 16;
             // 
             // lbSaleId
             // 
             this.lbSaleId.AutoSize = true;
             this.lbSaleId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSaleId.Location = new System.Drawing.Point(31, 95);
-            this.lbSaleId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbSaleId.Location = new System.Drawing.Point(23, 77);
             this.lbSaleId.Name = "lbSaleId";
-            this.lbSaleId.Size = new System.Drawing.Size(91, 29);
+            this.lbSaleId.Size = new System.Drawing.Size(72, 25);
             this.lbSaleId.TabIndex = 13;
             this.lbSaleId.Text = "Email:";
             // 
             // frmCreateSale
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.BackgroundImage = global::SoccerSYS.Properties.Resources.footballBackground;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1264, 831);
+            this.ClientSize = new System.Drawing.Size(948, 675);
             this.Controls.Add(this.grpCategory);
             this.Controls.Add(this.btnCreateSaleBack);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCreateSale";
             this.Text = "ProcessSales";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCreateSale_FormClosed);
             this.Load += new System.EventHandler(this.frmCreateSale_Load);
             this.grpCategory.ResumeLayout(false);
             this.grpCategory.PerformLayout();

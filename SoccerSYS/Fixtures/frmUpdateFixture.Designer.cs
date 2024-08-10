@@ -170,6 +170,7 @@ namespace SoccerSYS
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmUpdateFixture";
             this.Text = "frmUpdateTeam";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmUpdateFixture_FormClosed);
             this.Load += new System.EventHandler(this.frmUpdateFixture_Load);
             this.grpTeams.ResumeLayout(false);
             this.grpTeams.PerformLayout();

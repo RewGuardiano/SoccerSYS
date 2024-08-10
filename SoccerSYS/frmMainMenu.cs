@@ -31,7 +31,7 @@ namespace SoccerSYS
             }
 
 
-            frmCreateCategory to = new frmCreateCategory();
+            frmCreateCategory to = new frmCreateCategory(this);
             to.Show();
             this.Hide();
           
@@ -49,21 +49,21 @@ namespace SoccerSYS
 
         private void mbuUpdateCategory_Click(object sender, EventArgs e)
         {
-            frmUpdateCategory to = new frmUpdateCategory();
+            frmUpdateCategory to = new frmUpdateCategory(this);
             to.Show();
             this.Hide();
         }
 
         private void scheduleMatchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCreateFixture to = new frmCreateFixture();
+            frmCreateFixture to = new frmCreateFixture(this);
             to.Show();
             this.Hide();
         }
 
         private void cancelMatchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUpdateFixture to = new frmUpdateFixture();
+            frmUpdateFixture to = new frmUpdateFixture(this);
             to.Show();
             this.Hide();
         }
@@ -72,7 +72,7 @@ namespace SoccerSYS
 
         private void sellTicketsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCreateSale to = new frmCreateSale();
+            frmCreateSale to = new frmCreateSale(this);
             to.Show();
             this.Hide();
 
@@ -80,14 +80,14 @@ namespace SoccerSYS
 
         private void yearlyRevenueAnalysisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frrmYearlyRevenueAnalysis to = new frrmYearlyRevenueAnalysis();
+            frrmYearlyRevenueAnalysis to = new frrmYearlyRevenueAnalysis(this);
             to.Show();
             this.Hide();
         }
 
         private void yearlyTicketRevenueAnalysisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmYearlyTicketAnalysis to = new frmYearlyTicketAnalysis();
+            frmYearlyTicketAnalysis to = new frmYearlyTicketAnalysis(this);
             to.Show();
             this.Hide();
         }
@@ -98,14 +98,14 @@ namespace SoccerSYS
 
         private void mbaUpdateTeam_Click(object sender, EventArgs e)
         {
-            frmUpdateCategory to = new frmUpdateCategory();
+            frmUpdateCategory to = new frmUpdateCategory(this);
             to.Show();
             this.Hide();
         }
 
         private void removeSaleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmRemoveSale to = new frmRemoveSale();
+            frmRemoveSale to = new frmRemoveSale(this);
             to.Show();
             this.Hide();
         }
