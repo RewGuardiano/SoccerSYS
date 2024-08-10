@@ -111,18 +111,29 @@ namespace SoccerSYS
                 return;
             }
 
+            // Ensure a category is selected
+            if (CobCatCodes.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            // Get the selected fixture ID
+            int fixtureID = int.Parse(cobFixtures.SelectedItem.ToString().Substring(0, 1));
+
             // Get the selected category code and quantity
             string selectedCatCode = CobCatCodes.SelectedItem.ToString().Substring(0, 1);
             int selectedQuantity = (int)NUDQuantity.Value;
 
-            // Check if there are enough available seats
-            int availableSeats = Categories.getAvailableSeats(selectedCatCode);
+            // Check if there are enough available seats for the selected category and fixture
+            int availableSeats = FixtureSeats.GetAvailableSeats(selectedCatCode, fixtureID);
             if (selectedQuantity > availableSeats)
             {
-                MessageBox.Show("Quantity exceeds available seats in the selected category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                CobCatCodes.SelectedIndex = -1;
+                MessageBox.Show($"Quantity exceeds available seats. Only {availableSeats} seats are available for this category.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                NUDQuantity.Value = 0; // Reset quantity to 0
                 return;
             }
+            
+            
 
             // Proceed with adding the sale item to the cart
             decimal price = Categories.getCategoryPrice(selectedCatCode) * selectedQuantity;
@@ -172,7 +183,16 @@ namespace SoccerSYS
                 SaleItem saleItem = new SaleItem(sale.GetSaleID(), catcode, quantity, price);
                 saleItem.addSaleItem();
 
-             
+                // Update available seats in the FixtureSeats table
+                int currentAvailableSeats = FixtureSeats.GetAvailableSeats(catcode, fixtureID);
+                if (quantity > currentAvailableSeats)
+                {
+                    MessageBox.Show("Error: Quantity exceeds available seats. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                int newAvailableSeats = currentAvailableSeats - quantity;
+                FixtureSeats.UpdateAvailableSeats(catcode, fixtureID, newAvailableSeats);
 
             }
 

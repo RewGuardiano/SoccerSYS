@@ -144,10 +144,7 @@ namespace SoccerSYS
                     conn.Close();
                     return prevID;
                 }
-                else
-                {
-                    MessageBox.Show("No SaleID found, Have set Sale ID as 1", "Getting Sale ID", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+               
             }
             dr.Close();
             conn.Close();

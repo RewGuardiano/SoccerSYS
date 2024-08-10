@@ -20,7 +20,7 @@ namespace SoccerSYS
             CatCode = catCode;
             FixtureID = fixtureID;
             AvailableSeats = availableSeats;
-        }
+        } 
 
         public string GetCatCode()
         {
@@ -47,10 +47,43 @@ namespace SoccerSYS
             return AvailableSeats;
         }
 
-        // Setter for MaxSeats
         public void SetAvailableSeats(int availableSeats)
         {
             AvailableSeats = availableSeats;
         }
+        // Method to retrieve available seats
+        public static int GetAvailableSeats(string catCode, int fixtureID)
+        {
+            using (var conn = new OracleConnection(DBConnect.oradb))
+            {
+                conn.Open();
+                string sqlQuery = "SELECT AvailableSeats FROM FixtureSeats WHERE CatCode = :CatCode AND FixtureID = :FixtureID";
+                using (var cmd = new OracleCommand(sqlQuery, conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter(":CatCode", catCode));
+                    cmd.Parameters.Add(new OracleParameter(":FixtureID", fixtureID));
+                    object result = cmd.ExecuteScalar();
+                    return result != null ? Convert.ToInt32(result) : 0;
+                }
+            }
+        }
+
+        // Method to update available seats
+        public static void UpdateAvailableSeats(string catCode, int fixtureID, int newAvailableSeats)
+        {
+            using (var conn = new OracleConnection(DBConnect.oradb))
+            {
+                conn.Open();
+                string sqlQuery = "UPDATE FixtureSeats SET AvailableSeats = :AvailableSeats WHERE CatCode = :CatCode AND FixtureID = :FixtureID";
+                using (var cmd = new OracleCommand(sqlQuery, conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter(":AvailableSeats", newAvailableSeats));
+                    cmd.Parameters.Add(new OracleParameter(":CatCode", catCode));
+                    cmd.Parameters.Add(new OracleParameter(":FixtureID", fixtureID));
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }
+

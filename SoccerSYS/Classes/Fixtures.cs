@@ -66,37 +66,36 @@ namespace SoccerSYS
 
 
 
-        // Getter for FixtureID
+  
         public int GetFixtureID()
         {
             return FixtureID;
         }
 
-        // Setter for FixtureID
         public void SetFixtureID(int fixtureID)
         {
             FixtureID = fixtureID;
         }
 
-        // Getter for AwayTeam_ID
+ 
         public string GetAwayTeamID()
         {
             return AwayTeam_ID;
         }
 
-        // Setter for AwayTeam_ID
+    
         public void SetAwayTeamID(string awayTeamID)
         {
             AwayTeam_ID = awayTeamID;
         }
 
-        // Getter for Fixture_Time
+        
         public string GetFixtureTime()
         {
             return Fixture_Time;
         }
 
-        // Setter for Fixture_Time
+       
         public void SetFixtureTime(string fixtureTime)
         {
             Fixture_Time = fixtureTime;
@@ -122,6 +121,9 @@ namespace SoccerSYS
             conn.Open();
             cmd.ExecuteNonQuery();
             conn.Close();
+
+            // After creating the fixture, populate FixtureSeats
+            PopulateFixtureSeats();
         }
         public static void getFixtureDetails(ref List<string> allFixtureDetails)
         {
@@ -185,8 +187,41 @@ namespace SoccerSYS
                 MessageBox.Show("Error updating fixture: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void PopulateFixtureSeats()
+        {
+            try
+            {
+                OracleConnection conn = new OracleConnection(DBConnect.oradb);
+                conn.Open();
+
+                // Retrieve all categories to populate FixtureSeats
+                string getCategoriesQuery = "SELECT CatCode, MaxSeats FROM Categories";
+                OracleCommand cmd = new OracleCommand(getCategoriesQuery, conn);
+                OracleDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    string catCode = dr["CatCode"].ToString();
+                    int maxSeats = Convert.ToInt32(dr["MaxSeats"]);
+
+                    string insertFixtureSeatQuery = $"INSERT INTO FixtureSeats (FixtureID, CatCode, AvailableSeats) " +
+                                                    $"VALUES ({this.FixtureID}, '{catCode}', {maxSeats})";
+
+                    OracleCommand insertCmd = new OracleCommand(insertFixtureSeatQuery, conn);
+                    insertCmd.ExecuteNonQuery();
+                }
+
+                dr.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error populating FixtureSeats: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
-    }
+}
+    
 
 
     
