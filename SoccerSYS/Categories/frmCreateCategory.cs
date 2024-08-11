@@ -73,16 +73,16 @@ namespace SoccerSYS
                     txtdescription.Focus();
                     return;
                 }
-                if (Categories.ValidateMaxSeatsLimit()==false)
-                {
-                    
+                // Validate the MaxSeats limit with existing categories
+                int newMaxSeats = Convert.ToInt32(NUDCategorySeats.Value);
+                int currentTotalMaxSeats = GetTotalMaxSeats();
 
-                }
-                else
+                if (currentTotalMaxSeats + newMaxSeats > 500)
                 {
-                    MessageBox.Show("Cannot create more categories. Maximum seats limit (" + Categories.maxSeatsLimit + ") reached.", "Limit Exceeded", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Adding this category will exceed the maximum allowed seats.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
 
                 // Create the category if all validations pass
                 Categories category = new Categories(txtCatCode.Text, txtdescription.Text, NUDCategoriesPrice.Value, Convert.ToInt32(NUDCategorySeats.Value));
@@ -120,8 +120,26 @@ namespace SoccerSYS
                 return count > 0;
             }
         }
+        private int GetTotalMaxSeats()
+        {
+            using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
+            {
+                conn.Open();
 
-      
+                // Query to sum the MaxSeats of all existing categories
+                string query = "SELECT SUM(MaxSeats) FROM CATEGORIES";
+
+                OracleCommand command = new OracleCommand(query, conn);
+
+                object result = command.ExecuteScalar();
+
+                conn.Close();
+
+                // If no categories exist, return 0, otherwise return the total MaxSeats
+                return result == DBNull.Value ? 0 : Convert.ToInt32(result);
+            }
+        }
+
     }
 }
 

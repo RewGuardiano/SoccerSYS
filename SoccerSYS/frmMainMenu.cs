@@ -37,11 +37,6 @@ namespace SoccerSYS
           
         }
 
-
-
-    
-
-
         private void mbuManageCategories_Click(object sender, EventArgs e)
         {
 
