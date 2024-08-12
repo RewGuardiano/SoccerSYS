@@ -28,8 +28,7 @@ namespace SoccerSYS
             {
                 this.Close();
             }
-            frmMainMenu to = new frmMainMenu();
-            to.Show();
+            
             this.Close();
             Parent.Visible = true;
         }
@@ -59,12 +58,14 @@ namespace SoccerSYS
                         S.Sale_Time, 
                         S.Sub_Total, 
                         S.FixtureID,
+                        S.Cancel_Sale,
                         SI.SaleItem_ID, 
                         SI.CatCode, 
                         SI.Quantity, 
                         SI.Total_Price
                     FROM Sales S
-                    JOIN SaleItems SI ON S.SaleID = SI.SaleID";
+                    JOIN SaleItems SI ON S.SaleID = SI.SaleID
+                    WHERE S.Cancel_Sale<> 'Y'";  // Exclude canceled sales
 
                     // Set up the data adapter and fill the DataTable
                     OracleDataAdapter da = new OracleDataAdapter(query, conn);
@@ -93,10 +94,16 @@ namespace SoccerSYS
                     grdSales.Columns["Sale_Time"].HeaderText = "Sale Time";
                     grdSales.Columns["Sub_Total"].HeaderText = "Sub Total";
                     grdSales.Columns["FixtureID"].HeaderText = "Fixture ID";
+                    grdSales.Columns["Cancel_Sale"].HeaderText = "Cancelled Sale";
                     grdSales.Columns["SaleItem_ID"].HeaderText = "Sale Item ID";
                     grdSales.Columns["CatCode"].HeaderText = "Category Code";
                     grdSales.Columns["Quantity"].HeaderText = "Quantity";
                     grdSales.Columns["Total_Price"].HeaderText = "Total Price";
+
+                    // Hide specific columns
+                    grdSales.Columns["SaleItem_ID"].Visible = false;
+                    grdSales.Columns["Total_Price"].Visible = false;
+                    grdSales.Columns["Cancel_Sale"].Visible = false;
 
                     // Attach event handler for button clicks
                     grdSales.CellContentClick += grdSales_CellContentClick;
@@ -120,9 +127,153 @@ namespace SoccerSYS
                 txtSaleID.Text = grdSales.Rows[e.RowIndex].Cells["SaleID"].Value.ToString();
                 txtEmail.Text = grdSales.Rows[e.RowIndex].Cells["Email"].Value.ToString();
                 dtPickSalesDate.Text = grdSales.Rows[e.RowIndex].Cells["Sale_Time"].Value.ToString();
-                txtTotSales.Text = $"€{Convert.ToDecimal(grdSales.Rows[e.RowIndex].Cells["Total_Price"].Value)}";
+                txtTotSales.Text = $"€{Convert.ToDecimal(grdSales.Rows[e.RowIndex].Cells["Sub_Total"].Value)}";
                 txtMatchID.Text = grdSales.Rows[e.RowIndex].Cells["FixtureID"].Value.ToString();
             }
         }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            // Validate and parse SaleID
+            string saleIDText = txtSaleID.Text;
+            if (int.TryParse(saleIDText, out int saleID))
+            {
+                // Create a Sale object to update the Cancel_Sale field
+                Sale saleToUpdate = new Sale(
+                    txtEmail.Text,
+                    Convert.ToInt32(txtMatchID.Text),
+                    dtPickSalesDate.Value.ToString("yyyy-MM-dd"),
+                    Convert.ToInt32(txtTotSales.Text.Substring(1)),
+                    'Y'  // Set Cancel_Sale to 'Y' for cancellation
+                );
+
+                // Set the SaleID of the Sale object to update
+                saleToUpdate.SetSaleID(saleID);
+
+                // Ask user if they really want to return the sale
+                DialogResult dialogResult = MessageBox.Show(
+                    $"Are you sure you want to return Sale ID: {txtSaleID.Text}?",
+                    "Return Sale",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    try
+                    {
+                        // Update the sale status to canceled in the Sales table
+                        UpdateSaleStatus(saleToUpdate);
+
+                        // Confirmation message
+                        MessageBox.Show(
+                            $"Successfully returned Sale ID: {txtSaleID.Text}",
+                            "Return Sale",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information
+                        );
+
+                        // Get the CatCode for the given FixtureID
+                        string catCode = GetCatCodeForFixture(Convert.ToInt32(txtMatchID.Text));
+
+                        if (catCode != null)
+                        {
+                            // Fetch the current number of available seats
+                            int currentAvailableSeats = FixtureSeats.GetAvailableSeats(catCode, Convert.ToInt32(txtMatchID.Text));
+
+                            // Increment available seats based on the sale information
+                            int seatsToReturn = GetSeatsCountFromSale(Convert.ToInt32(txtSaleID.Text));
+                            int newAvailableSeats = currentAvailableSeats + seatsToReturn;
+
+                            // Update available seats in the FixtureSeats table
+                            FixtureSeats.UpdateAvailableSeats(catCode, Convert.ToInt32(txtMatchID.Text), newAvailableSeats);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Category code for the fixture not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                        // Remove the row from DataGridView
+                        grdSales.Rows.Remove(grdSales.CurrentRow);
+
+                        // Reset UI
+                        TextBox[] txtBoxes = { txtSaleID, txtEmail, txtTotSales, txtMatchID };
+                        foreach (TextBox textBox in txtBoxes)
+                        {
+                            textBox.Clear();
+                        }
+                        grpSaleDetails.Visible = false;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Invalid Sale ID format.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Helper method to get the number of seats related to the sale
+        private int GetSeatsCountFromSale(int saleID)
+        {
+            int seatsCount = 0;
+            using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
+            {
+                string sqlQuery = "SELECT SUM(Quantity) FROM SaleItems WHERE SaleID = :SaleID";
+                using (OracleCommand cmd = new OracleCommand(sqlQuery, conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter(":SaleID", saleID));
+                    conn.Open();
+                    object result = cmd.ExecuteScalar();
+                    seatsCount = result != null ? Convert.ToInt32(result) : 0;
+                    conn.Close();
+                }
+            }
+            return seatsCount;
+        }
+
+        private string GetCatCodeForFixture(int fixtureID)
+        {
+            string catCode = null;
+            using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
+            {
+                string sqlQuery = @"
+                SELECT SI.CatCode
+                FROM SaleItems SI
+                JOIN Sales S ON SI.SaleID = S.SaleID
+                WHERE S.FixtureID = :FixtureID";
+                using (OracleCommand cmd = new OracleCommand(sqlQuery, conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter(":FixtureID", fixtureID));
+                    conn.Open();
+                    object result = cmd.ExecuteScalar();
+                    catCode = result != null ? result.ToString() : null;
+                    conn.Close();
+                }
+            }
+            return catCode;
+        }
+
+
+        // Method to update the sale status to canceled
+        private void UpdateSaleStatus(Sale sale)
+        {
+            using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
+            {
+                string sqlQuery = "UPDATE Sales SET Cancel_Sale = :CancelSale WHERE SaleID = :SaleID";
+                using (OracleCommand cmd = new OracleCommand(sqlQuery, conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter(":CancelSale", sale.GetCancelSale()));
+                    cmd.Parameters.Add(new OracleParameter(":SaleID", sale.GetSaleID()));
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+        }
+
     }
 }

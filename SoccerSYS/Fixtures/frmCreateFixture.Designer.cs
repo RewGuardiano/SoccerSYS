@@ -70,13 +70,13 @@ namespace SoccerSYS
             this.grpCategory.Size = new System.Drawing.Size(663, 335);
             this.grpCategory.TabIndex = 15;
             this.grpCategory.TabStop = false;
-            this.grpCategory.Text = "Enter Match Details:";
+            this.grpCategory.Text = "Enter Fixture Details:";
             // 
             // dtpFixture
             // 
             this.dtpFixture.AllowDrop = true;
             this.dtpFixture.Location = new System.Drawing.Point(202, 154);
-            this.dtpFixture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpFixture.Margin = new System.Windows.Forms.Padding(2);
             this.dtpFixture.Name = "dtpFixture";
             this.dtpFixture.Size = new System.Drawing.Size(248, 26);
             this.dtpFixture.TabIndex = 26;

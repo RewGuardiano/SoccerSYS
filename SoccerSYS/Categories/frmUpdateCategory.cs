@@ -32,8 +32,7 @@ namespace SoccerSYS
             {
                 this.Close();
             }
-            frmMainMenu to = new frmMainMenu();
-            to.Show();
+            
             this.Close();
             Parent.Visible = true;
         }

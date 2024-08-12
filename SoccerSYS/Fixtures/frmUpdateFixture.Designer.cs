@@ -59,12 +59,13 @@ namespace SoccerSYS
             this.grpTeams.Controls.Add(this.btnBackbutton);
             this.grpTeams.Controls.Add(this.btnUpdateTeam);
             this.grpTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpTeams.Location = new System.Drawing.Point(0, 4);
+            this.grpTeams.ForeColor = System.Drawing.Color.Black;
+            this.grpTeams.Location = new System.Drawing.Point(1, -1);
             this.grpTeams.Name = "grpTeams";
-            this.grpTeams.Size = new System.Drawing.Size(806, 462);
+            this.grpTeams.Size = new System.Drawing.Size(805, 467);
             this.grpTeams.TabIndex = 15;
             this.grpTeams.TabStop = false;
-            this.grpTeams.Text = "Fixture Time";
+            this.grpTeams.Text = "Scheduled Fixtures";
             // 
             // txtFixtureID
             // 

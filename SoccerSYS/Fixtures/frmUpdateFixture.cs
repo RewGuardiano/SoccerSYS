@@ -26,8 +26,7 @@ namespace SoccerSYS
 
         private void btnBackbutton_Click(object sender, EventArgs e)
         {
-            frmMainMenu to = new frmMainMenu();
-            to.Show();
+            
             this.Close();
             Parent.Visible = true;
         }
