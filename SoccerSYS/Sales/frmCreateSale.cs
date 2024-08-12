@@ -156,56 +156,54 @@ namespace SoccerSYS
 
 
         }
-
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
-            string dateTime = DateTime.Now.ToString("yyyy-MM-dd");
-            int fixtureID = int.Parse(cobFixtures.SelectedItem.ToString().Substring(0,1));
-            int Sub_total = int.Parse(txtTotPrice.Text.ToString());
-           //Save to class
-           Sale sale = new Sale(txtEmail.Text.ToString(),fixtureID, dateTime,Sub_total,'N');
-            //Save to database
-            sale.addSale();
-            /*
-            foreach (DataGridViewRow row in dgvCart.Rows)
-            {
-                string[] seatNums = row.Cells["seatNum"].Value.ToString().Split(',');
-                int[] seatNumArr = Array.ConvertAll(seatNums, s => int.Parse(s));
-                for (int i = 0; i < seatNumArr.Length; i++)
-                {
-                    //Create sale seat objects and saves to database
-                    SaleSeat saleSeat = new SaleSeat(sale.SalesID, seatNumArr[i]);
-                    saleSeat.addSaleSeat();
-                    //Update status for matchSeats to 'O' as its occupied
-                    MatchSeat.updateSeatStatus(sale.MatchID, seatNumArr[i]);
-                }*/
-            foreach(DataGridViewRow row in dgvCart.Rows)
-            {
-                string catcode = row.Cells["CatCode"].Value.ToString();
-                int quantity = int.Parse(row.Cells["Quantity"].Value.ToString());
-                int price = int.Parse(row.Cells["Price"].Value.ToString());
+            // Display confirmation dialog
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to check out this Sale?", "Confirm Checkout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                SaleItem saleItem = new SaleItem(sale.GetSaleID(), catcode, quantity, price);
-                saleItem.addSaleItem();
+            if (dialogResult == DialogResult.Yes)
+            {
+                // Proceed with checkout
+                string dateTime = DateTime.Now.ToString("yyyy-MM-dd");
+                int fixtureID = int.Parse(cobFixtures.SelectedItem.ToString().Substring(0, 1));
+                int subTotal = int.Parse(txtTotPrice.Text.ToString());
 
-                // Update available seats in the FixtureSeats table
-                int currentAvailableSeats = FixtureSeats.GetAvailableSeats(catcode, fixtureID);
-                if (quantity > currentAvailableSeats)
+                // Save to class
+                Sale sale = new Sale(txtEmail.Text.ToString(), fixtureID, dateTime, subTotal, 'N');
+                // Save to database
+                sale.addSale();
+
+                foreach (DataGridViewRow row in dgvCart.Rows)
                 {
-                    MessageBox.Show("Error: Quantity exceeds available seats. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    string catcode = row.Cells["CatCode"].Value.ToString();
+                    int quantity = int.Parse(row.Cells["Quantity"].Value.ToString());
+                    int price = int.Parse(row.Cells["Price"].Value.ToString());
+
+                    SaleItem saleItem = new SaleItem(sale.GetSaleID(), catcode, quantity, price);
+                    saleItem.addSaleItem();
+
+                    // Update available seats in the FixtureSeats table
+                    int currentAvailableSeats = FixtureSeats.GetAvailableSeats(catcode, fixtureID);
+                    if (quantity > currentAvailableSeats)
+                    {
+                        MessageBox.Show("Error: Quantity exceeds available seats. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    int newAvailableSeats = currentAvailableSeats - quantity;
+                    FixtureSeats.UpdateAvailableSeats(catcode, fixtureID, newAvailableSeats);
                 }
 
-                int newAvailableSeats = currentAvailableSeats - quantity;
-                FixtureSeats.UpdateAvailableSeats(catcode, fixtureID, newAvailableSeats);
+                // Confirmation message
+                MessageBox.Show("Successfully Made a Sale", "Sales", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                ResetForm();
             }
-
-
-            //Confirmation message
-            MessageBox.Show("Succesfully Made a Sale", "Sales", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            ResetForm();
+            else
+            {
+                
+                return;
+            }
         }
 
         private void ResetForm()

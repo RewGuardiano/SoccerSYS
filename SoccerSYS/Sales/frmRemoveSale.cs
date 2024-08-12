@@ -22,12 +22,6 @@ namespace SoccerSYS
 
         private void btnRemoveSales_Click(object sender, EventArgs e)
         {
-            DialogResult dialog = MessageBox.Show("Are you sure you want to Exit?", "Confirm Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (dialog == DialogResult.Yes)
-            {
-                this.Close();
-            }
             
             this.Close();
             Parent.Visible = true;
@@ -151,12 +145,7 @@ namespace SoccerSYS
                 saleToUpdate.SetSaleID(saleID);
 
                 // Ask user if they really want to return the sale
-                DialogResult dialogResult = MessageBox.Show(
-                    $"Are you sure you want to return Sale ID: {txtSaleID.Text}?",
-                    "Return Sale",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning
-                );
+                DialogResult dialogResult = MessageBox.Show($"Are you sure you want to return Sale ID: {txtSaleID.Text}?","Return Sale",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
 
                 if (dialogResult == DialogResult.Yes)
                 {
@@ -166,12 +155,7 @@ namespace SoccerSYS
                         UpdateSaleStatus(saleToUpdate);
 
                         // Confirmation message
-                        MessageBox.Show(
-                            $"Successfully returned Sale ID: {txtSaleID.Text}",
-                            "Return Sale",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information
-                        );
+                        MessageBox.Show($"Successfully returned Sale ID: {txtSaleID.Text}","Return Sale",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
                         // Get the CatCode for the given FixtureID
                         string catCode = GetCatCodeForFixture(Convert.ToInt32(txtMatchID.Text));
