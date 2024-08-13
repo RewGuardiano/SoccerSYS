@@ -30,5 +30,7 @@ namespace SoccerSYS
         {
             Parent.Visible = true;
         }
+
+      
     }
 }
