@@ -15,16 +15,18 @@ namespace SoccerSYS.Classes
         private string CatCode;
         private int Quantity;
         private int Total_Price;
+        private char Is_Cancel;
         private OracleCommand cmd;
         private OracleConnection conn = new OracleConnection(DBConnect.oradb);
         private OracleDataReader dr;
-        public SaleItem(int saleID, string catCode, int quantity, int total_Price)
+        public SaleItem(int saleID, string catCode, int quantity, int total_Price, char is_Cancel)
         {
             SaleItem_ID = getPreviousSaleItem_ID() + 1;
             this.SaleID = saleID;
             this.CatCode = catCode;
             Quantity = quantity;
             Total_Price = total_Price;
+            Is_Cancel = is_Cancel;
         }
         public int GetSaleItemID()
         {
@@ -84,6 +86,16 @@ namespace SoccerSYS.Classes
         {
             Total_Price = totalPrice;
         }
+
+        public char GetIsCancel()
+        {
+            return Is_Cancel;
+        }
+
+        public void SetIsCancel(char isCancel)
+        {
+            Is_Cancel = isCancel;
+        }
         private int getPreviousSaleItem_ID()
         {
             string sqlquery = "SELECT MAX (SaleItem_ID) From SaleItems";
@@ -111,8 +123,8 @@ namespace SoccerSYS.Classes
         public void addSaleItem()
         {
 
-            string sqlQuery = "INSERT INTO SaleItems (SaleItem_ID,SaleID,CatCode,Quantity,Total_Price) " +
-                    "VALUES (:SaleItem_ID, :SaleID, :CatCode, :Quantity, :Total_Price)";
+            string sqlQuery = "INSERT INTO SaleItems (SaleItem_ID,SaleID,CatCode,Quantity,Total_Price,Is_Cancel) " +
+                    "VALUES (:SaleItem_ID, :SaleID, :CatCode, :Quantity, :Total_Price, :Is_Cancel)";
 
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
@@ -125,6 +137,7 @@ namespace SoccerSYS.Classes
             cmd.Parameters.Add(new OracleParameter(":CatCode", this.CatCode));
             cmd.Parameters.Add(new OracleParameter(":Quantity", this.Quantity));
             cmd.Parameters.Add(new OracleParameter(":Total_Price", this.Total_Price));
+            cmd.Parameters.Add(new OracleParameter(":Is_Cancel", this.Is_Cancel));
 
             cmd.ExecuteNonQuery();
 

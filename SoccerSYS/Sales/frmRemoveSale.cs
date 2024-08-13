@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Oracle.ManagedDataAccess.Client;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace SoccerSYS
 {
@@ -52,14 +53,14 @@ namespace SoccerSYS
                         S.Sale_Time, 
                         S.Sub_Total, 
                         S.FixtureID,
-                        S.Cancel_Sale,
+                        SI.Is_Cancel,
                         SI.SaleItem_ID, 
                         SI.CatCode, 
                         SI.Quantity, 
                         SI.Total_Price
                     FROM Sales S
                     JOIN SaleItems SI ON S.SaleID = SI.SaleID
-                    WHERE S.Cancel_Sale<> 'Y'";  // Exclude canceled sales
+                    WHERE SI.Is_Cancel <> 'Y'";  // Exclude canceled sales
 
                     // Set up the data adapter and fill the DataTable
                     OracleDataAdapter da = new OracleDataAdapter(query, conn);
@@ -88,7 +89,7 @@ namespace SoccerSYS
                     grdSales.Columns["Sale_Time"].HeaderText = "Sale Time";
                     grdSales.Columns["Sub_Total"].HeaderText = "Sub Total";
                     grdSales.Columns["FixtureID"].HeaderText = "Fixture ID";
-                    grdSales.Columns["Cancel_Sale"].HeaderText = "Cancelled Sale";
+                    grdSales.Columns["Is_Cancel"].HeaderText = "Is_Cancel";
                     grdSales.Columns["SaleItem_ID"].HeaderText = "Sale Item ID";
                     grdSales.Columns["CatCode"].HeaderText = "Category Code";
                     grdSales.Columns["Quantity"].HeaderText = "Quantity";
@@ -96,8 +97,8 @@ namespace SoccerSYS
 
                     // Hide specific columns
                     grdSales.Columns["SaleItem_ID"].Visible = false;
-                    grdSales.Columns["Total_Price"].Visible = false;
-                    grdSales.Columns["Cancel_Sale"].Visible = false;
+                    grdSales.Columns["Sub_Total"].Visible = false;
+                    grdSales.Columns["Is_Cancel"].Visible = false;
 
                     // Attach event handler for button clicks
                     grdSales.CellContentClick += grdSales_CellContentClick;
@@ -121,7 +122,7 @@ namespace SoccerSYS
                 txtSaleID.Text = grdSales.Rows[e.RowIndex].Cells["SaleID"].Value.ToString();
                 txtEmail.Text = grdSales.Rows[e.RowIndex].Cells["Email"].Value.ToString();
                 dtPickSalesDate.Text = grdSales.Rows[e.RowIndex].Cells["Sale_Time"].Value.ToString();
-                txtTotSales.Text = $"€{Convert.ToDecimal(grdSales.Rows[e.RowIndex].Cells["Sub_Total"].Value)}";
+                txtTotSales.Text = $"€{Convert.ToDecimal(grdSales.Rows[e.RowIndex].Cells["Total_Price"].Value)}";
                 txtMatchID.Text = grdSales.Rows[e.RowIndex].Cells["FixtureID"].Value.ToString();
             }
         }
@@ -137,8 +138,8 @@ namespace SoccerSYS
                     txtEmail.Text,
                     Convert.ToInt32(txtMatchID.Text),
                     dtPickSalesDate.Value.ToString("yyyy-MM-dd"),
-                    Convert.ToInt32(txtTotSales.Text.Substring(1)),
-                    'Y'  // Set Cancel_Sale to 'Y' for cancellation
+                    Convert.ToInt32(txtTotSales.Text.Substring(1))
+                    //'Y'  // Set Cancel_Sale to 'Y' for cancellation
                 );
 
                 // Set the SaleID of the Sale object to update
@@ -151,8 +152,7 @@ namespace SoccerSYS
                 {
                     try
                     {
-                        // Update the sale status to canceled in the Sales table
-                        UpdateSaleStatus(saleToUpdate);
+                        
 
                         // Confirmation message
                         MessageBox.Show($"Successfully returned Sale ID: {txtSaleID.Text}","Return Sale",MessageBoxButtons.OK,MessageBoxIcon.Information);
@@ -162,15 +162,37 @@ namespace SoccerSYS
 
                         if (catCode != null)
                         {
+                            // Update the sale status to canceled in the Sales table
+                            UpdateSaleStatus(saleToUpdate, Convert.ToChar(catCode));
                             // Fetch the current number of available seats
                             int currentAvailableSeats = FixtureSeats.GetAvailableSeats(catCode, Convert.ToInt32(txtMatchID.Text));
 
                             // Increment available seats based on the sale information
-                            int seatsToReturn = GetSeatsCountFromSale(Convert.ToInt32(txtSaleID.Text));
+                            int seatsToReturn = GetSeatsCountFromSale(Convert.ToInt32(txtSaleID.Text), Convert.ToChar(catCode));
+
                             int newAvailableSeats = currentAvailableSeats + seatsToReturn;
 
                             // Update available seats in the FixtureSeats table
                             FixtureSeats.UpdateAvailableSeats(catCode, Convert.ToInt32(txtMatchID.Text), newAvailableSeats);
+                            //UpdateSaleSubTotal(Convert.ToDecimal(txtTotSales.Text), saleToUpdate);
+
+                            Console.Write(txtTotSales.Text);
+                            decimal price;
+                            string input = txtTotSales.Text;
+
+                            // Remove currency symbols and commas
+                            string cleanedInput = input.Replace("€", "").Replace(",", "").Trim();
+
+                            // Try to parse the cleaned input
+                            if (decimal.TryParse(cleanedInput, NumberStyles.Currency, CultureInfo.InvariantCulture, out price))
+                            {
+                                // Assuming saleToUpdate is an instance of the Sale class and is properly initialized
+                                UpdateSaleSubTotal(price, saleToUpdate);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Please enter a valid decimal value for the total sales.");
+                            }
                         }
                         else
                         {
@@ -200,16 +222,72 @@ namespace SoccerSYS
             }
         }
 
+        /*private void UpdateSaleSubTotal(decimal price, Sale sale)
+        {
+            using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
+            {
+                string sqlQuery = "UPDATE Sales SET Sub_Total = Sub_Total - :price WHERE SaleID = :SaleID";
+                using (OracleCommand cmd = new OracleCommand(sqlQuery, conn))
+                {
+                    cmd.Parameters.Add(new OracleParameter(":price", price));
+                    cmd.Parameters.Add(new OracleParameter(":SaleID", sale.GetSaleID()));
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+        }*/
+
+        private void UpdateSaleSubTotal(decimal price, Sale sale)
+        {
+            // Create and open the connection
+            using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
+            {
+                // Define the SQL query with named parameters
+                string sqlQuery = "UPDATE Sales SET Sub_Total = Sub_Total - :price WHERE SaleID = :SaleID";
+
+                // Create the command and add parameters
+                using (OracleCommand cmd = new OracleCommand(sqlQuery, conn))
+                {
+                    // Add parameters with appropriate OracleDbType
+                    cmd.Parameters.Add(new OracleParameter("price", OracleDbType.Decimal)).Value = price;
+                    cmd.Parameters.Add(new OracleParameter("SaleID", OracleDbType.Int32)).Value = sale.GetSaleID();
+
+                    // Open the connection, execute the command, and close the connection
+                    try
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (OracleException ex)
+                    {
+                        // Handle Oracle-specific exceptions
+                        Console.WriteLine("Oracle error: " + ex.Message);
+                    }
+                    catch (Exception ex)
+                    {
+                        // Handle general exceptions
+                        Console.WriteLine("Error: " + ex.Message);
+                    }
+                    finally
+                    {
+                        conn.Close();
+                    }
+                }
+            }
+        }
+
         // Helper method to get the number of seats related to the sale
-        private int GetSeatsCountFromSale(int saleID)
+        private int GetSeatsCountFromSale(int saleID, char CatCode)
         {
             int seatsCount = 0;
             using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
             {
-                string sqlQuery = "SELECT SUM(Quantity) FROM SaleItems WHERE SaleID = :SaleID";
+                string sqlQuery = "SELECT SUM(Quantity) FROM SaleItems WHERE SaleID = :SaleID AND CatCode = :CatCode";
                 using (OracleCommand cmd = new OracleCommand(sqlQuery, conn))
                 {
                     cmd.Parameters.Add(new OracleParameter(":SaleID", saleID));
+                    cmd.Parameters.Add(new OracleParameter(":CatCode", CatCode));
                     conn.Open();
                     object result = cmd.ExecuteScalar();
                     seatsCount = result != null ? Convert.ToInt32(result) : 0;
@@ -243,15 +321,16 @@ namespace SoccerSYS
 
 
         // Method to update the sale status to canceled
-        private void UpdateSaleStatus(Sale sale)
+        private void UpdateSaleStatus(Sale sale, char CatCode)
         {
             using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
             {
-                string sqlQuery = "UPDATE Sales SET Cancel_Sale = :CancelSale WHERE SaleID = :SaleID";
+                string sqlQuery = "UPDATE SaleItems SET Is_Cancel = :cancel WHERE SaleID = :SaleID AND CatCode = :CatCode";
                 using (OracleCommand cmd = new OracleCommand(sqlQuery, conn))
                 {
-                    cmd.Parameters.Add(new OracleParameter(":CancelSale", sale.GetCancelSale()));
+                    cmd.Parameters.Add(new OracleParameter(":CancelSale", 'Y'));
                     cmd.Parameters.Add(new OracleParameter(":SaleID", sale.GetSaleID()));
+                    cmd.Parameters.Add(new OracleParameter(":CatCode", CatCode));
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();

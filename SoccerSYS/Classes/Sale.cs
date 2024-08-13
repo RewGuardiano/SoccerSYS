@@ -24,14 +24,13 @@ namespace SoccerSYS
      
         
 
-        public Sale(string email, int fixtureID, string sale_Time, int sub_Total, char cancelSale)
+        public Sale(string email, int fixtureID, string sale_Time, int sub_Total)
         {
             SaleID = getPreviousSale_ID() + 1;
             Email = email;
             FixtureID = fixtureID;
             Sale_Time = sale_Time;
             Sub_Total = sub_Total;
-            Cancel_Sale = cancelSale;
         }
 
         public int GetSaleID()
@@ -104,8 +103,8 @@ namespace SoccerSYS
         public void addSale()
         {
 
-            string sqlQuery = "INSERT INTO Sales (SaleID,Email,FixtureId,Sale_Time,Sub_Total,Cancel_Sale) " +
-                    "VALUES (:SaleID, :Email, :FixtureID, TO_DATE(:Sale_Time,'YYYY-MM-DD'), :Sub_Total, :CancelSale)";
+            string sqlQuery = "INSERT INTO Sales (SaleID,Email,FixtureId,Sale_Time,Sub_Total) " +
+                    "VALUES (:SaleID, :Email, :FixtureID, TO_DATE(:Sale_Time,'YYYY-MM-DD'), :Sub_Total)";
 
             OracleConnection conn = new OracleConnection(DBConnect.oradb);
 
@@ -118,7 +117,6 @@ namespace SoccerSYS
             cmd.Parameters.Add(new OracleParameter(":FixtureID", this.FixtureID));
             cmd.Parameters.Add(new OracleParameter(":Sale_Time",this.Sale_Time));
             cmd.Parameters.Add(new OracleParameter(":Sub_Total", this.Sub_Total));
-            cmd.Parameters.Add(new OracleParameter(":CancelSale", this.Cancel_Sale));
 
             cmd.ExecuteNonQuery();
 

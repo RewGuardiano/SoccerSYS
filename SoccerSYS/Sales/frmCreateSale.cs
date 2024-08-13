@@ -169,7 +169,8 @@ namespace SoccerSYS
                 int subTotal = int.Parse(txtTotPrice.Text.ToString());
 
                 // Save to class
-                Sale sale = new Sale(txtEmail.Text.ToString(), fixtureID, dateTime, subTotal, 'N');
+                // Sale sale = new Sale(txtEmail.Text.ToString(), fixtureID, dateTime, subTotal, 'N');
+                Sale sale = new Sale(txtEmail.Text.ToString(), fixtureID, dateTime, subTotal);
                 // Save to database
                 sale.addSale();
 
@@ -179,7 +180,7 @@ namespace SoccerSYS
                     int quantity = int.Parse(row.Cells["Quantity"].Value.ToString());
                     int price = int.Parse(row.Cells["Price"].Value.ToString());
 
-                    SaleItem saleItem = new SaleItem(sale.GetSaleID(), catcode, quantity, price);
+                    SaleItem saleItem = new SaleItem(sale.GetSaleID(), catcode, quantity, price, 'N');
                     saleItem.addSaleItem();
 
                     // Update available seats in the FixtureSeats table

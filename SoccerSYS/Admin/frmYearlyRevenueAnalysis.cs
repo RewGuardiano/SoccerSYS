@@ -17,7 +17,7 @@ namespace SoccerSYS
     {
         private static new Form Parent;
         OracleConnection conn = new OracleConnection(DBConnect.oradb);
-        string loadQuery = "SELECT TO_CHAR(Sale_Time, 'MM') AS sales_month, SUM(sub_total) AS monthly_revenue FROM Sales GROUP BY TO_CHAR(Sale_Time, 'MM') ORDER BY TO_CHAR(Sale_time, 'MM')";
+        string loadQuery = "SELECT TO_CHAR(Fixture_Time, 'MM') AS sales_month, SUM(sub_total) AS monthly_revenue FROM Sales s JOIN Fixtures f ON s.fixtureid = f.fixtureid GROUP BY TO_CHAR(Fixture_Time, 'MM') ORDER BY TO_CHAR(Fixture_time, 'MM')";
         public frrmYearlyRevenueAnalysis(Form parent)
         {
             InitializeComponent();

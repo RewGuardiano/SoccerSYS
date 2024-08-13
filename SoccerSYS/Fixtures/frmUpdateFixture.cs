@@ -60,14 +60,14 @@ namespace SoccerSYS
                 using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
                 {
                     conn.Open();
-                    string query = "SELECT Fixture_ID FROM Fixtures";
+                    string query = "SELECT FixtureID FROM Fixtures";
                     using (OracleCommand cmd = new OracleCommand(query, conn))
                     {
                         using (OracleDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                fixtureIDs.Add(reader["Fixture_ID"].ToString());
+                                fixtureIDs.Add(reader["FixtureID"].ToString());
                             }
                         }
                     }
@@ -76,7 +76,7 @@ namespace SoccerSYS
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error fetching Fixture_IDs: " + ex.Message);
+                Console.WriteLine("Error fetching FixtureIDs: " + ex.Message);
             }
 
             return fixtureIDs;
