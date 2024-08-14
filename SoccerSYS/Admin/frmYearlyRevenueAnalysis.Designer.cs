@@ -126,7 +126,7 @@ namespace SoccerSYS
             // 
             this.txtMostSales.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtMostSales.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMostSales.ForeColor = System.Drawing.Color.White;
+            this.txtMostSales.ForeColor = System.Drawing.Color.Black;
             this.txtMostSales.Location = new System.Drawing.Point(412, 412);
             this.txtMostSales.Margin = new System.Windows.Forms.Padding(2);
             this.txtMostSales.Name = "txtMostSales";
@@ -139,7 +139,7 @@ namespace SoccerSYS
             // 
             this.txtLeastSales.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtLeastSales.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLeastSales.ForeColor = System.Drawing.Color.White;
+            this.txtLeastSales.ForeColor = System.Drawing.Color.Black;
             this.txtLeastSales.Location = new System.Drawing.Point(412, 450);
             this.txtLeastSales.Margin = new System.Windows.Forms.Padding(2);
             this.txtLeastSales.Name = "txtLeastSales";
@@ -152,7 +152,7 @@ namespace SoccerSYS
             // 
             this.txtAvgSales.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtAvgSales.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAvgSales.ForeColor = System.Drawing.Color.White;
+            this.txtAvgSales.ForeColor = System.Drawing.Color.Black;
             this.txtAvgSales.Location = new System.Drawing.Point(412, 494);
             this.txtAvgSales.Margin = new System.Windows.Forms.Padding(2);
             this.txtAvgSales.Name = "txtAvgSales";
@@ -165,7 +165,7 @@ namespace SoccerSYS
             // 
             this.txtTotOfSales.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtTotOfSales.Font = new System.Drawing.Font("Calibri", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotOfSales.ForeColor = System.Drawing.Color.White;
+            this.txtTotOfSales.ForeColor = System.Drawing.Color.Black;
             this.txtTotOfSales.Location = new System.Drawing.Point(513, 544);
             this.txtTotOfSales.Margin = new System.Windows.Forms.Padding(2);
             this.txtTotOfSales.Name = "txtTotOfSales";

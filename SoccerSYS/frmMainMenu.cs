@@ -78,6 +78,9 @@ namespace SoccerSYS
             frrmYearlyRevenueAnalysis to = new frrmYearlyRevenueAnalysis(this);
             to.Show();
             this.Hide();
+            
+            to.getStats();
+            
         }
 
         private void yearlyTicketRevenueAnalysisToolStripMenuItem_Click(object sender, EventArgs e)

@@ -22,12 +22,14 @@ namespace SoccerSYS
         {
             InitializeComponent();
             Parent = parent;
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
             Parent.Visible = true;
+            
         }
 
         private void frrmYearlyRevenueAnalysis_Load(object sender, EventArgs e)
@@ -72,6 +74,9 @@ namespace SoccerSYS
                     chartSales.ChartAreas[0].AxisX.MinorGrid.Enabled = false;
                     chartSales.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
                     chartSales.ChartAreas[0].AxisY.MinorGrid.Enabled = false;
+                    getStats();
+                  
+
                 }
                 else
                 {
@@ -128,6 +133,82 @@ namespace SoccerSYS
             Parent.Visible = true;
         }
 
-       
+        public void getStats()
+        {
+            // Initialize variables for tracking sales data
+            string mostSalesMonthName = "";
+            decimal mostSales = decimal.MinValue;
+            string leastSalesMonthName = "";
+            decimal leastSales = decimal.MaxValue;
+            decimal totSales = 0;
+
+            // Load data into a DataSet
+            DataSet ds = loadChart(loadQuery); // Assuming loadQuery has the right query for statistics
+
+            // Check if data is available
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                // Iterate through the rows of the DataTable
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    // Parse sales value from the DataRow
+                    decimal sales = Convert.ToDecimal(row["monthly_revenue"]);
+
+                    // Get month number and convert to month name
+                    string monthNumber = row["sales_month"].ToString();
+                    string monthName;
+
+                    switch (monthNumber)
+                    {
+                        case "01": monthName = "January"; break;
+                        case "02": monthName = "February"; break;
+                        case "03": monthName = "March"; break;
+                        case "04": monthName = "April"; break;
+                        case "05": monthName = "May"; break;
+                        case "06": monthName = "June"; break;
+                        case "07": monthName = "July"; break;
+                        case "08": monthName = "August"; break;
+                        case "09": monthName = "September"; break;
+                        case "10": monthName = "October"; break;
+                        case "11": monthName = "November"; break;
+                        case "12": monthName = "December"; break;
+                        default: monthName = monthNumber; break; // Fallback for unexpected values
+                    }
+
+                    // Determine the month with most sales
+                    if (sales > mostSales)
+                    {
+                        mostSales = sales;
+                        mostSalesMonthName = monthName;
+                    }
+
+                    // Determine the month with least sales
+                    if (sales < leastSales)
+                    {
+                        leastSales = sales;
+                        leastSalesMonthName = monthName;
+                    }
+
+                    // Accumulate total sales
+                    totSales += sales;
+                }
+
+                // Calculate average sales
+                int numOfRows = ds.Tables[0].Rows.Count;
+                float avgSales = numOfRows > 0 ? (float)(totSales / numOfRows) : 0;
+
+                // Display results
+                txtMostSales.Text = $"{mostSalesMonthName} - €{mostSales:N2}";
+                txtLeastSales.Text = $"{leastSalesMonthName} - €{leastSales:N2}";
+                txtAvgSales.Text = $"The average sales for {numOfRows} months is €{avgSales:N2}";
+                txtTotOfSales.Text = $"€{totSales:N2}";
+            }
+            else
+            {
+                // Handle the case where no data is available
+                MessageBox.Show("No data available for statistics.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
     }
 }
