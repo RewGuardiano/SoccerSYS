@@ -82,7 +82,12 @@ namespace SoccerSYS
             // NUDCategorySeats
             // 
             this.NUDCategorySeats.Location = new System.Drawing.Point(238, 228);
-            this.NUDCategorySeats.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NUDCategorySeats.Margin = new System.Windows.Forms.Padding(2);
+            this.NUDCategorySeats.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.NUDCategorySeats.Minimum = new decimal(new int[] {
             1,
             0,
@@ -102,7 +107,7 @@ namespace SoccerSYS
             // 
             this.NUDCategoriesPrice.DecimalPlaces = 2;
             this.NUDCategoriesPrice.Location = new System.Drawing.Point(238, 182);
-            this.NUDCategoriesPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NUDCategoriesPrice.Margin = new System.Windows.Forms.Padding(2);
             this.NUDCategoriesPrice.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -126,7 +131,7 @@ namespace SoccerSYS
             // 
             this.cobCatCode.FormattingEnabled = true;
             this.cobCatCode.Location = new System.Drawing.Point(273, 45);
-            this.cobCatCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cobCatCode.Margin = new System.Windows.Forms.Padding(2);
             this.cobCatCode.Name = "cobCatCode";
             this.cobCatCode.Size = new System.Drawing.Size(194, 28);
             this.cobCatCode.TabIndex = 28;

@@ -78,7 +78,7 @@ namespace SoccerSYS
 
                 if (currentTotalMaxSeats + newMaxSeats > 500)
                 {
-                    MessageBox.Show("Adding this category will exceed the maximum allowed seats.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Adding this category will exceed the maximum allowed seats of 500.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 

@@ -149,31 +149,7 @@ namespace SoccerSYS
             return 0;
         }
     }
-    /*
-    public static void getSale(int TicketID)
-    {
-        OracleConnection conn = new OracleConnection(DBConnect.oradb);
-
-        string sqlQuery = "SELECT * FROM CATEGORYS WHERE TicketID = :ticketID";
-
-        OracleCommand cmd = new OracleCommand(sqlQuery, conn);
-
-        cmd.Parameters.Add(new OracleParameter("ticketID", TicketID));
-
-        conn.Open();
-
-        OracleDataReader dr = cmd.ExecuteReader();
-        dr.Read();
-
-
-
-
-
-        conn.Close();
-
-
-    }*/
-
+    
 
 
 }

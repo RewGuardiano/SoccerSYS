@@ -117,53 +117,6 @@ namespace SoccerSYS
 
 
 
-        /*
-                private void btnUpdateCategory_Click(object sender, EventArgs e)
-                {
-                    // Validate form inputs
-                    if (txtdescription.Text.Equals(""))
-                    {
-                        MessageBox.Show("Description must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtdescription.Focus();
-                        return;
-                    }
-
-
-                    Categories theCategory = new Categories();
-
-                    theCategory.setCatCode(cobCatCode.Text);
-                    theCategory.setdescription(txtdescription.Text);
-                    theCategory.setprice(decimal.Parse(NUDCategoriesPrice.Text));
-
-
-                    theCategory.UpdateCategory();
-                    MessageBox.Show("Category Updated", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    txtdescription.Clear();
-                    
-
-                    grpCategory.Visible = false;
-                    grdCategory.Visible = false;
-
-                }
-
-                
-
-
-                private void grdCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
-                {
-                    String CatCode = Convert.ToString(grdCategory.Rows[grdCategory.CurrentCell.RowIndex].Cells[0].Value.ToString());
-
-                    theCategory.getCategory(CatCode);
-
-
-                    txtdescription.Text = theCategory.getdescription();
-                    
-
-
-                    grpCategory.Visible = true;
-                }
-                */
-
+       
     }
 }

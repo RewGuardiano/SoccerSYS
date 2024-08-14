@@ -153,17 +153,16 @@ namespace SoccerSYS
                     try
                     {
                         
+                        MessageBox.Show($"Successfully returned Sale ID: {txtSaleID.Text}", "Return Sale", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        // Confirmation message
-                        MessageBox.Show($"Successfully returned Sale ID: {txtSaleID.Text}","Return Sale",MessageBoxButtons.OK,MessageBoxIcon.Information);
-
-                        // Get the CatCode for the given FixtureID                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                        // Get the CatCode for the given FixtureID
                         string catCode = GetCatCodeForFixture(Convert.ToInt32(txtMatchID.Text));
 
                         if (catCode != null)
                         {
                             // Update the sale status to canceled in the Sales table
                             UpdateSaleStatus(saleToUpdate, Convert.ToChar(catCode));
+
                             // Fetch the current number of available seats
                             int currentAvailableSeats = FixtureSeats.GetAvailableSeats(catCode, Convert.ToInt32(txtMatchID.Text));
 
@@ -174,9 +173,11 @@ namespace SoccerSYS
 
                             // Update available seats in the FixtureSeats table
                             FixtureSeats.UpdateAvailableSeats(catCode, Convert.ToInt32(txtMatchID.Text), newAvailableSeats);
-                            //UpdateSaleSubTotal(Convert.ToDecimal(txtTotSales.Text), saleToUpdate);
 
-                            Console.Write(txtTotSales.Text);
+                            // Remove the row from DataGridView
+                            grdSales.Rows.Remove(grdSales.CurrentRow);
+
+                            // Update the sale's subtotal
                             decimal price;
                             string input = txtTotSales.Text;
 
@@ -186,29 +187,25 @@ namespace SoccerSYS
                             // Try to parse the cleaned input
                             if (decimal.TryParse(cleanedInput, NumberStyles.Currency, CultureInfo.InvariantCulture, out price))
                             {
-                                // Assuming saleToUpdate is an instance of the Sale class and is properly initialized
                                 UpdateSaleSubTotal(price, saleToUpdate);
                             }
                             else
                             {
                                 MessageBox.Show("Please enter a valid decimal value for the total sales.");
                             }
+
+                            // Reset UI
+                            TextBox[] txtBoxes = { txtSaleID, txtEmail, txtTotSales, txtMatchID };
+                            foreach (TextBox textBox in txtBoxes)
+                            {
+                                textBox.Clear();
+                            }
+                            grpSaleDetails.Visible = false;
                         }
                         else
                         {
                             MessageBox.Show("Category code for the fixture not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-
-                        // Remove the row from DataGridView
-                        grdSales.Rows.Remove(grdSales.CurrentRow);
-
-                        // Reset UI
-                        TextBox[] txtBoxes = { txtSaleID, txtEmail, txtTotSales, txtMatchID };
-                        foreach (TextBox textBox in txtBoxes)
-                        {
-                            textBox.Clear();
-                        }
-                        grpSaleDetails.Visible = false;
                     }
                     catch (Exception ex)
                     {
@@ -222,38 +219,17 @@ namespace SoccerSYS
             }
         }
 
-        /*private void UpdateSaleSubTotal(decimal price, Sale sale)
-        {
-            using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
-            {
-                string sqlQuery = "UPDATE Sales SET Sub_Total = Sub_Total - :price WHERE SaleID = :SaleID";
-                using (OracleCommand cmd = new OracleCommand(sqlQuery, conn))
-                {
-                    cmd.Parameters.Add(new OracleParameter(":price", price));
-                    cmd.Parameters.Add(new OracleParameter(":SaleID", sale.GetSaleID()));
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                }
-            }
-        }*/
 
         private void UpdateSaleSubTotal(decimal price, Sale sale)
         {
-            // Create and open the connection
             using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
             {
-                // Define the SQL query with named parameters
                 string sqlQuery = "UPDATE Sales SET Sub_Total = Sub_Total - :price WHERE SaleID = :SaleID";
-
-                // Create the command and add parameters
                 using (OracleCommand cmd = new OracleCommand(sqlQuery, conn))
                 {
-                    // Add parameters with appropriate OracleDbType
-                    cmd.Parameters.Add(new OracleParameter("price", OracleDbType.Decimal)).Value = price;
-                    cmd.Parameters.Add(new OracleParameter("SaleID", OracleDbType.Int32)).Value = sale.GetSaleID();
+                    cmd.Parameters.Add(new OracleParameter(":price", OracleDbType.Decimal)).Value = price;
+                    cmd.Parameters.Add(new OracleParameter(":SaleID", OracleDbType.Int32)).Value = sale.GetSaleID();
 
-                    // Open the connection, execute the command, and close the connection
                     try
                     {
                         conn.Open();
@@ -302,11 +278,8 @@ namespace SoccerSYS
             string catCode = null;
             using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
             {
-                string sqlQuery = @"
-                SELECT SI.CatCode
-                FROM SaleItems SI
-                JOIN Sales S ON SI.SaleID = S.SaleID
-                WHERE S.FixtureID = :FixtureID";
+                string sqlQuery = @"SELECT SI.CatCode FROM SaleItems SI JOIN Sales S ON SI.SaleID = S.SaleID WHERE S.FixtureID = :FixtureID
+                AND SI.Is_Cancel = 'N'"; // Ensure we're only getting valid sales
                 using (OracleCommand cmd = new OracleCommand(sqlQuery, conn))
                 {
                     cmd.Parameters.Add(new OracleParameter(":FixtureID", fixtureID));
