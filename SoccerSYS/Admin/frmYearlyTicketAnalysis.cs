@@ -76,6 +76,9 @@ namespace SoccerSYS
                     chartPopularity.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
                     chartPopularity.ChartAreas[0].AxisY.MinorGrid.Enabled = false;
                     getStats();
+
+                    // Get average categories per fixture
+                    getAvgCategoriesPerFixture();
                 }
                 else
                 {
@@ -126,6 +129,7 @@ namespace SoccerSYS
 
             return ds;
         }
+
         //This method gets the most popular Category Seat Code, least popular Category Seat Code  and average seats sold per match and display them in textboxes
         public void getStats()
         {
@@ -133,96 +137,115 @@ namespace SoccerSYS
             int mostSeatsSold = 0;
             string leastPopularCategories = "";
             int leastSeatsSold = int.MaxValue; // Start with a very high value
-            int totalCategories = 0;
-            int totalSeatsSold = 0;
 
-            // Load sales data
-            string statsQuery = @"
-            SELECT CatCode, 
-                   SUM(Quantity) AS Total_Quantity 
-            FROM SaleItems 
-            WHERE Is_Cancel <> 'Y' 
-            GROUP BY CatCode";
-            DataSet ds = loadChart(statsQuery);
-
-            // Check if data is available
-            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            try
             {
-                // Iterate through the rows of the DataTable
-                foreach (DataRow row in ds.Tables[0].Rows)
-                {
-                    int seatsSold = Convert.ToInt32(row["Total_Quantity"]);
-                    string categoryCode = row["CatCode"].ToString();
-
-                    // Determine the category with most seats sold
-                    if (seatsSold > mostSeatsSold)
-                    {
-                        mostSeatsSold = seatsSold;
-                        mostPopularCategories = $"{categoryCode} - {mostSeatsSold} seats\n";
-                    }
-                    else if (seatsSold == mostSeatsSold)
-                    {
-                        mostPopularCategories += $"{categoryCode} - {seatsSold} seats\n";
-                    }
-
-                    // Determine the category with least seats sold
-                    if (seatsSold < leastSeatsSold)
-                    {
-                        leastSeatsSold = seatsSold;
-                        leastPopularCategories = $"{categoryCode} - {leastSeatsSold} seats\n";
-                    }
-                    else if (seatsSold == leastSeatsSold)
-                    {
-                        leastPopularCategories += $"{categoryCode} - {seatsSold} seats\n";
-                    }
-
-                    // Accumulate total seats sold
-                    totalSeatsSold += seatsSold;
-                    totalCategories++;
-                }
-
-                // Calculate average seats sold per fixture
-                string fixtureQuery = @"
+                // Load sales data
+                string statsQuery = @"
                 SELECT CatCode, 
-                       COUNT(DISTINCT SaleID) AS Fixture_Count 
+                       SUM(Quantity) AS Total_Quantity 
                 FROM SaleItems 
                 WHERE Is_Cancel <> 'Y' 
                 GROUP BY CatCode";
-                DataSet fixtureDs = loadChart(fixtureQuery);
+                DataSet ds = loadChart(statsQuery);
 
-                float totalAvgTicketsPerFixture = 0;
-                int fixtureCategories = 0;
-
-                if (fixtureDs.Tables.Count > 0 && fixtureDs.Tables[0].Rows.Count > 0)
+                // Check if data is available
+                if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
-                    foreach (DataRow row in fixtureDs.Tables[0].Rows)
+                    // Iterate through the rows of the DataTable
+                    foreach (DataRow row in ds.Tables[0].Rows)
                     {
+                        int seatsSold = Convert.ToInt32(row["Total_Quantity"]);
                         string categoryCode = row["CatCode"].ToString();
-                        int fixtureCount = Convert.ToInt32(row["Fixture_Count"]);
 
-                        // Get total quantity of tickets for this category
-                        DataRow[] ticketRows = ds.Tables[0].Select($"CatCode = '{categoryCode}'");
-                        int ticketsSold = ticketRows.Length > 0 ? Convert.ToInt32(ticketRows[0]["Total_Quantity"]) : 0;
+                        // Determine the category with most seats sold
+                        if (seatsSold > mostSeatsSold)
+                        {
+                            mostSeatsSold = seatsSold;
+                            mostPopularCategories = $"{categoryCode} - {mostSeatsSold} seats\n";
+                        }
+                        else if (seatsSold == mostSeatsSold)
+                        {
+                            mostPopularCategories += $"{categoryCode} - {seatsSold} seats\n";
+                        }
 
-                        // Calculate the average tickets per fixture for this category
-                        float avgTicketsPerFixture = fixtureCount > 0 ? (float)ticketsSold / fixtureCount : 0;
-                        totalAvgTicketsPerFixture += avgTicketsPerFixture;
-                        fixtureCategories++;
+                        // Determine the category with least seats sold
+                        if (seatsSold < leastSeatsSold)
+                        {
+                            leastSeatsSold = seatsSold;
+                            leastPopularCategories = $"{categoryCode} - {leastSeatsSold} seats\n";
+                        }
+                        else if (seatsSold == leastSeatsSold)
+                        {
+                            leastPopularCategories += $"{categoryCode} - {seatsSold} seats\n";
+                        }
                     }
+
+                    // Display results
+                    txtMostTicket.Text = mostPopularCategories.Trim();
+                    txtLeastTicket.Text = leastPopularCategories.Trim();
                 }
-
-                // Calculate overall average and round to nearest whole number
-                int avgTicketsPerFixtureOverall = fixtureCategories > 0 ? (int)Math.Round(totalAvgTicketsPerFixture / fixtureCategories) : 0;
-
-                // Display results
-                txtMostTicket.Text = mostPopularCategories.Trim();
-                txtLeastTicket.Text = leastPopularCategories.Trim();
-                txtAvgTickets.Text = $"{avgTicketsPerFixtureOverall} tickets per fixture";
+                else
+                {
+                    // Handle the case where no data is available
+                    MessageBox.Show("No data available for statistics.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            else
+            catch (OracleException ex)
             {
-                // Handle the case where no data is available
-                MessageBox.Show("No data available for statistics.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Oracle error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"General error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void getAvgCategoriesPerFixture()
+        {
+            try
+            {
+                // Query to count distinct categories per fixture
+                string categoriesPerFixtureQuery = @"
+                SELECT SaleID, COUNT(DISTINCT CatCode) AS Category_Count
+                FROM SaleItems
+                WHERE Is_Cancel <> 'Y'
+                GROUP BY SaleID";
+
+                DataSet categoriesDs = loadChart(categoriesPerFixtureQuery);
+
+                int totalFixtures = 0;
+                int totalCategories = 0;
+
+                if (categoriesDs.Tables.Count > 0 && categoriesDs.Tables[0].Rows.Count > 0)
+                {
+                    // Calculate total number of categories and fixtures
+                    foreach (DataRow row in categoriesDs.Tables[0].Rows)
+                    {
+                        int categoryCount = Convert.ToInt32(row["Category_Count"]);
+                        totalCategories += categoryCount;
+                        totalFixtures++;
+                    }
+
+                    // Calculate average number of categories per fixture
+                    int avgCategoriesPerFixture = totalFixtures > 0 ? (int)Math.Round((double)totalCategories / totalFixtures) : 0;
+
+                    // Display the result
+                    txtAvgTickets.Text = $"{avgCategoriesPerFixture} categories per fixture";
+                }
+                else
+                {
+                    // Handle the case where no data is available
+                    MessageBox.Show("No data available to calculate average categories per fixture.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show($"Oracle error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"General error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
