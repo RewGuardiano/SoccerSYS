@@ -38,7 +38,7 @@ namespace SoccerSYS
             {
                
                 // Configure the chart
-                chartSales.Titles.Clear(); // Clear any existing titles
+                chartSales.Titles.Clear(); 
                 chartSales.Titles.Add("Yearly Revenue Analysis");
                 chartSales.Titles[0].Font = new Font("Calibri", 16, FontStyle.Bold);
                 chartSales.ChartAreas[0].BackColor = Color.DimGray;
@@ -83,10 +83,13 @@ namespace SoccerSYS
                     MessageBox.Show("No data available to display.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+            //Debugging
+            // Handle Oracle-specific exceptions
             catch (OracleException ex)
             {
                 MessageBox.Show($"Oracle error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            // Handle general exceptions
             catch (Exception ex)
             {
                 MessageBox.Show($"General error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -98,18 +101,18 @@ namespace SoccerSYS
 
             DataSet ds = new DataSet();
 
-            // Ensure that the OracleConnection is properly initialized
+            
             using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
             {
                 try
                 {
-                    // Open the connection
+                    
                     conn.Open();
 
-                    // Initialize the OracleDataAdapter with the provided query and connection
+                   
                     using (OracleDataAdapter adapt = new OracleDataAdapter(sqlQuery, conn))
                     {
-                        // Fill the DataSet with the results of the query
+                       
                         adapt.Fill(ds);
                     }
                 }
@@ -133,6 +136,8 @@ namespace SoccerSYS
             Parent.Visible = true;
         }
 
+
+        //This method gets the most monthly sales, least monthly sales, average sales and total sales per season and display them in textboxes
         public void getStats()
         {
             // Initialize variables for tracking sales data
@@ -143,7 +148,7 @@ namespace SoccerSYS
             decimal totSales = 0;
 
             // Load data into a DataSet
-            DataSet ds = loadChart(loadQuery); // Assuming loadQuery has the right query for statistics
+            DataSet ds = loadChart(loadQuery); 
 
             // Check if data is available
             if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
@@ -172,7 +177,7 @@ namespace SoccerSYS
                         case "10": monthName = "October"; break;
                         case "11": monthName = "November"; break;
                         case "12": monthName = "December"; break;
-                        default: monthName = monthNumber; break; // Fallback for unexpected values
+                        default: monthName = monthNumber; break; 
                     }
 
                     // Determine the month with most sales

@@ -88,6 +88,7 @@ namespace SoccerSYS
             frmYearlyTicketAnalysis to = new frmYearlyTicketAnalysis(this);
             to.Show();
             this.Hide();
+            to.getStats();
         }
 
        

@@ -39,7 +39,7 @@ namespace SoccerSYS
             {
 
                 // Configure the chart
-                chartPopularity.Titles.Clear(); // Clear any existing titles
+                chartPopularity.Titles.Clear(); 
                 chartPopularity.Titles.Add("Popularity Analysis");
                 chartPopularity.Titles[0].Font = new Font("Calibri", 16, FontStyle.Bold);
                 chartPopularity.ChartAreas[0].BackColor = Color.DimGray;
@@ -75,6 +75,7 @@ namespace SoccerSYS
                     chartPopularity.ChartAreas[0].AxisX.MinorGrid.Enabled = false;
                     chartPopularity.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
                     chartPopularity.ChartAreas[0].AxisY.MinorGrid.Enabled = false;
+                    getStats();
                 }
                 else
                 {
@@ -96,37 +97,133 @@ namespace SoccerSYS
 
             DataSet ds = new DataSet();
 
-            // Ensure that the OracleConnection is properly initialized
+           
             using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
             {
                 try
                 {
-                    // Open the connection
+                    
                     conn.Open();
 
-                    // Initialize the OracleDataAdapter with the provided query and connection
+                   
                     using (OracleDataAdapter adapt = new OracleDataAdapter(sqlQuery, conn))
                     {
-                        // Fill the DataSet with the results of the query
+                        
                         adapt.Fill(ds);
                     }
                 }
                 catch (OracleException ex)
                 {
-                    // Handle Oracle-specific exceptions
+                    //Debugging
                     MessageBox.Show($"Oracle error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch (Exception ex)
                 {
-                    // Handle general exceptions
+                   
                     MessageBox.Show($"General error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
             return ds;
         }
+        //This method gets the most popular Category Seat Code, least popular Category Seat Code  and average seats sold per match and display them in textboxes
+        public void getStats()
+        {
+            string mostPopularCategories = "";
+            int mostSeatsSold = 0;
+            string leastPopularCategories = "";
+            int leastSeatsSold = int.MaxValue; // Start with a very high value
+            int totalCategories = 0;
+            int totalSeatsSold = 0;
 
+            // Load sales data
+            string statsQuery = @"
+            SELECT CatCode, 
+                   SUM(Quantity) AS Total_Quantity 
+            FROM SaleItems 
+            WHERE Is_Cancel <> 'Y' 
+            GROUP BY CatCode";
+            DataSet ds = loadChart(statsQuery);
 
+            // Check if data is available
+            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                // Iterate through the rows of the DataTable
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    int seatsSold = Convert.ToInt32(row["Total_Quantity"]);
+                    string categoryCode = row["CatCode"].ToString();
 
+                    // Determine the category with most seats sold
+                    if (seatsSold > mostSeatsSold)
+                    {
+                        mostSeatsSold = seatsSold;
+                        mostPopularCategories = $"{categoryCode} - {mostSeatsSold} seats\n";
+                    }
+                    else if (seatsSold == mostSeatsSold)
+                    {
+                        mostPopularCategories += $"{categoryCode} - {seatsSold} seats\n";
+                    }
+
+                    // Determine the category with least seats sold
+                    if (seatsSold < leastSeatsSold)
+                    {
+                        leastSeatsSold = seatsSold;
+                        leastPopularCategories = $"{categoryCode} - {leastSeatsSold} seats\n";
+                    }
+                    else if (seatsSold == leastSeatsSold)
+                    {
+                        leastPopularCategories += $"{categoryCode} - {seatsSold} seats\n";
+                    }
+
+                    // Accumulate total seats sold
+                    totalSeatsSold += seatsSold;
+                    totalCategories++;
+                }
+
+                // Calculate average seats sold per fixture
+                string fixtureQuery = @"
+                SELECT CatCode, 
+                       COUNT(DISTINCT SaleID) AS Fixture_Count 
+                FROM SaleItems 
+                WHERE Is_Cancel <> 'Y' 
+                GROUP BY CatCode";
+                DataSet fixtureDs = loadChart(fixtureQuery);
+
+                float totalAvgTicketsPerFixture = 0;
+                int fixtureCategories = 0;
+
+                if (fixtureDs.Tables.Count > 0 && fixtureDs.Tables[0].Rows.Count > 0)
+                {
+                    foreach (DataRow row in fixtureDs.Tables[0].Rows)
+                    {
+                        string categoryCode = row["CatCode"].ToString();
+                        int fixtureCount = Convert.ToInt32(row["Fixture_Count"]);
+
+                        // Get total quantity of tickets for this category
+                        DataRow[] ticketRows = ds.Tables[0].Select($"CatCode = '{categoryCode}'");
+                        int ticketsSold = ticketRows.Length > 0 ? Convert.ToInt32(ticketRows[0]["Total_Quantity"]) : 0;
+
+                        // Calculate the average tickets per fixture for this category
+                        float avgTicketsPerFixture = fixtureCount > 0 ? (float)ticketsSold / fixtureCount : 0;
+                        totalAvgTicketsPerFixture += avgTicketsPerFixture;
+                        fixtureCategories++;
+                    }
+                }
+
+                // Calculate overall average and round to nearest whole number
+                int avgTicketsPerFixtureOverall = fixtureCategories > 0 ? (int)Math.Round(totalAvgTicketsPerFixture / fixtureCategories) : 0;
+
+                // Display results
+                txtMostTicket.Text = mostPopularCategories.Trim();
+                txtLeastTicket.Text = leastPopularCategories.Trim();
+                txtAvgTickets.Text = $"{avgTicketsPerFixtureOverall} tickets per fixture";
+            }
+            else
+            {
+                // Handle the case where no data is available
+                MessageBox.Show("No data available for statistics.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
