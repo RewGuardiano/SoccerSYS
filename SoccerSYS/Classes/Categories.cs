@@ -116,7 +116,7 @@ namespace SoccerSYS
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
-                // Optionally, handle the exception (e.g., log the error)
+              
             }
 
             return exceedsLimit;
@@ -158,7 +158,6 @@ namespace SoccerSYS
             {
                 // Display an error message or throw an exception
                 MessageBox.Show("Error: The CatCode already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                // Or, throw an exception
                 // throw new Exception("The CatCode already exists.");
             }
         }
@@ -173,7 +172,7 @@ namespace SoccerSYS
 
                     using (OracleCommand cmd = new OracleCommand(sqlQuery, conn))
                     {
-                        // Add parameters to the command
+                        
                         cmd.Parameters.Add(new OracleParameter(":description", this.Description));
                         cmd.Parameters.Add(new OracleParameter(":price", this.Price));
                         cmd.Parameters.Add(new OracleParameter(":maxSeats", this.MaxSeats));
@@ -187,7 +186,7 @@ namespace SoccerSYS
             catch (Exception ex)
             {
                 Console.WriteLine("Error updating category: " + ex.Message);
-                // Optionally handle or log the exception
+                
             }
         }
 

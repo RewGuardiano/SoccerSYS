@@ -141,9 +141,7 @@ namespace SoccerSYS
             try
             {
                 // Load sales data
-                string statsQuery = @"
-                SELECT CatCode, 
-                       SUM(Quantity) AS Total_Quantity 
+                string statsQuery = @"SELECT CatCode, SUM(Quantity) AS Total_Quantity 
                 FROM SaleItems 
                 WHERE Is_Cancel <> 'Y' 
                 GROUP BY CatCode";
@@ -229,9 +227,11 @@ namespace SoccerSYS
 
                     // Calculate average number of categories per fixture
                     int avgCategoriesPerFixture = totalFixtures > 0 ? (int)Math.Round((double)totalCategories / totalFixtures) : 0;
+                    Console.WriteLine(avgCategoriesPerFixture);
 
                     // Display the result
                     txtAvgTickets.Text = $"{avgCategoriesPerFixture} categories per fixture";
+                    Console.WriteLine(txtAvgTickets);
                 }
                 else
                 {

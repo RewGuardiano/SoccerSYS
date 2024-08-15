@@ -43,7 +43,7 @@ namespace SoccerSYS
         {
             try
             {
-                // Define the connection string and the query
+                
                 using (OracleConnection conn = new OracleConnection(DBConnect.oradb))
                 {
                     string query = @"
@@ -62,7 +62,7 @@ namespace SoccerSYS
                     JOIN SaleItems SI ON S.SaleID = SI.SaleID
                     WHERE SI.Is_Cancel <> 'Y'";  // Exclude canceled sales
 
-                    // Set up the data adapter and fill the DataTable
+                    
                     OracleDataAdapter da = new OracleDataAdapter(query, conn);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
