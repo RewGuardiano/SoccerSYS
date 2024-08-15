@@ -203,41 +203,48 @@ namespace SoccerSYS
         {
             try
             {
-                // Query to count distinct categories per fixture
-                string categoriesPerFixtureQuery = @"
-                SELECT SaleID, COUNT(DISTINCT CatCode) AS Category_Count
+                // Query to count distinct categories per fixture where there are sales
+                string fixturesWithSalesQuery = @"
+                SELECT COUNT(DISTINCT SaleID) AS Total_Fixtures_With_Sales
                 FROM SaleItems
-                WHERE Is_Cancel <> 'Y'
-                GROUP BY SaleID";
+                WHERE Is_Cancel <> 'Y'";
+
+                DataSet fixturesDs = loadChart(fixturesWithSalesQuery);
+                int totalFixturesWithSales = 0;
+
+                if (fixturesDs.Tables.Count > 0 && fixturesDs.Tables[0].Rows.Count > 0)
+                {
+                    DataRow row = fixturesDs.Tables[0].Rows[0];
+                    totalFixturesWithSales = Convert.ToInt32(row["Total_Fixtures_With_Sales"]);
+                }
+
+                // Query to sum the number of categories for each fixture with sales
+                string categoriesPerFixtureQuery = @"
+                SELECT SUM(Category_Count) AS Total_Categories
+                FROM (
+                    SELECT SaleID, COUNT(DISTINCT CatCode) AS Category_Count
+                    FROM SaleItems
+                    WHERE Is_Cancel <> 'Y'
+                    GROUP BY SaleID
+                )";
 
                 DataSet categoriesDs = loadChart(categoriesPerFixtureQuery);
-
-                int totalFixtures = 0;
                 int totalCategories = 0;
 
                 if (categoriesDs.Tables.Count > 0 && categoriesDs.Tables[0].Rows.Count > 0)
                 {
-                    // Calculate total number of categories and fixtures
-                    foreach (DataRow row in categoriesDs.Tables[0].Rows)
-                    {
-                        int categoryCount = Convert.ToInt32(row["Category_Count"]);
-                        totalCategories += categoryCount;
-                        totalFixtures++;
-                    }
-
-                    // Calculate average number of categories per fixture
-                    int avgCategoriesPerFixture = totalFixtures > 0 ? (int)Math.Round((double)totalCategories / totalFixtures) : 0;
-                    Console.WriteLine(avgCategoriesPerFixture);
-
-                    // Display the result
-                    txtAvgTickets.Text = $"{avgCategoriesPerFixture} categories per fixture";
-                    Console.WriteLine(txtAvgTickets);
+                    DataRow row = categoriesDs.Tables[0].Rows[0];
+                    totalCategories = Convert.ToInt32(row["Total_Categories"]);
                 }
-                else
-                {
-                    // Handle the case where no data is available
-                    MessageBox.Show("No data available to calculate average categories per fixture.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+
+                // Calculate average number of categories per fixture
+                int avgCategoriesPerFixture = totalFixturesWithSales > 0
+                    ? (int)Math.Round((double)totalCategories / totalFixturesWithSales)
+                    : 0;
+
+                // Display the result
+                txtAvgTickets.Text = $"{avgCategoriesPerFixture} categories per fixture";
+                Console.WriteLine(txtAvgTickets.Text);
             }
             catch (OracleException ex)
             {
